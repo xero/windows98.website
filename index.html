@@ -1486,6 +1486,9 @@
 						margin: -7px 0 0 -40px;
 					}
 				}
+				a.sauce::before{
+					content:url(/i/code.png);
+				}
 				a.x0::before{
 					content:url(/i/metroid.gif);
 					margin-left: -45px;
@@ -2783,7 +2786,7 @@ C:\WINDOWS> </textarea></div>
 							Object.assign(fo.style,{padding:"8px 20px",height:"43px",top:r.top-5+"px",left:r.left+r.width-17+"px"});
 						switch(e.currentTarget.getAttribute("id")){
 							case "progs":
-								(fo.innerHTML='<ul><li class="act">This website is by:</li><li><a class="x0" href="https://x-e.ro">xero harrison</a></li><li class="act">CC0 MMXXV</li></ul>',
+								(fo.innerHTML='<ul><li class="act">This website is by:</li><li><a class="x0" href="https://x-e.ro" target="_blank">xero harrison</a></li><li><a class="sauce" href="https://github.com/xero/windows98.website" target="_blank">view the source code</a></li></ul>',
 								Object.assign(fo.style,{color:"#000",textShadow:"none",height:"auto",width:"auto",padding:"0"}),
 								off(fo,"click",fs))
 							break;
