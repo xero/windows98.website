@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<title>my old computer</title>
 		<meta charset="UTF-8">
 		<meta name="author" content="xero harrison / https://x-e.ro">
 		<meta name="description" content="#netart">
@@ -17,7 +18,6 @@
 		<link rel="apple-touch-icon" sizes="180x180" href="/i/apple-touch-icon.png" />
 		<meta name="apple-mobile-web-app-title" content="win98" />
 		<link rel="manifest" href="/i/site.webmanifest" />
-		<title>my old computer</title>
 		<style>
 		@font-face {
 			font-family: "Pixelated MS Sans Serif";
@@ -820,6 +820,7 @@
 			#app-regedit,
 			#app-solitaire,
 			#app-sub7,
+			#app-recovery,
 			#app-utorrent,
 			#app-vb6,
 			#app-winamp,
@@ -849,6 +850,34 @@
 					.min {
 						margin-right: 14px;
 					}
+				}
+			}
+			#app-recovery{
+				height:296px;
+				transform: scale(2);
+				width:512px;
+				&::before{
+					height:294px;
+					width:510px;
+				}
+				aside img {
+					transform: scale(0.5);
+					float: left;
+				}
+				section {
+					padding: 12px 0 0 5px;
+				}
+				.field-row{
+					padding: 8px;
+				}
+				strong {
+					font-size: 14px;
+					font-weight: bold;
+				}
+				textarea {
+					width: 496px;
+					height: 170px;
+					font-size: 10px;
 				}
 			}
 			#app-notepad{
@@ -1225,7 +1254,7 @@
 				}
 				fieldset {
 					display: block;
-					margin: 10px;
+					margin: 8px 10px 0px 10px;
 					label {
 						display: block;
 						width: 100%;
@@ -1240,7 +1269,7 @@
 						width: 100%;
 					}
 					p {
-						margin: 8px 0 0;
+						margin: 4px 0 0;
 						padding: 0;
 						&.btns {
 							margin-top: 15px;
@@ -1739,6 +1768,13 @@
 				border-style: inset;
 				border-width: 2px;
 			}
+			.pad {
+				padding: 15px;
+				aside img {
+					transform: scale(1.5);
+					margin-right:25px;
+				}
+			}
 		}
 		dialog {
 			input {
@@ -2166,13 +2202,104 @@
 					<li><a>P<u>r</u>operties</a></li>
 				</ul>
 			</aside>
+			<div class="app" id="app-recovery">
+				<h2 id="recoverytitle">
+					<img src="/i/windows-slanted.png">
+					<a class="label">Windows98 Recovery</a>
+					<a id="recoverymin" class="btn min"></a>
+					<a class="btn max"></a>
+					<a id="recoveryexit" class="btn close"></a>
+				</h2>
+				<aside><img src="/i/recovery.png"></aside>
+				<section><strong>Windows has recovered from an unexpected shutdown</strong></section>
+				<section>Windows can check online for a solution to the problem.</section>
+				<section class="field-row"><button id="recoverycheck"><u>C</u>heck for Solution</button><button id="recoverycancel">Cancel</button></section>
+				<div class="client">
+					<textarea id="recoverytxt">
+Problem Event Name:						 Blue Screen
+OS Version								98se
+Locale ID:								1033
+
+Symbol search path is: SRV*C:\SymCache*http://msdl.microsoft.com/download/symbols
+Executable search path is:
+Windows 98 Kernel Version 2600 (Second Edition) x86 compatible
+Product: WinNt, suite: TerminalServer SingleUserTS
+Built by: 2222a.98se_gdr.030420-3446
+Machine Name:
+Kernel base = 0x804d7000 PsLoadedModuleList = 0x8055c700
+Debug session time: Tues Jul 13 16:28:47.921 1999 (UTC + 3:00)
+System Uptime: 0 days 0:03:47.597
+Loading Kernel Symbols
+...............................................................
+.........................................
+Loading User Symbols
+Loading unloaded module list
+............
+.......
+TRIAGER: Could not open triage file : C:\Program Files\Windows Kits\Debuggers\x32\triage\locale.ini, error 2
+TRIAGER: Could not open triage file : C:\Program Files\Windows Kits\Debuggers\x32\win98\triage.ini, error 2
+
+*******************************************************************************
+*                                                                             *
+*                        Bugcheck Analysis                                    *
+*                                                                             *
+*******************************************************************************
+
+BugCheck 4E, {8f, 3df9a, 2c55a, 0}
+
+TRIAGER: Could not open triage file : C:\Program Files\Windows Kits\Debuggers\x64\triage\modclass.ini, error 2
+Probably caused by : memory_corruption ( nt!MmZeroPageThread+250 )
+
+*******************************************************************************
+*                                                                             *
+*                        Bugcheck Analysis                                    *
+*                                                                             *
+*******************************************************************************
+
+PFN_LIST_CORRUPT (4e)
+Typically caused by drivers passing bad memory descriptor lists (ie: calling MmUnlockPages twice with the same list, etc).  If a kernel debugger is available get the stack trace.
+Arguments:
+Arg1: 0000008f, The free or zeroed page listhead is corrupt
+Arg2: 0003df9a, new page
+Arg3: 0002c55a, old page
+Arg4: 00000000, 0
+
+Debugging Details:
+------------------
+
+TRIAGER: Could not open triage file : C:\Program Files\Windows Kits\Debuggers\x64\triage\modclass.ini, error 2
+
+BUGCHECK_STR:				0x4E_8f
+CUSTOMER_CRASH_COUNT:			8
+DEFAULT_BUCKET_ID:			COMMON_SYSTEM_FAULT
+PROCESS_NAME:				System
+LAST_CONTROL_TRANSFER:			from 8051beb6 to 804f9ddb
+
+STACK_TEXT:
+ba4c37f8 8051beb6 0000004e 0000008f 0003df9a nt!KeBugCheckEx+0x1b
+ba4c3840 80696b94 89e31680 00000000 00000044 nt!MmZeroPageThread+0x250
+ba4c3dac 805ce84c 80077000 00000000 00000000 nt!Phase1Initialization+0x1288
+ba4c3ddc 8054528e 8069590c 80077000 00000000 nt!PspSystemThreadStartup+0x34
+00000000 00000000 00000000 00000000 00000000 nt!KiThreadStartup+0x16
+
+STACK_COMMAND:			kb
+FOLLOWUP_IP:			nt!MmZeroPageThread+250
+				8051beb6 cc int 3
+SYMBOL_STACK_INDEX:		1
+SYMBOL_NAME:			nt!MmZeroPageThread+250
+FOLLOWUP_NAME:			MachineOwner
+MODULE_NAME:			nt
+DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
+					</textarea>
+				</div>
+				</div>
 			<div class="app" id="app-explorer"><header id="explorertitle"></header></div>
 			<div class="app" id="app-mycpu"><header id="mycputitle"></header></div>
 			<div class="app" id="app-help"><header id="helptitle"></header></div>
 			<div class="app" id="app-vb6">
 				<h2 id="vb6title">
 					<img src="/i/vb6.png">
-					<a class="label">Proect1 - Form1 - Microsoft Visual Basic</a>
+					<a class="label">Project1 - Form1 - Microsoft Visual Basic</a>
 					<a id="vb6min" class="btn min"></a>
 					<a class="btn max"></a>
 					<a id="vb6exit" class="btn close"></a>
@@ -2411,6 +2538,7 @@ C:\WINDOWS> </textarea></div>
 		(()=>{
 			const apps= [
 				"app-adraw",
+				"app-recovery",
 				"app-aohell",
 				"app-bo2k",
 				"app-dos",
@@ -2543,6 +2671,7 @@ C:\WINDOWS> </textarea></div>
 						 e==="notepad"?'notepad.png"><sup>Todo.txt - Notepad':
 						 e==="photoshop"?'photoshop.png"><sup>Untitled-1 - Photoshop':
 						 e==="mycpu"?'mycpu.png"><sup>My Computer':
+						 e==="recovery"?'windows-slanted.png"><sup>Windows98 Recovery':
 						 e==="regedit"?'regedit.png"><sup>Registry Editor':
 						 e==="solitaire"?'game.png"><sup>Solitaire':
 						 e==="sub7"?'sub7.png"><sup>SubSeven v2.2 by mobman':
@@ -2624,8 +2753,8 @@ C:\WINDOWS> </textarea></div>
 						on(document,'mousemove',m);on(document,'mouseup',u);
 					});
 				});
-				listen("cd","dblclick",e=>msg('<p>Error reading drive E:\\</p><p>Please insert a CD ROM and try again</p><section class="field-row"><button class="close">Eject</button></section>',eject));
-				listen("disks","dblclick",e=>msg('<p>Error reading drive D:\\</p><p>Please insert a floppy disk and try again</p><section class="field-row"><button class="close">Ok</button></section>',()=>n("BSOD")));
+				listen("cd","dblclick",e=>msg('<div class="pad"><aside><img src="/i/insert-cd.gif"></aside><section>Error reading drive E:\\</p><p>Please insert a CD ROM and try again</p><section class="field-row"><button class="close">Eject</button></section></div>',eject));
+				listen("disks","dblclick",e=>msg('<div class="pad"><aside><img src="/i/insert-floppy.png"></aside><section>Error reading drive D:\\</p><p>Please insert a floppy disk and try again</section><section class="field-row"><button class="close">Ok</button></section></div>',()=>n("BSOD")));
 				listen("msie","dblclick",e=>{
 					p0p(e);
 					topen("ie");
@@ -2838,25 +2967,15 @@ C:\WINDOWS> </textarea></div>
 				// KEYBOARD
 				on(window,"keydown",e=>{
 					if(e.metaKey)t()
-					/*
-					if(v){
-						let a=[];
-						$$$("#startmenu .menu").forEach(i=>a.push(i));
-						switch(e.key){
-							case 'ArrowUp':
-							break;
-							case 'ArrowDown':
-							break;
-							case 'ArrowLeft':
-							break;
-							case 'ArrowRight':
-							break;
-							case 'Enter':
-							break;
-						}
-					}
-					*/
 				});
+				if(rec>0){
+					topen("recovery");
+					dragWin("recoverytitle",252,144);
+					listen("recoverymin","click",e=>tmin("recovery"));
+					listen("recoveryexit","click",e=>tclose("recovery"));
+					listen("recoverycancel","click",e=>tclose("recovery"));
+					listen("recoverycheck","click",e=>n("BSOD"));
+				}
 			},
 			victory=()=>{
 				const width=71,height=96,cwidth=width,cheight=height,cwidthhalf=cwidth/2,cheighthalf=cheight/2,card=new Image();
@@ -2921,6 +3040,7 @@ C:\WINDOWS> </textarea></div>
 			},
 			bsod=()=>{
 				shutdown();
+				rec++;
 				$("bsoderr").innerHTML = fatals[Math.random()*fatals.length|0].replace(/HEX/g,Math.random().toString(16).substring(2,10).toUpperCase());
 				on($("BSOD"),"click",reboot);
 				on(window,"keydown",reboot)
@@ -2947,7 +3067,7 @@ C:\WINDOWS> </textarea></div>
 				},2000);
 			},
 			boot=()=>setTimeout(()=>{n("windows");clearTimeout(this)},2000);
-			let v=!1,eyes=[],tasks=[],cards=[],ctx=canvas.getContext("2d"),totalMinutes=369426,tt;
+			let v=!1,eyes=[],tasks=[],cards=[],ctx=canvas.getContext("2d"),totalMinutes=369426,tt,rec=0;
 			//start up
 			n("boot");
 			time();setInterval(time,60000);
