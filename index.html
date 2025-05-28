@@ -96,6 +96,9 @@
 				color:#551a8b;
 			}
 		}
+		button {
+			font-size: 12px;
+		}
 		#BSOD,
 		#boot,
 		#clouds,
@@ -892,6 +895,113 @@
 					height:250px!important;
 				}
 			}
+			#app-wsftp {
+				height: 426px;
+				width: 576px;
+				top:375px;
+				left: 40%;
+				&::before {
+					height: 426px;
+					width: 576px;
+				}
+				.label,
+				h2 {
+					width: 568px;
+				}
+				aside {
+					display: flex;
+					justify-content: flex-start;
+					margin: 10px 5px 5px 5px;
+					&.mid {
+						margin: 50px 0 0 0;
+						line-height: 4px;
+						button {
+							min-width: 30px;
+							max-width: 30px;
+							padding:0;
+						}
+					}
+					&.btns {
+						flex-flow: column;
+					}
+					ul  {
+						list-style-type: none;
+						padding-left: 4px;
+						margin:5px 0;
+							img {
+							width: 10px;
+							margin-right: 5px;
+						}
+						summary::marker {
+							content:"";
+							white-space-collapse:discard;
+						}
+					}
+					.client {
+						background: #fff;
+						padding:0;
+						float:left;
+						width: 165px;
+						margin-left:0;
+					}
+					button {
+						min-width: 55px;
+						max-width: 55px;
+						padding: 0 6px;
+						margin:0;
+						&:disabled {
+							color: gray;
+							text-shadow: 1px 1px #fff;
+						}
+						&.white{
+							border:1px solid #000;
+							background:#fff;
+							color:#fff;
+							box-shadow:none;
+						}
+					}
+					select {
+						clear:both;
+						width: 225px;
+					}
+					aside {
+						justify-items: flex-end;
+					}
+				}
+				section.field-row {
+					clear:both;
+					justify-content:center;
+					button{
+						margin:0;
+					}
+					label {
+						margin: 4px 40px;
+					}
+					.bubble {
+						margin: 5px 0 10px 0;
+						padding:0;
+						border-color: #fff gray gray #fff;
+						border-style: solid;
+						border-width: 1px;
+						height: 34px;
+						overflow:visible;
+					}
+					textarea {
+						background: #c0c0c0;
+						border-color: gray #fff #fff gray;
+						border-style: solid;
+						border-width: 1px;
+						box-sizing: border-box;
+						font-family: 'Courier New', Courier, monospace;
+						font-size: 10px;
+						overflow-y:scroll;
+						padding: 5px;
+						resize:none;
+						margin:0;
+						width:500px;
+					}
+				}
+			}
 			#app-dreamweaver {
 				height: 436px;
 				width: 576px;
@@ -915,6 +1025,9 @@
 						height: 300px;
 						width: 515px;
 						font-family: Roboto, 'Helvetica Neue', sans-serif;
+						img {
+							transform:scale(0.5);
+						}
 					}
 					#dwc{
 						position: absolute;
@@ -2135,6 +2248,15 @@
 				margin-left: 6px;
 			}
 		}
+		fieldset {
+			border-image: url(/i/group.svg) 2;
+			margin: 0;
+			padding: 10px;
+			padding-block-start: 8px;
+		}
+		legend {
+			background: silver;
+		}
 		input[type="color" i] {
 			&::-moz-color-swatch,
 			&::-webkit-color-swatch {
@@ -2543,6 +2665,95 @@ C:\WINDOWS> </textarea></div>
  * hack the planet!</textarea>
 				</div>
 			</form>
+			<form class="app" id="app-wsftp" role="dialog">
+				<h2 id="wsftptitle">
+					<img src="/i/ws_ftp.png">
+					<a class="label">WS_FTP95 Pro</a>
+					<a id="wsftpmin"class="btn min"></a>
+					<a class="btn max"></a>
+					<a id="wsftpexit" class="btn close"></a>
+				</h2>
+				<section class="field-row">
+					<aside><fieldset><legend>Local System</legend><select id="ftplocal"><option>C:\Program Files</option></select>
+						<aside class="client">
+						<ul class="tree-view">
+							<li>
+								<details open="">
+									<summary><img src="/i/folder.png">..</summary>
+									<summary><img src="/i/folder.png">AOL</summary>
+									<summary><img src="/i/folder.png">Adobe Photoshop</summary>
+									<summary><img src="/i/folder.png">Ahead Nero</summary>
+									<summary><img src="/i/folder.png">ID Software</summary>
+									<summary><img src="/i/folder.png">Macromedia Dreamweaver</summary>
+									<summary><img src="/i/folder.png">Microsoft Internet Explorer</summary>
+									<summary><img src="/i/folder.png">Microsoft Common</summary>
+									<summary><img src="/i/folder.png">PuTTy</summary>
+									<summary><img src="/i/folder.png">Visual Basic 6</summary>
+									<summary><img src="/i/folder.png">Visual Studio</summary>
+									<summary><img src="/i/folder.png">Winamp</summary>
+									<summary><img src="/i/folder.png">Winsock FTP</summary>
+									<summary><img src="/i/folder.png">uTorrent</summary>
+									<summary><img src="/i/folder.png">xIRCon</summary>
+								</details>
+							</li>
+							</ul>
+						</aside>
+						<aside class="btns">
+							<button>Chdir</button>
+							<button>Mkdir</button>
+							<button class="white"></button>
+							<button disabled>View</button>
+							<button disabled>Exec</button>
+							<button disabled>Rename</button>
+							<button disabled>Delete</button>
+							<button>Refresh</button>
+							<button>DirInfo</button>
+						</aside>
+					</fieldset>
+					</aside>
+					<aside class="mid btns"><button>&lt;--</button><br/><button>--&gt;</button></aside>
+					<aside><fieldset><legend>Remote System</legend><select id="ftplocal"><option>/w4r3z/sin_tools</option></select>
+						<aside class="client">
+						<ul class="tree-view">
+							<li>
+								<details open="">
+										<summary><img src="/i/folder.png">..</summary>
+										<summary><img src="/i/folder.png">FolderBurn</summary>
+										<summary><img src="/i/folder.png">Idoru</summary>
+										<summary><img src="/i/folder.png">IRCPipe</summary>
+										<summary><img src="/i/folder.png">J1zzMuffin</summary>
+										<summary><img src="/i/folder.png">MasterUnlock</summary>
+										<summary><img src="/i/folder.png">Monolith</summary>
+										<summary><img src="/i/folder.png">Mutilate</summary>
+										<summary><img src="/i/folder.png">Phreakazoid</summary>
+										<summary><img src="/i/folder.png">Rejection</summary>
+										<summary><img src="/i/folder.png">Scorn</summary>
+										<summary><img src="/i/folder.png">SinCrypt</summary>
+										<summary><img src="/i/folder.png">Dr Spewfy v1.96b</summary>
+										<summary><img src="/i/folder.png">Synful.c</summary>
+										<summary><img src="/i/folder.png">WinCrack97</summary>
+									</details>
+								</li>
+							</ul>
+						</aside>
+						<aside class="btns">
+							<button>Chdir</button>
+							<button>Mkdir</button>
+							<button class="white"></button>
+							<button disabled>View</button>
+							<button disabled>Exec</button>
+							<button disabled>Rename</button>
+							<button disabled>Delete</button>
+							<button>Refresh</button>
+							<button>DirInfo</button>
+						</aside>
+					</fieldset>
+					</aside>
+				</section>
+				<section class="field-row"><input type="radio" id="modeascii" name="frmmode"><label for="modeascii">ASCII</label><input type="radio" id="modebin" name="frmmode" checked><label for="modebin">Binary</label><input type="checkbox" id="frauto"><label for="frmauto">Auto</label></section>
+				<section class="field-row"><div class="bubble"><textarea>Recieved 136 bytes in 0.1 secs, (1.33 KBps), transfer suceeded&NewLine;226 Transfer complete.&NewLine;&NewLine;</textarea></div></section>
+				<section class="field-row"><button><u>C</u>lose</button><button>Cancel</button><button><u>L</u>ogWnd</button><button><u>H</u>elp</button><button><u>O</u>ptions</button><button><u>A</u>bout</button><button>E<u>x</u>it</button></section>
+			</form>
 			<form class="app" id="app-dreamweaver" role="dialog">
 				<h2 id="dreamweavertitle">
 					<img src="/i/dreamweaver.png">
@@ -2565,7 +2776,7 @@ C:\WINDOWS> </textarea></div>
 					<main id="dreamweaver-preview"><h1>hello world!</h1>
 						<table cellpadding=10 border=2 width=300 height=100 >
 							<tr>
-								<td> table test </td>
+								<td><img src="/i/broken.png"></td>
 								<td></td>
 								<td></td>
 							</tr>
@@ -2582,7 +2793,7 @@ C:\WINDOWS> </textarea></div>
 						</table>
 					</main>
 					<img id="dwc" src="/i/dreamweaver-components.png">
-					<div id="dwe"><textarea id="dwcode">&lt;HTML&gt;&NewLine;&lt;HEAD&gt;&NewLine;&lt;TITLE&gt;Untitled 1&lt;&sol;TITLE&gt;&NewLine;&lt;&sol;HEAD&gt;&NewLine;&lt;BODY&gt;&NewLine;&lt;h1&gt;hello world&excl;&lt;&sol;h1&gt;&NewLine;&lt;table cellpadding&equals;10 border&equals;2 width&equals;300 height&equals;100&gt;&NewLine;&lt;tr&gt;&NewLine;&lt;td&gt;table test&lt;&sol;td&gt;&NewLine;&lt;td&gt;&lt;&sol;td&gt;&NewLine;&lt;td&gt;&lt;&sol;td&gt;&NewLine;&lt;&sol;tr&gt;&NewLine;&lt;tr&gt;&NewLine;&lt;td&gt;&lt;&sol;td&gt;&NewLine;&lt;td&gt;&lt;&sol;td&gt;&NewLine;&lt;td&gt;&lt;&sol;td&gt;&NewLine;&lt;&sol;tr&gt;&NewLine;&lt;tr&gt;&NewLine;&lt;td&gt;&lt;&sol;td&gt;&NewLine;&lt;td&gt;&lt;&sol;td&gt;&NewLine;&lt;td&gt;&lt;&sol;td&gt;&NewLine;&lt;&sol;tr&gt;&NewLine;&lt;&sol;table&gt;&NewLine;&lt;&sol;BODY&gt;&NewLine;&lt;&sol;HTML&gt;</textarea></div>
+					<div id="dwe"><textarea id="dwcode">&lt;HTML&gt;&NewLine;&lt;HEAD&gt;&NewLine;&lt;TITLE&gt;Untitled 1&lt;&sol;TITLE&gt;&NewLine;&lt;&sol;HEAD&gt;&NewLine;&lt;BODY&gt;&NewLine;&lt;h1&gt;hello world&excl;&lt;&sol;h1&gt;&NewLine;&lt;table cellpadding&equals;10 border&equals;2 width&equals;300 height&equals;100&gt;&NewLine;&lt;tr&gt;&NewLine;&lt;td&gt;&lt;img src=&quot;http://lobotomy.org/xero.gif&quot;&gt;&lt;&sol;td&gt;&NewLine;&lt;td&gt;&lt;&sol;td&gt;&NewLine;&lt;td&gt;&lt;&sol;td&gt;&NewLine;&lt;&sol;tr&gt;&NewLine;&lt;tr&gt;&NewLine;&lt;td&gt;&lt;&sol;td&gt;&NewLine;&lt;td&gt;&lt;&sol;td&gt;&NewLine;&lt;td&gt;&lt;&sol;td&gt;&NewLine;&lt;&sol;tr&gt;&NewLine;&lt;tr&gt;&NewLine;&lt;td&gt;&lt;&sol;td&gt;&NewLine;&lt;td&gt;&lt;&sol;td&gt;&NewLine;&lt;td&gt;&lt;&sol;td&gt;&NewLine;&lt;&sol;tr&gt;&NewLine;&lt;&sol;table&gt;&NewLine;&lt;&sol;BODY&gt;&NewLine;&lt;&sol;HTML&gt;</textarea></div>
 					<img id="dws" src="/i/dreamweaver-settings.png">
 				</div>
 				<footer>
@@ -2715,6 +2926,7 @@ C:\WINDOWS> </textarea></div>
 				"app-utorrent",
 				"app-vb6",
 				"app-winamp",
+				"app-wsftp",
 				"app-xircon",
 			],
 			errs=['Access denied','Attempt to remove the current directory','Attempt to write on write-protected diskette','Bad request structure length','Cannot make directory entry','Data error (CRC)','Drive not ready','Duplicate name on network','Duplicate redirection','FCB unavailable','Fail on INT 24H','File already exists','File not found','General failure','Incompatible remote adapter','Incorrect response from network','Insufficient memory','Invalid access code','Invalid data','Invalid disk change','Invalid drive was specified','Invalid environment','Invalid format','Invalid function number','Invalid handle.','Invalid memory block address','Invalid parameter','Invalid password','Lock violation','Memory control blocks destroyed','Network BIOS command limit exceeded','Network BIOS session limit exceeded','Network adapter hardware error','Network busy','Network device fault','Network device no longer exists','Network device type incorrect','Network name deleted','Network name limit exceeded','Network name not found','Network request not accepted','Network request not supported','No more files','Not enough space for print file','Not same device','Path not found','Print file deleted (not enough space)','Print of disk redirection paused','Print queue full.','Printer out of paper','Read fault','Remote computer not listening','Reserved','Sector not found','Seek Error','Sharing buffer overflow','Sharing violation','Temporarily paused','Too many open files','Too may redirection','Unexpected network error','Unknown command','Unknown media type','Unknown unit','Write fault'],
@@ -2831,6 +3043,7 @@ C:\WINDOWS> </textarea></div>
 						 e==="utorrent"?'utorrent.png"><sup>µtorrent v1.3':
 						 e==="vb6"?'vb6.png"><sup>Visual Basic v6.0':
 						 e==="winamp"?'winamp.png"><sup>WinAmp':
+						 e==="wsftp"?'ws_ftp.png"><sup>WS_FTP95 Pro':
 						 e==="xircon"?'xircon.png"><sup>xIRCon v1.0b4':'')
 					});tfocus(e)}
 			tsync=()=>{
@@ -3001,6 +3214,12 @@ C:\WINDOWS> </textarea></div>
 					listen("sub7min",'click',e=>(p0p(e),tmin("sub7")));
 					listen("sub7main","click",e=>(p0p(e),n("BSOD")));
 				});
+				listen("wsftp","dblclick",e=>{
+					topen("wsftp");
+					listen("wsftpexit",'click',e=>(p0p(e),tclose("wsftp")));
+					listen("wsftpmin",'click',e=>(p0p(e),tmin("wsftp")));
+					listen("app-wsftp", "submit",e=>(p0p(e),n("BSOD")));
+				});
 				listen("dreamweaver","dblclick",e=>{
 					topen("dreamweaver");
 					listen("dreamweaverexit",'click',e=>(p0p(e),tclose("dreamweaver")));
@@ -3035,6 +3254,7 @@ C:\WINDOWS> </textarea></div>
 				dragWin("aohelltitle",39,30);
 				dragWin("sub7title",118,88);
 				dragWin("dreamweavertitle",280,210);
+				dragWin("wsftptitle",280,205);
 				// START MENU
 				listen("start","click",t);
 				listen("help","click",e=>(topen("help"),t(),on($("app-help"),'click',()=>n("BSOD"))));
