@@ -2,6 +2,7 @@
 <html lang="en">
 	<head>
 		<title>my old computer</title>
+		<link rel="author" href="humans.txt">
 		<meta charset="UTF-8">
 		<meta name="author" content="xero harrison / https://x-e.ro">
 		<meta name="description" content="#netart">
@@ -406,7 +407,7 @@
 					top: 32%;
 					left: 24%;
 				}
-				#dw {
+				#dreamweaver{
 					top: 25%;
 					left: 45%;
 				}
@@ -817,6 +818,7 @@
 			#app-nero,
 			#app-notepad,
 			#app-photoshop,
+			#app-dreamweaver,
 			#app-regedit,
 			#app-solitaire,
 			#app-sub7,
@@ -888,6 +890,76 @@
 				textarea {
 					overflow:scroll;
 					height:250px!important;
+				}
+			}
+			#app-dreamweaver {
+				height: 436px;
+				width: 576px;
+				top:unset;
+				bottom: 30%;
+				left: 40%;
+				&::before {
+					height: 436px;
+					width: 576px;
+				}
+				.label,
+				h2 {
+					width: 568px;
+				}
+				.client {
+					background:#fff;
+					padding-bottom:2px;
+					height: 365px;
+					main {
+						float: right;
+						height: 300px;
+						width: 515px;
+						font-family: Roboto, 'Helvetica Neue', sans-serif;
+					}
+					#dwc{
+						position: absolute;
+						top:0px;
+						left:0px;
+					}
+					#dwe{
+						background:url(/i/dreamweaver-sauce.png) no-repeat;
+						width: 448px;
+						height: 200px;
+						padding: 50px 0px 0px 7px;
+						position: absolute;
+						bottom:3px;
+						right: -5px;
+						textarea {
+							width: 428px;
+							font-family: monospace;
+							height: 122px;
+							overflow:scroll;
+							border: 1px inset;
+						}
+					}
+					#dws{
+						position: absolute;
+						bottom:1px;
+						right: 1px;
+					}
+				}
+				footer {
+					gap: 1px;
+					display: flex;
+					margin: 0 5px 1px 4px;
+					padding: 0;
+					width: 98%;
+					height: 25px;
+					max-height: 25px;
+					border: 0;
+					section {
+						box-shadow:
+							inset -1px -1px #dfdfdf,
+							inset 1px 1px gray;
+						flex-grow: 1;
+						margin: 0;
+						padding: 2px 3px;
+					}
 				}
 			}
 			#app-regedit {
@@ -1208,6 +1280,23 @@
 				&::before{
 					border:0;
 				}
+				header {
+					border: 1px solid #000;
+					height: 16px;
+					width: 455px;
+				}
+				#sub7main {
+					width: 99%;
+					height: 330px;
+					margin-top:20px;
+				}
+				#sub7exit,
+				#sub7min{
+					display: block;
+					float: right;
+					height: 16px;
+					width: 16px;
+				}
 			}
 			#app-vb6 {
 				top: 100px;
@@ -1232,11 +1321,25 @@
 				}
 			}
 			#app-aohell {
-				height: 407px;
-				top: 222px;
+				height: 425px;
+				top: 156px;
 				left: 24%;
-				width: 700px;
+				width: 690px;
 				background: url(/i/app-aohell.png) no-repeat;
+				transform:scale(1.15);
+				background-size: cover;
+				background-repeat: no-repeat;
+				section {
+					width: 99%;
+					height: 95%;
+				}
+				h2 {
+					width:66.7%;
+					padding-top:2px;
+					transform:scale(1.5);
+					margin-left:115px;
+					margin-top:4px;
+				}
 			}
 			#app-bo2k {
 				height: 344px;
@@ -2306,7 +2409,16 @@ DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
 				</h2>
 				<section id="vb6main"></section>
 			</div>
-			<div class="app" id="app-aohell"><header id="aohelltitle"></header></div>
+			<div class="app" id="app-aohell">
+				<h2 id="aohelltitle">
+					<img src="/i/aohell.png">
+					<a class="label">AOHell 95 v3.0 B5</a>
+					<a id="aohellmin" class="btn min"></a>
+					<a class="btn max"></a>
+					<a id="aohellexit" class="btn close"></a>
+				</h2>
+				<section id="aohellmain"></section>
+				<header id="aohelltitle"></header></div>
 			<div class="app" id="app-utorrent">
 				<h2 id="utorrenttitle">
 					<img src="/i/utorrent.png">
@@ -2327,7 +2439,7 @@ DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
 					</div>
 				</div>
 			</div>
-			<div class="app" id="app-sub7"><header id="sub7title"></header></div>
+			<div class="app" id="app-sub7"><header id="sub7title"><div id="sub7exit"></div><div id="sub7min"></div><div id="sub7main"></div></header></div>
 			<div class="app" id="app-xircon">
 				<h2 id="xircontitle">
 					<img src="/i/xircon.png">
@@ -2431,10 +2543,58 @@ C:\WINDOWS> </textarea></div>
  * hack the planet!</textarea>
 				</div>
 			</form>
+			<form class="app" id="app-dreamweaver" role="dialog">
+				<h2 id="dreamweavertitle">
+					<img src="/i/dreamweaver.png">
+					<a class="label">Untitled-1 - Dreamweaver</a>
+					<a id="dreamweavermin"class="btn min"></a>
+					<a class="btn max"></a>
+					<a id="dreamweaverexit" class="btn close"></a>
+				</h2>
+				<nav class="menu">
+					<a>File</a>
+					<a>Edit</a>
+					<a>View</a>
+					<a>Insert</a>
+					<a>Modify</a>
+					<a>Text</a>
+					<a>Window</a>
+					<a>Help</a>
+				</nav>
+				<div class="client">
+					<main id="dreamweaver-preview"><h1>hello world!</h1>
+						<table cellpadding=10 border=2 width=300 height=100 >
+							<tr>
+								<td> table test </td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</table>
+					</main>
+					<img id="dwc" src="/i/dreamweaver-components.png">
+					<div id="dwe"><textarea id="dwcode">&lt;HTML&gt;&NewLine;&lt;HEAD&gt;&NewLine;&lt;TITLE&gt;Untitled 1&lt;&sol;TITLE&gt;&NewLine;&lt;&sol;HEAD&gt;&NewLine;&lt;BODY&gt;&NewLine;&lt;h1&gt;hello world&excl;&lt;&sol;h1&gt;&NewLine;&lt;table cellpadding&equals;10 border&equals;2 width&equals;300 height&equals;100&gt;&NewLine;&lt;tr&gt;&NewLine;&lt;td&gt;table test&lt;&sol;td&gt;&NewLine;&lt;td&gt;&lt;&sol;td&gt;&NewLine;&lt;td&gt;&lt;&sol;td&gt;&NewLine;&lt;&sol;tr&gt;&NewLine;&lt;tr&gt;&NewLine;&lt;td&gt;&lt;&sol;td&gt;&NewLine;&lt;td&gt;&lt;&sol;td&gt;&NewLine;&lt;td&gt;&lt;&sol;td&gt;&NewLine;&lt;&sol;tr&gt;&NewLine;&lt;tr&gt;&NewLine;&lt;td&gt;&lt;&sol;td&gt;&NewLine;&lt;td&gt;&lt;&sol;td&gt;&NewLine;&lt;td&gt;&lt;&sol;td&gt;&NewLine;&lt;&sol;tr&gt;&NewLine;&lt;&sol;table&gt;&NewLine;&lt;&sol;BODY&gt;&NewLine;&lt;&sol;HTML&gt;</textarea></div>
+					<img id="dws" src="/i/dreamweaver-settings.png">
+				</div>
+				<footer>
+					<section>&lt;body&gt; &lt;table&gt; &lt;tr&gt; &lt;td&gt;</section>
+					<section>1k / 1 sec</section>
+					<img src="/i/dreamweaver-icons.png">
+				</footer>
+			</form>
 			<form class="app" id="app-regedit" role="dialog">
 				<h2 id="regedittitle">
 					<img src="/i/regedit.png">
-					<a class="label">Registry Editor</>
+					<a class="label">Registry Editor</a>
 					<a id="regmin"class="btn min"></a>
 					<a class="btn max"></a>
 					<a id="regexit" class="btn close"></a>
@@ -2481,7 +2641,7 @@ C:\WINDOWS> </textarea></div>
 				<article id="irc"><img src="/i/xircon.png"><kbd>xIRCon</kbd></article>
 				<article id="torrent"><img src="/i/utorrent.png"><kbd>utorrent</kbd></article>
 				<article id="reg"><img src="/i/regedit.png"><kbd>regedit</kbd></article>
-				<article id="dw"><img src="/i/dreamweaver.png"><kbd>dreamweaver</kbd></article>
+				<article id="dreamweaver"><img src="/i/dreamweaver.png"><kbd>dreamweaver</kbd></article>
 				<article id="putty"><img src="/i/putty.png"><kbd>putty</kbd></article>
 				<article id="nero"><img src="/i/nero.png"><kbd>nero burning...</kbd></article>
 				<article id="vstudio"><img src="/i/vstudio.png"><kbd>visual studio</kbd></article>
@@ -2548,6 +2708,7 @@ C:\WINDOWS> </textarea></div>
 				"app-notepad",
 				"app-mycpu",
 				"app-photoshop",
+				"app-dreamweaver",
 				"app-regedit",
 				"app-solitaire",
 				"app-sub7",
@@ -2578,8 +2739,7 @@ C:\WINDOWS> </textarea></div>
 				tsync();
 				if(v)t();
 				apps.concat("cdc").forEach(a=>cl($(a),"app-hidden"))
-				tn.src="/i/tray-disconnected.png";
-			},
+				tn.src="/i/tray-disconnected.png"},
 			msg=(m,f)=>{
 				let d=$("msg");
 				$("dialogBody").innerHTML=m;d.showModal();
@@ -2594,8 +2754,7 @@ C:\WINDOWS> </textarea></div>
 			showdesktop=e=>{
 				apps.forEach(a=>cl($(a),"app-hidden"));
 				tasks.forEach(i=>(i.h=1,i.f=0));
-				tsync();
-			},
+				tsync()},
 			titlebar=(e,dir,cb)=>{
 				let win=$("app-"+e),
 				head=win.querySelector("header,h2"),
@@ -2621,16 +2780,12 @@ C:\WINDOWS> </textarea></div>
 					{left:r2.left+"px",top:r2.top+"px",width:r2.width+"px",height:r2.height+"px",opacity:0.3}
 				],{duration:500,easing:"ease"}).onfinish=()=>{
 					ani.remove();
-					cb&&cb();
-				}
-			},
+					cb&&cb()}},
 			tmin=e=>{
 				let win=$("app-"+e);
 				titlebar(e,0,()=>{
 					cl(win,"app-hidden");
-					tasks.find(task=>task.e===e&&(Object.assign(task,{h:1,f:0}),tsync()));
-				});
-			},
+					tasks.find(task=>task.e===e&&(Object.assign(task,{h:1,f:0}),tsync()))})},
 			tmax=e=>{
 				let win=$("app-"+e);
 				if(win.classList.contains("app-hidden")){
@@ -2640,9 +2795,7 @@ C:\WINDOWS> </textarea></div>
 					});
 				} else {
 					cl(win,"app-hidden",1);
-					Object.assign(win.style,{zIndex:55,visibility:"visible"});
-				}
-			},
+					Object.assign(win.style,{zIndex:55,visibility:"visible"})}},
 			tclose=e=>{
 				let i=tasks.findIndex(task=>task.e===e);
 				if(i!==-1){
@@ -2654,8 +2807,7 @@ C:\WINDOWS> </textarea></div>
 				tsync();
 				apps.forEach(a=>$(a).style.zIndex=50);
 				tasks[tasks.findIndex(task=>task.e===e)].h=0;
-				if(e!="dialup"&&e!="ie"){tmax(e)};
-			}
+				if(e!="dialup"&&e!="ie"){tmax(e)}}
 			topen=e=>{
 				!tasks.some(task=>task.e===e)&&
 					tasks.push({e,f:1,h:0,i: '/i/'+
@@ -2670,6 +2822,7 @@ C:\WINDOWS> </textarea></div>
 						 e==="nero"?'nero.png"><sup>Nero Burning Rom':
 						 e==="notepad"?'notepad.png"><sup>Todo.txt - Notepad':
 						 e==="photoshop"?'photoshop.png"><sup>Untitled-1 - Photoshop':
+						 e==="dreamweaver"?'dw-ico.png"><sup>Untitled-1 - Dreamweaver':
 						 e==="mycpu"?'mycpu.png"><sup>My Computer':
 						 e==="recovery"?'windows-slanted.png"><sup>Windows98 Recovery':
 						 e==="regedit"?'regedit.png"><sup>Registry Editor':
@@ -2679,7 +2832,7 @@ C:\WINDOWS> </textarea></div>
 						 e==="vb6"?'vb6.png"><sup>Visual Basic v6.0':
 						 e==="winamp"?'winamp.png"><sup>WinAmp':
 						 e==="xircon"?'xircon.png"><sup>xIRCon v1.0b4':'')
-					})&&tfocus(e)}
+					});tfocus(e)}
 			tsync=()=>{
 				$("tasks").innerHTML=tasks.map(task=>`<section name="${task.e}" class="task${task.f==1?' selected':''}"><img src="${task.i}</sup></section>`).join("");
 				$$$("#tasks .task").forEach(i=>on(i,"click",e=>tfocus(e.currentTarget.getAttribute("name"))))},
@@ -2713,21 +2866,24 @@ C:\WINDOWS> </textarea></div>
 			eject=()=>{try{let c=0,col=Player.cdromCollection;while(c<col.count)col.item(c++).eject()}catch{}},
 			timer=s=>{
 				s ? dlt=setInterval(()=>{
-					totalMinutes+=Math.floor(2880+Math.random()*(480)); // 2 days (2880 min) to 8 hours (480 min)
+					totalMinutes+=Math.floor(2880+Math.random()*(480));
 					$("dltime").innerHTML=
 						Math.floor(totalMinutes/1440)+" Days, "+
 						Math.floor(totalMinutes%1440/60)+" hours, "+
 						totalMinutes%60+" minutes";
-				},5e3):clearInterval(dlt);
-			},
+				},5e3):clearInterval(dlt)},
 			windows=()=>{
 				const listen=(el,evt,fn)=>on($(el),evt,fn),
 							closeAll=(sel,fn)=>$$$(sel).forEach(b=>on(b,'click',fn)),
 							dragWin=(id,xo,yo)=>on($(id),'mousedown',e=>tdrag(e,id.replace(/title$/,""),xo,yo)),
 							img=new Image();img.src="https://www.windows98.website/i/ie.png";
-				sound('startup');
+				lok=0;
+				//{re,}init canvas
 				canvas.style.display="block";
-				canvas.width=ctx.canvas.clientWidth;canvas.height=ctx.canvas.clientHeight;
+				canvas.width=ctx.canvas.clientWidth;
+				canvas.height=ctx.canvas.clientHeight;
+				ctx.clearRect(0, 0, canvas.width, canvas.height);
+				sound('startup');
 				// ICONS
 				listen("nero","dblclick",e=>{
 					topen("nero");
@@ -2835,15 +2991,26 @@ C:\WINDOWS> </textarea></div>
 				});
 				listen("aohell","dblclick",e=>{
 					topen("aohell");
-					on($("app-aohell"),"click",e=>n("BSOD"));
+					listen("aohellexit",'click',e=>(p0p(e),tclose("aohell")));
+					listen("aohellmin",'click',e=>(p0p(e),tmin("aohell")));
+					listen("aohellmain","click",e=>(p0p(e),n("BSOD")));
 				});
 				listen("sub7","dblclick",e=>{
 					topen("sub7");
-					on($("app-sub7"),"click",e=>n("BSOD"));
+					listen("sub7exit",'click',e=>(p0p(e),tclose("sub7")));
+					listen("sub7min",'click',e=>(p0p(e),tmin("sub7")));
+					listen("sub7main","click",e=>(p0p(e),n("BSOD")));
+				});
+				listen("dreamweaver","dblclick",e=>{
+					topen("dreamweaver");
+					listen("dreamweaverexit",'click',e=>(p0p(e),tclose("dreamweaver")));
+					listen("dreamweavermin",'click',e=>(p0p(e),tmin("dreamweaver")));
+					$$$("#app-dreamweaver img").forEach(i=>on(i,"click",()=>n("BSOD")));
 				});
 				listen("game","dblclick",e=>{
 					topen("solitaire");
 					ctx=canvas.getContext("2d");
+					lok=1;
 					victory();
 				});
 				// DRAG & DESKTOP
@@ -2865,6 +3032,9 @@ C:\WINDOWS> </textarea></div>
 				dragWin("utorrenttitle",250,133);
 				dragWin("vb6title",60,44);
 				dragWin("xircontitle",60,44);
+				dragWin("aohelltitle",39,30);
+				dragWin("sub7title",118,88);
+				dragWin("dreamweavertitle",280,210);
 				// START MENU
 				listen("start","click",t);
 				listen("help","click",e=>(topen("help"),t(),on($("app-help"),'click',()=>n("BSOD"))));
@@ -2967,6 +3137,24 @@ C:\WINDOWS> </textarea></div>
 				// KEYBOARD
 				on(window,"keydown",e=>{
 					if(e.metaKey)t()
+					/*
+					if(v){
+						let a=[];
+						$$$("#startmenu .menu").forEach(i=>a.push(i));
+						switch(e.key){
+							case 'ArrowUp':
+							break;
+							case 'ArrowDown':
+							break;
+							case 'ArrowLeft':
+							break;
+							case 'ArrowRight':
+							break;
+							case 'Enter':
+							break;
+						}
+					}
+					*/
 				});
 				if(rec>0){
 					topen("recovery");
@@ -2978,7 +3166,7 @@ C:\WINDOWS> </textarea></div>
 				}
 			},
 			victory=()=>{
-				const width=71,height=96,cwidth=width,cheight=height,cwidthhalf=cwidth/2,cheighthalf=cheight/2,card=new Image();
+				if(lok==1){const width=71,height=96,cwidth=width,cheight=height,cwidthhalf=cwidth/2,cheighthalf=cheight/2,card=new Image();
 				let id=52;
 				function PlayingCard(id,x,y,sx,sy){
 					if(sx===0)sx=2;
@@ -2993,17 +3181,14 @@ C:\WINDOWS> </textarea></div>
 						}
 						sy+=0.98;
 						ctx.drawImage(card,cx,cy,width,height,Math.floor(x-cwidthhalf),Math.floor(y-cheighthalf),cwidth,cheight);
-						return true;
-					}
-				}
+						return true}}
 				const throwCard=(x,y)=>cards.push(new PlayingCard(id>0?id--:id=51,x,y,Math.floor(Math.random()*6-3)*2,-Math.random()*16)),
 				ani=()=>{let i=0,l=cards.length;while(i<l){cards[i].update()?i++:l--}requestAnimationFrame(ani)};
 				card.src="https://www.windows98.website/i/cards.png";
 				on(document.body,"pointerdown",e=>{throwCard(e.clientX,e.clientY)});
 				on(document.body,"pointermove",e=>{if(e.pressure===0)return;throwCard(e.clientX,e.clientY)});
 				noesc();
-				requestAnimationFrame(ani);
-			},
+				requestAnimationFrame(ani)}},
 			suspend=e=>{
 				const po=$("poweroff");
 				shutdown();
@@ -3016,8 +3201,7 @@ C:\WINDOWS> </textarea></div>
 					po.style.display="none";
 					po.style.pointerEvents="none";
 					shutdown();n("windows")
-				});
-			},
+				})},
 			poweroff=e=>{
 				shutdown();
 				sound("logoff");
@@ -3031,20 +3215,17 @@ C:\WINDOWS> </textarea></div>
 					$("shutdowntext").style.display="block";
 					document.body.style.cursor='auto';
 					clearTimeout(this)
-				},3000);
-			},
+				},3000)},
 			reboot=e=>{
 				off($("BSOD"),"click",reboot);
 				off(window,"keydown",reboot);
-				n("boot")
-			},
+				n("boot")},
 			bsod=()=>{
 				shutdown();
 				rec++;
 				$("bsoderr").innerHTML = fatals[Math.random()*fatals.length|0].replace(/HEX/g,Math.random().toString(16).substring(2,10).toUpperCase());
 				on($("BSOD"),"click",reboot);
-				on(window,"keydown",reboot)
-			},
+				on(window,"keydown",reboot)},
 			promptfocus=d=>(d.focus(),d.setSelectionRange(d.value.length,d.value.length),d.scrollTop=d.scrollHeight),
 			prompt=i=>{promptfocus(i);on(i,"keydown",e=>{if(e.key=="Enter"){e.preventDefault();e.target.value+=`\n${errs[Math.random()*errs.length|0]}\n\nC:\\WINDOWS> `;promptfocus(i)}})},
 			msdos=()=>{
@@ -3064,10 +3245,9 @@ C:\WINDOWS> </textarea></div>
 					clearTimeout(this)
 					dp.style.display="block",dp.focus(),dp.setSelectionRange(dp.value.length,dp.value.length)
 					prompt(dp);
-				},2000);
-			},
+				},2000)},
 			boot=()=>setTimeout(()=>{n("windows");clearTimeout(this)},2000);
-			let v=!1,eyes=[],tasks=[],cards=[],ctx=canvas.getContext("2d"),totalMinutes=369426,tt,rec=0;
+			let v=!1,eyes=[],tasks=[],cards=[],ctx=canvas.getContext("2d"),totalMinutes=369426,rec=0,lok=0;
 			//start up
 			n("boot");
 			time();setInterval(time,60000);
