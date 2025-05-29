@@ -901,8 +901,8 @@
 				top:375px;
 				left: 40%;
 				&::before {
-					height: 426px;
-					width: 576px;
+					height: 424px;
+					width: 574px;
 				}
 				.label,
 				h2 {
@@ -1373,7 +1373,7 @@
 				top: 17%;
 				width: 908px;
 				height: 596px;
-				background: url(/i/app-explorer-sm.png) no-repeat;
+				background: url(/i/app-explorer.png) no-repeat;
 			}
 			#app-solitaire {
 				right: 241px;
@@ -1455,18 +1455,18 @@
 				}
 			}
 			#app-bo2k {
-				height: 344px;
-				top: 222px;
+				height: 360px;
 				left: 24%;
+				top: 222px;
 				width: 510px;
 				&::before {
+					height: 358px;
 					width: 508px;
-					height: 342px;
 				}
 				aside,
 				field-set {
 					float: left;
-					margin: 2px 10px 0 0;
+					margin: 9px 5px 0 5px;
 				}
 				fieldset {
 					display: block;
@@ -1498,7 +1498,7 @@
 				top: 10%;
 				width: 781px;
 				height: 682px;
-				background: url(/i/app-help-sm.png) no-repeat;
+				background: url(/i/app-help.png) no-repeat;
 			}
 			#app-adraw {
 				left: 12%;
@@ -1921,6 +1921,8 @@
 		dialog {
 			z-index: 999;
 			opacity: 0;
+			transform:scale(2);
+			overflow: hidden;
 		}
 		#msg[open],
 		dialog[open] {
@@ -1958,6 +1960,7 @@
 			aside,
 			section {
 				float: left;
+				font-size: 12px;
 			}
 		}
 		#msg {
@@ -1969,9 +1972,6 @@
 					color: #000;
 					border-radius: 0;
 					font-size: 8pt;
-					border-color: #767676;
-					border-style: inset;
-					border-width: 2px;
 				}
 			}
 			select {
@@ -1980,9 +1980,6 @@
 				color: #000;
 				border-radius: 0;
 				font-size: 8pt;
-				border-color: #767676;
-				border-style: inset;
-				border-width: 2px;
 			}
 			.pad {
 				padding: 15px;
@@ -2001,9 +1998,6 @@
 					color: #000;
 					border-radius: 0;
 					font-size: 8pt;
-					border-color: #767676;
-					border-style: inset;
-					border-width: 2px;
 				}
 			}
 			select {
@@ -2012,9 +2006,6 @@
 				color: #000;
 				border-radius: 0;
 				font-size: 8pt;
-				border-color: #767676;
-				border-style: inset;
-				border-width: 2px;
 			}
 		}
 		input {
@@ -2162,14 +2153,12 @@
 			label {
 				width: 100px;
 				display: block;
-				font-size: 16px;
-				font-weight: 700;
+				font-size: 12px;
 			}
 			input {
 				&[type="password"],
 				&[type="text"] {
-					width: 200px;
-					font-size: 16px;
+					width: 150px;
 				}
 			}
 			img {
@@ -2177,14 +2166,48 @@
 			}
 			#frmErr {
 				color: red;
-				text-align: left;
+				text-shadow: 2px 2px #e0e0e0;
 				font-weight: 700;
-				font-size: 18px;
+				font-size: 14px;
 				margin-bottom: 20px;
 			}
 		}
 		::backdrop {
 			background: 0 0;
+		}
+		input[type=email],
+		input[type=password],
+		input[type=search],
+		input[type=tel],
+		input[type=text],
+		select {
+			height: 21px;
+			background-color: #fff;
+			box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a;
+			box-sizing: border-box;
+			border-radius: 0;
+			padding: 3px 4px;
+			border: 0;
+		}
+		select:focus,
+		input[type="text"]:focus,
+		input[type="password"]:focus,
+		input[type="email"]:focus,
+		input[type="tel"]:focus,
+		input[type="number"]:focus,
+		input[type="search"]:focus,
+		textarea:focus {
+			outline: none;
+		}
+		select {
+			appearance: none;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			position: relative;
+			padding-right: 32px;
+			background-image: url(/i/down.svg);
+			background-position: top 2px right 2px;
+			background-repeat: no-repeat;
 		}
 		.title-bar {
 			align-items: center;
@@ -2239,6 +2262,7 @@
 		}
 		.window-body {
 			margin: 12px;
+			font-size: 12px;
 		}
 		.field-row {
 			justify-content: flex-end;
@@ -2679,21 +2703,21 @@ C:\WINDOWS> </textarea></div>
 						<ul class="tree-view">
 							<li>
 								<details open="">
-									<summary><img src="/i/folder.png">..</summary>
-									<summary><img src="/i/folder.png">AOL</summary>
+									<summary><img src="/i/up.png">..</summary>
+									<summary><img src="/i/folder.png">Accessories</summary>
 									<summary><img src="/i/folder.png">Adobe Photoshop</summary>
 									<summary><img src="/i/folder.png">Ahead Nero</summary>
-									<summary><img src="/i/folder.png">ID Software</summary>
+									<summary><img src="/i/folder.png">DirectX</summary>
+									<summary><img src="/i/folder.png">Internet Explorer</summary>
 									<summary><img src="/i/folder.png">Macromedia Dreamweaver</summary>
-									<summary><img src="/i/folder.png">Microsoft Internet Explorer</summary>
-									<summary><img src="/i/folder.png">Microsoft Common</summary>
+									<summary><img src="/i/folder.png">Online Services</summary>
+									<summary><img src="/i/folder.png">Outlook Express</summary>
+									<summary><img src="/i/folder.png">Plus!</summary>
 									<summary><img src="/i/folder.png">PuTTy</summary>
-									<summary><img src="/i/folder.png">Visual Basic 6</summary>
+									<summary><img src="/i/folder.png">uTorrent</summary>
 									<summary><img src="/i/folder.png">Visual Studio</summary>
 									<summary><img src="/i/folder.png">Winamp</summary>
 									<summary><img src="/i/folder.png">Winsock FTP</summary>
-									<summary><img src="/i/folder.png">uTorrent</summary>
-									<summary><img src="/i/folder.png">xIRCon</summary>
 								</details>
 							</li>
 							</ul>
@@ -2712,12 +2736,12 @@ C:\WINDOWS> </textarea></div>
 					</fieldset>
 					</aside>
 					<aside class="mid btns"><button>&lt;--</button><br/><button>--&gt;</button></aside>
-					<aside><fieldset><legend>Remote System</legend><select id="ftplocal"><option>/w4r3z/sin_tools</option></select>
+					<aside><fieldset><legend>Remote System</legend><select id="ftpremote"><option>/w4r3z/sin_tools</option></select>
 						<aside class="client">
 						<ul class="tree-view">
 							<li>
 								<details open="">
-										<summary><img src="/i/folder.png">..</summary>
+										<summary><img src="/i/up.png">..</summary>
 										<summary><img src="/i/folder.png">FolderBurn</summary>
 										<summary><img src="/i/folder.png">Idoru</summary>
 										<summary><img src="/i/folder.png">IRCPipe</summary>
@@ -3050,7 +3074,8 @@ C:\WINDOWS> </textarea></div>
 				$("tasks").innerHTML=tasks.map(task=>`<section name="${task.e}" class="task${task.f==1?' selected':''}"><img src="${task.i}</sup></section>`).join("");
 				$$$("#tasks .task").forEach(i=>on(i,"click",e=>tfocus(e.currentTarget.getAttribute("name"))))},
 			tdrag=(e,app,xo,yo)=>{
-				p0p(e);tfocus(app);
+				p0p(e);
+				if(e!="dialup"&&e!="ie")tfocus(app);
 				let a=e.target.parentElement,
 				s=e.clientX-a.getBoundingClientRect().left,
 				z=e.clientY-a.getBoundingClientRect().top,
@@ -3123,7 +3148,7 @@ C:\WINDOWS> </textarea></div>
 					});
 				});
 				listen("cd","dblclick",e=>msg('<div class="pad"><aside><img src="/i/insert-cd.gif"></aside><section>Error reading drive E:\\</p><p>Please insert a CD ROM and try again</p><section class="field-row"><button class="close">Eject</button></section></div>',eject));
-				listen("disks","dblclick",e=>msg('<div class="pad"><aside><img src="/i/insert-floppy.png"></aside><section>Error reading drive D:\\</p><p>Please insert a floppy disk and try again</section><section class="field-row"><button class="close">Ok</button></section></div>',()=>n("BSOD")));
+				listen("disks","dblclick",e=>msg('<div class="pad"><aside><img src="/i/insert-floppy.png"></aside><section>A:\\ is not accessible.</p><p>The device is not ready.</section><section class="field-row"><button class="close">Ok</button></section></div>',()=>n("BSOD")));
 				listen("msie","dblclick",e=>{
 					p0p(e);
 					topen("ie");
@@ -3136,10 +3161,7 @@ C:\WINDOWS> </textarea></div>
 				listen("dialup","dblclick",e=>{
 					const id="dialup";
 					topen(id);
-					let a=sound('dialup');
-					msg('<img id="dialupani" width="347" height="144" src="/i/dialing.gif"><p id="lbldialup">Dialing up clover.net... 740-284-0003</p><div class="progress"><span id="dialupbar" style="width: 0%;"> </span></div></p><section class="field-row"><button id="btndialup" class="close">Cancel</button></section>',
-						()=>{a.pause();tclose(id)});
-					let d=$("dialupbar").style,i=0,
+					let d,i=0,a=sound('dialup'),
 					l=setInterval(()=>(i+=10)<=100
 						?d.width=i+"%"
 						:(d.width="100%",
@@ -3150,6 +3172,9 @@ C:\WINDOWS> </textarea></div>
 							tn.src="/i/tray-network.gif",
 							tn.alt="Connected to Clover.net at 28.8 mbps",
 							clearInterval(l)),2424);
+					msg('<img id="dialupani" width="347" height="144" src="/i/dialing.gif"><p id="lbldialup">Dialing up clover.net... 740-284-0003</p><div class="progress"><span id="dialupbar" style="width: 0%;"> </span></div></p><section class="field-row"><button id="btndialup" class="close">Cancel</button></section>',
+						()=>{a.pause(),clearInterval(l),tclose(id)});
+					d=$("dialupbar").style;
 				});
 				listen("reg","dblclick",e=>{
 					topen("regedit");
@@ -3247,7 +3272,7 @@ C:\WINDOWS> </textarea></div>
 				dragWin("notepadtitle",252,144);
 				dragWin("regedittitle",221,107);
 				dragWin("winamptitle",1,1);
-				dragWin("bo2ktitle",251,168);
+				dragWin("bo2ktitle",251,174);
 				dragWin("utorrenttitle",250,133);
 				dragWin("vb6title",60,44);
 				dragWin("xircontitle",60,44);
@@ -3274,7 +3299,7 @@ C:\WINDOWS> </textarea></div>
 						d.showModal();
 						on($("logon"),"submit",e=>{p0p(e);
 							(!$("pw").value)?
-								$("frmErr").textContent="Enter your password":
+								$("frmErr").innerHTML="Enter your password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;":
 								(d.close(),n("windows"),document.body.style.background="#222")
             })
           })
