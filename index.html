@@ -22,8 +22,8 @@
 		<style>
 		@font-face {
 			font-family: "Pixelated MS Sans Serif";
-			src: url(/fonts/ms_sans_serif.woff) format("woff");
-			src: url(/fonts/ms_sans_serif.woff2) format("woff2");
+			src: url(/f/ms_sans_serif.woff) format("woff");
+			src: url(/f/ms_sans_serif.woff2) format("woff2");
 			font-weight: 400;
 			font-style: normal;
 		}
@@ -857,6 +857,26 @@
 					}
 				}
 			}
+			#app-adraw,
+			#app-dos,
+			#app-photoshop {
+				header {
+					margin-top: 8px;
+					height: 32px;
+					a {
+						display: block;
+						width: 27px;
+						height: 27px;
+						float: right;
+						&.exit {
+							margin-right: 10px;
+						}
+						&.min{
+							margin-right: 42px;
+						}
+					}
+				}
+			}
 			#app-recovery{
 				height:296px;
 				transform: scale(2);
@@ -1045,6 +1065,7 @@
 						textarea {
 							width: 428px;
 							font-family: monospace;
+							font-size: 10px;
 							height: 122px;
 							overflow:scroll;
 							border: 1px inset;
@@ -1347,11 +1368,19 @@
 				transform: scale(1.35);
 				height: 572px;
 				background: url(/i/app-photoshop.png) no-repeat;
-				.close {
-					display: block;
-					float: right;
-					height: 50px;
-					width: 50px;
+				header {
+					margin:0;
+					height: 32px;
+					a {
+						width: 15px !important;
+						height: 40px !important;
+						&.exit {
+							margin-right: 0;
+						}
+						&.min{
+							margin-right: 15px;
+						}
+					}
 				}
 				input {
 					width: 1px;
@@ -1360,13 +1389,6 @@
 					top: 30%;
 					left: 30%;
 				}
-			}
-			#app-adraw .close,
-			#app-dos header .close {
-				display: block;
-				float: right;
-				height: 50px;
-				width: 50px;
 			}
 			#app-explorer {
 				left: 19%;
@@ -1501,8 +1523,8 @@
 				background: url(/i/app-help.png) no-repeat;
 			}
 			#app-adraw {
-				left: 12%;
-				top: 16%;
+				left: 16%;
+				top: 12%;
 				width: 984px;
 				height: 518px;
 				background: url(/i/app-cmd.png) no-repeat;
@@ -1522,11 +1544,21 @@
 				&::before{
 					border:0;
 				}
-				.close {
-					display: block;
-					float: right;
-					height: 65px;
-					width: 45px;
+				header {
+					margin:0;
+					height: 50px;
+					a {
+						width: 45px;
+						height: 65px;
+						&.exit {
+							margin-top: 20px;
+							margin-right: 10px;
+						}
+						&.min{
+							margin-top: 15px;
+							margin-right: 5px;
+						}
+					}
 				}
 				section {
 					width: 99%;
@@ -1557,21 +1589,13 @@
 				width: 984px;
 				height: 518px;
 				background: url(/i/app-cmd.png) no-repeat;
-				header {
-					width: 100%;
-					margin: 0;
-					padding: 0;
-					height: 45px;
-					.close {
-						height: 45px;
-					}
-				}
 				textarea {
 					display: block;
 					border: 0;
 					margin: 62px 0 0 11px;
-					height: 394px !important;
-					width: 97%;
+					height: 399px;
+					width: 954px;
+					overflow-y: scroll;
 					padding: 2px;
 					font-family: monospace;
 					font-size: 14px;
@@ -2216,6 +2240,7 @@
 			display: flex;
 			justify-content: space-between;
 			padding: 3px 2px 3px 4px;
+			user-select:none;
 			&.inactive {
 				background: linear-gradient(90deg, gray, #b5b5b5);
 			}
@@ -2603,9 +2628,27 @@ DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
 				<section id="xirconmain"></section>
 			</div>
 			<div class="app" id="app-solitaire"><header id="solitairetitle"></header></div>
-			<div class="app" id="app-photoshop"><header id="photoshoptitle"><div class="close"></div></header><input type="color" id="pscolors"></div>
-			<div class="app" id="app-nero"><header id="nerotitle"><div class="close"></div></header><section></section></div>
-			<div class="app" id="app-adraw"><header id="adrawtitle"><div class="close"></div></header><img id="acid" src="/i/acid.gif"></div>
+			<div class="app" id="app-photoshop">
+				<header id="photoshoptitle">
+					<a id="psexit" class="exit"></a>
+					<a id="psmin" class="min"></a>
+				</header>
+				<input type="color" id="pscolors">
+			</div>
+			<div class="app" id="app-nero">
+				<header id="nerotitle">
+					<a id="neroexit" class="exit"></a>
+					<a id="neromin" class="min"></a>
+				</header>
+				<section></section>
+			</div>
+			<div class="app" id="app-adraw">
+				<header id="adrawtitle">
+					<a class="exit" id="adrawexit"></a>
+					<a class="min" id="adrawmin"></a>
+				</header>
+				<img id="acid" src="/i/acid.gif">
+			</div>
 			<div class="app" id="app-winamp"><header id="winamptitle"><div id="winexit"></div><div id="winmin"></div></header><section id="winmain"></section></div>
 			<form class="app" id="app-bo2k" role="dialog">
 				<h2 id="bo2ktitle">
@@ -2645,7 +2688,11 @@ DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
 					</p>
 				</fieldset>
 			</form>
-			<div class="app" id="app-dos"><header><div id="dosexit" class="close"></header>
+			<div class="app" id="app-dos">
+				<header id="dostitle">
+					<a id="dosexit" class="exit"></a>
+					<a id="dosmin" class="min"></a>
+				</header>
 				<textarea id="dinput" rows="19" cols="60" spellcheck="false">
 Windows 98 Microsoft Corp 1985-1998.
 
@@ -2665,7 +2712,8 @@ COMMAND [[drive:]path] [device] [/E:nnnnn] [/L:nnnn] [/U:nnn] [/P] [/MSG]
   /C Command     Executes the specified command and returns.
   /K command     Executes the specified command and continues running.
 
-C:\WINDOWS> </textarea></div>
+C:\WINDOWS> </textarea>
+			</div>
 			<div id="tooltip"></div>
 			<form class="app" id="app-notepad" role="dialog">
 				<h2 id="notepadtitle">
@@ -3047,11 +3095,11 @@ C:\WINDOWS> </textarea></div>
 			topen=e=>{
 				!tasks.some(task=>task.e===e)&&
 					tasks.push({e,f:1,h:0,i: '/i/'+
-						(e==="adraw"?'cmd.png"><sup>ACiDDraw - MS-DOS':
+						(e==="adraw"?'msdos.png"><sup>ACiDDraw - MS-DOS':
 						 e==="aohell"?'aohell.png"><sup>AOHell 95 v3.0 B5':
 						 e==="bo2k"?'bo2k-server.png"><sup>Back Orifice 2000':
 						 e==="dialup"?'modem.png"><sup>Windows98 - Dial Up':
-						 e==="dos"?'cmd.png"><sup>Command Prompt':
+						 e==="dos"?'msdos.png"><sup>Command Prompt':
 						 e==="explorer"?'explorer-ico.png"><sup>My Documents':
 						 e==="help"?'help-ico.png"><sup>Windows Help':
 						 e==="ie"?'msie.png"><sup>Internet Exploder':
@@ -3125,7 +3173,8 @@ C:\WINDOWS> </textarea></div>
 				// ICONS
 				listen("nero","dblclick",e=>{
 					topen("nero");
-					closeAll('#app-nero .close',e=>(p0p(e),tclose("nero")));
+					listen("neroexit",'click',e=>(p0p(e),tclose("nero")));
+					listen("neromin",'click',e=>(p0p(e),tmin("nero")));
 					closeAll('#app-nero section',e=>n("BSOD"));
 				});
 				listen("winamp","dblclick",e=>{
@@ -3134,21 +3183,16 @@ C:\WINDOWS> </textarea></div>
 					listen("winmin",'click',e=>(p0p(e),tmin("winamp")));
 					listen("winmain",'click',e=>(p0p(e),sound("winamp")));
 				});
+				listen("spewfy","click",()=>{msg('<div class="pad"><aside><img style="transform:scale(1);user-select:none" src="/i/err.png"></aside><section>The Program can\'t start because VB40032.DLL is missing from<br/>your computer. Try reinstalling the program to fix this problem.</p><section class="field-row"><button class="close">Ok</button></section></div>',()=>{})});
 				listen("adraw","dblclick",e=>{
 					topen("adraw");
 					const id="adraw",a=$("app-"+id);
 					on($('acid'),'click',e=>(p0p(e),n("BSOD")));
-					closeAll('#app-adraw .close',e=>(p0p(e),tclose(id)));
-					on(a,'mousedown',e=>{
-						p0p(e);tfocus("adraw");
-						let el=e.target,s=e.clientX-el.getBoundingClientRect().left,z=e.clientY-el.getBoundingClientRect().top,
-						m=e=>Object.assign($("app-adraw").style,{left:e.pageX-s+"px",top:e.pageY-z+"px"}),
-						u=e=>(off(document,'mousemove',m),off(document,'mouseup',u));
-						on(document,'mousemove',m);on(document,'mouseup',u);
-					});
+					listen("adrawexit","click",e=>(p0p(e),tclose("adraw")));
+					listen("adrawmin","click",e=>(p0p(e),tmin("adraw")));
 				});
-				listen("cd","dblclick",e=>msg('<div class="pad"><aside><img src="/i/insert-cd.gif"></aside><section>Error reading drive E:\\</p><p>Please insert a CD ROM and try again</p><section class="field-row"><button class="close">Eject</button></section></div>',eject));
-				listen("disks","dblclick",e=>msg('<div class="pad"><aside><img src="/i/insert-floppy.png"></aside><section>A:\\ is not accessible.</p><p>The device is not ready.</section><section class="field-row"><button class="close">Ok</button></section></div>',()=>n("BSOD")));
+				listen("cd","dblclick",e=>msg('<div class="pad"><aside><img style="user-select:none" src="/i/insert-cd.gif"></aside><section>Error reading drive E:\\</p><p>Please insert a CD ROM and try again</p><section class="field-row"><button class="close">Eject</button></section></div>',eject));
+				listen("disks","dblclick",e=>msg('<div class="pad"><aside><img style="transform:scale(1);user-select:none" src="/i/insert-floppy.png"></aside><section>A:\\ is not accessible.</p><p>The device is not ready.</section><section class="field-row"><button class="close">Ok</button></section></div>',()=>n("BSOD")));
 				listen("msie","dblclick",e=>{
 					p0p(e);
 					topen("ie");
@@ -3189,8 +3233,9 @@ C:\WINDOWS> </textarea></div>
 				listen("photoshop","dblclick",e=>{
 					topen("photoshop");
 					const p=$('pscolors');
-					on($("app-photoshop"),'click',()=>p.showPicker());
-					closeAll('#app-photoshop .close',e=>(p0p(e),p.blur(),tclose("photoshop")));
+					listen("app-photoshop",'click',()=>p.showPicker());
+					listen("psexit","click",e=>(p0p(e),p.blur(),tclose("photoshop")));
+					listen("psmin","click",e=>(p0p(e),p.blur(),tmin("photoshop")));
 				});
 				listen("cpu","dblclick",e=>{
 					topen("mycpu");
@@ -3269,23 +3314,29 @@ C:\WINDOWS> </textarea></div>
 						on(document,'mousemove',m);on(document,'mouseup',u);
 					});
 				});
-				dragWin("notepadtitle",252,144);
-				dragWin("regedittitle",221,107);
-				dragWin("winamptitle",1,1);
+				dragWin("adrawtitle",1,1);
+				dragWin("aohelltitle",39,30);
 				dragWin("bo2ktitle",251,174);
+				dragWin("dostitle",1,1);
+				dragWin("dreamweavertitle",280,210);
+				dragWin("notepadtitle",252,144);
+				dragWin("photoshoptitle",140,100);
+				dragWin("regedittitle",221,107);
+				dragWin("nerotitle",1,1);
+				dragWin("sub7title",118,88);
 				dragWin("utorrenttitle",250,133);
 				dragWin("vb6title",60,44);
-				dragWin("xircontitle",60,44);
-				dragWin("aohelltitle",39,30);
-				dragWin("sub7title",118,88);
-				dragWin("dreamweavertitle",280,210);
+				dragWin("winamptitle",1,1);
 				dragWin("wsftptitle",280,205);
+				dragWin("xircontitle",60,44);
 				// START MENU
 				listen("start","click",t);
 				listen("help","click",e=>(topen("help"),t(),on($("app-help"),'click',()=>n("BSOD"))));
 				listen("run","click",e=>{
-					t();topen("dos");prompt($("dinput"));
-					$$$('.close').forEach(i=>on(i,'click',()=>tclose("dos")));
+					t();topen("dos");
+					prompt($("dinput"));
+					listen("dosexit",'click',e=>(p0p(e),tclose("dos")));
+					listen("dosmin",'click',e=>(p0p(e),tmin("dos")));
 				});
 				listen("logoff","click",i=>{
 					t();msg('<aside><img src="/i/logoff.png"></aside><section><p>Are your sure you want to log off?</p><section class="field-row"><button id="loconfim">Yes</button><button class="close">No</button></section>', e=>{});

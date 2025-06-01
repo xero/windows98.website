@@ -1,18 +1,17 @@
 /* humanstxt.org */
 
-/* site */
-	standards: html5, css3, javascript
-	software: neovim, git, photoshop
-
 /* windows98.website */
-	site: https://www.windows98.website
-	site: https://github.com/xero/windows98
+	site:      https://www.windows98.website
+	site:      https://github.com/xero/windows98
 	copyright: creative commons zero / public domain
-	license: http://creativecommons.org/publicdomain/zero/1.0/
+	license:   http://creativecommons.org/publicdomain/zero/1.0/
+
+/* site */
+	standards: html 5, css 3, es6 javascript
+	software:  photoshop,neovim, git, virtualbox
 
 /* designer */
 	author: xero harrison
-	email: x@xero.style
-	site: https://x-e.ro
-	site: https://0w.nz
-
+	email:  x@xero.style
+	site:   https://x-e.ro
+	site:   https://0w.nz
