@@ -134,11 +134,7 @@
 
 ![acid.gif](acid.gif)
 
-![app-explorer.png](app-explorer.png)
-
 ![app-help.png](app-help.png)
-
-![app-mycpu.png](app-mycpu.png)
 
 ![app-nero.png](app-nero.png)
 
