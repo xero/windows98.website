@@ -40,6 +40,8 @@
 
 ![game.png](game.png)
 
+![hdd.png](hdd.png)
+
 ![help-ico.png](help-ico.png)
 
 ![help.png](help.png)
@@ -68,9 +70,13 @@
 
 ![nero.png](nero.png)
 
+![networkfolder.png](networkfolder.png)
+
 ![notepad.png](notepad.png)
 
 ![photoshop.png](photoshop.png)
+
+![printersfolder.png](printersfolder.png)
 
 ![programs.png](programs.png)
 
@@ -88,6 +94,8 @@
 
 ![settings.png](settings.png)
 
+![settingsfolder.png](settingsfolder.png)
+
 ![shutdown.png](shutdown.png)
 
 ![sine.png](sine.png)
@@ -96,6 +104,8 @@
 
 ![sub7.png](sub7.png)
 
+![tasksfolder.png](tasksfolder.png)
+
 ![trash.png](trash.png)
 
 ![utorrent.png](utorrent.png)
@@ -103,6 +113,8 @@
 ![vb6.png](vb6.png)
 
 ![vstudio.png](vstudio.png)
+
+![webfolder.png](webfolder.png)
 
 ![winamp.png](winamp.png)
 
@@ -121,7 +133,6 @@
 ![app-cmd.png](app-cmd.png)
 
 ![acid.gif](acid.gif)
-
 
 ![app-explorer.png](app-explorer.png)
 
@@ -179,10 +190,15 @@
 
 ![dreamweaver-settings.png](dreamweaver-settings.png)
 
+![exp-btns.png](exp-btns.png)
+
+![exp-clouds.png](exp-clouds.png)
+
+![throbber.gif](throbber.gif)
+
 ![logo.svg](logo.svg)
 
 ![clouds.svg](clouds.svg)
-
 
 ## ui elements
 
