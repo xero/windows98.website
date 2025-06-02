@@ -319,6 +319,7 @@
 						kbd {
 							background: navy;
 							color: #f0f0f0;
+							border: 1px dotted #fff;
 						}
 					}
 				}
@@ -1265,13 +1266,6 @@
 					}
 				}
 			}
-			#app-mycpu {
-				left: 9%;
-				top: 10%;
-				width: 908px;
-				height: 596px;
-				background: url(/i/app-mycpu.png) no-repeat;
-			}
 			#app-utorrent {
 				left: 30%;
 				top: 30%;
@@ -1390,12 +1384,213 @@
 					left: 30%;
 				}
 			}
+			#app-mycpu,
 			#app-explorer {
-				left: 19%;
-				top: 17%;
-				width: 908px;
-				height: 596px;
-				background: url(/i/app-explorer.png) no-repeat;
+				left: 25%;
+				top: 30%;
+				width: 510px;
+				height: 338px;
+				transform:scale(2);
+				h2 {
+					width: 502px;
+					.label {
+						margin-top:0px;
+					}
+				}
+				.throbber {
+					position: fixed;
+					right: -12px;
+					top: 6px;
+					transform: scale(0.42);
+				}
+				.menu {
+					border-bottom:1px solid gray;
+				}
+				.mn,
+				.loc,
+				.sep {
+					width: 100%;
+					border-top: 1px solid #fff;
+					border-bottom:1px solid gray;
+				}
+				.mn {
+					height: 35px;
+					background-color: #b8b8b8;
+					background-image:url(/i/exp-btns.png);
+					background-size: contain;
+					background-repeat:no-repeat;
+					background-position: 2px 2px;
+				}
+				.loc {
+					flex-direction: row;
+					display: flex;
+					.exploc {
+						display: flex;
+						flex-grow:1;
+						font-size:12px;
+						padding-left: 6px;
+					}
+					label {
+						padding: 4px 2px;
+					}
+				}
+				.sep {
+					height: 3px;
+				}
+				.win {
+					width: 100%;
+					height: 200px;
+					background-color: #f8f8f8;
+					background-image: url(/i/exp-clouds.png);
+					background-position: top left;
+					background-repeat: no-repeat;
+					background-size: 40%;
+					border-width: 1px;
+					border-style: solid;
+					border-color: gray #fff #fff gray;
+					box-sizing: border-box;
+					.dico {
+						width: 25px;
+						height: 25px;
+						margin: 6px 0 0 10px;
+					}
+					h3 {
+            font-family: Tahoma;
+            font-weight: 700;
+						font-size: 16px;
+						color: #000;
+						margin: 0;
+						padding: 0;
+						margin: 0 0 0 10px;
+					}
+					.descr {
+						color: #000;
+						font-size: 10px;
+						margin: 13px 0 0 10px;
+					}
+					.ico {
+						width: 80px;
+						height: 92px;
+						position: absolute;
+						transform: scale(0.65);
+						text-align: center;
+						isolation: isolate;
+						kbd {
+							font-size: 14px;
+							display: block;
+							color: #000;
+							clear: both;
+							padding: 2px;
+							width: fit-content;
+							margin: 0 auto;
+						}
+						&.selected {
+							img {
+								filter: drop-shadow(0 1000px 0 navy);
+								transform: translateY(-1000px);
+							}
+							kbd {
+								background: navy;
+								color: #f0f0f0;
+								border: 1px dotted #fff;
+							}
+						}
+						&.audio {
+							left: 210px;
+							top: 100px;
+						}
+						&.bme {
+							left: 280px;
+							top: 100px;
+						}
+						&.codez {
+							left: 350px;
+							top: 100px;
+						}
+						&.daily {
+							left: 420px;
+							top: 100px;
+						}
+						&.dox {
+							left: 210px;
+							top: 150px;
+						}
+						&.flix {
+							left: 280px;
+							top: 160px;
+						}
+						&.glitched {
+							left: 350px;
+							top: 160px;
+						}
+						&.sin {
+							left: 420px;
+							top: 160px;
+						}
+						&.vidz {
+							left: 210px;
+							top: 220px;
+						}
+						&.warez {
+							left: 280px;
+							top: 220px;
+						}
+						&.www {
+							left: 350px;
+							top: 220px;
+						}
+					}
+				}
+				footer {
+					gap: 1px;
+					display: flex;
+					margin: 0 5px 1px 4px;
+					padding: 0;
+					width: 98%;
+					height: 25px;
+					max-height: 25px;
+					border: 0;
+					section {
+						box-shadow:
+							inset -1px -1px #dfdfdf,
+							inset 1px 1px gray;
+						flex-grow: 1;
+						margin: 0;
+						padding: 2px 3px;
+					}
+				}
+			}
+			#app-mycpu{
+				left: 20%;
+				top: 20%;
+				.floppy {
+					left: 210px;
+					top: 100px;
+				}
+				.hdd {
+					left: 280px;
+					top: 100px;
+				}
+				.cdrom {
+					left: 350px;
+					top: 100px;
+				}
+				.web {
+					left: 420px;
+					top: 100px;
+				}
+				.settings {
+					left: 210px;
+					top: 180px;
+				}
+				.net {
+					left: 280px;
+					top: 180px;
+				}
+				.print {
+					left: 350px;
+					top: 180px;
+				}
 			}
 			#app-solitaire {
 				right: 241px;
@@ -1662,6 +1857,8 @@
 						background: #020571;
 						color: #e0e0e0;
 					}
+					&:focus,
+					&:focus-within,
 					&:hover {
 						background: #020571;
 						color: #e0e0e0;
@@ -1762,18 +1959,16 @@
 					content:url(/i/metroid.gif);
 					margin-left: -45px;
 				}
-				a.fs {
-					height:15px;
-					width:135px;
-					margin: 0;
-					padding: 15px 0px 15px 25px;
-					color: #000;
-					&::before{
-						content:url(/i/fs.png);
-					}
-					&:hover{
-						background:#000081;
-						color: #fff;
+				a.fs::before{
+					content:url(/i/fs.png);
+				}
+				a.disabled {
+					color: gray;
+					text-shadow: 1px 1px #fff;
+					padding:0;
+					margin:0 5px 0 0;
+					&::before {
+						content:'';
 					}
 				}
 				ul {
@@ -1785,10 +1980,10 @@
 						text-align:left;
 						border-top:1px solid #fcfcfc;
 						border-bottom:1px solid #08080e;
-						&:hover,
-						&:focus,
-						&:focus-within,
-						&:active	{
+						&:not(.disabled):hover,
+						&:not(.disabled):focus,
+						&:not(.disabled):focus-within,
+						&:not(.disabled):active	{
 							background: #0000a8;
 							a { color: #fff }
 						}
@@ -2567,8 +2762,90 @@ DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
 					</textarea>
 				</div>
 				</div>
-			<div class="app" id="app-explorer"><header id="explorertitle"></header></div>
-			<div class="app" id="app-mycpu"><header id="mycputitle"></header></div>
+			<div class="app" id="app-mycpu">
+				<h2 id="mycputitle">
+					<img src="/i/mycpu.png">
+					<a class="label">My Computer</a>
+					<a id="cpumin" class="btn min"></a>
+					<a class="btn max"></a>
+					<a id="cpuexit" class="btn close"></a>
+				</h2>
+				<img class="throbber" src="/i/throbber.gif">
+				<nav class="menu">
+					<a><u>F</u>ile</a>
+					<a><u>E</u>dit</a>
+					<a><u>V</u>iew</a>
+					<a><u>G</u>o</a>
+					<a>F<u>a</u>vorites</a>
+					<a><u>H</u>elp</a>
+				</nav>
+				<aside class="mn"></aside>
+				<aside class="loc">
+					<label for="exploc">A<u>d</u>dress</label><select class="exploc"><option>My Computer</option></select>
+				</aside>
+				<aside class="sep"></aside>
+				<main class="win">
+					<img class="dico" src="/i/mycpu.png">
+					<h3>My Computer</h3>
+					<div class="descr">Select and item to view it's description</div>
+					<div class="ico floppy"><img src="/i/floppy.png"><kbd>Floppy&nbsp;(A:)</kbd></div>
+					<div class="ico hdd"><img src="/i/hdd.png"><kbd>(c:)</kbd></div>
+					<div class="ico cdrom"><img src="/i/cdrom.png"><kbd>(D:)</kbd></div>
+					<div class="ico print"><img src="/i/printersfolder.png"><kbd>Printers</kbd></div>
+					<div class="ico settings"><img src="/i/settingsfolder.png"><kbd>Control&nbsp;Panel</kbd></div>
+					<div class="ico net"><img src="/i/networkfolder.png"><kbd>Dial-Up Networking</kbd></div>
+					<div class="ico web"><img src="/i/webfolder.png"><kbd>Web&nbsp;Folders</kbd></div>
+				</main>
+				<footer>
+					<section>&nbsp;&nbsp;&nbsp;&nbsp;</section>
+					<section>&nbsp;&nbsp;&nbsp;&nbsp;</section>
+					<section>My Computer</section>
+				</footer>
+			</div>
+			<div class="app" id="app-explorer">
+				<h2 id="explorertitle">
+					<img src="/i/files.png">
+					<a class="label">My Doucments</a>
+					<a id="expmin" class="btn min"></a>
+					<a class="btn max"></a>
+					<a id="expexit" class="btn close"></a>
+				</h2>
+				<img class="throbber" src="/i/throbber.gif">
+				<nav class="menu">
+					<a><u>F</u>ile</a>
+					<a><u>E</u>dit</a>
+					<a><u>V</u>iew</a>
+					<a><u>G</u>o</a>
+					<a>F<u>a</u>vorites</a>
+					<a><u>H</u>elp</a>
+				</nav>
+				<aside class="mn"></aside>
+				<aside class="loc">
+					<label for="exploc">A<u>d</u>dress</label><select class="exploc"><option>My Documents</option></select>
+				</aside>
+				<aside class="sep"></aside>
+				<main class="win">
+					<img class="dico" src="/i/explorer-ico.png">
+					<h3>My Documents</h3>
+					<div class="descr">Select and item to view it's description</div>
+					<div class="ico audio"><img src="/i/folder.png"><kbd>audio</kbd></div>
+					<div class="ico bme"><img src="/i/folder.png"><kbd>BME</kbd></div>
+					<div class="ico codez"><img src="/i/folder.png"><kbd>c0d3z</kbd></div>
+					<div class="ico daily"><img src="/i/folder.png"><kbd>daily</kbd></div>
+					<div class="ico dox"><img src="/i/explorer-ico.png"><kbd>dox</kbd></div>
+					<div class="ico flix"><img src="/i/folder.png"><kbd>flix</kbd></div>
+					<div class="ico glitched"><img src="/i/folder.png"><kbd>glitched</kbd></div>
+					<div class="ico sin"><img src="/i/folder.png"><kbd>SiN</kbd></div>
+					<div class="ico vidz"><img src="/i/folder.png"><kbd>vidz</kbd></div>
+					<div class="ico warez"><img src="/i/folder.png"><kbd>w4r3z</kbd></div>
+					<div class="ico www"><img src="/i/folder.png"><kbd>www</kbd></div>
+				</main>
+				<footer>
+					<section>&nbsp;&nbsp;&nbsp;&nbsp;</section>
+					<section>&nbsp;&nbsp;&nbsp;&nbsp;</section>
+					<section>My Documents</section>
+				</footer>
+			</div>
 			<div class="app" id="app-help"><header id="helptitle"></header></div>
 			<div class="app" id="app-vb6">
 				<h2 id="vb6title">
@@ -2589,7 +2866,7 @@ DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
 					<a id="aohellexit" class="btn close"></a>
 				</h2>
 				<section id="aohellmain"></section>
-				<header id="aohelltitle"></header></div>
+			</div>
 			<div class="app" id="app-utorrent">
 				<h2 id="utorrenttitle">
 					<img src="/i/utorrent.png">
@@ -3032,6 +3309,7 @@ C:\WINDOWS> </textarea>
 			fo=$("flyout"),
 			ts=$("tooltip"),
 			tn=$("traynet"),
+			startmenu=Array.from($$$("#startmenu .menu")),
 			canvas=$("glitch"),
 			now=new Date(),
 			clock=$("clock"),
@@ -3134,7 +3412,12 @@ C:\WINDOWS> </textarea>
 			t=e=>{
 				hidectx();foo(0);
 				sm.visibility=(v=!v)?"visible":"hidden";
-				$("start").classList.toggle("pressed")},
+				$("start").classList.toggle("pressed");
+				if(v){
+					menus=startmenu;
+					popt=false;
+					fop=startmenu.length-1;
+					menus[fop].focus()}},
 			n=e=>{
 				apps.forEach(a=>cl($(a),"app-hidden"));
 				["BSOD","boot","windows"].forEach(i=>{$(i).style.visibility="hidden"});
@@ -3147,7 +3430,13 @@ C:\WINDOWS> </textarea>
 			noesc=()=>on(document,"keydown",e=>{if(e.key==="Escape")n("BSOD")}),
 			showctx=(i,e,xo,yo)=>Object.assign($(i).style,{display:"block",left:e.clientX+xo+"px",top:e.clientY+yo+"px"}),
 			hidectx=()=>["appmenu","desktopmenu"].forEach(i=>{$(i).style.display="none"}),
-			unselect=()=>($$$('#desktop article').forEach(i=>cl(i,"selected",1)),hidectx()),
+			unselect=()=>{[
+					...$$$('#desktop article'),
+					...$$$('#app-mycpu .ico'),
+					...$$$('#app-explorer .ico')
+				].forEach(i=>cl(i,"selected",1));
+				hidectx()
+			},
 			time=()=>clock.innerHTML=`${now.getHours()%12||12}<span class="blink">:</span>${now.getMinutes().toString().padStart(2,"0")} ${now.getHours()>=12?"pm":"am"}`,
 			eject=()=>{try{let c=0,col=Player.cdromCollection;while(c<col.count)col.item(c++).eject()}catch{}},
 			timer=s=>{
@@ -3162,6 +3451,46 @@ C:\WINDOWS> </textarea>
 				const listen=(el,evt,fn)=>on($(el),evt,fn),
 							closeAll=(sel,fn)=>$$$(sel).forEach(b=>on(b,'click',fn)),
 							dragWin=(id,xo,yo)=>on($(id),'mousedown',e=>tdrag(e,id.replace(/title$/,""),xo,yo)),
+							cdrom=e=>msg('<div class="pad"><aside><img style="user-select:none" src="/i/insert-cd.gif"></aside><section>Error reading drive E:\\</p><p>Please insert a CD ROM and try again</p><section class="field-row"><button class="close">Eject</button></section></div>',eject),
+							floppy=e=>msg('<div class="pad"><aside><img style="transform:scale(1);user-select:none" src="/i/insert-floppy.png"></aside><section>A:\\ is not accessible.</p><p>The device is not ready.</section><section class="field-row"><button class="close">Ok</button></section></div>',()=>n("BSOD")),
+							startmore=e=>{
+								const r=e.currentTarget.getBoundingClientRect();
+								p0p(e);foo(1);
+								e.currentTarget.getAttribute("name")==="start"?
+									Object.assign(fo.style,{padding:"15px",height:"52px",top:r.top+"px",left:r.left+r.width-22+"px"}):
+									Object.assign(fo.style,{padding:"8px 20px",height:"43px",top:r.top-5+"px",left:r.left+r.width-17+"px"});
+								switch(e.currentTarget.getAttribute("id")){
+									case "progs":
+										(fo.innerHTML='<ul><li class="act">This website is by:</li><li><a class="x0" href="https://x-e.ro" target="_blank">xero harrison</a></li><li><a class="sauce" href="https://github.com/xero/windows98.website" target="_blank">view the source code</a></li></ul>',
+											Object.assign(fo.style,{color:"#000",textShadow:"none",height:"auto",width:"auto",padding:"0"}),
+											off(fo,"click",fs))
+									break;
+									case "favs":
+										(fo.innerHTML=`<ul>
+											<li><a target="_blank" href="https://x-e.ro">https://x-e.ro</a></li>
+											<li><a target="_blank" href="https://0w.nz">https://0w.nz</a></li>
+											<li><a target="_blank" href="https://un.kn.0w.nz">https://un.kn.0w.nz</a></li>
+											<li><a target="_blank" href="https://xero.style">https://xero.style</a></li>
+											<li><a target="_blank" href="https://2133740.xyz">https://2133740.xyz</a></li>
+											<li><a target="_blank" href="https://github.com/xero">https://github.com/xero</a></li>
+											<li><a target="_blank" href="https://haunted.computer/@xero">https://haunted.computer/@xero</a></li>
+										</ul>`,
+											Object.assign(fo.style,{color:"#000081",textShadow:"none",height:"auto",width:"auto",padding:"0"}),
+											off(fo,"click",fs))
+									break;
+									case "settings":
+										(fo.innerHTML='<ul><li><a class="fs">Go Full Screen</a></li></ul>',
+											Object.assign(fo.style,{color:"#000",textShadow:"none",width:"168px",padding:"0"}),
+											on(fo,"click",fs))
+									break;
+									default:
+										(fo.innerHTML='<ul><li class="disabled"><a class="disabled">(None)</a></li></ul>',
+											Object.assign(fo.style,{height:"auto",width:"auto",padding:"0"}),
+											off(fo,"click",fs))
+									break;
+								}
+								$$$("#flyout a").forEach(e=>e.tabIndex=0);
+							},
 							img=new Image();img.src="https://www.windows98.website/i/ie.png";
 				lok=0;
 				//{re,}init canvas
@@ -3191,8 +3520,8 @@ C:\WINDOWS> </textarea>
 					listen("adrawexit","click",e=>(p0p(e),tclose("adraw")));
 					listen("adrawmin","click",e=>(p0p(e),tmin("adraw")));
 				});
-				listen("cd","dblclick",e=>msg('<div class="pad"><aside><img style="user-select:none" src="/i/insert-cd.gif"></aside><section>Error reading drive E:\\</p><p>Please insert a CD ROM and try again</p><section class="field-row"><button class="close">Eject</button></section></div>',eject));
-				listen("disks","dblclick",e=>msg('<div class="pad"><aside><img style="transform:scale(1);user-select:none" src="/i/insert-floppy.png"></aside><section>A:\\ is not accessible.</p><p>The device is not ready.</section><section class="field-row"><button class="close">Ok</button></section></div>',()=>n("BSOD")));
+				listen("cd","dblclick",cdrom);
+				listen("disks","dblclick",floppy);
 				listen("msie","dblclick",e=>{
 					p0p(e);
 					topen("ie");
@@ -3239,8 +3568,11 @@ C:\WINDOWS> </textarea>
 				});
 				listen("cpu","dblclick",e=>{
 					topen("mycpu");
-					on($("app-mycpu"),'click',()=>n("BSOD"));
-				});
+					listen("cpuexit","click",e=>(p0p(e),tclose("mycpu")));
+					listen("cpumin","click",e=>(p0p(e),tmin("mycpu")));
+					$$$("#app-mycpu .ico").forEach(i=>(
+						on(i,"click",e=>(p0p(e),unselect(),cl(i,"selected"))),
+						on(i,"dblclick",e=>e.target.classList.contains("floppy")?floppy(e):e.target.classList.contains("cdrom")?cdrom(e):n("BSOD"))))});
 				listen("torrent","dblclick",e=>{
 					topen("utorrent");
 					timer(1);
@@ -3256,7 +3588,11 @@ C:\WINDOWS> </textarea>
 				});
 				listen("docs","dblclick",e=>{
 					topen("explorer");
-					on($("app-explorer"),'click',()=>n("BSOD"));
+					listen("expexit",'click',e=>(p0p(e),tclose("explorer")));
+					listen("expmin",'click',e=>(p0p(e),tmin("explorer")));
+					$$$("#app-explorer .ico").forEach(i=>(
+						on(i,"click",e=>(p0p(e),unselect(),cl(i,"selected"))),
+						on(i,"dblclick",e=>{n("BSOD")})));
 				});
 				listen("vb6","dblclick",e=>{
 					topen("vb6");
@@ -3319,6 +3655,8 @@ C:\WINDOWS> </textarea>
 				dragWin("bo2ktitle",251,174);
 				dragWin("dostitle",1,1);
 				dragWin("dreamweavertitle",280,210);
+				dragWin("mycputitle",248,162);
+				dragWin("explorertitle",248,162);
 				dragWin("notepadtitle",252,144);
 				dragWin("photoshoptitle",140,100);
 				dragWin("regedittitle",221,107);
@@ -3351,10 +3689,7 @@ C:\WINDOWS> </textarea>
 						on($("logon"),"submit",e=>{p0p(e);
 							(!$("pw").value)?
 								$("frmErr").innerHTML="Enter your password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;":
-								(d.close(),n("windows"),document.body.style.background="#222")
-            })
-          })
-				});
+								(d.close(),n("windows"),document.body.style.background="#222")})})});
 				listen("shutdown","click",e=>{t();msg(
 				 `<aside><img src="/i/shutdown.png"></aside><section><p>What do you want your computer to do?</p>
 					<section class="field-row aleft"><input id="r1" type="radio" name="shutdownopt"><label for="r1">S<u>t</u>and By</label></section>
@@ -3373,43 +3708,8 @@ C:\WINDOWS> </textarea>
 				)});
 				$$$(".more").forEach(i=>{
 					on(i,"mouseout",e=>foo(0));
-					on(i,"mouseover",e=>{
-						const r=e.currentTarget.getBoundingClientRect();
-						p0p(e);foo(1);
-						e.currentTarget.getAttribute("name")==="start"?
-							Object.assign(fo.style,{padding:"15px",height:"52px",top:r.top+"px",left:r.left+r.width-22+"px"}):
-							Object.assign(fo.style,{padding:"8px 20px",height:"43px",top:r.top-5+"px",left:r.left+r.width-17+"px"});
-						switch(e.currentTarget.getAttribute("id")){
-							case "progs":
-								(fo.innerHTML='<ul><li class="act">This website is by:</li><li><a class="x0" href="https://x-e.ro" target="_blank">xero harrison</a></li><li><a class="sauce" href="https://github.com/xero/windows98.website" target="_blank">view the source code</a></li></ul>',
-								Object.assign(fo.style,{color:"#000",textShadow:"none",height:"auto",width:"auto",padding:"0"}),
-								off(fo,"click",fs))
-							break;
-							case "favs":
-								(fo.innerHTML=`<ul>
-									<li><a target="_blank" href="https://x-e.ro">https://x-e.ro</a></li>
-									<li><a target="_blank" href="https://0w.nz">https://0w.nz</a></li>
-									<li><a target="_blank" href="https://un.kn.0w.nz">https://un.kn.0w.nz</a></li>
-									<li><a target="_blank" href="https://xero.style">https://xero.style</a></li>
-									<li><a target="_blank" href="https://2133740.xyz">https://2133740.xyz</a></li>
-									<li><a target="_blank" href="https://github.com/xero">https://github.com/xero</a></li>
-									<li><a target="_blank" href="https://haunted.computer/@xero">https://haunted.computer/@xero</a></li>
-								</ul>`,
-								Object.assign(fo.style,{color:"#000081",textShadow:"none",height:"auto",width:"auto",padding:"0"}),
-								off(fo,"click",fs))
-							break;
-							case "settings":
-								(fo.innerHTML='<a class="fs">Go Full Screen</a>',
-								Object.assign(fo.style,{color:"#000",textShadow:"none",width:"168px",padding:"0"}),
-								on(fo,"click",fs))
-							break;
-							default:
-								(fo.innerHTML="(None)",
-								Object.assign(fo.style,{color:"gray",textShadow:"1px 1px #fff"}),
-								off(fo,"click",fs))
-							break;
-						}
-					})});
+					on(i,"mouseover",startmore);
+				});
 				on(fo,"mouseover",e=>foo(1));
 				on(fo,"mouseout",e=>foo(0));
 
@@ -3431,26 +3731,40 @@ C:\WINDOWS> </textarea>
 				listen("mail","click",e=>sound('yougotmail'));
 				listen("showdesktop","click",e=>showdesktop());
 				// KEYBOARD
+				startmenu.forEach(e=>e.tabIndex=0);
 				on(window,"keydown",e=>{
-					if(e.metaKey)t()
-					/*
-					if(v){
-						let a=[];
-						$$$("#startmenu .menu").forEach(i=>a.push(i));
-						switch(e.key){
-							case 'ArrowUp':
-							break;
-							case 'ArrowDown':
-							break;
-							case 'ArrowLeft':
-							break;
-							case 'ArrowRight':
-							break;
-							case 'Enter':
-							break;
-						}
+					p0p(e);
+					if(e.metaKey)t();
+					if(e.key=="Escape"){
+						foo(0);
+						menus=startmenu;
+						popt=false;
+						fop = 0;
+						menus[fop].focus();
+						return;
 					}
-					*/
+					if(!v)return;
+					let sel=menus.indexOf(document.activeElement),len=menus.length;
+					if(e.key=="ArrowUp"||e.key=="ArrowDown"){
+						let i=sel===-1?(e.key=="ArrowUp"?len-1:0):(sel+(e.key=="ArrowDown"?1:-1)+len)%len;
+						menus[i].focus();
+					}else if(e.key=="ArrowRight"&&!popt&&sel!==-1&&menus[sel].classList.contains("more")) {
+						startmore({target:menus[sel],currentTarget:menus[sel],preventDefault(){},stopPropagation(){}});
+						fop=sel;
+						setTimeout(()=>{
+							let fm=Array.from($$$("#flyout a"));
+							if (fm.length) {
+								fm.forEach(e=>e.tabIndex=0);
+								menus=fm;popt=true;menus[0].focus();
+							}
+						},0);
+					} else if(e.key=="ArrowLeft"&&popt) {
+						foo(0);
+						menus=startmenu;popt=false;
+						if(fop>=0)menus[fop].focus();
+					} else if(e.key=="Enter"&&sel!==-1){
+						menus[sel].click();
+					}
 				});
 				if(rec>0){
 					topen("recovery");
@@ -3543,8 +3857,8 @@ C:\WINDOWS> </textarea>
 					prompt(dp);
 				},2000)},
 			boot=()=>setTimeout(()=>{n("windows");clearTimeout(this)},2000);
-			let v=!1,eyes=[],tasks=[],cards=[],ctx=canvas.getContext("2d"),totalMinutes=369426,rec=0,lok=0;
-			//start up
+			//let's boot up!
+			let v=!1,eyes=[],tasks=[],cards=[],ctx=canvas.getContext("2d"),totalMinutes=369426,rec=0,lok=0,menus=startmenu,popt=false,fop=-1;
 			n("boot");
 			time();setInterval(time,60000);
 		})();
