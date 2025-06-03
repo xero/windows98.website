@@ -323,11 +323,11 @@
 						}
 					}
 				}
-				#cpu {
+				#mycpu {
 					top: 3%;
 					left: 2%;
 				}
-				#docs {
+				#explorer{
 					top: 16%;
 					left: 3%;
 				}
@@ -351,7 +351,7 @@
 					top: 37%;
 					left: 15%;
 				}
-				#todo {
+				#notepad{
 					bottom: 40%;
 					left: 90%;
 				}
@@ -359,7 +359,7 @@
 					bottom: 10%;
 					left: 80%;
 				}
-				#BO2k {
+				#bo2k {
 					top: 3%;
 					left: 95%;
 				}
@@ -399,15 +399,15 @@
 					top: 4%;
 					left: 33%;
 				}
-				#irc {
+				#xircon{
 					top: 82%;
 					left: 94%;
 				}
-				#torrent {
+				#utorrent {
 					top: 22%;
 					left: 92%;
 				}
-				#reg {
+				#regedit {
 					top: 32%;
 					left: 24%;
 				}
@@ -660,6 +660,8 @@
 					font-family: monospace;
 					font-size: 13px;
 					resize: none;
+					user-select:all;
+					pointer-events:all;
 				}
 			}
 			footer {
@@ -843,8 +845,8 @@
 					margin: 0;
 					padding: 0;
 					height: 25px;
-					#winexit,
-					#winmin,
+					#winampexit,
+					#winampmin,
 					.exit,
 					.min {
 						display: block;
@@ -1615,7 +1617,7 @@
 					height: 16px;
 					width: 455px;
 				}
-				#sub7main {
+				#sub7body{
 					width: 99%;
 					height: 330px;
 					margin-top:20px;
@@ -2766,9 +2768,9 @@ DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
 				<h2 id="mycputitle">
 					<img src="/i/mycpu.png">
 					<a class="label">My Computer</a>
-					<a id="cpumin" class="btn min"></a>
+					<a id="mycpumin" class="btn min"></a>
 					<a class="btn max"></a>
-					<a id="cpuexit" class="btn close"></a>
+					<a id="mycpuexit" class="btn close"></a>
 				</h2>
 				<img class="throbber" src="/i/throbber.gif">
 				<nav class="menu">
@@ -2806,9 +2808,9 @@ DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
 				<h2 id="explorertitle">
 					<img src="/i/files.png">
 					<a class="label">My Doucments</a>
-					<a id="expmin" class="btn min"></a>
+					<a id="explorermin" class="btn min"></a>
 					<a class="btn max"></a>
-					<a id="expexit" class="btn close"></a>
+					<a id="explorerexit" class="btn close"></a>
 				</h2>
 				<img class="throbber" src="/i/throbber.gif">
 				<nav class="menu">
@@ -2855,7 +2857,7 @@ DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
 					<a class="btn max"></a>
 					<a id="vb6exit" class="btn close"></a>
 				</h2>
-				<section id="vb6main"></section>
+				<section id="vb6body"></section>
 			</div>
 			<div class="app" id="app-aohell">
 				<h2 id="aohelltitle">
@@ -2865,7 +2867,7 @@ DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
 					<a class="btn max"></a>
 					<a id="aohellexit" class="btn close"></a>
 				</h2>
-				<section id="aohellmain"></section>
+				<section id="aohellbody"></section>
 			</div>
 			<div class="app" id="app-utorrent">
 				<h2 id="utorrenttitle">
@@ -2887,7 +2889,13 @@ DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
 					</div>
 				</div>
 			</div>
-			<div class="app" id="app-sub7"><header id="sub7title"><div id="sub7exit"></div><div id="sub7min"></div><div id="sub7main"></div></header></div>
+			<div class="app" id="app-sub7">
+				<header id="sub7title">
+					<div id="sub7exit"></div>
+					<div id="sub7min"></div>
+					<div id="sub7body"></div>
+				</header>
+			</div>
 			<div class="app" id="app-xircon">
 				<h2 id="xircontitle">
 					<img src="/i/xircon.png">
@@ -2902,13 +2910,13 @@ DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
 					<a><u>W</u>indow</a>
 					<a><u>H</u>elp</a>
 				</nav>
-				<section id="xirconmain"></section>
+				<section id="xirconbody"></section>
 			</div>
 			<div class="app" id="app-solitaire"><header id="solitairetitle"></header></div>
 			<div class="app" id="app-photoshop">
 				<header id="photoshoptitle">
-					<a id="psexit" class="exit"></a>
-					<a id="psmin" class="min"></a>
+					<a id="photoshopexit" class="exit"></a>
+					<a id="photoshopmin" class="min"></a>
 				</header>
 				<input type="color" id="pscolors">
 			</div>
@@ -2917,16 +2925,22 @@ DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
 					<a id="neroexit" class="exit"></a>
 					<a id="neromin" class="min"></a>
 				</header>
-				<section></section>
+				<section id="nerobody"></section>
 			</div>
 			<div class="app" id="app-adraw">
 				<header id="adrawtitle">
 					<a class="exit" id="adrawexit"></a>
 					<a class="min" id="adrawmin"></a>
 				</header>
-				<img id="acid" src="/i/acid.gif">
+				<img id="adrawbody" src="/i/acid.gif">
 			</div>
-			<div class="app" id="app-winamp"><header id="winamptitle"><div id="winexit"></div><div id="winmin"></div></header><section id="winmain"></section></div>
+			<div class="app" id="app-winamp">
+				<header id="winamptitle">
+					<div id="winampexit"></div>
+					<div id="winampmin"></div>
+				</header>
+				<section id="winampbody"></section>
+			</div>
 			<form class="app" id="app-bo2k" role="dialog">
 				<h2 id="bo2ktitle">
 					<img src="/i/bo2k-server.png">
@@ -2960,8 +2974,8 @@ DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
 							<option>Basic</option>
 						</select>
 					<p class="btns">
-						<button class="close">Cancel</button>
-						<button id="bo2k_ok" style="float:right">Ok</button>
+						<button id="bo2kclose">Cancel</button>
+						<button id="bo2kok" style="float:right">Ok</button>
 					</p>
 				</fieldset>
 			</form>
@@ -2996,9 +3010,9 @@ C:\WINDOWS> </textarea>
 				<h2 id="notepadtitle">
 					<i class="sm pad"></i>
 					<a class="label">Todo.txt - Notepad</a>
-					<a id="notemin" class="btn min"></a>
+					<a id="notepadmin" class="btn min"></a>
 					<a class="btn max"></a>
-					<a id="noteexit" class="btn close"></a>
+					<a id="notepadexit" class="btn close"></a>
 				</h2>
 				<nav class="menu">
 					<a>File</a>
@@ -3007,7 +3021,7 @@ C:\WINDOWS> </textarea>
 					<a>Help</a>
 				</nav>
 				<div class="client">
-					<textarea rows="16" cols="60" id="notepad" spellcheck="false">
+					<textarea rows="16" cols="60" id="thenotepad" spellcheck="false">
  * learn perl cgi-bin
  * finish www project
  * rip new cdz
@@ -3155,9 +3169,9 @@ C:\WINDOWS> </textarea>
 				<h2 id="regedittitle">
 					<img src="/i/regedit.png">
 					<a class="label">Registry Editor</a>
-					<a id="regmin"class="btn min"></a>
+					<a id="regeditmin"class="btn min"></a>
 					<a class="btn max"></a>
-					<a id="regexit" class="btn close"></a>
+					<a id="regeditexit" class="btn close"></a>
 				</h2>
 				<nav class="menu">
 					<a>Registry</a>
@@ -3178,17 +3192,16 @@ C:\WINDOWS> </textarea>
 					<section>&nbsp;</section>
 				</footer>
 			</form>
-
 			<section id="desktop">
-				<article id="cpu"><img src="/i/mycpu.png"><kbd>My Computer</kbd></article>
-				<article id="docs"><img src="/i/files.png"><kbd>Documents</kbd></article>
+				<article id="mycpu"><img src="/i/mycpu.png"><kbd>My Computer</kbd></article>
+				<article id="explorer"><img src="/i/files.png"><kbd>Documents</kbd></article>
 				<article id="trash"><img src="/i/trash.png"><kbd>Recycle Bin&nbsp;</kbd></article>
 				<article id="disks"><img src="/i/floppy.png"><kbd>Disks&nbsp;&nbsp;</kbd></article>
 				<article id="msie"><img src="/i/ie6.png"><kbd>IE6</kbd></article>
 				<article id="vb6"><img src="/i/vb6.png"><kbd>vb6</kbd></article>
-				<article id="todo"><img src="/i/notepad.png"><kbd>&nbsp;&nbsp;&nbsp;Todo</kbd></article>
+				<article id="notepad"><img src="/i/notepad.png"><kbd>&nbsp;&nbsp;&nbsp;Todo</kbd></article>
 				<article id="game"><img src="/i/game.png"><kbd>Solitaire</kbd></article>
-				<article id="BO2k"><img src="/i/BO2k.png"><kbd>BO2K</kbd></article>
+				<article id="bo2k"><img src="/i/BO2k.png"><kbd>BO2K</kbd></article>
 				<article id="sub7"><img src="/i/sub7.png"><kbd>subSeven</kbd></article>
 				<article id="aohell"><img src="/i/aohell-alt.png"><kbd>AOHell</kbd></article>
 				<article id="photoshop"><img src="/i/photoshop.png"><kbd>Photoshop</kbd></article>
@@ -3198,9 +3211,9 @@ C:\WINDOWS> </textarea>
 				<article id="cal"><img src="/i/calendar.png"><kbd>Calendar</kbd></article>
 				<article id="cd"><img src="/i/cdrom.png"><kbd>CD Rom</kbd></article>
 				<article id="winamp"><img src="/i/winamp.png"><kbd>Winamp</kbd></article>
-				<article id="irc"><img src="/i/xircon.png"><kbd>xIRCon</kbd></article>
-				<article id="torrent"><img src="/i/utorrent.png"><kbd>utorrent</kbd></article>
-				<article id="reg"><img src="/i/regedit.png"><kbd>regedit</kbd></article>
+				<article id="xircon"><img src="/i/xircon.png"><kbd>xIRCon</kbd></article>
+				<article id="utorrent"><img src="/i/utorrent.png"><kbd>utorrent</kbd></article>
+				<article id="regedit"><img src="/i/regedit.png"><kbd>regedit</kbd></article>
 				<article id="dreamweaver"><img src="/i/dreamweaver.png"><kbd>dreamweaver</kbd></article>
 				<article id="putty"><img src="/i/putty.png"><kbd>putty</kbd></article>
 				<article id="nero"><img src="/i/nero.png"><kbd>nero burning...</kbd></article>
@@ -3278,6 +3291,20 @@ C:\WINDOWS> </textarea>
 				"app-wsftp",
 				"app-xircon",
 			],
+			E = {
+				c: "click",
+				d: "dblclick",
+				o: "mouseover",
+				u: "mouseout",
+				m: "mousedown",
+				p: "mouseup",
+				v: "mousemove",
+				x: "contextmenu",
+				k: "keydown",
+				s: "submit",
+				P: "pointerdown",
+				V: "pointermove",
+			},
 			errs=['Access denied','Attempt to remove the current directory','Attempt to write on write-protected diskette','Bad request structure length','Cannot make directory entry','Data error (CRC)','Drive not ready','Duplicate name on network','Duplicate redirection','FCB unavailable','Fail on INT 24H','File already exists','File not found','General failure','Incompatible remote adapter','Incorrect response from network','Insufficient memory','Invalid access code','Invalid data','Invalid disk change','Invalid drive was specified','Invalid environment','Invalid format','Invalid function number','Invalid handle.','Invalid memory block address','Invalid parameter','Invalid password','Lock violation','Memory control blocks destroyed','Network BIOS command limit exceeded','Network BIOS session limit exceeded','Network adapter hardware error','Network busy','Network device fault','Network device no longer exists','Network device type incorrect','Network name deleted','Network name limit exceeded','Network name not found','Network request not accepted','Network request not supported','No more files','Not enough space for print file','Not same device','Path not found','Print file deleted (not enough space)','Print of disk redirection paused','Print queue full.','Printer out of paper','Read fault','Remote computer not listening','Reserved','Sector not found','Seek Error','Sharing buffer overflow','Sharing violation','Temporarily paused','Too many open files','Too may redirection','Unexpected network error','Unknown command','Unknown media type','Unknown unit','Write fault'],
 			fatals=['Error 0D : 0157 : 0xAC1D0000-HEX {Q307908}','Exception 0D at VXD VMM(0H)+00005B01 0028:HEX','Exception 0E Access Violation in Module WMAD.EXE at HEX {Q312931}','Exception 0E at 0028:HEX in VXD called from 0028:C001d188 in VXDNDIS','Exception 0E at 0028:HEX in VXD VMM {Q253241}','Exception 0E at 0028:HEX in VXD IFSMGR','Exception 0E at 0028:HEX in VxD WSIPX(01)... called from 0028:C0043174 in VxD NDIS(01) {Q192445}','Exception 0E at 0xAC1D0000:HEX in VxD IFSMGR {Q153598}','Exception 0E... called from 0028:HEX in VxD NDIS {Q283043}','Fatal 0D has occurred at 0028:HEX or 0246:013F47FB','Fatal Exception 06 Has Occurred at 0xAC1D0000+HEX','Fatal Exception 06 at 0028:HEX in VXD VMM (06)','Fatal Exception 0E 0028:HEX in VXD VCACHE(01)','Fatal Exception 0E 06 at 0028: HEX ','Fatal Exception 0E at 0028:HEX in VXD SYMEvent','Fatal Exception 0E at 0028:HEX in VXD VREDIR','Fatal Exception 0E at 0028:HEX in VXD IFSMGR','Fatal Exception 0E at 0028:HEX in VXD IOS (04)','Fatal Exception 0E at 0028:HEX in VXD VSERVER','Fatal Exception 0E at 0028:HEX in VXD IFSMGR(01)','Fatal Exception 0E at 0028:HEX in VXD VWIN32','Fatal Exception 0E at 0028:HEX in VXD Emu10k1','Fatal Exception 0E at 0028:HEX in VXD IOS','Fatal Exception 0E at 0028:HEX in VXD IOS (01)','Fatal Exception 0E at 0028:HEX in VXD VMM (06)','Fatal Exception 0E at 0157:BFF9A25B + 0xAC1D0000:HEX','Fatal Exception 0E at HEX in VXD VWIN32','Fatal Exception 0E at 0xAC1D0000:HEX in VxD SCSI1HLP {Q250005}','Fatal Exception 0E in 0xAC1D0000:HEX VPOWERD','Fatal Exception 0E in 0xAC1D0000:HEX VXD IFSMGR','Fatal Exception in 0xAC1D0000:HEX CDVSD Starting','Fatal Exception in 0xAC1D0000:HEX VXD VMM','Fatal exception at 0028:HEX in VxD WSIPX(01) {Q192445}','MPREXE caused an exception 03h at HEX in module USER32.DLL','MSIMN caused an exception C0000006h+HEX in module DIRECTDB.DLL','MSTASK caused an exception 03h at HEX in module USER32.DLL','Program Has Caused a Fatal Exception 0D at 00457:HEX & Will Be Terminated','RUNDLL32 caused an exception 03h at HEX in module USER32.DLL','SCANDSKW caused Fatal exception 03h at HEX in module USER32.DLL','STATEMGR caused an exception 03h at HEXin module USER32.DLL','USR32.EXE caused an exception 03h at HEX in module USER32.DLL'],
 			$=e=>document.getElementById(e),
@@ -3290,7 +3317,7 @@ C:\WINDOWS> </textarea>
 			cl=(e,c,i=0)=>e.classList[i?'remove':'add'](c),
 			p0p=e=>{e.preventDefault();e.stopPropagation()},
 			sound=i=>{let a=new Audio('/s/'+i+'.mp3');a.play().catch(()=>{});return a},
-			fs=e=>{let d=document,b=d.body;foo(0);t();d.fullscreenElement?d.exitFullscreen():b.requestFullscreen()},
+			fs=e=>{let d=document,b=d.body;foo(0);t(e);d.fullscreenElement?d.exitFullscreen():b.requestFullscreen()},
 			shutdown=()=>{
 				canvas.style.display="none";
 				eyes.forEach(({e,t,l,o})=>{e.removeEventListener(t,l,o)});
@@ -3298,17 +3325,18 @@ C:\WINDOWS> </textarea>
 				eyes=[];
 				unselect();
 				tsync();
-				if(v)t();
+				if(v)t({preventDefault:()=>{},stopPropagation:()=>{}});
 				apps.concat("cdc").forEach(a=>cl($(a),"app-hidden"))
 				tn.src="/i/tray-disconnected.png"},
 			msg=(m,f)=>{
 				let d=$("msg");
 				$("dialogBody").innerHTML=m;d.showModal();
-				$$$('#msg .close').forEach(i=>on(i,"click",e=>(d.close(),f?.(e))))},
+				$$$('#msg .close').forEach(i=>on(i,E.c,e=>(d.close(),f?.(e))))},
 			sm=$("startmenu").style,
 			fo=$("flyout"),
 			ts=$("tooltip"),
 			tn=$("traynet"),
+			p=$('pscolors'),
 			startmenu=Array.from($$$("#startmenu .menu")),
 			canvas=$("glitch"),
 			now=new Date(),
@@ -3398,7 +3426,7 @@ C:\WINDOWS> </textarea>
 					});tfocus(e)}
 			tsync=()=>{
 				$("tasks").innerHTML=tasks.map(task=>`<section name="${task.e}" class="task${task.f==1?' selected':''}"><img src="${task.i}</sup></section>`).join("");
-				$$$("#tasks .task").forEach(i=>on(i,"click",e=>tfocus(e.currentTarget.getAttribute("name"))))},
+				$$$("#tasks .task").forEach(i=>on(i,E.c,e=>tfocus(e.currentTarget.getAttribute("name"))))},
 			tdrag=(e,app,xo,yo)=>{
 				p0p(e);
 				if(e!="dialup"&&e!="ie")tfocus(app);
@@ -3406,10 +3434,11 @@ C:\WINDOWS> </textarea>
 				s=e.clientX-a.getBoundingClientRect().left,
 				z=e.clientY-a.getBoundingClientRect().top,
 				m=ee=>{Object.assign($("app-"+app).style,{left:(ee.pageX-s+xo)+'px',top:(ee.pageY-z+yo)+'px'})},
-				u=ee=>{off(document,'mousemove',m);off(document,'mouseup',u)};
-				on(document,'mousemove',m);on(document,'mouseup',u)},
+				u=ee=>{off(document,E.v,m);off(document,E.p,u)};
+				on(document,E.v,m);on(document,E.p,u)},
 			foo=i=>{fo.style.visibility=(!i)?"hidden":"visible"},
 			t=e=>{
+				p0p(e);
 				hidectx();foo(0);
 				sm.visibility=(v=!v)?"visible":"hidden";
 				$("start").classList.toggle("pressed");
@@ -3427,7 +3456,7 @@ C:\WINDOWS> </textarea>
 				Object.assign(ts.style,{left:e.target.getBoundingClientRect().left-100+"px",display:"block",opacity:1}),
 				ts.innerHTML=e.target.alt,
 				setTimeout(()=>Object.assign(ts.style,{display:"none",opacity:0}),5e3)},
-			noesc=()=>on(document,"keydown",e=>{if(e.key==="Escape")n("BSOD")}),
+			noesc=()=>on(document,E.k,e=>{if(e.key==="Escape")n("BSOD")}),
 			showctx=(i,e,xo,yo)=>Object.assign($(i).style,{display:"block",left:e.clientX+xo+"px",top:e.clientY+yo+"px"}),
 			hidectx=()=>["appmenu","desktopmenu"].forEach(i=>{$(i).style.display="none"}),
 			unselect=()=>{[
@@ -3449,8 +3478,25 @@ C:\WINDOWS> </textarea>
 				},5e3):clearInterval(dlt)},
 			windows=()=>{
 				const listen=(el,evt,fn)=>on($(el),evt,fn),
-							closeAll=(sel,fn)=>$$$(sel).forEach(b=>on(b,'click',fn)),
-							dragWin=(id,xo,yo)=>on($(id),'mousedown',e=>tdrag(e,id.replace(/title$/,""),xo,yo)),
+							closeAll=(sel,fn)=>$$$(sel).forEach(b=>on(b,E.c,fn)),
+							dragWin=(id,xo,yo)=>on($(id),E.m,e=>tdrag(e,id.replace(/title$/,""),xo,yo)),
+							run=(a,{o,c,m,d,b,x}={})=>{
+								listen(a,E.c,e=>(p0p(e),unselect(),cl($(a),"selected")));
+								listen(a,E.d,e=>{
+									topen(a);
+									if(d)dragWin(a+"title",d.x,d.y);
+									if(o)o(e);
+									if($(a+"exit")&&c!==false)listen(a+"exit",E.c,e=>{p0p(e);tclose(a);if(typeof c==="function")c()});
+									if($(a+"min")&&m!==false)listen(a+"min",E.c,e=>{p0p(e);tmin(a);if(typeof m==="function")m()});
+									if($(a+"body")&&b!==false)listen(a+"body",E.c,_=>n("BSOD"));
+									if(x)x(e);
+								});
+							},
+							ico=(a,d)=>{
+								$$(a).querySelectorAll('.ico').forEach(i => {
+									on(i,E.c,e=>(p0p(e),unselect(),cl(i,"selected")));
+									on(i,E.d,d)
+							})},
 							cdrom=e=>msg('<div class="pad"><aside><img style="user-select:none" src="/i/insert-cd.gif"></aside><section>Error reading drive E:\\</p><p>Please insert a CD ROM and try again</p><section class="field-row"><button class="close">Eject</button></section></div>',eject),
 							floppy=e=>msg('<div class="pad"><aside><img style="transform:scale(1);user-select:none" src="/i/insert-floppy.png"></aside><section>A:\\ is not accessible.</p><p>The device is not ready.</section><section class="field-row"><button class="close">Ok</button></section></div>',()=>n("BSOD")),
 							startmore=e=>{
@@ -3463,7 +3509,7 @@ C:\WINDOWS> </textarea>
 									case "progs":
 										(fo.innerHTML='<ul><li class="act">This website is by:</li><li><a class="x0" href="https://x-e.ro" target="_blank">xero harrison</a></li><li><a class="sauce" href="https://github.com/xero/windows98.website" target="_blank">view the source code</a></li></ul>',
 											Object.assign(fo.style,{color:"#000",textShadow:"none",height:"auto",width:"auto",padding:"0"}),
-											off(fo,"click",fs))
+											off(fo,E.c,fs))
 									break;
 									case "favs":
 										(fo.innerHTML=`<ul>
@@ -3476,17 +3522,17 @@ C:\WINDOWS> </textarea>
 											<li><a target="_blank" href="https://haunted.computer/@xero">https://haunted.computer/@xero</a></li>
 										</ul>`,
 											Object.assign(fo.style,{color:"#000081",textShadow:"none",height:"auto",width:"auto",padding:"0"}),
-											off(fo,"click",fs))
+											off(fo,E.c,fs))
 									break;
 									case "settings":
 										(fo.innerHTML='<ul><li><a class="fs">Go Full Screen</a></li></ul>',
 											Object.assign(fo.style,{color:"#000",textShadow:"none",width:"168px",padding:"0"}),
-											on(fo,"click",fs))
+											on(fo,E.c,fs))
 									break;
 									default:
 										(fo.innerHTML='<ul><li class="disabled"><a class="disabled">(None)</a></li></ul>',
 											Object.assign(fo.style,{height:"auto",width:"auto",padding:"0"}),
-											off(fo,"click",fs))
+											off(fo,E.c,fs))
 									break;
 								}
 								$$$("#flyout a").forEach(e=>e.tabIndex=0);
@@ -3500,38 +3546,77 @@ C:\WINDOWS> </textarea>
 				ctx.clearRect(0, 0, canvas.width, canvas.height);
 				sound('startup');
 				// ICONS
-				listen("nero","dblclick",e=>{
-					topen("nero");
-					listen("neroexit",'click',e=>(p0p(e),tclose("nero")));
-					listen("neromin",'click',e=>(p0p(e),tmin("nero")));
-					closeAll('#app-nero section',e=>n("BSOD"));
+				["adraw","nero"].forEach(a=>run(a,{
+					d:{x:1,y:1}}));
+				run("aohell",{
+					d:{x:39,y:30}});
+				run("bo2k",{
+					d:{x:251,y:174},
+					o:()=>cl($("cdc"),"app-hidden",1),
+					x:()=>{
+						listen("bo2kok",E.c,e=>(p0p(e),n("BSOD")));
+						listen("bo2kclose",E.c,e=>(p0p(e),tclose("bo2k")))}});
+				run("dreamweaver",{
+					d:{x:280,y:210},
+					x:()=>$$$("#app-dreamweaver img").forEach(i=>on(i,E.c,()=>n("BSOD")))});
+				run("explorer",{
+					d:{x:248,y:162},
+					b:false,
+					x:()=>ico("#app-explorer",e=>n("BSOD"))});
+				run("mycpu",{
+					d:{x:248,y:162},
+					b:false,
+					x:()=>ico("#app-mycpu",e=>{
+						if(e.target.classList.contains("floppy"))floppy(e);
+						else if(e.target.classList.contains("cdrom"))cdrom(e);
+						else n("BSOD")})});
+				run("notepad",{
+					d:{x:252,y:144},
+					b:false});
+				run("photoshop",{
+					d:{x:140,y:100},
+					b:false,
+					m:()=>p.blur(),
+					c:()=>p.blur(),
+					x:()=>listen("app-photoshop",E.c,()=>p.click())});
+				run("regedit",{
+					d:{x:221,y:107},
+					b:false});
+				run("sub7",{
+					d:{x:118,y:88}});
+				run("utorrent",{
+					d:{x:250,y:133},
+					b:false,
+					o:()=>timer(1),
+					m:()=>timer(0),
+					c:()=>timer(0),
+					x:()=>listen("utorrentcancel",E.c,e=>(p0p(e),tclose("utorrent"),timer(0)))});
+				run("vb6",{
+					d:{x:60,y:44}});
+				run("winamp",{
+					d:{x:1,y:1},
+					b:false,
+					x:()=>on($("winampbody"),E.c,e=>(p0p(e),sound("winamp")))});
+				run("wsftp",{
+					d:{x:280,y:205},
+					b:false,
+					x:()=>listen("app-wsftp", "submit",e=>(p0p(e),n("BSOD")))});
+				run("xircon",{
+					d:{x:60,y:44},
 				});
-				listen("winamp","dblclick",e=>{
-					topen("winamp");
-					listen("winexit",'click',e=>(p0p(e),tclose("winamp")));
-					listen("winmin",'click',e=>(p0p(e),tmin("winamp")));
-					listen("winmain",'click',e=>(p0p(e),sound("winamp")));
-				});
-				listen("spewfy","click",()=>{msg('<div class="pad"><aside><img style="transform:scale(1);user-select:none" src="/i/err.png"></aside><section>The Program can\'t start because VB40032.DLL is missing from<br/>your computer. Try reinstalling the program to fix this problem.</p><section class="field-row"><button class="close">Ok</button></section></div>',()=>{})});
-				listen("adraw","dblclick",e=>{
-					topen("adraw");
-					const id="adraw",a=$("app-"+id);
-					on($('acid'),'click',e=>(p0p(e),n("BSOD")));
-					listen("adrawexit","click",e=>(p0p(e),tclose("adraw")));
-					listen("adrawmin","click",e=>(p0p(e),tmin("adraw")));
-				});
-				listen("cd","dblclick",cdrom);
-				listen("disks","dblclick",floppy);
-				listen("msie","dblclick",e=>{
+				listen("spewfy",E.c,()=>{msg('<div class="pad"><aside><img style="transform:scale(1);user-select:none" src="/i/err.png"></aside><section>The Program can\'t start because VB40032.DLL is missing from<br/>your computer. Try reinstalling the program to fix this problem.</p><section class="field-row"><button class="close">Ok</button></section></div>',()=>{})});
+				listen("cd",E.d,cdrom);
+				listen("disks",E.d,floppy);
+				listen("msie",E.d,e=>{
 					p0p(e);
 					topen("ie");
 					ctx=canvas.getContext("2d");
 					ctx.drawImage(img,canvas.width/2-300,canvas.height/2-135);
 					noesc();
-					on(document.body,'mousemove',e=>ctx.drawImage(img,e.clientX-300,e.clientY-25));
-					on(document.body,'dblclick',e=>n("BSOD"));
+					on(document.body,E.v,e=>ctx.drawImage(img,e.clientX-300,e.clientY-25));
+					on(document.body,E.d,e=>n("BSOD"));
 				});
-				listen("dialup","dblclick",e=>{
+				listen("dialup",E.d,e=>{
 					const id="dialup";
 					topen(id);
 					let d,i=0,a=sound('dialup'),
@@ -3549,136 +3634,38 @@ C:\WINDOWS> </textarea>
 						()=>{a.pause(),clearInterval(l),tclose(id)});
 					d=$("dialupbar").style;
 				});
-				listen("reg","dblclick",e=>{
-					topen("regedit");
-					listen("regexit","click",e=>tclose("regedit"));
-					listen("regmin","click",e=>tmin("regedit"));
-				});
-				listen("todo","dblclick",e=>{
-					topen("notepad");
-					listen("noteexit","click",e=>tclose("notepad"));
-					listen("notemin","click",e=>tmin("notepad"));
-				});
-				listen("photoshop","dblclick",e=>{
-					topen("photoshop");
-					const p=$('pscolors');
-					listen("app-photoshop",'click',()=>p.showPicker());
-					listen("psexit","click",e=>(p0p(e),p.blur(),tclose("photoshop")));
-					listen("psmin","click",e=>(p0p(e),p.blur(),tmin("photoshop")));
-				});
-				listen("cpu","dblclick",e=>{
-					topen("mycpu");
-					listen("cpuexit","click",e=>(p0p(e),tclose("mycpu")));
-					listen("cpumin","click",e=>(p0p(e),tmin("mycpu")));
-					$$$("#app-mycpu .ico").forEach(i=>(
-						on(i,"click",e=>(p0p(e),unselect(),cl(i,"selected"))),
-						on(i,"dblclick",e=>e.target.classList.contains("floppy")?floppy(e):e.target.classList.contains("cdrom")?cdrom(e):n("BSOD"))))});
-				listen("torrent","dblclick",e=>{
-					topen("utorrent");
-					timer(1);
-					listen("utorrentcancel","click",e=>(tclose("utorrent"),timer(0)));
-					listen("utorrentexit","click",e=>(tclose("utorrent"),timer(0)));
-					listen("utorrentmin","click",e=>tmin("utorrent"));
-				});
-				listen("irc","dblclick",e=>{
-					topen("xircon");
-					listen("xirconexit","click",e=>tclose("xircon"));
-					listen("xirconmin","click",e=>tmin("xircon"));
-					listen("xirconmain",'click',()=>n("BSOD"));
-				});
-				listen("docs","dblclick",e=>{
-					topen("explorer");
-					listen("expexit",'click',e=>(p0p(e),tclose("explorer")));
-					listen("expmin",'click',e=>(p0p(e),tmin("explorer")));
-					$$$("#app-explorer .ico").forEach(i=>(
-						on(i,"click",e=>(p0p(e),unselect(),cl(i,"selected"))),
-						on(i,"dblclick",e=>{n("BSOD")})));
-				});
-				listen("vb6","dblclick",e=>{
-					topen("vb6");
-					listen("vb6exit",'click',e=>(p0p(e),tclose("vb6")));
-					listen("vb6min",'click',e=>(p0p(e),tmin("vb6")));
-					listen("vb6main","click",e=>(p0p(e),n("BSOD")));
-				});
-				listen("BO2k","dblclick",e=>{
-					topen("bo2k");
-					cl($("cdc"),"app-hidden",1);
-					listen("bo2k_ok","click",e=>(p0p(e),n("BSOD")));
-					listen("bo2kexit","click",e=>tclose("bo2k"));
-					listen("bo2kmin","click",e=>tmin("bo2k"));
-					closeAll('#app-bo2k .close',e=>(p0p(e),tclose("bo2k")));
-				});
-				listen("aohell","dblclick",e=>{
-					topen("aohell");
-					listen("aohellexit",'click',e=>(p0p(e),tclose("aohell")));
-					listen("aohellmin",'click',e=>(p0p(e),tmin("aohell")));
-					listen("aohellmain","click",e=>(p0p(e),n("BSOD")));
-				});
-				listen("sub7","dblclick",e=>{
-					topen("sub7");
-					listen("sub7exit",'click',e=>(p0p(e),tclose("sub7")));
-					listen("sub7min",'click',e=>(p0p(e),tmin("sub7")));
-					listen("sub7main","click",e=>(p0p(e),n("BSOD")));
-				});
-				listen("wsftp","dblclick",e=>{
-					topen("wsftp");
-					listen("wsftpexit",'click',e=>(p0p(e),tclose("wsftp")));
-					listen("wsftpmin",'click',e=>(p0p(e),tmin("wsftp")));
-					listen("app-wsftp", "submit",e=>(p0p(e),n("BSOD")));
-				});
-				listen("dreamweaver","dblclick",e=>{
-					topen("dreamweaver");
-					listen("dreamweaverexit",'click',e=>(p0p(e),tclose("dreamweaver")));
-					listen("dreamweavermin",'click',e=>(p0p(e),tmin("dreamweaver")));
-					$$$("#app-dreamweaver img").forEach(i=>on(i,"click",()=>n("BSOD")));
-				});
-				listen("game","dblclick",e=>{
+				listen("game",E.d,e=>{
 					topen("solitaire");
 					ctx=canvas.getContext("2d");
 					lok=1;
 					victory();
 				});
 				// DRAG & DESKTOP
-				on($("desktop"),"click",e=>(unselect(),v&&t()));
-				$$$('#desktop article').forEach(i=>on(i,'click',e=>(p0p(e),unselect(),v&&t(),cl(e.target.parentElement,"selected"))));
+				on($("desktop"),E.c,e=>(unselect(),v&&t(e)));
+				$$$('#desktop article').forEach(i=>on(i,E.c,e=>(p0p(e),unselect(),v&&t(e),cl(e.target.parentElement,"selected"))));
 				$$$('article img').forEach(i=>{
-					on(i,'mousedown',e=>{
+					on(i,E.m,e=>{
 						p0p(e);
 						let a=i.parentElement,s=e.clientX-a.getBoundingClientRect().left,n=e.clientY-a.getBoundingClientRect().top,
 						m=e=>(a.style.left=e.pageX-s+"px",a.style.top=e.pageY-n+"px"),
-						u=e=>(off(document,'mousemove',m),off(document,'mouseup',u));
-						on(document,'mousemove',m);on(document,'mouseup',u);
+						u=e=>(off(document,E.v,m),off(document,E.p,u));
+						on(document,E.v,m);on(document,E.p,u);
 					});
 				});
-				dragWin("adrawtitle",1,1);
-				dragWin("aohelltitle",39,30);
-				dragWin("bo2ktitle",251,174);
-				dragWin("dostitle",1,1);
-				dragWin("dreamweavertitle",280,210);
-				dragWin("mycputitle",248,162);
-				dragWin("explorertitle",248,162);
-				dragWin("notepadtitle",252,144);
-				dragWin("photoshoptitle",140,100);
-				dragWin("regedittitle",221,107);
-				dragWin("nerotitle",1,1);
-				dragWin("sub7title",118,88);
-				dragWin("utorrenttitle",250,133);
-				dragWin("vb6title",60,44);
-				dragWin("winamptitle",1,1);
-				dragWin("wsftptitle",280,205);
-				dragWin("xircontitle",60,44);
 				// START MENU
-				listen("start","click",t);
-				listen("help","click",e=>(topen("help"),t(),on($("app-help"),'click',()=>n("BSOD"))));
-				listen("run","click",e=>{
-					t();topen("dos");
+				listen("start",E.c,t);
+				listen("help",E.c,e=>(topen("help"),t(e),on($("app-help"),E.c,()=>n("BSOD"))));
+				listen("run",E.c,e=>{
+					t(e);
+					topen("dos");
+					dragWin("dostitle",1,1);
 					prompt($("dinput"));
-					listen("dosexit",'click',e=>(p0p(e),tclose("dos")));
-					listen("dosmin",'click',e=>(p0p(e),tmin("dos")));
+					listen("dosexit",E.c,e=>(p0p(e),tclose("dos")));
+					listen("dosmin",E.c,e=>(p0p(e),tmin("dos")));
 				});
-				listen("logoff","click",i=>{
-					t();msg('<aside><img src="/i/logoff.png"></aside><section><p>Are your sure you want to log off?</p><section class="field-row"><button id="loconfim">Yes</button><button class="close">No</button></section>', e=>{});
-					on($("loconfim"),"click",e=>{
+				listen("logoff",E.c,i=>{
+					t(i);msg('<aside><img src="/i/logoff.png"></aside><section><p>Are your sure you want to log off?</p><section class="field-row"><button id="loconfim">Yes</button><button class="close">No</button></section>', e=>{});
+					on($("loconfim"),E.c,e=>{
 						sound("logoff");
 						shutdown();
 						$("windows").style.visibility="hidden";
@@ -3686,11 +3673,11 @@ C:\WINDOWS> </textarea>
 						let d=$("msg");
 						$("dialogBody").innerHTML='<div id="logon"><form><aside><img src="/i/mycpu.png"></aside><section><p>Enter your network password for Microsoft Networking</p><section class="field-row"><label for="user"><u>U</u>ser Name</label><input id="user" type="text" value="xeR0"></section><section class="field-row"><label for="pw"><u>P</u>assword&nbsp;</label><input id="pw" type="password"></section><br/><br/><br/><section class="field-row" id="frmErr">&nbsp;</section></section><aside><section class="field-row"><button class="close" type="submit">Ok</button></section><section class="field-row"><button class="close" type="button">Cancel</button></section></aside></form></div>';
 						d.showModal();
-						on($("logon"),"submit",e=>{p0p(e);
+						on($("logon"),E.s,e=>{p0p(e);
 							(!$("pw").value)?
 								$("frmErr").innerHTML="Enter your password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;":
 								(d.close(),n("windows"),document.body.style.background="#222")})})});
-				listen("shutdown","click",e=>{t();msg(
+				listen("shutdown",E.c,e=>{t(e);msg(
 				 `<aside><img src="/i/shutdown.png"></aside><section><p>What do you want your computer to do?</p>
 					<section class="field-row aleft"><input id="r1" type="radio" name="shutdownopt"><label for="r1">S<u>t</u>and By</label></section>
 					<section class="field-row aleft"><input id="r2" type="radio" name="shutdownopt"><label for="r2"><u>S</u>hutdown</label></section>
@@ -3707,34 +3694,33 @@ C:\WINDOWS> </textarea>
 						}}
 				)});
 				$$$(".more").forEach(i=>{
-					on(i,"mouseout",e=>foo(0));
-					on(i,"mouseover",startmore);
+					on(i,E.u,e=>foo(0));
+					on(i,E.o,startmore);
 				});
-				on(fo,"mouseover",e=>foo(1));
-				on(fo,"mouseout",e=>foo(0));
+				on(fo,E.o,e=>foo(1));
+				on(fo,E.u,e=>foo(0));
 
 				// CONTEXT MENUS
-				on($("desktop"),"contextmenu",e=>{
+				on($("desktop"),E.x,e=>{
 					p0p(e);unselect();
-					if(v)t();
+					if(v)t(e);
 					showctx("desktopmenu",e,20,25);
 				});
 				$$$("#desktop article").forEach(i=>{
-					on(i,'contextmenu',e=>{
+					on(i,E.x,e=>{
 						p0p(e);unselect();
-						if(v)t();
+						if(v)t(e);
 						cl(e.target.parentElement,"selected");
 						showctx("appmenu",e,20,27);
 				})});
 				// TASKBAR
-				$$$("footer aside img").forEach(i=>(on(i,'click',tip),on(i,'mouseover',tip)));
-				listen("mail","click",e=>sound('yougotmail'));
-				listen("showdesktop","click",e=>showdesktop());
+				$$$("footer aside img").forEach(i=>(on(i,E.c,tip),on(i,E.o,tip)));
+				listen("mail",E.c,e=>sound('yougotmail'));
+				listen("showdesktop",E.c,e=>showdesktop());
 				// KEYBOARD
 				startmenu.forEach(e=>e.tabIndex=0);
-				on(window,"keydown",e=>{
-					p0p(e);
-					if(e.metaKey)t();
+				on(window,E.k,e=>{
+					if(e.metaKey)t(e);
 					if(e.key=="Escape"){
 						foo(0);
 						menus=startmenu;
@@ -3769,10 +3755,10 @@ C:\WINDOWS> </textarea>
 				if(rec>0){
 					topen("recovery");
 					dragWin("recoverytitle",252,144);
-					listen("recoverymin","click",e=>tmin("recovery"));
-					listen("recoveryexit","click",e=>tclose("recovery"));
-					listen("recoverycancel","click",e=>tclose("recovery"));
-					listen("recoverycheck","click",e=>n("BSOD"));
+					listen("recoverymin",E.c,_=>tmin("recovery"));
+					listen("recoveryexit",E.c,_=>tclose("recovery"));
+					listen("recoverycancel",E.c,_=>tclose("recovery"));
+					listen("recoverycheck",E.c,_=>msdos());
 				}
 			},
 			victory=()=>{
@@ -3795,8 +3781,8 @@ C:\WINDOWS> </textarea>
 				const throwCard=(x,y)=>cards.push(new PlayingCard(id>0?id--:id=51,x,y,Math.floor(Math.random()*6-3)*2,-Math.random()*16)),
 				ani=()=>{let i=0,l=cards.length;while(i<l){cards[i].update()?i++:l--}requestAnimationFrame(ani)};
 				card.src="https://www.windows98.website/i/cards.png";
-				on(document.body,"pointerdown",e=>{throwCard(e.clientX,e.clientY)});
-				on(document.body,"pointermove",e=>{if(e.pressure===0)return;throwCard(e.clientX,e.clientY)});
+				on(document.body,E.P,e=>{throwCard(e.clientX,e.clientY)});
+				on(document.body,E.V,e=>{if(e.pressure===0)return;throwCard(e.clientX,e.clientY)});
 				noesc();
 				requestAnimationFrame(ani)}},
 			suspend=e=>{
@@ -3807,7 +3793,7 @@ C:\WINDOWS> </textarea>
 				po.style.display="block";
 				po.style.pointerEvents="all";
 				$("shutdowntext").style.display="none";
-				on(po,"click",e=>{
+				on(po,E.c,e=>{
 					po.style.display="none";
 					po.style.pointerEvents="none";
 					shutdown();n("windows")
@@ -3827,17 +3813,17 @@ C:\WINDOWS> </textarea>
 					clearTimeout(this)
 				},3000)},
 			reboot=e=>{
-				off($("BSOD"),"click",reboot);
-				off(window,"keydown",reboot);
+				off($("BSOD"),E.c,reboot);
+				off(window,E.k,reboot);
 				n("boot")},
 			bsod=()=>{
 				shutdown();
 				rec++;
 				$("bsoderr").innerHTML = fatals[Math.random()*fatals.length|0].replace(/HEX/g,Math.random().toString(16).substring(2,10).toUpperCase());
-				on($("BSOD"),"click",reboot);
-				on(window,"keydown",reboot)},
+				on($("BSOD"),E.c,reboot);
+				on(window,E.k,reboot)},
 			promptfocus=d=>(d.focus(),d.setSelectionRange(d.value.length,d.value.length),d.scrollTop=d.scrollHeight),
-			prompt=i=>{promptfocus(i);on(i,"keydown",e=>{if(e.key=="Enter"){e.preventDefault();e.target.value+=`\n${errs[Math.random()*errs.length|0]}\n\nC:\\WINDOWS> `;promptfocus(i)}})},
+			prompt=i=>{promptfocus(i);on(i,E.k,e=>{if(e.key=="Enter"){e.preventDefault();e.target.value+=`\n${errs[Math.random()*errs.length|0]}\n\nC:\\WINDOWS> `;promptfocus(i)}})},
 			msdos=()=>{
 				sound("logoff");
 				shutdown();
