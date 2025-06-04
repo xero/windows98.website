@@ -134,8 +134,6 @@
 
 ![acid.gif](acid.gif)
 
-![app-help.png](app-help.png)
-
 ![app-nero.png](app-nero.png)
 
 ![app-photoshop.png](app-photoshop.png)
@@ -164,9 +162,11 @@
 
 ![tray-sound.png](tray-sound.png)
 
-![bo2k-server.png](bo2k-server.png)
+![help-sheet.png](help-sheet.png)
 
 ![up.png](up.png)
+
+![bo2k-server.png](bo2k-server.png)
 
 ![bo2k-cdc.png](bo2k-cdc.png)
 
@@ -189,8 +189,6 @@
 ![help-clouds.png](help-clouds.png)
 
 ![help-menu.png](help-menu.png)
-
-![help-sheet.png](help-sheet.png)
 
 ![exp-btns.png](exp-btns.png)
 
@@ -246,14 +244,14 @@
 
 ![favicon.svg](favicon.svg)
 
-![favicon-96x96.png](favicon-96x96.png)
-
 ![favicon.ico](favicon.ico)
+
+![favicon-96x96.png](favicon-96x96.png)
 
 ![web-app-manifest-192x192.png](web-app-manifest-192x192.png)
 
-![web-app-manifest-512x512.png](web-app-manifest-512x512.png)
-
 ![apple-touch-icon.png](apple-touch-icon.png)
+
+![web-app-manifest-512x512.png](web-app-manifest-512x512.png)
 
 ![og.png](og.png)
