@@ -126,6 +126,7 @@
 		#boot {
 			background: #000;
 			z-index: 1;
+			pointer-events:none;
 			#clouds {
 				background: url(/i/clouds.svg);
 				background-size: cover;
@@ -547,8 +548,7 @@
 					flex-shrink: 1;
 					height: 14px;
 					margin: 2px;
-					overflow-x: hidden;
-					overflow-y: hidden;
+					overflow: hidden;
 					padding: 0;
 					text-overflow: ellipsis;
 					text-wrap-mode: nowrap;
@@ -737,18 +737,6 @@
 					gap: 3px;
 				}
 				.task {
-					text-overflow: ellipsis;
-					white-space: nowrap;
-					overflow: hidden;
-					sup {
-						text-overflow: ellipsis;
-						white-space: nowrap;
-						overflow: hidden;
-						margin-left: 4px;
-						display: inline-block;
-						margin-top: 4px;
-						font-size: 1.2rem;
-					}
 					align-items: center;
 					background: silver;
 					border-color: #fff #000 #000 #fff;
@@ -762,9 +750,21 @@
 					height: 100%;
 					line-height: 24px;
 					max-width: 300px;
-					min-width: 100px;
+					min-width: 40px;
+					overflow: hidden;
 					padding: 5px;
 					text-decoration: none;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					sup {
+						text-overflow: ellipsis;
+						white-space: nowrap;
+						overflow: hidden;
+						margin-left: 4px;
+						display: inline-block;
+						margin-top: 4px;
+						font-size: 1.2rem;
+					}
 					img {
 						height: 27px;
 						margin-right: 5px;
@@ -854,7 +854,7 @@
 						height: 25px;
 						width: 25px;
 					}
-					#winmin,
+					#winampmin,
 					.min {
 						margin-right: 14px;
 					}
@@ -1175,95 +1175,135 @@
 						padding: 5px 4px 4px 5px;
 					}
 				}
-				ul.tree-view {
-					float: left;
-					width: 220px;
-					height: 140px;
-					overflow: scroll;
-					display: block;
-					background: #fff;
-					padding: 5px;
-					margin: 0;
-					li {
-						img {
-							width: 12px;
-							height: 12px;
-							margin-right: 5px;
-						}
-						list-style-type: none;
+			}
+			#app-help {
+				right: 418px;
+				top: 193px;
+				height: 308px;
+				width: 450px;
+				&::before {
+					height: 306px;
+					width: 448px;
+				}
+				h2 {
+					width: 442px;
+				}
+				#helpmenu{
+					width: 99%;
+					height: 30px;
+					position: absolute;
+					top: 20px;
+					left: 0px;
+					margin: 2px;
+					background-color: #b8b8b8;
+					background-image: url(/i/help-menu.png);
+					background-size: auto 100%;
+					background-repeat: no-repeat;
+					background-position-x: 4px;
+				}
+				aside {
+					float: right;
+					width: 48%;
+					height: 247px;
+					padding: 0;
+					box-sizing: border-box;
+					font-size:9px;
+					margin:32px 4px 0px 4px;
+					border-top:1px solid gray;
+					.wrap {
+						width:100%;
+						height:100%;
+						padding-top: 10px;
+						border-top:1px solid #fff;
 					}
-					a {
-						text-decoration: none;
-						color: #000;
-						&:focus {
-							background-color: navy;
-							color: #fff;
-						}
-					}
-					li {
-						margin-top: 3px;
-					}
-					ul {
-						margin-top: 3px;
-						margin-left: 16px;
-						padding-left: 16px;
-						border-left: 1px dotted gray;
-						> li {
-							position: relative;
-							&::before {
-								content: "";
-								display: block;
-								position: absolute;
-								left: -16px;
-								top: 6px;
-								width: 12px;
-								border-bottom: 1px dotted gray;
-							}
-							&:last-child::after {
-								content: "";
-								display: block;
-								position: absolute;
-								left: -20px;
-								top: 7px;
-								bottom: 0;
-								width: 8px;
-								background: #fff;
-							}
-						}
-					}
-					details {
-						margin-top: 0;
-						&[open] summary {
-							margin-bottom: 0;
-						}
-					}
-					ul details > summary:before {
-						margin-left: -22px;
+					.window {
+						background: silver;
+						box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #dfdfdf, inset -2px -2px grey, inset 2px 2px #fff;
+						padding: 3px;
 						position: relative;
+						z-index: 2;
+					}
+					menu[role=tablist] {
+						position: relative;
+						margin: 0 0 -2px 0;
+						text-indent: 0;
+						list-style-type: none;
+						display: flex;
+						padding-left: 3px;
+					}
+
+					menu[role=tablist] > li {
+						border-top-left-radius: 3px;
+						border-top-right-radius: 3px;
+						box-shadow: inset -1px 0 #0a0a0a, inset 1px 1px #dfdfdf, inset -2px 0 grey, inset 2px 2px #fff;
 						z-index: 1;
 					}
-					details {
-						> summary:before {
-							text-align: center;
-							display: block;
-							float: left;
-							content: "+";
-							border: 1px solid gray;
-							width: 8px;
-							height: 9px;
-							line-height: 8px;
-							margin-right: 5px;
-							padding-left: 1px;
-							background-color: #fff;
-						}
-						&[open] > summary:before {
-							content: "-";
-						}
-						> summary {
-							&::-webkit-details-marker,
-							&::marker {
-								content: "";
-							}
+
+					menu[role=tablist] > li[aria-selected=true] {
+						padding-bottom: 2px;
+						margin-top: -2px;
+						background-color: #c0c0c0;
+						position: relative;
+						z-index: 8;
+						margin-left: -3px;
+					}
+
+					menu[role=tablist] > li > a {
+						display: block;
+						color: #222;
+						margin: 6px;
+						text-decoration: none;
+					}
+					menu[role=tablist] > li[aria-selected=true] > a:focus {
+						outline: none;
+					}
+					menu[role=tablist] > li > a:focus {
+						outline: 1px dotted #222;
+					}
+				}
+				#welcome {
+					background-color: #fff;
+					background-image:url(/i/help-clouds.png);
+					background-repeat: no-repeat;
+					background-size:contain;
+					border-color: gray #fff #fff gray;
+					border-style: solid;
+					border-width: 1px;
+					padding-left: 2px;
+					h4 {
+						margin: 70px 0 10px 4px;
+						font-size: 13px;
+						font-weight: 650;
+					}
+					p{
+						margin-left: 4px;
+					}
+					ul {
+						padding-inline-start: 15px
+					}
+					div {
+						width: 100%;
+						text-align: center;
+						position: absolute;
+						left:0;
+						bottom:0;
+						padding-bottom: 10px;
+					}
+				}
+				.window-body {
+					margin:8px;
+					height: 193px;
+				}
+				ul.tree-view {
+					float:none!important;
+					width: auto !important;
+					height: 180px !important;
+					overflow-x:hidden;
+					summary{
+						font-size: 9px;
+						&::marker,
+						&::before {
+							display:none;
 						}
 					}
 				}
@@ -1712,13 +1752,6 @@
 					}
 				}
 			}
-			#app-help {
-				right: 8%;
-				top: 10%;
-				width: 781px;
-				height: 682px;
-				background: url(/i/app-help.png) no-repeat;
-			}
 			#app-adraw {
 				left: 16%;
 				top: 12%;
@@ -1812,7 +1845,7 @@
 			#startmenu {
 				visibility: hidden;
 				bottom: 58px;
-				height: 485px;
+				height: 480px;
 				width: 250px;
 				left: 2;
 				h2 {
@@ -1820,12 +1853,13 @@
 					font-size: 24px;
 					left: 2px;
 					bottom: 4px;
-					padding: 20px 2px 140px 5px;
+					padding: 24px 2px 140.5px 5px;
 					margin: 0;
 					color: silver;
 					transform: rotate(180deg);
 					writing-mode: vertical-lr;
 					pointer-events: none;
+					bottom:0;
 					z-index: 2;
 					background: #030cdf;
 					background: linear-gradient(0deg, #000 0, #030cdf 100%);
@@ -1849,7 +1883,7 @@
 					font-weight: 700;
 				}
 				.menu {
-					margin: 2px 0 0 45px;
+					margin: 1.5px 0 0 45px;
 					clear: both;
 					pointer-events: all;
 					width: 200px;
@@ -1978,10 +2012,14 @@
 					padding:0;
 					list-style:none;
 					li {
-						padding: 15px 25px 15px 35px;
 						text-align:left;
 						border-top:1px solid #fcfcfc;
 						border-bottom:1px solid #08080e;
+						padding: 14px 25px 14px 35px;
+						&.disabled{
+							padding: 10px 25px 10px 35px;
+							border-bottom:0;
+						}
 						&:not(.disabled):hover,
 						&:not(.disabled):focus,
 						&:not(.disabled):focus-within,
@@ -2025,6 +2063,98 @@
 				transition:
 					opacity 0.7s ease-out,
 					display 0.7s ease-out allow-discrete;
+			}
+			ul.tree-view {
+				float: left;
+				width: 220px;
+				height: 140px;
+				overflow: scroll;
+				display: block;
+				background: #fff;
+				padding: 5px;
+				margin: 0;
+				li {
+					img {
+						width: 12px;
+						height: 12px;
+						margin-right: 5px;
+					}
+					list-style-type: none;
+				}
+				a {
+					text-decoration: none;
+					color: #000;
+					&:focus {
+						background-color: navy;
+						color: #fff;
+					}
+				}
+				li {
+					margin-top: 3px;
+				}
+				ul {
+					margin-top: 3px;
+					margin-left: 16px;
+					padding-left: 16px;
+					border-left: 1px dotted gray;
+					> li {
+						position: relative;
+						&::before {
+							content: "";
+							display: block;
+							position: absolute;
+							left: -16px;
+							top: 6px;
+							width: 12px;
+							border-bottom: 1px dotted gray;
+						}
+						&:last-child::after {
+							content: "";
+							display: block;
+							position: absolute;
+							left: -20px;
+							top: 7px;
+							bottom: 0;
+							width: 8px;
+							background: #fff;
+						}
+					}
+				}
+				details {
+					margin-top: 0;
+					&[open] summary {
+						margin-bottom: 0;
+					}
+				}
+				ul details > summary:before {
+					margin-left: -22px;
+					position: relative;
+					z-index: 1;
+				}
+				details {
+					> summary:before {
+						text-align: center;
+						display: block;
+						float: left;
+						content: "+";
+						border: 1px solid gray;
+						width: 8px;
+						height: 9px;
+						line-height: 8px;
+						margin-right: 5px;
+						padding-left: 1px;
+						background-color: #fff;
+					}
+					&[open] > summary:before {
+						content: "-";
+					}
+					> summary {
+						&::-webkit-details-marker,
+						&::marker {
+							content: "";
+						}
+					}
+				}
 			}
 		}
 		#BSOD {
@@ -2848,7 +2978,6 @@ DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
 					<section>My Documents</section>
 				</footer>
 			</div>
-			<div class="app" id="app-help"><header id="helptitle"></header></div>
 			<div class="app" id="app-vb6">
 				<h2 id="vb6title">
 					<img src="/i/vb6.png">
@@ -3165,6 +3294,53 @@ C:\WINDOWS> </textarea>
 					<img src="/i/dreamweaver-icons.png">
 				</footer>
 			</form>
+			<form class="app" id="app-help" role="dialog">
+				<h2 id="helptitle">
+					<img src="/i/help-ico.png">
+					<a class="label">Windows Help</a>
+					<a id="helpmin"class="btn min"></a>
+					<a class="btn max"></a>
+					<a id="helpexit" class="btn close"></a>
+				</h2>
+				<section id="helpmenu"></section>
+				<aside id="welcome" class="client">
+					<h4>Welcome to help</h4>
+					<p>Use the help system to learn more about Windows 98.</p>
+					<ul>
+						<li>Find answers to your questions.</li>
+						<li>Browse the online version of the <i>Getting Started</i> book.</li>
+						<li>Connect to the web to get software updates.</li>
+						<li>Troubleshoot your system.</li>
+					</ul>
+					<div><a>&copy;1999 Microsoft corporation. All rights reserved.</a></div>
+				</aside>
+				<aside>
+					<div class="wrap">
+						<menu role="tablist">
+							<li role="tab" aria-selected="true"><a><u>C</u>ontents</a></li>
+							<li role="tab"><a>I<u>n</u>dex</a></li>
+							<li role="tab"><a><u>S</u>earch</a></li>
+						</menu>
+						<div class="window" role="tabpanel">
+							<div class="window-body client">
+								<ul class="tree-view">
+									<li><details><summary><img src="/i/help-sheet.png">Welcome to Help</summary></details></li>
+									<li><details><summary><img src="/i/help-ico.png">Introducing Windows 98</summary></details></li>
+									<li><details><summary><img src="/i/help-ico.png">Exploring your Computer</summary></details></li>
+									<li><details><summary><img src="/i/help-ico.png">Exploring the Internet</summary></details></li>
+									<li><details><summary><img src="/i/help-ico.png">Using Windows Accessories</summary></details></li>
+									<li><details><summary><img src="/i/help-ico.png">Printing</summary></details></li>
+									<li><details><summary><img src="/i/help-ico.png">Managing Hardware and Software</summary></details></li>
+									<li><details><summary><img src="/i/help-ico.png">Connecting to Networks</summary></details></li>
+									<li><details><summary><img src="/i/help-ico.png">Using Accessories and Features</summary></details></li>
+									<li><details><summary><img src="/i/help-ico.png">Getting Started Book: Online Version</summary></details></li>
+									<li><details><summary><img src="/i/help-ico.png">Troubleshooting</summary></details></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</aside>
+			</form>
 			<form class="app" id="app-regedit" role="dialog">
 				<h2 id="regedittitle">
 					<img src="/i/regedit.png">
@@ -3228,7 +3404,7 @@ C:\WINDOWS> </textarea>
 				<section name="start" class="menu more" id="settings"><img src="/i/settings.png"><sup><u>S</u>ettings</sup></section>
 				<section name="start" class="menu more"><img src="/i/search.png"><sup><u>F</u>ind</sup></section>
 				<section class="menu" id="help"><img src="/i/help.png"><sup><u>H</u>elp</sup></section>
-				<section class="menu" id="run"><img src="/i/run.png"><sup><u>R</u>un...</sup></section>
+				<section class="menu" id="dos"><img src="/i/run.png"><sup><u>R</u>un...</sup></section>
 				<section class="divider"></section>
 				<section class="menu" id="logoff"><img src="/i/logoff.png"><sup><u>L</u>og Off</sup></section>
 				<section class="menu" id="shutdown"><img src="/i/shutdown.png"><sup>Sh<u>u</u>t Down</sup></section>
@@ -3268,8 +3444,8 @@ C:\WINDOWS> </textarea>
 		</dialog>
 		<object id="Player" classid="CLSID:6BF52A52-394A-11d3-B153-00C04F79FAA6" style="display:none" width="245" height="240"></object>
 		<script>
-		(()=>{
-			const apps= [
+		(_=>{
+			const apps=[
 				"app-adraw",
 				"app-recovery",
 				"app-aohell",
@@ -3291,7 +3467,7 @@ C:\WINDOWS> </textarea>
 				"app-wsftp",
 				"app-xircon",
 			],
-			E = {
+			E={
 				c: "click",
 				d: "dblclick",
 				o: "mouseover",
@@ -3307,6 +3483,7 @@ C:\WINDOWS> </textarea>
 			},
 			errs=['Access denied','Attempt to remove the current directory','Attempt to write on write-protected diskette','Bad request structure length','Cannot make directory entry','Data error (CRC)','Drive not ready','Duplicate name on network','Duplicate redirection','FCB unavailable','Fail on INT 24H','File already exists','File not found','General failure','Incompatible remote adapter','Incorrect response from network','Insufficient memory','Invalid access code','Invalid data','Invalid disk change','Invalid drive was specified','Invalid environment','Invalid format','Invalid function number','Invalid handle.','Invalid memory block address','Invalid parameter','Invalid password','Lock violation','Memory control blocks destroyed','Network BIOS command limit exceeded','Network BIOS session limit exceeded','Network adapter hardware error','Network busy','Network device fault','Network device no longer exists','Network device type incorrect','Network name deleted','Network name limit exceeded','Network name not found','Network request not accepted','Network request not supported','No more files','Not enough space for print file','Not same device','Path not found','Print file deleted (not enough space)','Print of disk redirection paused','Print queue full.','Printer out of paper','Read fault','Remote computer not listening','Reserved','Sector not found','Seek Error','Sharing buffer overflow','Sharing violation','Temporarily paused','Too many open files','Too may redirection','Unexpected network error','Unknown command','Unknown media type','Unknown unit','Write fault'],
 			fatals=['Error 0D : 0157 : 0xAC1D0000-HEX {Q307908}','Exception 0D at VXD VMM(0H)+00005B01 0028:HEX','Exception 0E Access Violation in Module WMAD.EXE at HEX {Q312931}','Exception 0E at 0028:HEX in VXD called from 0028:C001d188 in VXDNDIS','Exception 0E at 0028:HEX in VXD VMM {Q253241}','Exception 0E at 0028:HEX in VXD IFSMGR','Exception 0E at 0028:HEX in VxD WSIPX(01)... called from 0028:C0043174 in VxD NDIS(01) {Q192445}','Exception 0E at 0xAC1D0000:HEX in VxD IFSMGR {Q153598}','Exception 0E... called from 0028:HEX in VxD NDIS {Q283043}','Fatal 0D has occurred at 0028:HEX or 0246:013F47FB','Fatal Exception 06 Has Occurred at 0xAC1D0000+HEX','Fatal Exception 06 at 0028:HEX in VXD VMM (06)','Fatal Exception 0E 0028:HEX in VXD VCACHE(01)','Fatal Exception 0E 06 at 0028: HEX ','Fatal Exception 0E at 0028:HEX in VXD SYMEvent','Fatal Exception 0E at 0028:HEX in VXD VREDIR','Fatal Exception 0E at 0028:HEX in VXD IFSMGR','Fatal Exception 0E at 0028:HEX in VXD IOS (04)','Fatal Exception 0E at 0028:HEX in VXD VSERVER','Fatal Exception 0E at 0028:HEX in VXD IFSMGR(01)','Fatal Exception 0E at 0028:HEX in VXD VWIN32','Fatal Exception 0E at 0028:HEX in VXD Emu10k1','Fatal Exception 0E at 0028:HEX in VXD IOS','Fatal Exception 0E at 0028:HEX in VXD IOS (01)','Fatal Exception 0E at 0028:HEX in VXD VMM (06)','Fatal Exception 0E at 0157:BFF9A25B + 0xAC1D0000:HEX','Fatal Exception 0E at HEX in VXD VWIN32','Fatal Exception 0E at 0xAC1D0000:HEX in VxD SCSI1HLP {Q250005}','Fatal Exception 0E in 0xAC1D0000:HEX VPOWERD','Fatal Exception 0E in 0xAC1D0000:HEX VXD IFSMGR','Fatal Exception in 0xAC1D0000:HEX CDVSD Starting','Fatal Exception in 0xAC1D0000:HEX VXD VMM','Fatal exception at 0028:HEX in VxD WSIPX(01) {Q192445}','MPREXE caused an exception 03h at HEX in module USER32.DLL','MSIMN caused an exception C0000006h+HEX in module DIRECTDB.DLL','MSTASK caused an exception 03h at HEX in module USER32.DLL','Program Has Caused a Fatal Exception 0D at 00457:HEX & Will Be Terminated','RUNDLL32 caused an exception 03h at HEX in module USER32.DLL','SCANDSKW caused Fatal exception 03h at HEX in module USER32.DLL','STATEMGR caused an exception 03h at HEXin module USER32.DLL','USR32.EXE caused an exception 03h at HEX in module USER32.DLL'],
+			fe={preventDefault:_=>{},stopPropagation:_=>{}},
 			$=e=>document.getElementById(e),
 			$$=e=>document.querySelector(e),
 			$$$=i=>document.querySelectorAll(i),
@@ -3316,27 +3493,32 @@ C:\WINDOWS> </textarea>
 				try{eyes.splice(eyes.indexOf(eyes.find(l=>l.e===x&&l.t===e&&l.l===r&&l.o===o)),1)}catch{}},
 			cl=(e,c,i=0)=>e.classList[i?'remove':'add'](c),
 			p0p=e=>{e.preventDefault();e.stopPropagation()},
-			sound=i=>{let a=new Audio('/s/'+i+'.mp3');a.play().catch(()=>{});return a},
+			sound=i=>{let a=new Audio('/s/'+i+'.mp3');a.play().catch(_=>{});return a},
 			fs=e=>{let d=document,b=d.body;foo(0);t(e);d.fullscreenElement?d.exitFullscreen():b.requestFullscreen()},
-			shutdown=()=>{
+			shutdown=_=>{
 				canvas.style.display="none";
 				eyes.forEach(({e,t,l,o})=>{e.removeEventListener(t,l,o)});
 				tasks=[];
 				eyes=[];
 				unselect();
 				tsync();
-				if(v)t({preventDefault:()=>{},stopPropagation:()=>{}});
+				dp.style.display="none";
+				$("dialogBody").innerHTML="";
+				$("poweroff").style.display="none";
+				if(v)t(fe);
 				apps.concat("cdc").forEach(a=>cl($(a),"app-hidden"))
 				tn.src="/i/tray-disconnected.png"},
 			msg=(m,f)=>{
 				let d=$("msg");
-				$("dialogBody").innerHTML=m;d.showModal();
-				$$$('#msg .close').forEach(i=>on(i,E.c,e=>(d.close(),f?.(e))))},
+				$("dialogBody").innerHTML=m;
+				d.showModal();
+				$$$('#msg .close').forEach(i=>on(i,E.c,e=>(f?.(e),d.close())))},
 			sm=$("startmenu").style,
 			fo=$("flyout"),
 			ts=$("tooltip"),
 			tn=$("traynet"),
 			p=$('pscolors'),
+			dp=$("dosprompt"),
 			startmenu=Array.from($$$("#startmenu .menu")),
 			canvas=$("glitch"),
 			now=new Date(),
@@ -3368,18 +3550,18 @@ C:\WINDOWS> </textarea>
 				ani.animate([
 					{left:r1.left+"px",top:r1.top+"px",width:r1.width+"px",height:r1.height+"px",opacity:1},
 					{left:r2.left+"px",top:r2.top+"px",width:r2.width+"px",height:r2.height+"px",opacity:0.3}
-				],{duration:500,easing:"ease"}).onfinish=()=>{
+				],{duration:500,easing:"ease"}).onfinish=_=>{
 					ani.remove();
 					cb&&cb()}},
 			tmin=e=>{
 				let win=$("app-"+e);
-				titlebar(e,0,()=>{
+				titlebar(e,0,_=>{
 					cl(win,"app-hidden");
 					tasks.find(task=>task.e===e&&(Object.assign(task,{h:1,f:0}),tsync()))})},
 			tmax=e=>{
 				let win=$("app-"+e);
 				if(win.classList.contains("app-hidden")){
-					titlebar(e,1,()=>{
+					titlebar(e,1,_=>{
 						cl(win,"app-hidden",1);
 						Object.assign(win.style,{zIndex:55,visibility:"visible"});
 					});
@@ -3397,7 +3579,9 @@ C:\WINDOWS> </textarea>
 				tsync();
 				apps.forEach(a=>$(a).style.zIndex=50);
 				tasks[tasks.findIndex(task=>task.e===e)].h=0;
-				if(e!="dialup"&&e!="ie"){tmax(e)}}
+				if(e!="dialup"&&e!="ie")tmax(e);
+				if(e==="dos")promptfocus($("dinput"))
+			}
 			topen=e=>{
 				!tasks.some(task=>task.e===e)&&
 					tasks.push({e,f:1,h:0,i: '/i/'+
@@ -3424,7 +3608,7 @@ C:\WINDOWS> </textarea>
 						 e==="wsftp"?'ws_ftp.png"><sup>WS_FTP95 Pro':
 						 e==="xircon"?'xircon.png"><sup>xIRCon v1.0b4':'')
 					});tfocus(e)}
-			tsync=()=>{
+			tsync=_=>{
 				$("tasks").innerHTML=tasks.map(task=>`<section name="${task.e}" class="task${task.f==1?' selected':''}"><img src="${task.i}</sup></section>`).join("");
 				$$$("#tasks .task").forEach(i=>on(i,E.c,e=>tfocus(e.currentTarget.getAttribute("name"))))},
 			tdrag=(e,app,xo,yo)=>{
@@ -3455,55 +3639,55 @@ C:\WINDOWS> </textarea>
 			tip=e=>{
 				Object.assign(ts.style,{left:e.target.getBoundingClientRect().left-100+"px",display:"block",opacity:1}),
 				ts.innerHTML=e.target.alt,
-				setTimeout(()=>Object.assign(ts.style,{display:"none",opacity:0}),5e3)},
-			noesc=()=>on(document,E.k,e=>{if(e.key==="Escape")n("BSOD")}),
+				setTimeout(_=>Object.assign(ts.style,{display:"none",opacity:0}),5e3)},
+			noesc=_=>on(document,E.k,e=>{if(e.key==="Escape")n("BSOD")}),
 			showctx=(i,e,xo,yo)=>Object.assign($(i).style,{display:"block",left:e.clientX+xo+"px",top:e.clientY+yo+"px"}),
-			hidectx=()=>["appmenu","desktopmenu"].forEach(i=>{$(i).style.display="none"}),
-			unselect=()=>{[
+			hidectx=_=>["appmenu","desktopmenu"].forEach(i=>{$(i).style.display="none"}),
+			unselect=_=>{[
 					...$$$('#desktop article'),
 					...$$$('#app-mycpu .ico'),
 					...$$$('#app-explorer .ico')
 				].forEach(i=>cl(i,"selected",1));
 				hidectx()
 			},
-			time=()=>clock.innerHTML=`${now.getHours()%12||12}<span class="blink">:</span>${now.getMinutes().toString().padStart(2,"0")} ${now.getHours()>=12?"pm":"am"}`,
-			eject=()=>{try{let c=0,col=Player.cdromCollection;while(c<col.count)col.item(c++).eject()}catch{}},
+			time=_=>clock.innerHTML=`${now.getHours()%12||12}<span class="blink">:</span>${now.getMinutes().toString().padStart(2,"0")} ${now.getHours()>=12?"pm":"am"}`,
+			eject=_=>{try{let c=0,col=Player.cdromCollection;while(c<col.count)col.item(c++).eject()}catch{}},
 			timer=s=>{
-				s ? dlt=setInterval(()=>{
+				s ? dlt=setInterval(_=>{
 					totalMinutes+=Math.floor(2880+Math.random()*(480));
 					$("dltime").innerHTML=
 						Math.floor(totalMinutes/1440)+" Days, "+
 						Math.floor(totalMinutes%1440/60)+" hours, "+
 						totalMinutes%60+" minutes";
 				},5e3):clearInterval(dlt)},
-			windows=()=>{
+			windows=_=>{
 				const listen=(el,evt,fn)=>on($(el),evt,fn),
-							closeAll=(sel,fn)=>$$$(sel).forEach(b=>on(b,E.c,fn)),
+							closeAll=(sel,fn)=>$$$(sel+" .close").forEach(b=>on(b,E.c,fn)),
 							dragWin=(id,xo,yo)=>on($(id),E.m,e=>tdrag(e,id.replace(/title$/,""),xo,yo)),
-							run=(a,{o,c,m,d,b,x}={})=>{
-								listen(a,E.c,e=>(p0p(e),unselect(),cl($(a),"selected")));
-								listen(a,E.d,e=>{
+							run=(a,{i,h,o,c,m,d,b,x}={})=>{
+								const fn=e=>{
 									topen(a);
 									if(d)dragWin(a+"title",d.x,d.y);
-									if(o)o(e);
-									if($(a+"exit")&&c!==false)listen(a+"exit",E.c,e=>{p0p(e);tclose(a);if(typeof c==="function")c()});
-									if($(a+"min")&&m!==false)listen(a+"min",E.c,e=>{p0p(e);tmin(a);if(typeof m==="function")m()});
-									if($(a+"body")&&b!==false)listen(a+"body",E.c,_=>n("BSOD"));
-									if(x)x(e);
-								});
+									$(a+"exit")&&c!==false&&listen(a+"exit",E.c,e=>(p0p(e),tclose(a),typeof c=="function"&&c()));
+									$(a+"min")&&m!==false&&listen(a+"min",E.c,e=>(p0p(e),tmin(a),typeof m=="function"&&m()));
+									$(a+"body")&&b!==false&&listen(a+"body",E.c,_=>n("BSOD"));
+									o?.(e);x?.(e);
+								};
+								if(i!==false)listen(a,E.c,e=>(p0p(e),unselect(),cl($(a),"selected")));
+								h===false?fn():listen(a,typeof h=="string"?h:E.d,fn);
 							},
 							ico=(a,d)=>{
-								$$(a).querySelectorAll('.ico').forEach(i => {
+								$$(a).querySelectorAll('.ico').forEach(i=>{
 									on(i,E.c,e=>(p0p(e),unselect(),cl(i,"selected")));
 									on(i,E.d,d)
 							})},
 							cdrom=e=>msg('<div class="pad"><aside><img style="user-select:none" src="/i/insert-cd.gif"></aside><section>Error reading drive E:\\</p><p>Please insert a CD ROM and try again</p><section class="field-row"><button class="close">Eject</button></section></div>',eject),
-							floppy=e=>msg('<div class="pad"><aside><img style="transform:scale(1);user-select:none" src="/i/insert-floppy.png"></aside><section>A:\\ is not accessible.</p><p>The device is not ready.</section><section class="field-row"><button class="close">Ok</button></section></div>',()=>n("BSOD")),
+							floppy=e=>msg('<div class="pad"><aside><img style="transform:scale(1);user-select:none" src="/i/insert-floppy.png"></aside><section>A:\\ is not accessible.</p><p>The device is not ready.</section><section class="field-row"><button class="close">Ok</button></section></div>',_=>n("BSOD")),
 							startmore=e=>{
 								const r=e.currentTarget.getBoundingClientRect();
 								p0p(e);foo(1);
 								e.currentTarget.getAttribute("name")==="start"?
-									Object.assign(fo.style,{padding:"15px",height:"52px",top:r.top+"px",left:r.left+r.width-22+"px"}):
+									Object.assign(fo.style,{padding:"10px",height:"52px",top:r.top+"px",left:r.left+r.width-22+"px"}):
 									Object.assign(fo.style,{padding:"8px 20px",height:"43px",top:r.top-5+"px",left:r.left+r.width-17+"px"});
 								switch(e.currentTarget.getAttribute("id")){
 									case "progs":
@@ -3539,34 +3723,32 @@ C:\WINDOWS> </textarea>
 							},
 							img=new Image();img.src="https://www.windows98.website/i/ie.png";
 				lok=0;
-				//{re,}init canvas
 				canvas.style.display="block";
 				canvas.width=ctx.canvas.clientWidth;
 				canvas.height=ctx.canvas.clientHeight;
 				ctx.clearRect(0, 0, canvas.width, canvas.height);
 				sound('startup');
-				// ICONS
 				["adraw","nero"].forEach(a=>run(a,{
 					d:{x:1,y:1}}));
 				run("aohell",{
 					d:{x:39,y:30}});
 				run("bo2k",{
 					d:{x:251,y:174},
-					o:()=>cl($("cdc"),"app-hidden",1),
-					x:()=>{
+					o:_=>cl($("cdc"),"app-hidden",1),
+					x:_=>{
 						listen("bo2kok",E.c,e=>(p0p(e),n("BSOD")));
 						listen("bo2kclose",E.c,e=>(p0p(e),tclose("bo2k")))}});
 				run("dreamweaver",{
 					d:{x:280,y:210},
-					x:()=>$$$("#app-dreamweaver img").forEach(i=>on(i,E.c,()=>n("BSOD")))});
+					x:_=>$$$("#app-dreamweaver img").forEach(i=>on(i,E.c,_=>n("BSOD")))});
 				run("explorer",{
 					d:{x:248,y:162},
 					b:false,
-					x:()=>ico("#app-explorer",e=>n("BSOD"))});
+					x:_=>ico("#app-explorer",e=>n("BSOD"))});
 				run("mycpu",{
 					d:{x:248,y:162},
 					b:false,
-					x:()=>ico("#app-mycpu",e=>{
+					x:_=>ico("#app-mycpu",e=>{
 						if(e.target.classList.contains("floppy"))floppy(e);
 						else if(e.target.classList.contains("cdrom"))cdrom(e);
 						else n("BSOD")})});
@@ -3576,9 +3758,9 @@ C:\WINDOWS> </textarea>
 				run("photoshop",{
 					d:{x:140,y:100},
 					b:false,
-					m:()=>p.blur(),
-					c:()=>p.blur(),
-					x:()=>listen("app-photoshop",E.c,()=>p.click())});
+					m:_=>p.blur(),
+					c:_=>p.blur(),
+					x:_=>listen("app-photoshop",E.c,_=>p.click())});
 				run("regedit",{
 					d:{x:221,y:107},
 					b:false});
@@ -3587,24 +3769,24 @@ C:\WINDOWS> </textarea>
 				run("utorrent",{
 					d:{x:250,y:133},
 					b:false,
-					o:()=>timer(1),
-					m:()=>timer(0),
-					c:()=>timer(0),
-					x:()=>listen("utorrentcancel",E.c,e=>(p0p(e),tclose("utorrent"),timer(0)))});
+					o:_=>timer(1),
+					m:_=>timer(0),
+					c:_=>timer(0),
+					x:_=>listen("utorrentcancel",E.c,e=>(p0p(e),tclose("utorrent"),timer(0)))});
 				run("vb6",{
 					d:{x:60,y:44}});
 				run("winamp",{
 					d:{x:1,y:1},
 					b:false,
-					x:()=>on($("winampbody"),E.c,e=>(p0p(e),sound("winamp")))});
+					x:_=>on($("winampbody"),E.c,e=>(p0p(e),sound("winamp")))});
 				run("wsftp",{
 					d:{x:280,y:205},
 					b:false,
-					x:()=>listen("app-wsftp", "submit",e=>(p0p(e),n("BSOD")))});
+					x:_=>listen("app-wsftp", "submit",e=>(p0p(e),n("BSOD")))});
 				run("xircon",{
 					d:{x:60,y:44},
 				});
-				listen("spewfy",E.c,()=>{msg('<div class="pad"><aside><img style="transform:scale(1);user-select:none" src="/i/err.png"></aside><section>The Program can\'t start because VB40032.DLL is missing from<br/>your computer. Try reinstalling the program to fix this problem.</p><section class="field-row"><button class="close">Ok</button></section></div>',()=>{})});
+				listen("spewfy",E.c,_=>{msg('<div class="pad"><aside><img style="transform:scale(1);user-select:none" src="/i/err.png"></aside><section>The Program can\'t start because VB40032.DLL is missing from<br/>your computer. Try reinstalling the program to fix this problem.</p><section class="field-row"><button class="close">Ok</button></section></div>',_=>{})});
 				listen("cd",E.d,cdrom);
 				listen("disks",E.d,floppy);
 				listen("msie",E.d,e=>{
@@ -3620,7 +3802,7 @@ C:\WINDOWS> </textarea>
 					const id="dialup";
 					topen(id);
 					let d,i=0,a=sound('dialup'),
-					l=setInterval(()=>(i+=10)<=100
+					l=setInterval(_=>(i+=10)<=100
 						?d.width=i+"%"
 						:(d.width="100%",
 							d.background="#008000",
@@ -3631,7 +3813,7 @@ C:\WINDOWS> </textarea>
 							tn.alt="Connected to Clover.net at 28.8 mbps",
 							clearInterval(l)),2424);
 					msg('<img id="dialupani" width="347" height="144" src="/i/dialing.gif"><p id="lbldialup">Dialing up clover.net... 740-284-0003</p><div class="progress"><span id="dialupbar" style="width: 0%;"> </span></div></p><section class="field-row"><button id="btndialup" class="close">Cancel</button></section>',
-						()=>{a.pause(),clearInterval(l),tclose(id)});
+						_=>{a.pause(),clearInterval(l),tclose(id)});
 					d=$("dialupbar").style;
 				});
 				listen("game",E.d,e=>{
@@ -3640,7 +3822,6 @@ C:\WINDOWS> </textarea>
 					lok=1;
 					victory();
 				});
-				// DRAG & DESKTOP
 				on($("desktop"),E.c,e=>(unselect(),v&&t(e)));
 				$$$('#desktop article').forEach(i=>on(i,E.c,e=>(p0p(e),unselect(),v&&t(e),cl(e.target.parentElement,"selected"))));
 				$$$('article img').forEach(i=>{
@@ -3652,16 +3833,19 @@ C:\WINDOWS> </textarea>
 						on(document,E.v,m);on(document,E.p,u);
 					});
 				});
-				// START MENU
 				listen("start",E.c,t);
-				listen("help",E.c,e=>(topen("help"),t(e),on($("app-help"),E.c,()=>n("BSOD"))));
-				listen("run",E.c,e=>{
-					t(e);
-					topen("dos");
-					dragWin("dostitle",1,1);
-					prompt($("dinput"));
-					listen("dosexit",E.c,e=>(p0p(e),tclose("dos")));
-					listen("dosmin",E.c,e=>(p0p(e),tmin("dos")));
+				run("help",{
+					h:E.c,
+					i:false,
+					d:{x:219,y:150},
+					o:_=>t(fe),
+					x:_=>listen("helpmenu",E.c,_=>n("BSOD")),
+				});
+				run("dos",{
+					h:E.c,
+					i:false,
+					d:{x:1,y:1},
+					o:_=>{let d=$("dinput");prompt(d);promptfocus(d);t(fe)},
 				});
 				listen("logoff",E.c,i=>{
 					t(i);msg('<aside><img src="/i/logoff.png"></aside><section><p>Are your sure you want to log off?</p><section class="field-row"><button id="loconfim">Yes</button><button class="close">No</button></section>', e=>{});
@@ -3677,30 +3861,32 @@ C:\WINDOWS> </textarea>
 							(!$("pw").value)?
 								$("frmErr").innerHTML="Enter your password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;":
 								(d.close(),n("windows"),document.body.style.background="#222")})})});
-				listen("shutdown",E.c,e=>{t(e);msg(
-				 `<aside><img src="/i/shutdown.png"></aside><section><p>What do you want your computer to do?</p>
-					<section class="field-row aleft"><input id="r1" type="radio" name="shutdownopt"><label for="r1">S<u>t</u>and By</label></section>
-					<section class="field-row aleft"><input id="r2" type="radio" name="shutdownopt"><label for="r2"><u>S</u>hutdown</label></section>
-					<section class="field-row aleft"><input id="r3" type="radio" name="shutdownopt"><label for="r3"><u>R</u>estart</label></section>
-					<section class="field-row aleft"><input id="r4" type="radio" name="shutdownopt"><label for="r4">Restart in <u>M</u>S-DOS mode</label></section>
-					<section class="field-row aleft"><button class="close">Ok</button><button class="close">Cancel</button><button class="help">Help</button></section>`,
-					e=>{p0p(e);
-						switch($$("input[name=shutdownopt]:checked").id){
-							case "r1":suspend();break;
-							case "r2":n("poweroff");break;
-							case "r3":(shutdown(),n("boot"));break;
-							case "r4":msdos();break;
-							default: n("BSOD");break;
-						}}
-				)});
+				listen("shutdown",E.c,e=>{
+					t(e);p0p(e);
+					let d=$("msg");
+					$("dialogBody").innerHTML=`<form id="frmSd"><aside><img src="/i/shutdown.png"></aside><section><p>What do you want your computer to do?</p><section class="field-row aleft"><input id="r1" type="radio" name="shutdownopt"><label for="r1">S<u>t</u>and By</label></section><section class="field-row aleft"><input id="r2" type="radio" name="shutdownopt"><label for="r2"><u>S</u>hutdown</label></section><section class="field-row aleft"><input id="r3" type="radio" name="shutdownopt"><label for="r3"><u>R</u>estart</label></section><section class="field-row aleft"><input id="r4" type="radio" name="shutdownopt"><label for="r4">Restart in <u>M</u>S-DOS mode</label></section><section class="field-row aleft"><button type="submit">Ok</button><button class="close">Cancel</button><button class="help">Help</button></section></form>`;
+					d.showModal();
+					closeAll("#frmSd",_=>d.close());
+					on($("frmSd"),E.s,e=>{
+						p0p(e);
+						if($$("input[name=shutdownopt]:checked")){
+							switch($$("input[name=shutdownopt]:checked").id){
+								case "r1":suspend();break;
+								case "r2":n("poweroff");break;
+								case "r3":(shutdown(),n("boot"));break;
+								case "r4":msdos();break;
+								default: n("BSOD");break
+							}
+							d.close()
+						}else{
+							$$("input[name=shutdownopt]").focus();
+						}})});
 				$$$(".more").forEach(i=>{
 					on(i,E.u,e=>foo(0));
 					on(i,E.o,startmore);
 				});
 				on(fo,E.o,e=>foo(1));
 				on(fo,E.u,e=>foo(0));
-
-				// CONTEXT MENUS
 				on($("desktop"),E.x,e=>{
 					p0p(e);unselect();
 					if(v)t(e);
@@ -3713,11 +3899,9 @@ C:\WINDOWS> </textarea>
 						cl(e.target.parentElement,"selected");
 						showctx("appmenu",e,20,27);
 				})});
-				// TASKBAR
 				$$$("footer aside img").forEach(i=>(on(i,E.c,tip),on(i,E.o,tip)));
 				listen("mail",E.c,e=>sound('yougotmail'));
 				listen("showdesktop",E.c,e=>showdesktop());
-				// KEYBOARD
 				startmenu.forEach(e=>e.tabIndex=0);
 				on(window,E.k,e=>{
 					if(e.metaKey)t(e);
@@ -3725,8 +3909,9 @@ C:\WINDOWS> </textarea>
 						foo(0);
 						menus=startmenu;
 						popt=false;
-						fop = 0;
+						fop=0;
 						menus[fop].focus();
+						t(e);
 						return;
 					}
 					if(!v)return;
@@ -3737,7 +3922,7 @@ C:\WINDOWS> </textarea>
 					}else if(e.key=="ArrowRight"&&!popt&&sel!==-1&&menus[sel].classList.contains("more")) {
 						startmore({target:menus[sel],currentTarget:menus[sel],preventDefault(){},stopPropagation(){}});
 						fop=sel;
-						setTimeout(()=>{
+						setTimeout(_=>{
 							let fm=Array.from($$$("#flyout a"));
 							if (fm.length) {
 								fm.forEach(e=>e.tabIndex=0);
@@ -3752,39 +3937,30 @@ C:\WINDOWS> </textarea>
 						menus[sel].click();
 					}
 				});
-				if(rec>0){
-					topen("recovery");
-					dragWin("recoverytitle",252,144);
-					listen("recoverymin",E.c,_=>tmin("recovery"));
-					listen("recoveryexit",E.c,_=>tclose("recovery"));
-					listen("recoverycancel",E.c,_=>tclose("recovery"));
-					listen("recoverycheck",E.c,_=>msdos());
-				}
+				if(rec>0)run("recovery",{h:false,i:false,d:{x:252,y:144},
+					o:_=>{listen("recoverycancel",E.c,_=>tclose("recovery"));listen("recoverycheck",E.c,_=>n("BSOD"))}})
 			},
-			victory=()=>{
-				if(lok==1){const width=71,height=96,cwidth=width,cheight=height,cwidthhalf=cwidth/2,cheighthalf=cheight/2,card=new Image();
+			victory=_=>{
+				const width=71,height=96,cwidth=width,cheight=height,cwidthhalf=cwidth/2,cheighthalf=cheight/2,card=new Image();
 				let id=52;
 				function PlayingCard(id,x,y,sx,sy){
 					if(sx===0)sx=2;
 					let cx=(id%4)*width,cy=Math.floor(id/4)*height;
-					this.update=()=>{
+					this.update=_=>{
 						x+=sx;y+=sy;
-						if(x<(-cwidthhalf)||x>(canvas.width+cwidthhalf)){
-							cards.splice(cards.indexOf(this),1);return false;
-						}
-						if(y>canvas.height-cheighthalf){
-							y=canvas.height-cheighthalf;sy=-sy*0.85;
-						}
+						if(x<-cwidthhalf||x>canvas.width+cwidthhalf)return cards.splice(cards.indexOf(this),1),false;
+						y>canvas.height-cheighthalf&&(y=canvas.height-cheighthalf,sy=-sy*0.85);
 						sy+=0.98;
-						ctx.drawImage(card,cx,cy,width,height,Math.floor(x-cwidthhalf),Math.floor(y-cheighthalf),cwidth,cheight);
+						lok&&ctx.drawImage(card,cx,cy,width,height,Math.floor(x-cwidthhalf),Math.floor(y-cheighthalf),cwidth,cheight);
 						return true}}
 				const throwCard=(x,y)=>cards.push(new PlayingCard(id>0?id--:id=51,x,y,Math.floor(Math.random()*6-3)*2,-Math.random()*16)),
-				ani=()=>{let i=0,l=cards.length;while(i<l){cards[i].update()?i++:l--}requestAnimationFrame(ani)};
+				ani=_=>{let i=0,l=cards.length;while(i<l){cards[i].update()?i++:l--}requestAnimationFrame(ani)};
 				card.src="https://www.windows98.website/i/cards.png";
 				on(document.body,E.P,e=>{throwCard(e.clientX,e.clientY)});
 				on(document.body,E.V,e=>{if(e.pressure===0)return;throwCard(e.clientX,e.clientY)});
 				noesc();
-				requestAnimationFrame(ani)}},
+				lok&&requestAnimationFrame(ani)
+			},
 			suspend=e=>{
 				const po=$("poweroff");
 				shutdown();
@@ -3805,7 +3981,7 @@ C:\WINDOWS> </textarea>
 				let b=$("boot").style;
 				b.visibility="visible";
 				$("sdmsg").style.display="block";
-				setTimeout(()=>{
+				setTimeout(_=>{
 					b.visibility="hidden";
 					$("poweroff").style.display="block";
 					$("shutdowntext").style.display="block";
@@ -3816,35 +3992,55 @@ C:\WINDOWS> </textarea>
 				off($("BSOD"),E.c,reboot);
 				off(window,E.k,reboot);
 				n("boot")},
-			bsod=()=>{
+			bsod=_=>{
 				shutdown();
 				rec++;
-				$("bsoderr").innerHTML = fatals[Math.random()*fatals.length|0].replace(/HEX/g,Math.random().toString(16).substring(2,10).toUpperCase());
+				$("bsoderr").innerHTML=fatals[Math.random()*fatals.length|0].replace(/HEX/g,Math.random().toString(16).substring(2,10).toUpperCase());
 				on($("BSOD"),E.c,reboot);
 				on(window,E.k,reboot)},
-			promptfocus=d=>(d.focus(),d.setSelectionRange(d.value.length,d.value.length),d.scrollTop=d.scrollHeight),
-			prompt=i=>{promptfocus(i);on(i,E.k,e=>{if(e.key=="Enter"){e.preventDefault();e.target.value+=`\n${errs[Math.random()*errs.length|0]}\n\nC:\\WINDOWS> `;promptfocus(i)}})},
-			msdos=()=>{
+			cmdPrompt=e=>{
+				if(e.key!="Enter")return;
+				e.preventDefault();
+				let p=e.target.value.split('WINDOWS> ').pop(),m=errs[Math.random()*errs.length|0];
+				if(p.includes('help'))m="bwahahaha! there's no help here.";
+				if(p.includes('quit'))m="quitters never win.";
+				if(p.includes('shutdown'))n("poweroff");
+				if(p.includes('reboot')){
+					shutdown();
+					$("shutdowntext").style.display="none";
+					$("sdmsg").style.display="none";
+					n("boot")
+				};
+				e.target.value+=`\n${m}\n\nC:\\WINDOWS> `;
+				promptfocus(e.target)},
+			promptfocus=d=>(setTimeout(_=>{
+				d.style.display="block";
+				d.focus();
+				d.setSelectionRange(d.value.length,d.value.length),d.scrollTop=d.scrollHeight;
+			},1000)),
+			prompt=i=>on(i,E.k,cmdPrompt),
+			msdos=_=>{
 				sound("logoff");
 				shutdown();
 				document.body.style.cursor='wait';
-				let b=$("boot").style,dp=$("dosprompt");
+				let b=$("boot").style;
 				b.visibility="visible";
 				$("sdmsg").style.display="block";
 				$("sdmsg").innerHTML="Rebooting to MS-DOS...";
-				setTimeout(()=>{
+				setTimeout(_=>{
 					b.visibility="hidden";
 					$("windows").style.visibility="hidden";
 					$("poweroff").style.display="block";
 					$("shutdowntext").style.display="none";
 					document.body.style.cursor='auto';
 					clearTimeout(this)
-					dp.style.display="block",dp.focus(),dp.setSelectionRange(dp.value.length,dp.value.length)
 					prompt(dp);
+					promptfocus(dp);
 				},2000)},
-			boot=()=>setTimeout(()=>{n("windows");clearTimeout(this)},2000);
+			boot=_=>setTimeout(_=>{n("windows");clearTimeout(this)},2000);
 			//let's boot up!
 			let v=!1,eyes=[],tasks=[],cards=[],ctx=canvas.getContext("2d"),totalMinutes=369426,rec=0,lok=0,menus=startmenu,popt=false,fop=-1;
+			menus.forEach(m=>m.onmouseenter=_=>m.focus());
 			n("boot");
 			time();setInterval(time,60000);
 		})();

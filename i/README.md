@@ -186,6 +186,12 @@
 
 ![dreamweaver-settings.png](dreamweaver-settings.png)
 
+![help-clouds.png](help-clouds.png)
+
+![help-menu.png](help-menu.png)
+
+![help-sheet.png](help-sheet.png)
+
 ![exp-btns.png](exp-btns.png)
 
 ![exp-clouds.png](exp-clouds.png)
