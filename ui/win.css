@@ -1,8 +1,15 @@
 @font-face {
   font-family: "Pixelated MS Sans Serif";
-  src: url(/ui/f/ms_sans_serif.woff) format("woff");
-  src: url(/ui/f/ms_sans_serif.woff2) format("woff2");
+  src: url(/ui/f/ms_sans_serif.woff2) format("woff2"),
+       url(/ui/f/ms_sans_serif.woff) format("woff");
   font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pixelated MS Sans Serif";
+  src: url(/ui/f/ms_sans_serif_bold.woff2) format("woff2"),
+       url(/ui/f/ms_sans_serif_bold.woff) format("woff");
+  font-weight: 700;
   font-style: normal;
 }
 *,
@@ -1217,7 +1224,6 @@ button {
         display: flex;
         padding-left: 3px;
       }
-
       menu[role="tablist"] > li {
         border-top-left-radius: 3px;
         border-top-right-radius: 3px;
@@ -1228,7 +1234,6 @@ button {
           inset 2px 2px #fff;
         z-index: 1;
       }
-
       menu[role="tablist"] > li[aria-selected="true"] {
         padding-bottom: 2px;
         margin-top: -2px;
@@ -1237,7 +1242,6 @@ button {
         z-index: 8;
         margin-left: -3px;
       }
-
       menu[role="tablist"] > li > a {
         display: block;
         color: #222;
@@ -1250,6 +1254,9 @@ button {
       menu[role="tablist"] > li > a:focus {
         outline: 1px dotted #222;
       }
+			.tree-view li:first-child{
+				margin-top:0px;
+			}
     }
     #welcome {
       background-color: #fff;
@@ -2261,6 +2268,88 @@ button {
       border: 0;
     }
   }
+	&.alttab {
+		text-align: center;
+		main {
+			display:flex;
+      background-color: silver;
+      border-color: #e0e0e0 gray gray #e0e0e0;
+      border-style: solid;
+      border-width: 3px;
+      box-sizing: border-box;
+      color: #000;
+      cursor: default;
+      display: flex;
+      flex-flow: column;
+      font-size: 12px;
+      font-style: normal;
+      left: 50%;
+      padding: 3px 20px 10px 20px;
+      position: absolute;
+      top: 50%;
+			transform:
+				translate(-50%, -50%);
+		}
+		section {
+			display:flex;
+			padding: 5px;
+			&.icons {
+        padding: 5px 0px 10px 0px;
+        flex-flow: row;
+        margin: 0 auto;
+			}
+			&.title {
+        border-width: 1px;
+        border-style: solid;
+        border-color: gray #fff #fff gray;
+        position: relative;
+        text-align: left;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        &::after,
+        &::before {
+          content: "";
+          position: absolute;
+          box-sizing: border-box;
+        }
+        &::after {
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          border-width: 1px;
+          border-style: solid;
+          border-color: #000 silver silver #000;
+          pointer-events: none;
+        }
+			}
+      sup {
+        font-size: 20px;
+        font-weight: 700;
+        display: inline-block;
+        min-width: 300px;
+        padding: 5px;
+      }
+		}
+		.alttab-task {
+			display: inline-block;
+			margin: 0 8px;
+			padding: 8px 12px;
+			color: #222;
+			border: 4px solid silver;
+			vertical-align: middle;
+			box-shadow: none;
+			transition: background 0.2s, color 0.2s, box-shadow 0.2s, border 0.2s;
+		}
+		.alttab-task.selected {
+			border: 4px solid #000081;
+		}
+		.alttab-task img {
+			height: 48px;
+			vertical-align: middle;
+		}
+	}
 }
 #msg,
 dialog {
@@ -2435,12 +2524,10 @@ dialog input {
     outline: 1px dotted #000;
   }
 }
-
 input[type="checkbox"] + label {
   position: relative;
   margin-left: 19px;
 }
-
 input[type="checkbox"] + label::before {
   content: "";
   position: absolute;
@@ -2456,12 +2543,10 @@ input[type="checkbox"] + label::before {
     inset 2px 2px #0a0a0a;
   margin-right: 6px;
 }
-
 input[type="checkbox"][disabled] + label::before,
 input[type="checkbox"]:active + label::before {
   background: #c0c0c0;
 }
-
 input[type="checkbox"]:checked + label::after {
   content: "";
   display: block;
@@ -2472,7 +2557,6 @@ input[type="checkbox"]:checked + label::after {
   top: 3px;
   background: url("/ui/i/checkmark.svg");
 }
-
 input[type="checkbox"][disabled]:checked + label::after {
   background: url("/ui/i/checkmark-disabled.svg");
 }

@@ -21,23 +21,24 @@
 		"app-wsftp",
 		"app-xircon",
 	],
-		E={
-			c: "click",
-			d: "dblclick",
-			o: "mouseover",
-			u: "mouseout",
-			m: "mousedown",
-			p: "mouseup",
-			v: "mousemove",
-			x: "contextmenu",
-			k: "keydown",
-			s: "submit",
-			P: "pointerdown",
-			V: "pointermove",
-		},
-		errs=['Access denied','Attempt to remove the current directory','Attempt to write on write-protected diskette','Bad request structure length','Cannot make directory entry','Data error (CRC)','Drive not ready','Duplicate name on network','Duplicate redirection','FCB unavailable','Fail on INT 24H','File already exists','File not found','General failure','Incompatible remote adapter','Incorrect response from network','Insufficient memory','Invalid access code','Invalid data','Invalid disk change','Invalid drive was specified','Invalid environment','Invalid format','Invalid function number','Invalid handle.','Invalid memory block address','Invalid parameter','Invalid password','Lock violation','Memory control blocks destroyed','Network BIOS command limit exceeded','Network BIOS session limit exceeded','Network adapter hardware error','Network busy','Network device fault','Network device no longer exists','Network device type incorrect','Network name deleted','Network name limit exceeded','Network name not found','Network request not accepted','Network request not supported','No more files','Not enough space for print file','Not same device','Path not found','Print file deleted (not enough space)','Print of disk redirection paused','Print queue full.','Printer out of paper','Read fault','Remote computer not listening','Reserved','Sector not found','Seek Error','Sharing buffer overflow','Sharing violation','Temporarily paused','Too many open files','Too may redirection','Unexpected network error','Unknown command','Unknown media type','Unknown unit','Write fault'],
-			fatals=['Error 0D : 0157 : 0xAC1D0000-HEX {Q307908}','Exception 0D at VXD VMM(0H)+00005B01 0028:HEX','Exception 0E Access Violation in Module WMAD.EXE at HEX {Q312931}','Exception 0E at 0028:HEX in VXD called from 0028:C001d188 in VXDNDIS','Exception 0E at 0028:HEX in VXD VMM {Q253241}','Exception 0E at 0028:HEX in VXD IFSMGR','Exception 0E at 0028:HEX in VxD WSIPX(01)... called from 0028:C0043174 in VxD NDIS(01) {Q192445}','Exception 0E at 0xAC1D0000:HEX in VxD IFSMGR {Q153598}','Exception 0E... called from 0028:HEX in VxD NDIS {Q283043}','Fatal 0D has occurred at 0028:HEX or 0246:013F47FB','Fatal Exception 06 Has Occurred at 0xAC1D0000+HEX','Fatal Exception 06 at 0028:HEX in VXD VMM (06)','Fatal Exception 0E 0028:HEX in VXD VCACHE(01)','Fatal Exception 0E 06 at 0028: HEX ','Fatal Exception 0E at 0028:HEX in VXD SYMEvent','Fatal Exception 0E at 0028:HEX in VXD VREDIR','Fatal Exception 0E at 0028:HEX in VXD IFSMGR','Fatal Exception 0E at 0028:HEX in VXD IOS (04)','Fatal Exception 0E at 0028:HEX in VXD VSERVER','Fatal Exception 0E at 0028:HEX in VXD IFSMGR(01)','Fatal Exception 0E at 0028:HEX in VXD VWIN32','Fatal Exception 0E at 0028:HEX in VXD Emu10k1','Fatal Exception 0E at 0028:HEX in VXD IOS','Fatal Exception 0E at 0028:HEX in VXD IOS (01)','Fatal Exception 0E at 0028:HEX in VXD VMM (06)','Fatal Exception 0E at 0157:BFF9A25B + 0xAC1D0000:HEX','Fatal Exception 0E at HEX in VXD VWIN32','Fatal Exception 0E at 0xAC1D0000:HEX in VxD SCSI1HLP {Q250005}','Fatal Exception 0E in 0xAC1D0000:HEX VPOWERD','Fatal Exception 0E in 0xAC1D0000:HEX VXD IFSMGR','Fatal Exception in 0xAC1D0000:HEX CDVSD Starting','Fatal Exception in 0xAC1D0000:HEX VXD VMM','Fatal exception at 0028:HEX in VxD WSIPX(01) {Q192445}','MPREXE caused an exception 03h at HEX in module USER32.DLL','MSIMN caused an exception C0000006h+HEX in module DIRECTDB.DLL','MSTASK caused an exception 03h at HEX in module USER32.DLL','Program Has Caused a Fatal Exception 0D at 00457:HEX & Will Be Terminated','RUNDLL32 caused an exception 03h at HEX in module USER32.DLL','SCANDSKW caused Fatal exception 03h at HEX in module USER32.DLL','STATEMGR caused an exception 03h at HEXin module USER32.DLL','USR32.EXE caused an exception 03h at HEX in module USER32.DLL'],
-			fe={preventDefault:_=>{},stopPropagation:_=>{}},
+	E={
+		c: "click",
+		d: "dblclick",
+		o: "mouseover",
+		u: "mouseout",
+		m: "mousedown",
+		p: "mouseup",
+		v: "mousemove",
+		x: "contextmenu",
+		k: "keydown",
+		U: "keyup",
+		s: "submit",
+		P: "pointerdown",
+		V: "pointermove",
+	},
+	errs=['Access denied','Attempt to remove the current directory','Attempt to write on write-protected diskette','Bad request structure length','Cannot make directory entry','Data error (CRC)','Drive not ready','Duplicate name on network','Duplicate redirection','FCB unavailable','Fail on INT 24H','File already exists','File not found','General failure','Incompatible remote adapter','Incorrect response from network','Insufficient memory','Invalid access code','Invalid data','Invalid disk change','Invalid drive was specified','Invalid environment','Invalid format','Invalid function number','Invalid handle.','Invalid memory block address','Invalid parameter','Invalid password','Lock violation','Memory control blocks destroyed','Network BIOS command limit exceeded','Network BIOS session limit exceeded','Network adapter hardware error','Network busy','Network device fault','Network device no longer exists','Network device type incorrect','Network name deleted','Network name limit exceeded','Network name not found','Network request not accepted','Network request not supported','No more files','Not enough space for print file','Not same device','Path not found','Print file deleted (not enough space)','Print of disk redirection paused','Print queue full.','Printer out of paper','Read fault','Remote computer not listening','Reserved','Sector not found','Seek Error','Sharing buffer overflow','Sharing violation','Temporarily paused','Too many open files','Too may redirection','Unexpected network error','Unknown command','Unknown media type','Unknown unit','Write fault'],
+	fatals=['Error 0D : 0157 : 0xAC1D0000-HEX {Q307908}','Exception 0D at VXD VMM(0H)+00005B01 0028:HEX','Exception 0E Access Violation in Module WMAD.EXE at HEX {Q312931}','Exception 0E at 0028:HEX in VXD called from 0028:C001d188 in VXDNDIS','Exception 0E at 0028:HEX in VXD VMM {Q253241}','Exception 0E at 0028:HEX in VXD IFSMGR','Exception 0E at 0028:HEX in VxD WSIPX(01)... called from 0028:C0043174 in VxD NDIS(01) {Q192445}','Exception 0E at 0xAC1D0000:HEX in VxD IFSMGR {Q153598}','Exception 0E... called from 0028:HEX in VxD NDIS {Q283043}','Fatal 0D has occurred at 0028:HEX or 0246:013F47FB','Fatal Exception 06 Has Occurred at 0xAC1D0000+HEX','Fatal Exception 06 at 0028:HEX in VXD VMM (06)','Fatal Exception 0E 0028:HEX in VXD VCACHE(01)','Fatal Exception 0E 06 at 0028: HEX ','Fatal Exception 0E at 0028:HEX in VXD SYMEvent','Fatal Exception 0E at 0028:HEX in VXD VREDIR','Fatal Exception 0E at 0028:HEX in VXD IFSMGR','Fatal Exception 0E at 0028:HEX in VXD IOS (04)','Fatal Exception 0E at 0028:HEX in VXD VSERVER','Fatal Exception 0E at 0028:HEX in VXD IFSMGR(01)','Fatal Exception 0E at 0028:HEX in VXD VWIN32','Fatal Exception 0E at 0028:HEX in VXD Emu10k1','Fatal Exception 0E at 0028:HEX in VXD IOS','Fatal Exception 0E at 0028:HEX in VXD IOS (01)','Fatal Exception 0E at 0028:HEX in VXD VMM (06)','Fatal Exception 0E at 0157:BFF9A25B + 0xAC1D0000:HEX','Fatal Exception 0E at HEX in VXD VWIN32','Fatal Exception 0E at 0xAC1D0000:HEX in VxD SCSI1HLP {Q250005}','Fatal Exception 0E in 0xAC1D0000:HEX VPOWERD','Fatal Exception 0E in 0xAC1D0000:HEX VXD IFSMGR','Fatal Exception in 0xAC1D0000:HEX CDVSD Starting','Fatal Exception in 0xAC1D0000:HEX VXD VMM','Fatal exception at 0028:HEX in VxD WSIPX(01) {Q192445}','MPREXE caused an exception 03h at HEX in module USER32.DLL','MSIMN caused an exception C0000006h+HEX in module DIRECTDB.DLL','MSTASK caused an exception 03h at HEX in module USER32.DLL','Program Has Caused a Fatal Exception 0D at 00457:HEX & Will Be Terminated','RUNDLL32 caused an exception 03h at HEX in module USER32.DLL','SCANDSKW caused Fatal exception 03h at HEX in module USER32.DLL','STATEMGR caused an exception 03h at HEXin module USER32.DLL','USR32.EXE caused an exception 03h at HEX in module USER32.DLL'],
+	fe={preventDefault:_=>{},stopPropagation:_=>{}},
 	$=e=>document.getElementById(e),
 	$$=e=>document.querySelector(e),
 	$$$=i=>document.querySelectorAll(i),
@@ -78,18 +79,20 @@
 	now=new Date(),
 	clock=$("clock"),
 	showdesktop=_=>{
-		apps.forEach(a=>cl($(a),"app-hidden"));
-		tasks.forEach(i=>(i.h=1,i.f=0));
+		(sd=!sd)?
+			tasks.forEach(i=>(i.h=1,i.f=0,cl($("app-"+i.e),"app-hidden"))):
+		 (tasks.forEach(i=>(i.h=0,i.f=0,cl($("app-"+i.e),"app-hidden",1))),
+			tfocus(tasks[tasks.length-1].e));
 		tsync()},
 	titlebar=(e,dir,cb)=>{
 		let win=$("app-"+e),
-			head=win.querySelector("header,h2"),
-			task=$$('#tasks > section[name="'+e+'"]'),
-			a=dir?task:head,
-			b=dir?head:task,
-			r1=a.getBoundingClientRect(),
-			r2=b.getBoundingClientRect(),
-			ani=document.createElement("div");
+		head=win.querySelector("header,h2"),
+		task=$$('#tasks > section[name="'+e+'"]'),
+		a=dir?task:head,
+		b=dir?head:task,
+		r1=a.getBoundingClientRect(),
+		r2=b.getBoundingClientRect(),
+		ani=document.createElement("div");
 		ani.id="minani";
 		Object.assign(ani.style,{
 			left:r1.left+"px",
@@ -136,10 +139,10 @@
 		if(e!="dialup"&&e!="ie")tmax(e);
 		if(e==="dos")promptfocus($("dinput"))
 	}
-topen=e=>{
-	!tasks.some(task=>task.e===e)&&
-		tasks.push({e,f:1,h:0,i: '/ui/i/'+
-			(e==="adraw"?'msdos.png"><sup>ACiDDraw - MS-DOS':
+	topen=e=>{
+		!tasks.some(task=>task.e===e)&&
+			tasks.push({e,f:1,h:0,i: '/ui/i/'+(
+				e==="adraw"?'msdos.png"><sup>ACiDDraw - MS-DOS':
 				e==="aohell"?'aohell.png"><sup>AOHell 95 v3.0 B5':
 				e==="bo2k"?'bo2k-server.png"><sup>Back Orifice 2000':
 				e==="dialup"?'modem.png"><sup>Windows98 - Dial Up':
@@ -160,19 +163,19 @@ topen=e=>{
 				e==="vb6"?'vb6.png"><sup>Visual Basic v6.0':
 				e==="winamp"?'winamp.png"><sup>WinAmp':
 				e==="wsftp"?'ws_ftp.png"><sup>WS_FTP95 Pro':
-				e==="xircon"?'xircon.png"><sup>xIRCon v1.0b4':'')
-		});tfocus(e)}
-tsync=_=>{
-	$("tasks").innerHTML=tasks.map(task=>`<section name="${task.e}" class="task${task.f==1?' selected':''}"><img src="${task.i}</sup></section>`).join("");
-	$$$("#tasks .task").forEach(i=>on(i,E.c,e=>tfocus(e.currentTarget.getAttribute("name"))))},
+				e==="xircon"?'xircon.png"><sup>xIRCon v1.0b4':
+			'')});tfocus(e)}
+	tsync=_=>{
+		$("tasks").innerHTML=tasks.map(task=>`<section name="${task.e}" class="task${task.f==1?' selected':''}"><img src="${task.i}</sup></section>`).join("");
+		$$$("#tasks .task").forEach(i=>on(i,E.c,e=>tfocus(e.currentTarget.getAttribute("name"))))},
 	tdrag=(e,app,xo,yo)=>{
 		p0p(e);
 		if(e!="dialup"&&e!="ie")tfocus(app);
 		let a=e.target.parentElement,
-			s=e.clientX-a.getBoundingClientRect().left,
-			z=e.clientY-a.getBoundingClientRect().top,
-			m=ee=>{Object.assign($("app-"+app).style,{left:(ee.pageX-s+xo)+'px',top:(ee.pageY-z+yo)+'px'})},
-			u=_=>{off(document,E.v,m);off(document,E.p,u)};
+		s=e.clientX-a.getBoundingClientRect().left,
+		z=e.clientY-a.getBoundingClientRect().top,
+		m=ee=>{Object.assign($("app-"+app).style,{left:(ee.pageX-s+xo)+'px',top:(ee.pageY-z+yo)+'px'})},
+		u=_=>{off(document,E.v,m);off(document,E.p,u)};
 		on(document,E.v,m);on(document,E.p,u)},
 	foo=i=>{fo.style.visibility=(!i)?"hidden":"visible"},
 	t=e=>{
@@ -192,8 +195,8 @@ tsync=_=>{
 		e=="boot"?boot():e=="windows"?windows():e=="poweroff"?poweroff():bsod()},
 	tip=e=>{
 		Object.assign(ts.style,{left:e.target.getBoundingClientRect().left-100+"px",display:"block",opacity:1}),
-			ts.innerHTML=e.target.alt,
-			setTimeout(_=>Object.assign(ts.style,{display:"none",opacity:0}),5e3)},
+		ts.innerHTML=e.target.alt,
+		setTimeout(_=>Object.assign(ts.style,{display:"none",opacity:0}),5e3)},
 	noesc=_=>on(document,E.k,e=>{if(e.key==="Escape")n("BSOD")}),
 	showctx=(i,e,xo,yo)=>Object.assign($(i).style,{display:"block",left:e.clientX+xo+"px",top:e.clientY+yo+"px"}),
 	hidectx=_=>["appmenu","desktopmenu"].forEach(i=>{$(i).style.display="none"}),
@@ -211,71 +214,98 @@ tsync=_=>{
 			totalMinutes+=Math.floor(2880+Math.random()*(480));
 			$("dltime").innerHTML=
 				Math.floor(totalMinutes/1440)+" Days, "+
-				Math.floor(totalMinutes%1440/60)+" hours, "+
-				totalMinutes%60+" minutes";
+					Math.floor(totalMinutes%1440/60)+" hours, "+
+					totalMinutes%60+" minutes";
 		},5e3):clearInterval(dlt)},
 	windows=_=>{
 		const listen=(el,evt,fn)=>on($(el),evt,fn),
-			closeAll=(sel,fn)=>$$$(sel+" .close").forEach(b=>on(b,E.c,fn)),
-			dragWin=(id,xo,yo)=>on($(id),E.m,e=>tdrag(e,id.replace(/title$/,""),xo,yo)),
-			run=(a,{i,h,o,c,m,d,b,x}={})=>{
-				const fn=e=>{
-					topen(a);
-					if(d)dragWin(a+"title",d.x,d.y);
-					$(a+"exit")&&c!==false&&listen(a+"exit",E.c,e=>(p0p(e),tclose(a),typeof c=="function"&&c()));
-					$(a+"min")&&m!==false&&listen(a+"min",E.c,e=>(p0p(e),tmin(a),typeof m=="function"&&m()));
-					$(a+"body")&&b!==false&&listen(a+"body",E.c,_=>n("BSOD"));
-					o?.(e);x?.(e);
-				};
-				if(i!==false)listen(a,E.c,e=>(p0p(e),unselect(),cl($(a),"selected")));
-				h===false?fn():listen(a,typeof h=="string"?h:E.d,fn);
-			},
-			ico=(a,d)=>{
-				$$(a).querySelectorAll('.ico').forEach(i=>{
-					on(i,E.c,e=>(p0p(e),unselect(),cl(i,"selected")));
-					on(i,E.d,d)
-				})},
-			cdrom=_=>msg('<div class="pad"><aside><img style="user-select:none" src="/ui/i/insert-cd.gif"></aside><section>Error reading drive E:\\</p><p>Please insert a CD ROM and try again</p><section class="field-row"><button class="close">Eject</button></section></div>',eject),
-			floppy=_=>msg('<div class="pad"><aside><img style="transform:scale(1);user-select:none" src="/ui/i/insert-floppy.png"></aside><section>A:\\ is not accessible.</p><p>The device is not ready.</section><section class="field-row"><button class="close">Ok</button></section></div>',_=>n("BSOD")),
-			startmore=e=>{
-				const r=e.currentTarget.getBoundingClientRect();
-				p0p(e);foo(1);
-				e.currentTarget.getAttribute("name")==="start"?
-					Object.assign(fo.style,{padding:"10px",height:"52px",top:r.top+"px",left:r.left+r.width-22+"px"}):
-					Object.assign(fo.style,{padding:"8px 20px",height:"43px",top:r.top-5+"px",left:r.left+r.width-17+"px"});
-				switch(e.currentTarget.getAttribute("id")){
-					case "progs":
-						(fo.innerHTML='<ul><li class="act">This website is by:</li><li><a class="x0" href="https://x-e.ro" target="_blank">xero harrison</a></li><li><a class="sauce" href="https://github.com/xero/windows98.website" target="_blank">view the source code</a></li></ul>',
-							Object.assign(fo.style,{color:"#000",textShadow:"none",height:"auto",width:"auto",padding:"0"}),
-							off(fo,E.c,fs))
-						break;
-					case "favs":
-						(fo.innerHTML=`<ul>
-											<li><a target="_blank" href="https://x-e.ro">https://x-e.ro</a></li>
-											<li><a target="_blank" href="https://0w.nz">https://0w.nz</a></li>
-											<li><a target="_blank" href="https://un.kn.0w.nz">https://un.kn.0w.nz</a></li>
-											<li><a target="_blank" href="https://xero.style">https://xero.style</a></li>
-											<li><a target="_blank" href="https://2133740.xyz">https://2133740.xyz</a></li>
-											<li><a target="_blank" href="https://github.com/xero">https://github.com/xero</a></li>
-											<li><a target="_blank" href="https://haunted.computer/@xero">https://haunted.computer/@xero</a></li>
-										</ul>`,
-							Object.assign(fo.style,{color:"#000081",textShadow:"none",height:"auto",width:"auto",padding:"0"}),
-							off(fo,E.c,fs))
-						break;
-					case "settings":
-						(fo.innerHTML='<ul><li><a class="fs">Go Full Screen</a></li></ul>',
-							Object.assign(fo.style,{color:"#000",textShadow:"none",width:"168px",padding:"0"}),
-							on(fo,E.c,fs))
-						break;
-					default:
-						(fo.innerHTML='<ul><li class="disabled"><a class="disabled">(None)</a></li></ul>',
-							Object.assign(fo.style,{height:"auto",width:"auto",padding:"0"}),
-							off(fo,E.c,fs))
-						break;
-				}
-				$$$("#flyout a").forEach(e=>e.tabIndex=0);
-			},
-			img=new Image();img.src="https://www.windows98.website/ui/i/ie.png";
+		closeAll=(sel,fn)=>$$$(sel+" .close").forEach(b=>on(b,E.c,fn)),
+		dragWin=(id,xo,yo)=>on($(id),E.m,e=>tdrag(e,id.replace(/title$/,""),xo,yo)),
+		run=(a,{i,h,o,c,m,d,b,x}={})=>{
+			const fn=e=>{
+				topen(a);
+				if(d)dragWin(a+"title",d.x,d.y);
+				$(a+"exit")&&c!==false&&listen(a+"exit",E.c,e=>(p0p(e),tclose(a),typeof c=="function"&&c()));
+				$(a+"min")&&m!==false&&listen(a+"min",E.c,e=>(p0p(e),tmin(a),typeof m=="function"&&m()));
+				$(a+"body")&&b!==false&&listen(a+"body",E.c,_=>n("BSOD"));
+				o?.(e);x?.(e);
+			};
+			if(i!==false)listen(a,E.c,e=>(p0p(e),unselect(),cl($(a),"selected")));
+			h===false?fn():listen(a,typeof h=="string"?h:E.d,fn);
+		},
+		ico=(a,d)=>{
+			$$(a).querySelectorAll('.ico').forEach(i=>{
+				on(i,E.c,e=>(p0p(e),unselect(),cl(i,"selected")));
+				on(i,E.d,d)
+			})},
+		cdrom=_=>msg('<div class="pad"><aside><img style="user-select:none" src="/ui/i/insert-cd.gif"></aside><section>Error reading drive E:\\</p><p>Please insert a CD ROM and try again</p><section class="field-row"><button class="close">Eject</button></section></div>',eject),
+		floppy=_=>msg('<div class="pad"><aside><img style="transform:scale(1);user-select:none" src="/ui/i/insert-floppy.png"></aside><section>A:\\ is not accessible.</p><p>The device is not ready.</section><section class="field-row"><button class="close">Ok</button></section></div>',_=>n("BSOD")),
+		altTabOverlay=$("alttab"),
+		parseTaskIconAndTitle=task=>{
+			let img,title = '';
+			img = `<img src="${task.i.replace(/"><sup>.*/, '')}">`;
+			title = (task.i.match(/<sup>(.*)/) || [])[1] || task.e.replace(/^app-/, '');
+			if (!title) title = task.e.replace(/^app-/, '');
+			return { img, title };
+		},
+		showAltTabOverlay=_=>{
+			if (!att.length) return;
+			// Build icon row
+			let iconRow = att.map((t, i) => {
+				const { img } = parseTaskIconAndTitle(t);
+				return `<section name="${t.e}" class="alttab-task${i === ati ? ' selected' : ''}">${img}</section>`;
+			}).join('');
+			// Selected task title
+			const selTask = att[ati];
+			const { title } = parseTaskIconAndTitle(selTask);
+			let titleRow = `<div class="alttab-task-title"><sup>${title}</sup></div>`;
+
+			altTabOverlay.querySelector('.icons').innerHTML=iconRow;
+			altTabOverlay.querySelector('.title').innerHTML=titleRow;
+			cl(altTabOverlay,"off",1);
+		},
+		hideAltTabOverlay=_=>{
+			cl(altTabOverlay,"off");
+		},
+		startmore=e=>{
+			const r=e.currentTarget.getBoundingClientRect();
+			p0p(e);foo(1);
+			e.currentTarget.getAttribute("name")==="start"?
+				Object.assign(fo.style,{padding:"10px",height:"52px",top:r.top+"px",left:r.left+r.width-22+"px"}):
+				Object.assign(fo.style,{padding:"8px 20px",height:"43px",top:r.top-5+"px",left:r.left+r.width-17+"px"});
+			switch(e.currentTarget.getAttribute("id")){
+				case "progs":
+					(fo.innerHTML='<ul><li class="act">This website is by:</li><li><a class="x0" href="https://x-e.ro" target="_blank">xero harrison</a></li><li><a class="sauce" href="https://github.com/xero/windows98.website" target="_blank">view the source code</a></li></ul>',
+						Object.assign(fo.style,{color:"#000",textShadow:"none",height:"auto",width:"auto",padding:"0"}),
+						off(fo,E.c,fs))
+					break;
+				case "favs":
+					(fo.innerHTML=`<ul>
+						<li><a target="_blank" href="https://x-e.ro">https://x-e.ro</a></li>
+						<li><a target="_blank" href="https://0w.nz">https://0w.nz</a></li>
+						<li><a target="_blank" href="https://un.kn.0w.nz">https://un.kn.0w.nz</a></li>
+						<li><a target="_blank" href="https://xero.style">https://xero.style</a></li>
+						<li><a target="_blank" href="https://2133740.xyz">https://2133740.xyz</a></li>
+						<li><a target="_blank" href="https://github.com/xero">https://github.com/xero</a></li>
+						<li><a target="_blank" href="https://haunted.computer/@xero">https://haunted.computer/@xero</a></li>
+					</ul>`,
+						Object.assign(fo.style,{color:"#000081",textShadow:"none",height:"auto",width:"auto",padding:"0"}),
+						off(fo,E.c,fs))
+					break;
+				case "settings":
+					(fo.innerHTML='<ul><li><a class="fs">Go Full Screen</a></li></ul>',
+						Object.assign(fo.style,{color:"#000",textShadow:"none",width:"168px",padding:"0"}),
+						on(fo,E.c,fs))
+					break;
+				default:
+					(fo.innerHTML='<ul><li class="disabled"><a class="disabled">(None)</a></li></ul>',
+						Object.assign(fo.style,{height:"auto",width:"auto",padding:"0"}),
+						off(fo,E.c,fs))
+					break;
+			}
+			$$$("#flyout a").forEach(e=>e.tabIndex=0);
+		},
+		img=new Image();img.src="https://www.windows98.website/ui/i/ie.png";
 		lok=0;
 		canvas.style.display="block";
 		canvas.width=ctx.canvas.clientWidth;
@@ -298,14 +328,14 @@ tsync=_=>{
 		run("explorer",{
 			d:{x:248,y:162},
 			b:false,
-			x:_=>ico("#app-e_plorer",_=>n("BSOD"))});
+			x:_=>ico("#app-explorer",_=>n("BSOD"))});
 		run("mycpu",{
 			d:{x:248,y:162},
 			b:false,
 			x:_=>ico("#app-mycpu",e=>{
 				if(e.target.classList.contains("floppy"))floppy(e);
-				else if(e.target.classList.contains("cdrom"))cdrom(e);
-				else n("BSOD")})});
+					else if(e.target.classList.contains("cdrom"))cdrom(e);
+						else n("BSOD")})});
 		run("notepad",{
 			d:{x:252,y:144},
 			b:false});
@@ -356,16 +386,16 @@ tsync=_=>{
 			const id="dialup";
 			topen(id);
 			let d,i=0,a=sound('dialup'),
-				l=setInterval(_=>(i+=10)<=100
-					?d.width=i+"%"
-					:(d.width="100%",
-						d.background="#008000",
-						$("dialupani").src="/ui/i/connected.png",
-						$("lbldialup").textContent="Connected to clover.net @ 28.8 mbps!",
-						$("btndialup").textContent="Ok",
-						tn.src="/ui/i/tray-network.gif",
-						tn.alt="Connected to Clover.net at 28.8 mbps",
-						clearInterval(l)),2424);
+			l=setInterval(_=>(i+=10)<=100
+				?d.width=i+"%"
+				:(d.width="100%",
+					d.background="#008000",
+					$("dialupani").src="/ui/i/connected.png",
+					$("lbldialup").textContent="Connected to clover.net @ 28.8 mbps!",
+					$("btndialup").textContent="Ok",
+					tn.src="/ui/i/tray-network.gif",
+					tn.alt="Connected to Clover.net at 28.8 mbps",
+					clearInterval(l)),2424);
 			msg('<img id="dialupani" width="347" height="144" src="/ui/i/dialing.gif"><p id="lbldialup">Dialing up clover.net... 740-284-0003</p><div class="progress"><span id="dialupbar" style="width: 0%;"> </span></div></p><section class="field-row"><button id="btndialup" class="close">Cancel</button></section>',
 				_=>{a.pause(),clearInterval(l),tclose(id)});
 			d=$("dialupbar").style;
@@ -382,8 +412,8 @@ tsync=_=>{
 			on(i,E.m,e=>{
 				p0p(e);
 				let a=i.parentElement,s=e.clientX-a.getBoundingClientRect().left,n=e.clientY-a.getBoundingClientRect().top,
-					m=e=>(a.style.left=e.pageX-s+"px",a.style.top=e.pageY-n+"px"),
-					u=_=>(off(document,E.v,m),off(document,E.p,u));
+				m=e=>(a.style.left=e.pageX-s+"px",a.style.top=e.pageY-n+"px"),
+				u=_=>(off(document,E.v,m),off(document,E.p,u));
 				on(document,E.v,m);on(document,E.p,u);
 			});
 		});
@@ -410,90 +440,103 @@ tsync=_=>{
 				document.body.style.background="#018281";
 				let d=$("msg");
 				$("dialogBody").innerHTML='<div id="logon"><form><aside><img src="/ui/i/mycpu.png"></aside><section><p>Enter your network password for Microsoft Networking</p><section class="field-row"><label for="user"><u>U</u>ser Name</label><input id="user" type="text" value="xeR0"></section><section class="field-row"><label for="pw"><u>P</u>assword&nbsp;</label><input id="pw" type="password"></section><br/><br/><br/><section class="field-row" id="frmErr">&nbsp;</section></section><aside><section class="field-row"><button class="close" type="submit">Ok</button></section><section class="field-row"><button class="close" type="button">Cancel</button></section></aside></form></div>';
-						d.showModal();
+				d.showModal();
 				on($("logon"),E.s,e=>{p0p(e);
 					(!$("pw").value)?
 						$("frmErr").innerHTML="Enter your password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;":
 						(d.close(),n("windows"),document.body.style.background="#222")})})});
-listen("shutdown",E.c,e=>{
-	t(e);p0p(e);
-	let d=$("msg");
-	$("dialogBody").innerHTML=`<form id="frmSd"><aside><img src="/ui/i/shutdown.png"></aside><section><p>What do you want your computer to do?</p><section class="field-row aleft"><input id="r1" type="radio" name="shutdownopt"><label for="r1">S<u>t</u>and By</label></section><section class="field-row aleft"><input id="r2" type="radio" name="shutdownopt"><label for="r2"><u>S</u>hutdown</label></section><section class="field-row aleft"><input id="r3" type="radio" name="shutdownopt"><label for="r3"><u>R</u>estart</label></section><section class="field-row aleft"><input id="r4" type="radio" name="shutdownopt"><label for="r4">Restart in <u>M</u>S-DOS mode</label></section><section class="field-row aleft"><button type="submit">Ok</button><button class="close">Cancel</button><button class="help">Help</button></section></form>`;
-	d.showModal();
-	closeAll("#frmSd",_=>d.close());
-	on($("frmSd"),E.s,e=>{
-		p0p(e);
-		if($$("input[name=shutdownopt]:checked")){
-			switch($$("input[name=shutdownopt]:checked").id){
-				case "r1":suspend();break;
-				case "r2":n("poweroff");break;
-				case "r3":(shutdown(),n("boot"));break;
-				case "r4":msdos();break;
-				default: n("BSOD");break
+		listen("shutdown",E.c,e=>{
+			t(e);p0p(e);
+			let d=$("msg");
+			$("dialogBody").innerHTML=`<form id="frmSd"><aside><img src="/ui/i/shutdown.png"></aside><section><p>What do you want your computer to do?</p><section class="field-row aleft"><input id="r1" type="radio" name="shutdownopt"><label for="r1">S<u>t</u>and By</label></section><section class="field-row aleft"><input id="r2" type="radio" name="shutdownopt"><label for="r2"><u>S</u>hutdown</label></section><section class="field-row aleft"><input id="r3" type="radio" name="shutdownopt"><label for="r3"><u>R</u>estart</label></section><section class="field-row aleft"><input id="r4" type="radio" name="shutdownopt"><label for="r4">Restart in <u>M</u>S-DOS mode</label></section><section class="field-row aleft"><button type="submit">Ok</button><button class="close">Cancel</button><button class="help">Help</button></section></form>`;
+			d.showModal();
+			closeAll("#frmSd",_=>d.close());
+			on($("frmSd"),E.s,e=>{
+				p0p(e);
+				if($$("input[name=shutdownopt]:checked")){
+					switch($$("input[name=shutdownopt]:checked").id){
+						case "r1":suspend();break;
+						case "r2":n("poweroff");break;
+						case "r3":(shutdown(),n("boot"));break;
+						case "r4":msdos();break;
+						default: n("BSOD");break
+					}
+					d.close()
+				}else{
+					$$("input[name=shutdownopt]").focus();
+				}})});
+		$$$(".more").forEach(i=>{
+			on(i,E.u,_=>foo(0));
+			on(i,E.o,startmore);
+		});
+		on(fo,E.o,_=>foo(1));
+		on(fo,E.u,_=>foo(0));
+		on($("desktop"),E.x,e=>{
+			p0p(e);unselect();
+			if(v)t(e);
+			showctx("desktopmenu",e,20,25);
+		});
+		$$$("#desktop article").forEach(i=>{
+			on(i,E.x,e=>{
+				p0p(e);unselect();
+				if(v)t(e);
+				cl(e.target.parentElement,"selected");
+				showctx("appmenu",e,20,27);
+			})});
+		$$$("footer aside img").forEach(i=>(on(i,E.c,tip),on(i,E.o,tip)));
+		listen("mail",E.c,_=>sound('yougotmail'));
+		listen("showdesktop",E.c,showdesktop);
+		startmenu.forEach(e=>e.tabIndex=0);
+		on(window,E.k,e=>{
+			if(e.metaKey&&!e.altKey&&!e.ctrlKey){
+				if((e.key=="d"||e.key=="D")|| (e.key=="r"||e.key=="R")){p0p(e);return}
+				t(e)
 			}
-			d.close()
-		}else{
-			$$("input[name=shutdownopt]").focus();
-		}})});
-$$$(".more").forEach(i=>{
-	on(i,E.u,_=>foo(0));
-	on(i,E.o,startmore);
-});
-on(fo,E.o,_=>foo(1));
-on(fo,E.u,_=>foo(0));
-on($("desktop"),E.x,e=>{
-	p0p(e);unselect();
-	if(v)t(e);
-	showctx("desktopmenu",e,20,25);
-});
-$$$("#desktop article").forEach(i=>{
-	on(i,E.x,e=>{
-		p0p(e);unselect();
-		if(v)t(e);
-		cl(e.target.parentElement,"selected");
-		showctx("appmenu",e,20,27);
-	})});
-$$$("footer aside img").forEach(i=>(on(i,E.c,tip),on(i,E.o,tip)));
-listen("mail",E.c,_=>sound('yougotmail'));
-listen("showdesktop",E.c,_=>showdesktop());
-startmenu.forEach(e=>e.tabIndex=0);
-on(window,E.k,e=>{
-	if(e.metaKey)t(e);
-	if(e.key=="Escape"){
-		foo(0);
-		menus=startmenu;
-		popt=false;
-		fop=0;
-		menus[fop].focus();
-		t(e);
-		return;
-	}
-	if(!v)return;
-	let sel=menus.indexOf(document.activeElement),len=menus.length;
-	if(e.key=="ArrowUp"||e.key=="ArrowDown"){
-		let i=sel===-1?(e.key=="ArrowUp"?len-1:0):(sel+(e.key=="ArrowDown"?1:-1)+len)%len;
-		menus[i].focus();
-	}else if(e.key=="ArrowRight"&&!popt&&sel!==-1&&menus[sel].classList.contains("more")) {
-		startmore({target:menus[sel],currentTarget:menus[sel],preventDefault(){},stopPropagation(){}});
-		fop=sel;
-		setTimeout(_=>{
-			let fm=Array.from($$$("#flyout a"));
-			if (fm.length) {
-				fm.forEach(e=>e.tabIndex=0);
-				menus=fm;popt=true;menus[0].focus();
+			else if(e.altKey&&!e.metaKey&&!e.ctrlKey&&e.key=="Tab"){
+				p0p(e);
+				if(!ata){
+					att=tasks.filter(t=>!t.h);
+					if(!att.length)return;
+					ati=att.findIndex(t=>t.f);
+					if(ati==-1)ati=0;
+					ata=1
+				}else
+				ati=(ati+(e.shiftKey?-1:1)+att.length)%att.length;
+				showAltTabOverlay();
+				return
+			}else if(e.key=="Escape"){
+				foo(0);
+				menus=startmenu;popt=fop=0;
+				menus[fop].focus();t(e);return
 			}
-		},0);
-	} else if(e.key=="ArrowLeft"&&popt) {
-		foo(0);
-		menus=startmenu;popt=false;
-		if(fop>=0)menus[fop].focus();
-	} else if(e.key=="Enter"&&sel!==-1){
-		menus[sel].click();
-	}
-});
-if(rec>0)run("recovery",{h:false,i:false,d:{x:252,y:144},
-	o:_=>{listen("recoverycancel",E.c,_=>tclose("recovery"));listen("recoverycheck",E.c,_=>n("BSOD"))}})
-},
+			if(!v)return;
+			let sel=menus.indexOf(document.activeElement),len=menus.length;
+			if(e.key=="ArrowUp"||e.key=="ArrowDown")
+				menus[sel==-1?(e.key=="ArrowUp"?len-1:0):(sel+(e.key=="ArrowDown"?1:-1)+len)%len].focus();
+				else if(e.key=="ArrowRight"&&!popt&&sel!=-1&&menus[sel].classList.contains("more")){
+					startmore({target:menus[sel],currentTarget:menus[sel],preventDefault(){},stopPropagation(){}});
+					fop=sel;
+					setTimeout(_=>{
+						let fm=Array.from($$$("#flyout a"));
+						if(fm.length){
+							fm.forEach(e=>e.tabIndex=0);
+							menus=fm,popt=1,menus[0].focus()
+						}},0)
+				}else if(e.key=="ArrowLeft"&&popt){
+					foo(0);menus=startmenu;popt=0;
+					if(fop>=0)menus[fop].focus()
+				}else if(e.key=="Enter"&&sel!=-1)menus[sel].click()});
+		on(window,E.U,e=>{
+			if(ata&&!e.altKey) {
+        tfocus(att[ati].e);
+        hideAltTabOverlay();
+        ata=false;
+        att=[];
+        ati=0;
+    }});
+		if(rec>0)run("recovery",{h:false,i:false,d:{x:252,y:144},
+			o:_=>{listen("recoverycancel",E.c,_=>tclose("recovery"));listen("recoverycheck",E.c,_=>n("BSOD"))}})
+	},
 	victory=_=>{
 		const width=71,height=96,cwidth=width,cheight=height,cwidthhalf=cwidth/2,cheighthalf=cheight/2,card=new Image();
 		let id=52;
@@ -508,7 +551,7 @@ if(rec>0)run("recovery",{h:false,i:false,d:{x:252,y:144},
 				lok&&ctx.drawImage(card,cx,cy,width,height,Math.floor(x-cwidthhalf),Math.floor(y-cheighthalf),cwidth,cheight);
 				return true}}
 		const throwCard=(x,y)=>cards.push(new PlayingCard(id>0?id--:id=51,x,y,Math.floor(Math.random()*6-3)*2,-Math.random()*16)),
-			ani=_=>{let i=0,l=cards.length;while(i<l){cards[i].update()?i++:l--}requestAnimationFrame(ani)};
+		ani=_=>{let i=0,l=cards.length;while(i<l){cards[i].update()?i++:l--}requestAnimationFrame(ani)};
 		card.src="https://www.windows98.website/ui/i/cards.png";
 		on(document.body,E.P,e=>{throwCard(e.clientX,e.clientY)});
 		on(document.body,E.V,e=>{if(e.pressure===0)return;throwCard(e.clientX,e.clientY)});
@@ -593,7 +636,7 @@ if(rec>0)run("recovery",{h:false,i:false,d:{x:252,y:144},
 		},2000)},
 	boot=_=>setTimeout(_=>{n("windows");clearTimeout(this)},2000);
 	//let's boot up!
-	let v=!1,eyes=[],tasks=[],cards=[],ctx=canvas.getContext("2d"),totalMinutes=369426,rec=0,lok=0,menus=startmenu,popt=false,fop=-1;
+	let v=sd=!1,eyes=[],tasks=[],cards=[],ctx=canvas.getContext("2d"),totalMinutes=369426,rec=0,lok=0,menus=startmenu,popt=false,fop=-1,ata=false,ati=0,att=[];
 	menus.forEach(m=>m.onmouseenter=_=>m.focus());
 	n("boot");
 	time();setInterval(time,60000);
