@@ -2,7 +2,7 @@
 
 /* windows98.website */
 	site:      https://www.windows98.website
-	site:      https://github.com/xero/windows98
+	source:    https://github.com/xero/windows98
 	copyright: creative commons zero / public domain
 	license:   http://creativecommons.org/publicdomain/zero/1.0/
 
@@ -14,4 +14,4 @@
 	author: xero harrison
 	email:  x@xero.style
 	site:   https://x-e.ro
-	site:   https://0w.nz
+	art:    https://0w.nz
