@@ -96,18 +96,19 @@
 				<section class="field-row"><button id="recoverycheck"><u>C</u>heck for Solution</button><button id="recoverycancel">Cancel</button></section>
 				<div class="client">
 					<textarea id="recoverytxt">
-Problem Event Name:						 Blue Screen
-OS Version								98se
-Locale ID:								1033
+Problem Event Name:				 Blue Screen
+OS Version						98se
+Locale ID:						1033
 
-Symbol search path is: SRV*C:\SymCache*http://msdl.microsoft.com/download/symbols
+Symbol search path is:
+SRV*C:\SymCache*http://msdl.microsoft.com/download/symbols
 Executable search path is:
 Windows 98 Kernel Version 2600 (Second Edition) x86 compatible
 Product: WinNt, suite: TerminalServer SingleUserTS
 Built by: 2222a.98se_gdr.030420-3446
-Machine Name:
+Machine Name: my-old-computer
 Kernel base = 0x804d7000 PsLoadedModuleList = 0x8055c700
-Debug session time: Tues Jul 13 16:28:47.921 1999 (UTC + 3:00)
+Debug session time: Wed Jul 14 16:28:47.921 1999 (UTC + 3:00)
 System Uptime: 0 days 0:03:47.597
 Loading Kernel Symbols
 ...............................................................
@@ -172,7 +173,7 @@ MODULE_NAME:			nt
 DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
 					</textarea>
 				</div>
-				</div>
+			</div>
 			<div class="app" id="app-mycpu">
 				<h2 id="mycputitle">
 					<img src="/ui/i/mycpu.png">
@@ -371,16 +372,16 @@ DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
 						<option>UDPIO: Simple UDP IO (unreliable)</option>
 					</select>
 					<label for="bo2k_c">Encryption:</label>
-						<select id="bo2k_c">
-							<option>XOR: BO2K Simple encryption</option>
-							<option>3DES: BO2K advanced encryption</option>
-						</select>
+					<select id="bo2k_c">
+						<option>XOR: BO2K Simple encryption</option>
+						<option>3DES: BO2K advanced encryption</option>
+					</select>
 					<label for="bo2k_aa">Authentication:</label>
-						<select id="bo2k_aa">
-							<option>NULLAUTH: Single user / encrypt only</option>
-							<option>NULLAUTH: Multi user</option>
-							<option>Basic</option>
-						</select>
+					<select id="bo2k_aa">
+						<option>NULLAUTH: Single user / encrypt only</option>
+						<option>NULLAUTH: Multi user</option>
+						<option>Basic</option>
+					</select>
 					<p class="btns">
 						<button id="bo2kclose">Cancel</button>
 						<button id="bo2kok" style="float:right">Ok</button>
@@ -393,25 +394,25 @@ DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
 					<a id="dosmin" class="min"></a>
 				</header>
 				<textarea id="dinput" rows="19" cols="60" spellcheck="false">
-Windows 98 Microsoft Corp 1985-1998.
+					Windows 98 Microsoft Corp 1985-1998.
 
-C:\WINDOWS>command.com /?
-Starts a new copy of the windows Command Interpreter.
-COMMAND [[drive:]path] [device] [/E:nnnnn] [/L:nnnn] [/U:nnn] [/P] [/MSG]
-                       [LOW][/Y[/[C:K] command]]
-  [drive: ]path  Specifies the directory containing COMMAND.COM.
-  device         Specifies the device to use for command input and output.
-  [/E:nnnnn]     Sets the initial environment size to_nnnnn bytes. (nnnnn should be between 256 and 32,768).
-  [/L:nnnn]      Specifies internal buffers length (requires /P as well). (nnnn should be between 128 and 1,024).
-  [/U:nnn]       Specifies the input buffer length (requires /Pas well). (nnn should be between 128 and 255)
-  /P             Makes the new the new Command Interpreter permanent (can't exit);
-  /MSG           Stores all error messages in memory (requires /Pas
-  /LOW           Forces COMMAND to keep its resident data in low memory.
-  /Y             Steps through the batch program specified by /C or /K.
-  /C Command     Executes the specified command and returns.
-  /K command     Executes the specified command and continues running.
+					C:\WINDOWS>command.com /?
+					Starts a new copy of the windows Command Interpreter.
+					COMMAND [[drive:]path] [device] [/E:nnnnn] [/L:nnnn] [/U:nnn] [/P] [/MSG]
+					[LOW][/Y[/[C:K] command]]
+					[drive: ]path  Specifies the directory containing COMMAND.COM.
+					device         Specifies the device to use for command input and output.
+					[/E:nnnnn]     Sets the initial environment size to_nnnnn bytes. (nnnnn should be between 256 and 32,768).
+					[/L:nnnn]      Specifies internal buffers length (requires /P as well). (nnnn should be between 128 and 1,024).
+					[/U:nnn]       Specifies the input buffer length (requires /Pas well). (nnn should be between 128 and 255)
+					/P             Makes the new the new Command Interpreter permanent (can't exit);
+					/MSG           Stores all error messages in memory (requires /Pas
+					/LOW           Forces COMMAND to keep its resident data in low memory.
+					/Y             Steps through the batch program specified by /C or /K.
+					/C Command     Executes the specified command and returns.
+					/K command     Executes the specified command and continues running.
 
-C:\WINDOWS> </textarea>
+					C:\WINDOWS> </textarea>
 			</div>
 			<div id="tooltip"></div>
 			<form class="app" id="app-notepad" role="dialog">
@@ -430,10 +431,10 @@ C:\WINDOWS> </textarea>
 				</nav>
 				<div class="client">
 					<textarea rows="16" cols="60" id="thenotepad" spellcheck="false">
- * learn perl cgi-bin
- * finish www project
- * rip new cdz
- * hack the planet!</textarea>
+						* learn perl cgi-bin
+						* finish www project
+						* rip new cdz
+						* hack the planet!</textarea>
 				</div>
 			</form>
 			<form class="app" id="app-wsftp" role="dialog">
@@ -447,26 +448,26 @@ C:\WINDOWS> </textarea>
 				<section class="field-row">
 					<aside><fieldset><legend>Local System</legend><select id="ftplocal"><option>C:\Program Files</option></select>
 						<aside class="client">
-						<ul class="tree-view">
-							<li>
-								<details open="">
-									<summary><img src="/ui/i/up.png">..</summary>
-									<summary><img src="/ui/i/folder.png">Accessories</summary>
-									<summary><img src="/ui/i/folder.png">Adobe Photoshop</summary>
-									<summary><img src="/ui/i/folder.png">Ahead Nero</summary>
-									<summary><img src="/ui/i/folder.png">DirectX</summary>
-									<summary><img src="/ui/i/folder.png">Internet Explorer</summary>
-									<summary><img src="/ui/i/folder.png">Macromedia Dreamweaver</summary>
-									<summary><img src="/ui/i/folder.png">Online Services</summary>
-									<summary><img src="/ui/i/folder.png">Outlook Express</summary>
-									<summary><img src="/ui/i/folder.png">Plus!</summary>
-									<summary><img src="/ui/i/folder.png">PuTTy</summary>
-									<summary><img src="/ui/i/folder.png">uTorrent</summary>
-									<summary><img src="/ui/i/folder.png">Visual Studio</summary>
-									<summary><img src="/ui/i/folder.png">Winamp</summary>
-									<summary><img src="/ui/i/folder.png">Winsock FTP</summary>
-								</details>
-							</li>
+							<ul class="tree-view">
+								<li>
+									<details open="">
+										<summary><img src="/ui/i/up.png">..</summary>
+										<summary><img src="/ui/i/folder.png">Accessories</summary>
+										<summary><img src="/ui/i/folder.png">Adobe Photoshop</summary>
+										<summary><img src="/ui/i/folder.png">Ahead Nero</summary>
+										<summary><img src="/ui/i/folder.png">DirectX</summary>
+										<summary><img src="/ui/i/folder.png">Internet Explorer</summary>
+										<summary><img src="/ui/i/folder.png">Dreamweaver</summary>
+										<summary><img src="/ui/i/folder.png">Online Services</summary>
+										<summary><img src="/ui/i/folder.png">Outlook Express</summary>
+										<summary><img src="/ui/i/folder.png">Plus!</summary>
+										<summary><img src="/ui/i/folder.png">PuTTy</summary>
+										<summary><img src="/ui/i/folder.png">uTorrent</summary>
+										<summary><img src="/ui/i/folder.png">Visual Studio</summary>
+										<summary><img src="/ui/i/folder.png">Winamp</summary>
+										<summary><img src="/ui/i/folder.png">Winsock FTP</summary>
+									</details>
+								</li>
 							</ul>
 						</aside>
 						<aside class="btns">
@@ -485,24 +486,45 @@ C:\WINDOWS> </textarea>
 					<aside class="mid btns"><button>&lt;--</button><br/><button>--&gt;</button></aside>
 					<aside><fieldset><legend>Remote System</legend><select id="ftpremote"><option>/w4r3z/sin_tools</option></select>
 						<aside class="client">
-						<ul class="tree-view">
-							<li>
-								<details open="">
+							<ul class="tree-view">
+								<li>
+									<details open="">
 										<summary><img src="/ui/i/up.png">..</summary>
+										<summary><img src="/ui/i/folder.png">Box Tone Generator</summary>
+										<summary><img src="/ui/i/folder.png">CD -X-</summary>
+										<summary><img src="/ui/i/folder.png">Clean Log</summary>
+										<summary><img src="/ui/i/folder.png">Document2Dictionary</summary>
+										<summary><img src="/ui/i/folder.png">Domain Scanner</summary>
+										<summary><img src="/ui/i/folder.png">Fake Novell v2.0</summary>
+										<summary><img src="/ui/i/folder.png">File Lock</summary>
 										<summary><img src="/ui/i/folder.png">FolderBurn</summary>
+										<summary><img src="/ui/i/folder.png">Genius</summary>
 										<summary><img src="/ui/i/folder.png">Idoru</summary>
 										<summary><img src="/ui/i/folder.png">IRCPipe</summary>
-										<summary><img src="/ui/i/folder.png">J1zzMuffin</summary>
+										<summary><img src="/ui/i/folder.png">IRCServ</summary>
+										<summary><img src="/ui/i/folder.png">JIzzMuffin</summary>
+										<summary><img src="/ui/i/folder.png">Lamer Converter</summary>
+										<summary><img src="/ui/i/folder.png">List Merge</summary>
+										<summary><img src="/ui/i/folder.png">Lynch0</summary>
+										<summary><img src="/ui/i/folder.png">Lynch0</summary>
 										<summary><img src="/ui/i/folder.png">MasterUnlock</summary>
 										<summary><img src="/ui/i/folder.png">Monolith</summary>
 										<summary><img src="/ui/i/folder.png">Mutilate</summary>
+										<summary><img src="/ui/i/folder.png">OTP Pack</summary>
 										<summary><img src="/ui/i/folder.png">Phreakazoid</summary>
 										<summary><img src="/ui/i/folder.png">Rejection</summary>
+										<summary><img src="/ui/i/folder.png">Set Time</summary>
 										<summary><img src="/ui/i/folder.png">Scorn</summary>
+										<summary><img src="/ui/i/folder.png">S.I.N. Theme</summary>
 										<summary><img src="/ui/i/folder.png">SinCrypt</summary>
+										<summary><img src="/ui/i/folder.png">SINergy MOD File</summary>
 										<summary><img src="/ui/i/folder.png">Dr Spewfy v1.96b</summary>
-										<summary><img src="/ui/i/folder.png">Synful.c</summary>
-										<summary><img src="/ui/i/folder.png">WinCrack97</summary>
+										<summary><img src="/ui/i/folder.png">SIN System Extensions</summary>
+										<summary><img src="/ui/i/folder.png">Synful.c
+											<summary><img src="/ui/i/folder.png">The Black Notebook v2</summary>
+											<summary><img src="/ui/i/folder.png">Web page Monitor</summary>
+											<summary><img src="/ui/i/folder.png">WinCrack97</summary>
+											<summary><img src="/ui/i/folder.png">Wiper</summary>
 									</details>
 								</li>
 							</ul>
@@ -522,7 +544,21 @@ C:\WINDOWS> </textarea>
 					</aside>
 				</section>
 				<section class="field-row"><input type="radio" id="modeascii" name="frmmode"><label for="modeascii">ASCII</label><input type="radio" id="modebin" name="frmmode" checked><label for="modebin">Binary</label><input type="checkbox" id="frauto"><label for="frmauto">Auto</label></section>
-				<section class="field-row"><div class="bubble"><textarea>Recieved 136 bytes in 0.1 secs, (1.33 KBps), transfer suceeded&NewLine;226 Transfer complete.&NewLine;&NewLine;</textarea></div></section>
+				<section class="field-row"><div class="bubble"><textarea id="wsftplog">WINSOCK.DLL: Microsoft wsock32.dll, v2.2 23bit
+WS_FTP95 LE 4.50 97.05.17, &copy; 1992-1997 Ipswitch, Inc.
+Connected to ftp.sinnerz.com
+                          _________  ___  _______
+   \~=._      _.=~/      /   _____/ |   | \      \       \~=._      _.=~/
+    \   ~=__=~   /       \_____  \  |   | /   |   \       \   ~=__=~   /
+     \_.=~  ~=._/        /        \ |   |/    |    \       \_.=~  ~=._/
+ _.=~ \        / ~=._   /_______  / |___|\____|__  /   _.=~ \        / ~=._
+L------\------/------7          \/               \/   L------\------/------7
+        \    /                                                \    /
+         \  /           pancreas.com + sinnerz.com             \  /
+          \/                                                    \/
+150 Opening ASCII mode data connection for /bin/ls.
+Recieved 2666 bytes in 1.2 secs, (17.35 KBps), transfer suceeded
+226 Transfer complete.</textarea></div></section>
 				<section class="field-row"><button><u>C</u>lose</button><button>Cancel</button><button><u>L</u>ogWnd</button><button><u>H</u>elp</button><button><u>O</u>ptions</button><button><u>A</u>bout</button><button>E<u>x</u>it</button></section>
 			</form>
 			<form class="app" id="app-dreamweaver" role="dialog">
@@ -713,9 +749,9 @@ C:\WINDOWS> </textarea>
 		<dialog id="msg">
 			<div class="window">
 				<div class="title-bar">
-					<div class="title-bar-text"> Windows98 </div>
+					<div class="title-bar-text" id="dialogTitle"> Windows98 </div>
 					<div class="title-bar-controls">
-						<button class="close"></button>
+						<a class="btn noclose"></a>
 					</div>
 				</div>
 				<div class="window-body" id="dialogBody"></div>
