@@ -168,6 +168,8 @@
 
 ![bo2k-server.png](bo2k-server.png)
 
+![throbber.gif](throbber.gif)
+
 ![bo2k-cdc.png](bo2k-cdc.png)
 
 ![cards.png](cards.png)
@@ -194,8 +196,6 @@
 
 ![exp-clouds.png](exp-clouds.png)
 
-![throbber.gif](throbber.gif)
-
 ![logo.svg](logo.svg)
 
 ![clouds.svg](clouds.svg)
@@ -211,6 +211,8 @@
 ![check.svg](check.svg)
 
 ![close.svg](close.svg)
+
+![close-disabled.svg](close-disabled.svg)
 
 ![diagonal.svg](diagonal.svg)
 
@@ -240,7 +242,7 @@
 
 ![windows.svg](windows.svg)
 
-## favicons
+## social icons
 
 ![favicon.svg](favicon.svg)
 
@@ -248,9 +250,9 @@
 
 ![favicon-96x96.png](favicon-96x96.png)
 
-![web-app-manifest-192x192.png](web-app-manifest-192x192.png)
-
 ![apple-touch-icon.png](apple-touch-icon.png)
+
+![web-app-manifest-192x192.png](web-app-manifest-192x192.png)
 
 ![web-app-manifest-512x512.png](web-app-manifest-512x512.png)
 
