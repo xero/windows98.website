@@ -377,7 +377,7 @@ button {
 			top: 17%;
 			left: 13%;
 		}
-		#cal {
+		#calendar {
 			top: 53%;
 			left: 3%;
 		}
@@ -778,9 +778,6 @@ button {
 		z-index: 50;
 		pointer-events: auto;
 		position: absolute;
-		input[type="number"] {
-			display: none;
-		}
 		header {
 			width: 100%;
 			margin: 0;
@@ -915,15 +912,12 @@ button {
 				max-width: 55px;
 				padding: 0 6px;
 				margin: 0;
-				&:disabled {
-					color: gray;
-					text-shadow: 1px 1px #fff;
-				}
 				&.white {
 					border: 1px solid #000;
 					background: #fff;
-					color: #fff;
+					color: #000;
 					box-shadow: none;
+					text-align: left;
 				}
 			}
 			select {
@@ -970,23 +964,23 @@ button {
 		}
 	}
 	#app-dreamweaver {
-		height: 436px;
-		width: 576px;
+		height: 391px;
+		width: 571px;
 		left: 372px;
 		top: 184px;
 		transform:scale(1.8);
 		&::before {
-			height: 436px;
-			width: 576px;
+			height: 389px;
+			width: 569px;
 		}
 		.label,
 		h2 {
-			width: 568px;
+			width: 564px;
 		}
 		.client {
 			background: #fff;
 			padding-bottom: 2px;
-			height: 365px;
+			height: 321px;
 			main {
 				float: right;
 				height: 300px;
@@ -995,11 +989,15 @@ button {
 				img {
 					transform: scale(0.5);
 				}
+				h1 {
+					margin: 7px 0;
+				}
 			}
 			#dwc {
 				position: absolute;
 				top: 0px;
 				left: 0px;
+				height: 318px;
 			}
 			#dwe {
 				background: url(/ui/i/dreamweaver-sauce.png) no-repeat;
@@ -1124,6 +1122,7 @@ button {
 			}
 		}
 	}
+	#app-calendar,
 	#app-help {
 		right: 418px;
 		top: 193px;
@@ -1158,67 +1157,67 @@ button {
 			font-size: 9px;
 			margin: 32px 4px 0px 4px;
 			border-top: 1px solid gray;
-			.wrap {
-				width: 100%;
-				height: 100%;
-				padding-top: 10px;
-				border-top: 1px solid #fff;
-			}
-			.window {
-				background: silver;
-				box-shadow:
-					inset -1px -1px #0a0a0a,
-					inset 1px 1px #dfdfdf,
-					inset -2px -2px grey,
-					inset 2px 2px #fff;
-				padding: 3px;
-				position: relative;
-				z-index: 2;
-			}
-			menu[role="tablist"] {
-				position: relative;
-				margin: 0 0 -2px 0;
-				text-indent: 0;
-				list-style-type: none;
-				display: flex;
-				padding-left: 3px;
-			}
+		}
+		.wrap {
+			width: 100%;
+			height: 100%;
+			padding-top: 10px;
+			border-top: 1px solid #fff;
+		}
+		.window {
+			background: silver;
+			box-shadow:
+				inset -1px -1px #0a0a0a,
+				inset 1px 1px #dfdfdf,
+				inset -2px -2px grey,
+				inset 2px 2px #fff;
+			padding: 3px;
+			position: relative;
+			z-index: 2;
+		}
+		menu[role="tablist"] {
+			position: relative;
+			margin: 0 0 -2px 0;
+			text-indent: 0;
+			list-style-type: none;
+			display: flex;
+			padding-left: 3px;
+		}
 
-			menu[role="tablist"] > li {
-				border-top-left-radius: 3px;
-				border-top-right-radius: 3px;
-				box-shadow:
-					inset -1px 0 #0a0a0a,
-					inset 1px 1px #dfdfdf,
-					inset -2px 0 grey,
-					inset 2px 2px #fff;
-				z-index: 1;
-			}
+		menu[role="tablist"] > li {
+			border-top-left-radius: 3px;
+			border-top-right-radius: 3px;
+			box-shadow:
+				inset -1px 0 #0a0a0a,
+				inset 1px 1px #dfdfdf,
+				inset -2px 0 grey,
+				inset 2px 2px #fff;
+			z-index: 1;
+		}
 
-			menu[role="tablist"] > li[aria-selected="true"] {
-				padding-bottom: 2px;
-				margin-top: -2px;
-				background-color: #c0c0c0;
-				position: relative;
-				z-index: 8;
-				margin-left: -3px;
-			}
+		menu[role="tablist"] > li[aria-selected="true"] {
+			padding-bottom: 2px;
+			margin-top: -2px;
+			background-color: #c0c0c0;
+			position: relative;
+			z-index: 8;
+			margin-left: -3px;
+		}
 
-			menu[role="tablist"] > li > a {
-				display: block;
-				color: #222;
-				margin: 6px;
-				text-decoration: none;
-			}
-			menu[role="tablist"] > li[aria-selected="true"] > a:focus {
-				outline: none;
-			}
-			menu[role="tablist"] > li > a:focus {
-				outline: 1px dotted #222;
-			}
-			.tree-view li:first-child{
-				margin-top:0px;
-			}
+		menu[role="tablist"] > li > a {
+			display: block;
+			color: #222;
+			margin: 6px;
+			text-decoration: none;
+		}
+		menu[role="tablist"] > li[aria-selected="true"] > a:focus {
+			outline: none;
+		}
+		menu[role="tablist"] > li > a:focus {
+			outline: 1px dotted #222;
+		}
+		.tree-view li:first-child{
+			margin-top:0px;
 		}
 		#welcome {
 			background-color: #fff;
@@ -1264,6 +1263,191 @@ button {
 				&::before {
 					display: none;
 				}
+			}
+		}
+	}
+	#app-calendar {
+		height:370px;
+		width: 400px;
+		left: 440px;
+		top: 20%;
+		&::before {
+			height: 368px;
+			width: 398px;
+		}
+		h2 {
+			width: 392px;
+		}
+		.window{
+			padding-top:1px;
+		}
+		.window-body {
+			height:266px;
+			margin-top: 4px;
+		}
+		.wrap {
+			border:0;
+			padding-top:6px;
+	 	}
+		menu[role="tablist"] {
+			margin: 0 4px -2px 4px;
+		}
+		.window {
+			margin: 0 4px 4px;
+		}
+		.menu {
+			margin: 0 2px -2px 2px;
+			.tab a {
+				font-size: 11px;
+				margin: 6px 6px 0px 6px;
+			}
+		}
+		.field-row {
+			margin: 7px 4px 0 0;
+		}
+		fieldset {
+			float: left;
+			&.d{
+				margin-right: 8px;
+			}
+			&.d,
+			&.t{
+				height: 163px;
+			}
+			&.w {
+				width: 94%;
+				margin-top: 5px;
+			}
+			#tz{
+				width: 100%;
+				margin-bottom: 8px;
+			}
+		}
+    label {
+      font-size: 12px;
+      margin-right: 8px;
+    }
+    select, input[type="number"] {
+      width: 98px;
+			font-size: 11px;
+      margin-bottom: 10px;
+    }
+    input[type="number"] {
+      width: 70px;
+			margin-left: 8px;
+    }
+    .cal-grid {
+      display: grid;
+			height:110px;
+      grid-template-columns: repeat(7, 1fr);
+      border: 2px inset #c0c0c0;
+      background: #fff;
+			margin-bottom:1px;
+    }
+    .cal-head {
+      text-align: center;
+      font-size: 11px;
+      padding: 3px 0;
+			background: #787878;
+			color: #a8a8a8;
+    }
+    .cal-cell {
+      text-align: right;
+      font-size: 11px;
+      padding: 1px 3px;
+      border-right: 1px solid #e0e0e0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .cal-cell:last-child,
+    .cal-header:last-child {
+      border-right: none;
+    }
+    .cal-row:last-child .calendar-cell {
+      border-bottom: none;
+    }
+    .cal-cell.today {
+      background: #00008b;
+      color: #fff;
+      border: 1px solid #00008b;
+    }
+		.clock {
+			display: flex;
+			width: 130px;
+			height: 130px;
+			justify-content: center;
+			align-items: center;
+			background: url(/ui/i/clock.png);
+			background-size: cover;
+			.hour,
+			.min,
+			.sec {
+				position: absolute;
+			}
+			.hour,
+			.hr {
+				width: 90px;
+				height: 90px;
+			}
+			.min,
+			.mn {
+				width: 120px;
+				height: 120px;
+			}
+			.sec,
+			.sc {
+				width: 120px;
+				height: 120px;
+			}
+			.hr,
+			.mn,
+			.sc {
+				display: flex;
+				justify-content: center;
+				position: absolute;
+				&:before {
+					filter:
+						drop-shadow(8px 6px 0px #fff),
+						drop-shadow(10px 8px 10px #787878);
+				}
+			}
+			.hr:before {
+				background-image: url(/ui/i/clock-hand.svg);
+				background-repeat: no-repeat;
+				background-size: contain;
+				content: "";
+				height: 65px;
+				position: absolute;
+				width: 12px;
+				z-index: 10;
+			}
+			.mn:before {
+				content: "";
+				position: absolute;
+				width: 8px;
+				height: 85px;
+				background-image: url(/ui/i/clock-hand.svg);
+				background-repeat: no-repeat;
+				background-size: cover;
+				z-index: 9;
+			}
+			.sc:before {
+				content: "";
+				position: absolute;
+				width: 2px;
+				height: 60px;
+				background: #5e5e5e;
+				z-index: 11;
+				border-radius: 0;
+			}
+			#thetime {
+				user-select:none;
+				margin-top: 160px;
+				background-image: url(/ui/i/number.svg);
+				background-position: right 2px top 2px;
+				background-repeat: no-repeat;
+				width: 90px;
+				font-size: 11px;
+				padding-left: 9px;
 			}
 		}
 	}
@@ -1793,6 +1977,7 @@ button {
 			color: #f1f1f1;
 		}
 	}
+	#jm,
 	#cdc {
 		visibility: visible;
 		display: block;
@@ -1958,6 +2143,9 @@ button {
 		}
 		a.fs::before {
 			content: url(/ui/i/fs.png);
+		}
+		a.crt::before {
+			content: url(/ui/i/monitor.png);
 		}
 		a.disabled {
 			color: gray;
@@ -2178,6 +2366,10 @@ button {
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	user-select: none;
+	&.vignette.hide,
+	&.scanlines.hide {
+		display:none;
+	}
 	&.vignette {
 		background-image: radial-gradient(
 			ellipse at center,
@@ -2579,6 +2771,7 @@ input[type="password"],
 input[type="search"],
 input[type="tel"],
 input[type="text"],
+input[type=number],
 select {
 	height: 21px;
 	background-color: #fff;
@@ -2602,15 +2795,54 @@ input[type="search"]:focus,
 textarea:focus {
 	outline: none;
 }
+button:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus {
+  outline: 1px dotted #000000;
+  outline-offset: -4px;
+}
+input[type="radio"]:focus + label,
+input[type="checkbox"]:focus + label {
+  outline: 1px dotted #000000;
+}
+select:focus {
+  color:#fff;
+  background-color: #00008e;
+}
+select:focus option {
+  color: #000;
+  background-color: #fff;
+}
+a:focus {
+  outline: 1px dotted #0000ff;
+}
+summary:focus {
+  outline: 1px dotted #000000;
+}
+menu[role=tablist] > li[aria-selected=true] > a:focus {
+  outline: none;
+}
+menu[role=tablist] > li > a:focus {
+  outline: 1px dotted #222;
+}
+input[type=number]::-webkit-inner-spin-button {
+	opacity:0;
+}
+input[type=number],
 select {
+	position: relative;
+	background-position: top 2px right 2px;
+	background-repeat: no-repeat;
+}
+select{
 	appearance: none;
 	-webkit-appearance: none;
 	-moz-appearance: none;
-	position: relative;
 	padding-right: 32px;
 	background-image: url(/ui/i/down.svg);
-	background-position: top 2px right 2px;
-	background-repeat: no-repeat;
+}
+input[type=number] {
+	background-image: url(/ui/i/number.svg);
 }
 .title-bar {
 	align-items: center;
@@ -2710,6 +2942,7 @@ input {
 }
 button:disabled {
 	color: #888 !important;
+	text-shadow: 1px 1px #fff !important;
 }
 input {
 	&[type="reset"]:disabled,
@@ -2814,9 +3047,9 @@ canvas {
 	padding-block-start: 8px;
 }
 @keyframes blink {
-66% { opacity: 0 }
+	66% { opacity: 0 }
 }
 @keyframes smear {
-0% { margin-left: 0 }
-to { margin-left: -100% }
+	0% { margin-left: 0 }
+	to { margin-left: -100% }
 }

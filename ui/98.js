@@ -4,6 +4,7 @@
 		"app-recovery",
 		"app-aohell",
 		"app-bo2k",
+		"app-calendar",
 		"app-dos",
 		"app-explorer",
 		"app-help",
@@ -42,15 +43,13 @@
 	$=e=>document.getElementById(e),
 	$$=e=>document.querySelector(e),
 	$$$=i=>document.querySelectorAll(i),
-	on=(x,e,r,o=!1)=>{x.addEventListener(e,r,o);eyes.push({e:x,t:e,l:r,o:o})},
-	off=(x,e,r,o=!1)=>{
-		x.removeEventListener(e,r,o);
-		try{eyes.splice(eyes.indexOf(eyes.find(l=>l.e===x&&l.t===e&&l.l===r&&l.o===o)),1)}catch{}},
+	make=i=>{return document.createElement(i)},
+	on=(x,e,r,o=!1)=>{(x=typeof x=="string"?$(x):x).addEventListener(e,r,o),eyes.push({e:x,t:e,l:r,o})},
+	off=(x,e,r,o=!1)=>{try{(x=typeof x=="string"?$(x):x).removeEventListener(e,r,o)}catch{};try{eyes.splice(eyes.indexOf(eyes.find(l=>l.e===x&&l.t===e&&l.l===r&&l.o===o)),1)}catch{}},
 	cl=(e,c,i=0)=>e.classList[i?'remove':'add'](c),
 	p0p=e=>{e.preventDefault();e.stopPropagation()},
 	sound=i=>{let a=new Audio('/ui/s/'+i+'.mp3');a.play().catch(_=>{});return a},
 	w8=i=>document.body.style.cursor=i?'auto':'wait',
-	fs=e=>{let d=document,b=d.body;foo(0);t(e);d.fullscreenElement?d.exitFullscreen():b.requestFullscreen()},
 	shutdown=_=>{
 		canvas.style.display="none";
 		eyes.forEach(({e,t,l,o})=>{e.removeEventListener(t,l,o)});
@@ -63,7 +62,7 @@
 		$("poweroff").style.display="none";
 		if(v)t(fe);
 		[...$$$('#desktop article'),$('taskbar'),$('windows')].forEach(i=>i.style.visibility="hidden");
-		apps.concat("cdc").forEach(a=>cl($(a),"app-hidden"))
+		apps.concat("cdc","jm").forEach(a=>cl($(a),"app-hidden"))
 		tn.src="/ui/i/tray-disconnected.png"},
 	msg=({m,t,i,s,o,c}={})=>{
 		if(s)sound("chord");
@@ -81,8 +80,8 @@
 	dp=$("dosprompt"),
 	startmenu=Array.from($$$("#startmenu .menu")),
 	canvas=$("glitch"),
-	now=new Date(),
-	clock=$("clock"),
+	tclock=$("clock"),
+	img=new Image();img.src="https://www.windows98.website/ui/i/ie.png",
 	showdesktop=_=>{
 		let any=tasks.some(i=>i.f);
 		tasks.forEach(i=>(i.h=any?1:0,i.f=0,cl($("app-"+i.e),"app-hidden",any?0:1)));
@@ -96,7 +95,7 @@
 		b=dir?head:task,
 		r1=a.getBoundingClientRect(),
 		r2=b.getBoundingClientRect(),
-		ani=document.createElement("div");
+		ani=make("div");
 		ani.id="minani";
 		Object.assign(ani.style,{
 			left:r1.left+"px",
@@ -147,28 +146,29 @@
 		!tasks.some(task=>task.e===e)&&
 			tasks.push({e,f:1,h:0,i: '/ui/i/'+(
 				e==="adraw"?'msdos.png"><sup>ACiDDraw - MS-DOS':
-					e==="aohell"?'aohell.png"><sup>AOHell 95 v3.0 B5':
-						e==="bo2k"?'bo2k-server.png"><sup>Back Orifice 2000':
-							e==="dialup"?'modem.png"><sup>Windows98 - Dial Up':
-								e==="dos"?'msdos.png"><sup>Command Prompt':
-									e==="explorer"?'explorer-ico.png"><sup>My Documents':
-										e==="help"?'help-ico.png"><sup>Windows Help':
-											e==="ie"?'msie.png"><sup>Internet Exploder':
-												e==="nero"?'nero.png"><sup>Nero Burning Rom':
-													e==="notepad"?'notepad.png"><sup>Todo.txt - Notepad':
-														e==="photoshop"?'photoshop.png"><sup>Untitled-1 - Photoshop':
-															e==="dreamweaver"?'dw-ico.png"><sup>Untitled-1 - Dreamweaver':
-																e==="mycpu"?'mycpu.png"><sup>My Computer':
-																	e==="recovery"?'windows-slanted.png"><sup>Windows98 Recovery':
-																		e==="regedit"?'regedit.png"><sup>Registry Editor':
-																			e==="solitaire"?'game.png"><sup>Solitaire':
-																				e==="sub7"?'sub7.png"><sup>SubSeven v2.2 by mobman':
-																					e==="utorrent"?'utorrent.png"><sup>µtorrent v1.3':
-																						e==="vb6"?'vb6.png"><sup>Visual Basic v6.0':
-																							e==="winamp"?'winamp.png"><sup>WinAmp':
-																								e==="wsftp"?'ws_ftp.png"><sup>WS_FTP95 Pro':
-																									e==="xircon"?'xircon.png"><sup>xIRCon v1.0b4':
-																										'')});tfocus(e)}
+				e==="aohell"?'aohell.png"><sup>AOHell 95 v3.0 B5':
+				e==="bo2k"?'bo2k-server.png"><sup>Back Orifice 2000':
+				e==="calendar"?'calendar.png"><sup>Windows Calendar':
+				e==="dialup"?'modem.png"><sup>Windows98 - Dial Up':
+				e==="dos"?'msdos.png"><sup>Command Prompt':
+				e==="explorer"?'explorer-ico.png"><sup>My Documents':
+				e==="help"?'help-ico.png"><sup>Windows Help':
+				e==="ie"?'msie.png"><sup>Internet Exploder':
+				e==="nero"?'nero.png"><sup>Nero Burning Rom':
+				e==="notepad"?'notepad.png"><sup>Todo.txt - Notepad':
+				e==="photoshop"?'photoshop.png"><sup>Untitled-1 - Photoshop':
+				e==="dreamweaver"?'dw-ico.png"><sup>Untitled-1 - Dreamweaver':
+				e==="mycpu"?'mycpu.png"><sup>My Computer':
+				e==="recovery"?'windows-slanted.png"><sup>Windows98 Recovery':
+				e==="regedit"?'regedit.png"><sup>Registry Editor':
+				e==="solitaire"?'game.png"><sup>Solitaire':
+				e==="sub7"?'sub7.png"><sup>SubSeven v2.2 by mobman':
+				e==="utorrent"?'utorrent.png"><sup>µtorrent v1.3':
+				e==="vb6"?'vb6.png"><sup>Visual Basic v6.0':
+				e==="winamp"?'winamp.png"><sup>WinAmp':
+				e==="wsftp"?'ws_ftp.png"><sup>WS_FTP95 Pro':
+				e==="xircon"?'xircon.png"><sup>xIRCon v1.0b4':
+				'')});tfocus(e)}
 	tsync=_=>{
 		$("tasks").innerHTML=tasks.map(task=>`<section name="${task.e}" class="task${task.f==1?' selected':''}"><img src="${task.i}</sup></section>`).join("");
 		$$$("#tasks .task").forEach(i=>on(i,E.c,e=>tfocus(e.currentTarget.getAttribute("name"))))},
@@ -211,8 +211,157 @@
 	].forEach(i=>cl(i,"selected",1));
 		hidectx()
 	},
-	time=_=>clock.innerHTML=`${now.getHours()%12||12}<span class="blink">:</span>${now.getMinutes().toString().padStart(2,"0")} ${now.getHours()>=12?"pm":"am"}`,
+	time=_=>{
+		cal($('cal'));
+		setInterval(_=>{
+			let now=new Date();
+			tclock.innerHTML=`${now.getHours()%12||12}<span class="blink">:</span>${now.getMinutes().toString().padStart(2,"0")} ${now.getHours()>=12?"PM":"AM"}`
+		},6000);
+	},
 	eject=_=>{try{let c=0,col=Player.cdromCollection;while(c<col.count)col.item(c++).eject()}catch{}},
+	closeAll=(sel,fn)=>$$$(sel+" .close").forEach(b=>on(b,E.c,fn)),
+	run=(a,{i,h,o,c,m,d,b,x}={})=>{
+		const fn=e=>{
+			topen(a);
+			if(d)on($(a+"title"),E.m,e=>tdrag(e,a,d.x,d.y));
+			$(a+"exit")&&c!==false&&on(a+"exit",E.c,e=>(p0p(e),tclose(a),typeof c=="function"&&c()));
+			$(a+"min")&&m!==false&&on(a+"min",E.c,e=>(p0p(e),tmin(a),typeof m=="function"&&m()));
+			$(a+"body")&&b!==false&&on(a+"body",E.c,_=>n("BSOD"));
+			o?.(e);x?.(e);
+		};
+		if(i!==false)on(a,E.c,e=>(p0p(e),unselect(),cl($(a),"selected")));
+		h===false?fn():on(a,typeof h=="string"?h:E.d,fn);
+	},
+	ico=(a,d)=>{
+		$$$(a+' .ico').forEach(i=>{
+			on(i,E.c,e=>(p0p(e),unselect(),cl(i,"selected")));
+			on(i,E.d,d)
+		})},
+	cdrom=_=>msg({
+		m:'<div class="pad"><aside><img style="user-select:none" src="/ui/i/insert-cd.gif"></aside><section>Error reading drive E:\\</p><p>Please insert a CD ROM and try again</p><section class="field-row"><button class="close">Eject</button></section></div>',
+		c:eject,
+		s:1,
+	}),
+	floppy=_=>msg({
+		m:'<div class="pad"><aside><img style="transform:scale(1);user-select:none" src="/ui/i/insert-floppy.png"></aside><section>A:\\ is not accessible.</p><p>The device is not ready.</section><section class="field-row"><button class="close">OK</button></section></div>',
+		c:_=>n("BSOD"),
+		s:1,
+	}),
+	alttab=$("alttab"),
+	taskinfo=task=>{
+		let img,title='';
+		img=`<img src="${task.i.replace(/"><sup>.*/, '')}">`;
+		title=(task.i.match(/<sup>(.*)/)||[])[1]||task.e.replace(/^app-/, '');
+		if(!title)title=task.e.replace(/^app-/,'');
+		return {img,title};
+	},
+	showAT=_=>{
+		if(v)t(fe);
+		if(!tasks.length)return;
+		let iconRow=tasks.map((t,i)=>{
+			const {img}=taskinfo(t);
+			return `<section name="${t.e}" class="alttab-task${i===ati?' selected':''}">${img}</section>`;
+		}).join('');
+		const selTask=tasks[ati];
+		const {title}=taskinfo(selTask);
+		let titleRow=`<div class="alttab-task-title"><sup>${title}</sup></div>`;
+		alttab.querySelector('.icons').innerHTML=iconRow;
+		alttab.querySelector('.title').innerHTML=titleRow;
+		cl(alttab,"off",1);
+	},
+	fs=e=>{let d=document,b=d.body;foo(0);t(e);d.fullscreenElement?d.exitFullscreen():b.requestFullscreen()},
+	crt=e=>{foo(0);t(e);$$$('.oo').forEach(e=>cl(e,'hide',e.classList.contains('hide')))},
+	foh=i=>["fs","crt"].map((k,j)=>(i?on:off)(k,E.c,[fs,crt][j])),
+	startmore=e=>{
+		const r=e.currentTarget.getBoundingClientRect();
+		p0p(e);foo(1);
+		e.currentTarget.getAttribute("name")==="start"?
+			Object.assign(fo.style,{padding:"10px",height:"52px",top:r.top+"px",left:r.left+r.width-22+"px"}):
+			Object.assign(fo.style,{padding:"8px 20px",height:"43px",top:r.top-5+"px",left:r.left+r.width-17+"px"});
+		switch(e.currentTarget.getAttribute("id")){
+			case "progs":
+				(fo.innerHTML='<ul><li class="act">This website is by:</li><li><a class="x0" href="https://x-e.ro" target="_blank">xero harrison</a></li><li><a class="sauce" href="https://github.com/xero/windows98.website" target="_blank">view the source code</a></li></ul>',
+					Object.assign(fo.style,{color:"#000",textShadow:"none",height:"auto",width:"auto",padding:"0"}),
+					foh())
+				break;
+			case "favs":
+				(fo.innerHTML=`<ul>
+					<li><a target="_blank" href="https://x-e.ro">https://x-e.ro</a></li>
+					<li><a target="_blank" href="https://0w.nz">https://0w.nz</a></li>
+					<li><a target="_blank" href="https://un.kn.0w.nz">https://un.kn.0w.nz</a></li>
+					<li><a target="_blank" href="https://xero.style">https://xero.style</a></li>
+					<li><a target="_blank" href="https://2133740.xyz">https://2133740.xyz</a></li>
+					<li><a target="_blank" href="https://github.com/xero">https://github.com/xero</a></li>
+					<li><a target="_blank" href="https://haunted.computer/@xero">https://haunted.computer/@xero</a></li>
+				</ul>`,
+					Object.assign(fo.style,{color:"#000081",textShadow:"none",height:"auto",width:"auto",padding:"0"}),
+					foh())
+				break;
+			case "settings":
+				(fo.innerHTML='<ul><li id="fs"><a class="fs">Toggle Full Screen</a></li><li id="crt"><a class="crt">Toggle CRT Effects</a></li></ul>',
+					Object.assign(fo.style,{color:"#000",textShadow:"none",height:"auto",width:"auto",padding:"0"}),
+					foh(1))
+				break;
+			default:
+				(fo.innerHTML='<ul><li class="disabled"><a class="disabled">(None)</a></li></ul>',
+					Object.assign(fo.style,{height:"auto",width:"auto",padding:"0"}),
+					foh())
+				break;
+		}
+		$$$("#flyout a").forEach(e=>e.tabIndex=0);
+	},
+	cal=el=>{
+		let mS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+		dS="SMTWTFS".split(""),
+		yS=[],d=new Date(),m=d.getMonth(),y=99,
+		s=make("section");
+		s.className="cal";
+		let ms=make("select");
+		ms.name="m";
+		mS.forEach((v,i)=>{let o=make("option");o.value=i;o.textContent=v;ms.appendChild(o)});
+		ms.selectedIndex=m;
+		for(let i=1970;i<=1999;i++)yS.push(i);
+		let ys=make("input");
+		ys.type="number";ys.name="y";ys.min=1970;ys.max=1999;ys.value=1999;
+		let g=make("div");
+		g.className="cal-grid";
+		fill=_=>{
+			let mo=+ms.value,yr=+ys.value,fd=new Date(yr,mo,1).getDay(),dm=new Date(yr,mo+1,0).getDate(),c="",td=d.getDate();
+			c+=dS.map(x=>`<div class="cal-head">${x}</div>`).join("");
+			for(let i=0;i<fd;i++)c+='<div class="cal-cell"></div>';
+			for(let i=1;i<=dm;i++)c+=`<div class="cal-cell${i==td?" today":""}">${i}</div>`;
+			let rem=(fd+dm)%7;if(rem)for(let i=rem;i<7;i++)c+='<div class="cal-cell"></div>';
+			g.innerHTML=c;
+		}
+		fill();
+		ms.onchange=ys.onchange=fill;
+		s.appendChild(ms);s.appendChild(ys);s.appendChild(g);
+		el.appendChild(s);
+	},
+	clock=s=>{
+		let i,a=6,h=$("hr").style,m=$("mn").style,c=$("sc").style,t=$("thetime");
+		s?i=setInterval(_=>{
+			let d=new Date,x=d.getHours()*30,y=d.getMinutes()*a,z=d.getSeconds()*a;
+			h.transform=`rotateZ(${x+y/12}deg)`;
+			m.transform=`rotateZ(${y}deg)`;
+			c.transform=`rotateZ(${z}deg)`;
+			t.value=(h=d.getHours()%12||12)+' : '+(m=d.getMinutes()).toString().padStart(2,0)+' : '+(s=d.getSeconds()).toString().padStart(2,0)+' '+(d.getHours()<12?'AM':'PM');
+		}):clearInterval(i)},
+	flicker=_=>{
+		w8();
+		$("taskbar").style.visibility="hidden";
+		let a=$("desktop").querySelectorAll("article"),i=0,n=2*Math.floor(2+Math.random()*2);
+		a.forEach(e=>e.style.visibility="hidden");
+		setTimeout(_=>{
+			$("taskbar").style.visibility="visible";
+			sound('startup');
+			setTimeout(f=_=>{
+				a.forEach(e=>e.style.visibility=i%2?"visible":"hidden");
+				if(++i<n)setTimeout(f,100);
+					else{ w8(1);
+						if(rec>0)run("recovery",{h:false,i:false,d:{x:252,y:144},
+							o:_=>{on("recoverycancel",E.c,_=>tclose("recovery"));on("recoverycheck",E.c,_=>n("BSOD"))}})
+					}},1200)},1000)},
 	timer=s=>{
 		s ? dlt=setInterval(_=>{
 			totalMinutes+=Math.floor(2880+Math.random()*(480));
@@ -222,115 +371,6 @@
 					totalMinutes%60+" minutes";
 		},5e3):clearInterval(dlt)},
 	windows=_=>{
-		const listen=(el,evt,fn)=>on($(el),evt,fn),
-		closeAll=(sel,fn)=>$$$(sel+" .close").forEach(b=>on(b,E.c,fn)),
-		dragWin=(id,xo,yo)=>on($(id),E.m,e=>tdrag(e,id.replace(/title$/,""),xo,yo)),
-		run=(a,{i,h,o,c,m,d,b,x}={})=>{
-			const fn=e=>{
-				topen(a);
-				if(d)dragWin(a+"title",d.x,d.y);
-				$(a+"exit")&&c!==false&&listen(a+"exit",E.c,e=>(p0p(e),tclose(a),typeof c=="function"&&c()));
-				$(a+"min")&&m!==false&&listen(a+"min",E.c,e=>(p0p(e),tmin(a),typeof m=="function"&&m()));
-				$(a+"body")&&b!==false&&listen(a+"body",E.c,_=>n("BSOD"));
-				o?.(e);x?.(e);
-			};
-			if(i!==false)listen(a,E.c,e=>(p0p(e),unselect(),cl($(a),"selected")));
-			h===false?fn():listen(a,typeof h=="string"?h:E.d,fn);
-		},
-		ico=(a,d)=>{
-			$$$(a+' .ico').forEach(i=>{
-				on(i,E.c,e=>(p0p(e),unselect(),cl(i,"selected")));
-				on(i,E.d,d)
-			})},
-		cdrom=_=>msg({
-			m:'<div class="pad"><aside><img style="user-select:none" src="/ui/i/insert-cd.gif"></aside><section>Error reading drive E:\\</p><p>Please insert a CD ROM and try again</p><section class="field-row"><button class="close">Eject</button></section></div>',
-			c:eject,
-			s:1,
-		}),
-		floppy=_=>msg({
-			m:'<div class="pad"><aside><img style="transform:scale(1);user-select:none" src="/ui/i/insert-floppy.png"></aside><section>A:\\ is not accessible.</p><p>The device is not ready.</section><section class="field-row"><button class="close">Ok</button></section></div>',
-			c:_=>n("BSOD"),
-			s:1,
-		}),
-		alttab=$("alttab"),
-		taskinfo=task=>{
-			let img,title='';
-			img=`<img src="${task.i.replace(/"><sup>.*/, '')}">`;
-			title=(task.i.match(/<sup>(.*)/)||[])[1]||task.e.replace(/^app-/, '');
-			if(!title)title=task.e.replace(/^app-/,'');
-			return {img,title};
-		},
-		showAT=_=>{
-			if(v)t(fe);
-			if(!tasks.length)return;
-			let iconRow=tasks.map((t,i)=>{
-				const {img}=taskinfo(t);
-				return `<section name="${t.e}" class="alttab-task${i===ati?' selected':''}">${img}</section>`;
-			}).join('');
-			const selTask=tasks[ati];
-			const {title}=taskinfo(selTask);
-			let titleRow=`<div class="alttab-task-title"><sup>${title}</sup></div>`;
-			alttab.querySelector('.icons').innerHTML=iconRow;
-			alttab.querySelector('.title').innerHTML=titleRow;
-			cl(alttab,"off",1);
-		},
-		hideAT=_=>{
-			cl(alttab,"off");
-		},
-		startmore=e=>{
-			const r=e.currentTarget.getBoundingClientRect();
-			p0p(e);foo(1);
-			e.currentTarget.getAttribute("name")==="start"?
-				Object.assign(fo.style,{padding:"10px",height:"52px",top:r.top+"px",left:r.left+r.width-22+"px"}):
-				Object.assign(fo.style,{padding:"8px 20px",height:"43px",top:r.top-5+"px",left:r.left+r.width-17+"px"});
-			switch(e.currentTarget.getAttribute("id")){
-				case "progs":
-					(fo.innerHTML='<ul><li class="act">This website is by:</li><li><a class="x0" href="https://x-e.ro" target="_blank">xero harrison</a></li><li><a class="sauce" href="https://github.com/xero/windows98.website" target="_blank">view the source code</a></li></ul>',
-						Object.assign(fo.style,{color:"#000",textShadow:"none",height:"auto",width:"auto",padding:"0"}),
-						off(fo,E.c,fs))
-					break;
-				case "favs":
-					(fo.innerHTML=`<ul>
-						<li><a target="_blank" href="https://x-e.ro">https://x-e.ro</a></li>
-						<li><a target="_blank" href="https://0w.nz">https://0w.nz</a></li>
-						<li><a target="_blank" href="https://un.kn.0w.nz">https://un.kn.0w.nz</a></li>
-						<li><a target="_blank" href="https://xero.style">https://xero.style</a></li>
-						<li><a target="_blank" href="https://2133740.xyz">https://2133740.xyz</a></li>
-						<li><a target="_blank" href="https://github.com/xero">https://github.com/xero</a></li>
-						<li><a target="_blank" href="https://haunted.computer/@xero">https://haunted.computer/@xero</a></li>
-					</ul>`,
-						Object.assign(fo.style,{color:"#000081",textShadow:"none",height:"auto",width:"auto",padding:"0"}),
-						off(fo,E.c,fs))
-					break;
-				case "settings":
-					(fo.innerHTML='<ul><li><a class="fs">Go Full Screen</a></li></ul>',
-						Object.assign(fo.style,{color:"#000",textShadow:"none",width:"168px",padding:"0"}),
-						on(fo,E.c,fs))
-					break;
-				default:
-					(fo.innerHTML='<ul><li class="disabled"><a class="disabled">(None)</a></li></ul>',
-						Object.assign(fo.style,{height:"auto",width:"auto",padding:"0"}),
-						off(fo,E.c,fs))
-					break;
-			}
-			$$$("#flyout a").forEach(e=>e.tabIndex=0);
-		},
-		flicker=_=>{
-			w8();
-			$("taskbar").style.visibility="hidden";
-			let a=$("desktop").querySelectorAll("article"),i=0,n=2*Math.floor(2+Math.random()*2);
-			a.forEach(e=>e.style.visibility="hidden");
-			setTimeout(_=>{
-				$("taskbar").style.visibility="visible";
-				sound('startup');
-				setTimeout(f=_=>{
-					a.forEach(e=>e.style.visibility=i%2?"visible":"hidden");
-					if(++i<n)setTimeout(f,100);
-						else{ w8(1);
-							if(rec>0)run("recovery",{h:false,i:false,d:{x:252,y:144},
-								o:_=>{listen("recoverycancel",E.c,_=>tclose("recovery"));listen("recoverycheck",E.c,_=>n("BSOD"))}})
-						}},1200)},1000)},
-		img=new Image();img.src="https://www.windows98.website/ui/i/ie.png";
 		lok=0;
 		flicker();
 		canvas.style.display="block";
@@ -345,10 +385,21 @@
 			d:{x:251,y:174},
 			o:_=>cl($("cdc"),"app-hidden",1),
 			x:_=>{
-				listen("bo2kok",E.c,e=>(p0p(e),n("BSOD")));
-				listen("bo2kclose",E.c,e=>(p0p(e),tclose("bo2k")))}});
+				on("bo2kok",E.c,e=>(p0p(e),n("BSOD")));
+				on("bo2kclose",E.c,e=>(p0p(e),tclose("bo2k")))}});
+		run("calendar",{
+			d:{x:192,y:178},
+			o:_=>clock(1),
+			x:_=>{clock(0);on("app-calendar",E.s,e=>(p0p(e),tclose("calendar")))}});
+		on(tclock,E.c,_=>{
+			run("calendar",{
+				i:false,
+				h:false,
+				d:{x:192,y:178},
+				o:_=>clock(1),
+				x:_=>{clock(0);on("app-calendar",E.s,e=>(p0p(e),tclose("calendar")))}})});
 		run("dreamweaver",{
-			d:{x:225,y:169},
+			d:{x:222,y:149},
 			x:_=>$$$("#app-dreamweaver img").forEach(i=>on(i,E.c,_=>n("BSOD")))});
 		run("explorer",{
 			d:{x:248,y:162},
@@ -369,7 +420,7 @@
 			b:false,
 			m:_=>p.blur(),
 			c:_=>p.blur(),
-			x:_=>listen("app-photoshop",E.c,_=>p.click())});
+			x:_=>on("app-photoshop",E.c,_=>p.click())});
 		run("regedit",{
 			d:{x:221,y:107},
 			b:false});
@@ -381,7 +432,7 @@
 			o:_=>timer(1),
 			m:_=>timer(0),
 			c:_=>timer(0),
-			x:_=>listen("utorrentcancel",E.c,e=>(p0p(e),tclose("utorrent"),timer(0)))});
+			x:_=>on("utorrentcancel",E.c,e=>(p0p(e),tclose("utorrent"),timer(0)))});
 		run("vb6",{
 			d:{x:60,y:44}});
 		run("winamp",{
@@ -392,18 +443,19 @@
 			d:{x:280,y:188},
 			b:false,
 			o:_=>promptfocus($("wsftplog"),1),
-			x:_=>listen("app-wsftp", "submit",e=>(p0p(e),n("BSOD")))});
+			x:_=>on("app-wsftp",E.s,e=>(p0p(e),n("BSOD")))});
 		run("xircon",{
 			d:{x:60,y:38},
 		});
-		listen("spewfy",E.c,_=>{
+		on("spewfy",E.d,_=>{
 			msg({
 				i:"sine",t:"Dr Spewfy",s:1,
-				m:`<div class="pad"><aside><img style="transform:scale(1);user-select:none;margin-top:-10px" src="/ui/i/err.png"></aside><section>Can't load (or register) custom control 'COMCTL32.OCX'</p><section class="field-row"><button class="close">Ok</button></section></div>`});
+				o:_=>cl($("jm"),"app-hidden",1),
+				m:`<div class="pad"><aside><img style="transform:scale(1);user-select:none;margin-top:-10px" src="/ui/i/err.png"></aside><section>Can't load (or register) custom control 'COMCTL32.OCX'</p><section class="field-row"><button class="close">OK</button></section></div>`});
 		});
-		listen("cd",E.d,cdrom);
-		listen("disks",E.d,floppy);
-		listen("msie",E.d,e=>{
+		on("cd",E.d,cdrom);
+		on("disks",E.d,floppy);
+		on("msie",E.d,e=>{
 			p0p(e);
 			topen("ie");
 			ctx=canvas.getContext("2d");
@@ -412,7 +464,7 @@
 			on(document.body,E.v,e=>ctx.drawImage(img,e.clientX-300,e.clientY-25));
 			on(document.body,E.d,_=>n("BSOD"));
 		});
-		listen("dialup",E.d,_=>{
+		on("dialup",E.d,_=>{
 			const id="dialup";
 			topen(id);
 			let d,i=0,a=sound('dialup'),
@@ -422,7 +474,7 @@
 					d.background="#008000",
 					$("dialupani").src="/ui/i/connected.png",
 					$("lbldialup").textContent="Connected to clover.net @ 28.8 mbps!",
-					$("btndialup").textContent="Ok",
+					$("btndialup").textContent="OK",
 					tn.src="/ui/i/tray-network.gif",
 					tn.alt="Connected to Clover.net at 28.8 mbps",
 					clearInterval(l)),2424);
@@ -434,7 +486,7 @@
 				i:"modem",
 			});
 		});
-		listen("game",E.d,_=>{
+		on("game",E.d,_=>{
 			topen("solitaire");
 			ctx=canvas.getContext("2d");
 			lok=1;
@@ -451,13 +503,13 @@
 				on(document,E.v,m);on(document,E.p,u);
 			});
 		});
-		listen("start",E.c,t);
+		on("start",E.c,t);
 		run("help",{
 			h:E.c,
 			i:false,
 			d:{x:219,y:150},
 			o:_=>t(fe),
-			x:_=>listen("helpmenu",E.c,_=>n("BSOD")),
+			x:_=>on("helpmenu",E.c,_=>n("BSOD")),
 		});
 		run("dos",{
 			h:E.c,
@@ -465,7 +517,7 @@
 			d:{x:1,y:1},
 			o:_=>{let d=$("dinput");prompt(d);promptfocus(d);t(fe)},
 		});
-		listen("logoff",E.c,i=>{
+		on("logoff",E.c,i=>{
 			t(i);
 			msg({
 				m:'<aside><img src="/ui/i/logoff.png"></aside><section><p>Are your sure you want to log off?</p><section class="field-row"><button id="loconfim">Yes</button><button class="close">No</button></section>',
@@ -476,7 +528,7 @@
 						$("windows").style.visibility="hidden";
 						document.body.style.background="#018281";
 						let d=$("msg");
-						$("dialogBody").innerHTML='<div id="logon"><form><aside><img src="/ui/i/mycpu.png"></aside><section><p>Enter your network password for Microsoft Networking</p><section class="field-row"><label for="user"><u>U</u>ser Name</label><input id="user" type="text" value="xeR0"></section><section class="field-row"><label for="pw"><u>P</u>assword&nbsp;</label><input id="pw" type="password"></section><br/><br/><br/><section class="field-row" id="frmErr">&nbsp;</section></section><aside><section class="field-row"><button class="close" type="submit">Ok</button></section><section class="field-row"><button class="close" type="button">Cancel</button></section></aside></form></div>';
+						$("dialogBody").innerHTML='<div id="logon"><form><aside><img src="/ui/i/mycpu.png"></aside><section><p>Enter your network password for Microsoft Networking</p><section class="field-row"><label for="user"><u>U</u>ser Name</label><input id="user" type="text" value="xeR0"></section><section class="field-row"><label for="pw"><u>P</u>assword&nbsp;</label><input id="pw" type="password"></section><br/><br/><br/><section class="field-row" id="frmErr">&nbsp;</section></section><aside><section class="field-row"><button class="close" type="submit">OK</button></section><section class="field-row"><button class="close" type="button">Cancel</button></section></aside></form></div>';
 						d.showModal();
 						on($("logon"),E.s,e=>{p0p(e);
 							(!$("pw").value)?
@@ -486,10 +538,10 @@
 				},
 			});
 		});
-		listen("shutdown",E.c,e=>{
+		on("shutdown",E.c,e=>{
 			t(e);p0p(e);
 			let d=$("msg");
-			$("dialogBody").innerHTML=`<form id="frmSd"><aside><img src="/ui/i/shutdown.png"></aside><section><p>What do you want your computer to do?</p><section class="field-row aleft"><input id="r1" type="radio" name="shutdownopt"><label for="r1">S<u>t</u>and By</label></section><section class="field-row aleft"><input id="r2" type="radio" name="shutdownopt"><label for="r2"><u>S</u>hutdown</label></section><section class="field-row aleft"><input id="r3" type="radio" name="shutdownopt"><label for="r3"><u>R</u>estart</label></section><section class="field-row aleft"><input id="r4" type="radio" name="shutdownopt"><label for="r4">Restart in <u>M</u>S-DOS mode</label></section><section class="field-row aleft"><button type="submit">Ok</button><button class="close">Cancel</button><button class="help">Help</button></section></form>`;
+			$("dialogBody").innerHTML=`<form id="frmSd"><aside><img src="/ui/i/shutdown.png"></aside><section><p>What do you want your computer to do?</p><section class="field-row aleft"><input id="r1" type="radio" name="shutdownopt"><label for="r1">S<u>t</u>and By</label></section><section class="field-row aleft"><input id="r2" type="radio" name="shutdownopt"><label for="r2"><u>S</u>hutdown</label></section><section class="field-row aleft"><input id="r3" type="radio" name="shutdownopt"><label for="r3"><u>R</u>estart</label></section><section class="field-row aleft"><input id="r4" type="radio" name="shutdownopt"><label for="r4">Restart in <u>M</u>S-DOS mode</label></section><section class="field-row aleft"><button type="submit">OK</button><button class="close">Cancel</button><button class="help">Help</button></section></form>`;
 			d.showModal();
 			closeAll("#frmSd",_=>d.close());
 			on($("frmSd"),E.s,e=>{
@@ -525,8 +577,8 @@
 				showctx("appmenu",e,20,27);
 			})});
 		$$$("footer aside img").forEach(i=>(on(i,E.c,tip),on(i,E.o,tip)));
-		listen("mail",E.c,_=>sound('yougotmail'));
-		listen("showdesktop",E.c,showdesktop);
+		on("mail",E.c,_=>sound('yougotmail'));
+		on("showdesktop",E.c,showdesktop);
 		startmenu.forEach(e=>e.tabIndex=0);
 		on(window,E.k,e=>{
 			if(e.metaKey&&!e.altKey&&!e.ctrlKey){
@@ -537,7 +589,7 @@
 			else if(e.altKey&&!e.metaKey&&!e.ctrlKey&&e.key=="Tab"){
 				p0p(e);
 				if(!ata){
-					//newthing=tasks.filter(t=>!t.h);
+					//visible=tasks.filter(t=>!t.h);
 					if(!tasks.length)return;
 					ati=tasks.findIndex(t=>t.f);
 					if(ati==-1)ati=0;
@@ -571,9 +623,8 @@
 		on(window,E.U,e=>{
 			if(ata&&!e.altKey) {
 				tfocus(tasks[ati].e);
-				hideAT();
-				ata=0
-				ati=0;
+				cl(alttab,"off");
+				ata=ati=0;
 			}});
 	},
 	victory=_=>{
@@ -681,5 +732,5 @@
 	menus.forEach(m=>m.onmouseenter=_=>m.focus());
 	$$$('input,textarea').forEach(e=>['autocomplete','autocorrect','autocapitalize'].forEach(a=>e.setAttribute(a,'off'))||e.setAttribute('spellcheck','false'));
 	n("boot");
-	time();setInterval(time,60000);
+	time();
 })();
