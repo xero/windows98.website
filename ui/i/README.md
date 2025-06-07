@@ -136,8 +136,6 @@
 
 ![app-cmd.png](app-cmd.png)
 
-![acid.gif](acid.gif)
-
 ![app-nero.png](app-nero.png)
 
 ![app-photoshop.png](app-photoshop.png)
@@ -174,9 +172,9 @@
 
 ![vs-blue.png](vs-blue.png)
 
-![vs-cpp.png](vs-cpp.png)
-
 ![vs-pink.png](vs-pink.png)
+
+![vs-cpp.png](vs-cpp.png)
 
 ![vs-proj.png](vs-proj.png)
 
@@ -202,6 +200,10 @@
 
 ![dreamweaver-settings.png](dreamweaver-settings.png)
 
+![clock-face.png](clock-face.png)
+
+![clock-hand.svg](clock-hand.svg)
+
 ![help-clouds.png](help-clouds.png)
 
 ![help-menu.png](help-menu.png)
@@ -209,6 +211,8 @@
 ![exp-btns.png](exp-btns.png)
 
 ![exp-clouds.png](exp-clouds.png)
+
+![acid.gif](acid.gif)
 
 ![logo.svg](logo.svg)
 
@@ -223,10 +227,6 @@
 ![checkmark.svg](checkmark.svg)
 
 ![check.svg](check.svg)
-
-![clock-face.png](clock-face.png)
-
-![clock-hand.svg](clock-hand.svg)
 
 ![close.svg](close.svg)
 
