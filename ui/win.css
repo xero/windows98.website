@@ -1851,13 +1851,17 @@ button {
 			background: url(/ui/i/app-vstudio.png) no-repeat;
 			background-size: cover;
 			background-repeat: no-repeat;
+			#vstudioctrls{
+				width:99%;
+				height: 80px;
+			}
 			.tree-view {
         width: 211px;
         height: 209px;
         display: block;
         background: #fff;
         padding: 5px;
-        margin: 80px 0 0 12px;
+        margin: 0 0 0 12px;
 				ul  {
 					margin-left: 5px;
 					li {
@@ -1865,18 +1869,29 @@ button {
 					}
 				}
 			}
-			textarea {
-				margin: 59px 0 0 33px;
-				width: 444px;
-				height: 264px;
-				overflow: scroll;
+			#vscode {
+				background-color: #fff;
 				border:0;
-				.blue {
-					color: blue;
-				}
-				.green {
-					color: green;
-				}
+				color: #000;
+				font-size: 11px;
+				font-family:monospace;
+				font-weight: 400;
+				height: 264px;
+				left: 269px;
+				margin: 0;
+				overflow: scroll;
+				padding: 2px;
+				position: absolute;
+				top: 100px;
+				width: 444px;
+				.preproc { color: #643820; }
+				.kw { color: #aa0d91; }
+				.str { color: #c41a16; }
+				.type { color: #5c2699; }
+				.func { color: #1c00cf; }
+				.com { color: #007400; }
+				.num { color: #1c00cf; }
+				.txt { color: #000; }
 			}
 		}
 		h2 {
@@ -1902,7 +1917,7 @@ button {
 			em {
 				font-style: normal;
 				display: inline-block;
-				width: 69%;
+				width: 73%;
 			}
 			div{
 				box-shadow:
@@ -2063,6 +2078,12 @@ button {
 	#app-putty {
 		left: 30%;
 		top: 30%;
+		width:512px;
+		height:306px;
+		&::before {
+			width:510px;
+			height:304px;
+		}
 		textarea {
 			color: #c0c0c0;
 			background: #000;

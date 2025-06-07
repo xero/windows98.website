@@ -41,6 +41,7 @@
 	},
 	errs=['Access denied','Attempt to remove the current directory','Attempt to write on write-protected diskette','Bad request structure length','Cannot make directory entry','Data error (CRC)','Drive not ready','Duplicate name on network','Duplicate redirection','FCB unavailable','Fail on INT 24H','File already exists','File not found','General failure','Incompatible remote adapter','Incorrect response from network','Insufficient memory','Invalid access code','Invalid data','Invalid disk change','Invalid drive was specified','Invalid environment','Invalid format','Invalid function number','Invalid handle.','Invalid memory block address','Invalid parameter','Invalid password','Lock violation','Memory control blocks destroyed','Network BIOS command limit exceeded','Network BIOS session limit exceeded','Network adapter hardware error','Network busy','Network device fault','Network device no longer exists','Network device type incorrect','Network name deleted','Network name limit exceeded','Network name not found','Network request not accepted','Network request not supported','No more files','Not enough space for print file','Not same device','Path not found','Print file deleted (not enough space)','Print of disk redirection paused','Print queue full.','Printer out of paper','Read fault','Remote computer not listening','Reserved','Sector not found','Seek Error','Sharing buffer overflow','Sharing violation','Temporarily paused','Too many open files','Too may redirection','Unexpected network error','Unknown command','Unknown media type','Unknown unit','Write fault'],
 	fatals=['Error 0D : 0157 : 0xAC1D0000-HEX {Q307908}','Exception 0D at VXD VMM(0H)+00005B01 0028:HEX','Exception 0E Access Violation in Module WMAD.EXE at HEX {Q312931}','Exception 0E at 0028:HEX in VXD called from 0028:C001d188 in VXDNDIS','Exception 0E at 0028:HEX in VXD VMM {Q253241}','Exception 0E at 0028:HEX in VXD IFSMGR','Exception 0E at 0028:HEX in VxD WSIPX(01)... called from 0028:C0043174 in VxD NDIS(01) {Q192445}','Exception 0E at 0xAC1D0000:HEX in VxD IFSMGR {Q153598}','Exception 0E... called from 0028:HEX in VxD NDIS {Q283043}','Fatal 0D has occurred at 0028:HEX or 0246:013F47FB','Fatal Exception 06 Has Occurred at 0xAC1D0000+HEX','Fatal Exception 06 at 0028:HEX in VXD VMM (06)','Fatal Exception 0E 0028:HEX in VXD VCACHE(01)','Fatal Exception 0E 06 at 0028: HEX ','Fatal Exception 0E at 0028:HEX in VXD SYMEvent','Fatal Exception 0E at 0028:HEX in VXD VREDIR','Fatal Exception 0E at 0028:HEX in VXD IFSMGR','Fatal Exception 0E at 0028:HEX in VXD IOS (04)','Fatal Exception 0E at 0028:HEX in VXD VSERVER','Fatal Exception 0E at 0028:HEX in VXD IFSMGR(01)','Fatal Exception 0E at 0028:HEX in VXD VWIN32','Fatal Exception 0E at 0028:HEX in VXD Emu10k1','Fatal Exception 0E at 0028:HEX in VXD IOS','Fatal Exception 0E at 0028:HEX in VXD IOS (01)','Fatal Exception 0E at 0028:HEX in VXD VMM (06)','Fatal Exception 0E at 0157:BFF9A25B + 0xAC1D0000:HEX','Fatal Exception 0E at HEX in VXD VWIN32','Fatal Exception 0E at 0xAC1D0000:HEX in VxD SCSI1HLP {Q250005}','Fatal Exception 0E in 0xAC1D0000:HEX VPOWERD','Fatal Exception 0E in 0xAC1D0000:HEX VXD IFSMGR','Fatal Exception in 0xAC1D0000:HEX CDVSD Starting','Fatal Exception in 0xAC1D0000:HEX VXD VMM','Fatal exception at 0028:HEX in VxD WSIPX(01) {Q192445}','MPREXE caused an exception 03h at HEX in module USER32.DLL','MSIMN caused an exception C0000006h+HEX in module DIRECTDB.DLL','MSTASK caused an exception 03h at HEX in module USER32.DLL','Program Has Caused a Fatal Exception 0D at 00457:HEX & Will Be Terminated','RUNDLL32 caused an exception 03h at HEX in module USER32.DLL','SCANDSKW caused Fatal exception 03h at HEX in module USER32.DLL','STATEMGR caused an exception 03h at HEXin module USER32.DLL','USR32.EXE caused an exception 03h at HEX in module USER32.DLL'],
+	neterrs=['The server\'s host key is not cached in the registry','WARNING - POTENTIAL SECURITY BREACH!','SSH protocol version 2 required by our configuration but server only provides (old, insecure) SSH-1','The first cipher supported by the server is ... below the configured warning threshold','Server sent disconnect message type 2 (protocol error): "Too many authentication failures for root"','Out of memory','Internal error','Internal fault','Assertion failed','Unable to use this private key file, "Couldn\'t load private key: Key is of wrong type','Server refused our public key’ or ‘Key refused','Access denied: Authentication refused','No supported authentication methods available','Incorrect CRC received on packet’ or ‘Incorrect MAC received on packet','Incoming packet was garbled on decryption','PuTTY X11 proxy: various errors','Network error: Software caused connection abort','Network error: Connection reset by peer','Network error: Connection refused','Network error: Connection timed out','Network error: Cannot assign requested address'],
 	$=e=>document.getElementById(e),
 	$$=e=>document.querySelector(e),
 	$$$=i=>document.querySelectorAll(i),
@@ -439,7 +440,7 @@
 	cmdPrompt=e=>{
 		if(e.key!="Enter")return;
 		e.preventDefault();
-		let p=e.target.value.split('WINDOWS> ').pop(),m=errs[Math.random()*errs.length|0];
+		let p=e.target.value.split('WINDOWS> ').pop(),a=e.target.id,m=(a=="puttycli"?neterrs:errs)[Math.random()*a.length|0];
 		if(p.includes('help'))m="bwahahaha! there's no help here.";
 		if(p.includes('quit'))m="quitters never win.";
 		if(p.includes('shutdown'))n("poweroff");
@@ -449,7 +450,7 @@
 			$("sdmsg").style.display="none";
 			n("boot")
 		};
-		e.target.value+=`\n${m}\n\nC:\\WINDOWS> `;
+		e.target.value+=`\n${m}\n\n`+(a=="puttycli"?"[root@localhost C:\\]# ":a==="dosprompt"?"C:\\ ":"C:\\WINDOWS> ");
 		promptfocus(e.target)},
 	promptfocus=(d,b=0)=>(setTimeout(_=>{
 		d.style.display="block";
@@ -524,13 +525,7 @@
 		run("putty",{
 			d:{x:249,y:146},
 			b:false,
-			o:_=>{let p=$("puttycli");
-				promptfocus(p);
-				on(p,E.k,e=>{if(e.key!="Enter")return;p0p(e);msg({
-					t:"PuTTY Fatal Error",
-					i:"putty",
-					m:`<div class="pad"><aside><img style="transform:scale(1);user-select:none" src="/ui/i/err.png"></aside><section>Couldn't agree a key exchange algorithm (available: curve25519-sha256, curve25519-sha256@libssh.org.ecdh-sha2-nistp255, ecdh-sha2-nistp384,ecdh-s ha2-nistp521,diffie-hellman-group 16-sha512, -sha512, diffie-hellman-group 10-sha512,diffie-hellman-group 14-sha256)</section><section class="field-row"><button class="close">OK</button></section></div>`,
-					c:e=>n("BSOD")})})}});
+			o:_=>{let p=$("puttycli");promptfocus(p);prompt(p)}});
 		run("photoshop",{
 			d:{x:140,y:100},
 			b:false,
@@ -553,7 +548,8 @@
 			d:{x:60,y:44}});
 		run("vstudio",{
 			b:false,
-			d:{x:354,y:195}});
+			d:{x:354,y:195},
+			o:_=>on("vstudioctrls",E.c,_=>n("BSOD"))});
 		run("winamp",{
 			d:{x:1,y:1},
 			b:false,

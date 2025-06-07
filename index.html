@@ -289,6 +289,7 @@ DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
 					<a><u>H</u>elp</a>
 				</nav>
 				<section id="vstudiobody">
+					<div id="vstudioctrls"></div>
 					<ul class="tree-view"><li><details open=""><summary><img src="/ui/i/vs-proj.png">test classes</summary><ul><li><details open=""><summary><img src="/ui/i/folder.png">Globals</summary><ul style="margin-left:-12px">
 						<li><img src="/ui/i/vs-pink.png">About(HWND,&nbsp;UINT,&nbsp;WPARAM)</li>
 						<li><img src="/ui/i/vs-pink.png">InitInstance(HINSTANCE,&nbsp;int&nbsp;nClass)</li>
@@ -301,119 +302,120 @@ DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
 					</ul></details></li>
 					</ul></details></li>
 					</ul>
-					<textarea>#include "stdafx.h"
+					<pre id="vscode">
+<span class="preproc">#<span class="kw">include</span> <span class="str">"stdafx.h"</span></span>
 
-// Constructor
-VssClient::VssClient()
+<span class="com">// Constructor</span>
+VssClient::<span class="type">VssClient</span>()
 {
-    m_bCoInitializeCalled = false;
+    m_bCoInitializeCalled = <span class="kw">false</span>;
     m_dwContext = VSS_CTX_BACKUP;
     m_latestSnapshotSetID = GUID_NULL;
-    m_bDuringRestore = false;
+    m_bDuringRestore = <span class="kw">false</span>;
 }
 
-// Destructor
-VssClient::~VssClient()
+<span class="com">// Destructor</span>
+VssClient::~<span class="type">VssClient</span>()
 {
-    // Release the IVssBackupComponents interface
-    // WARNING: this must be done BEFORE calling CoUninitialize()
-    m_pVssObject = NULL;
+    <span class="com">// Release the IVssBackupComponents interface</span>
+    <span class="com">// WARNING: this must be done BEFORE calling CoUninitialize()</span>
+    m_pVssObject = <span class="kw">NULL</span>;
 
-    // Call CoUninitialize if the CoInitialize was performed sucesfully
-    if (m_bCoInitializeCalled)
-        CoUninitialize();
+    <span class="com">// Call CoUninitialize if the CoInitialize was performed sucesfully</span>
+    <span class="kw">if</span> (m_bCoInitializeCalled)
+        <span class="type">CoUninitialize</span>();
 }
 
-// Initialize the COM infrastructure and the internal pointers
-void VssClient::Initialize(DWORD dwContext, wstring xmlDoc, bool bDuringRestore)
+<span class="com">// Initialize the COM infrastructure and the internal pointers</span>
+<span class="type">void</span> <span class="func">VssClient::Initialize</span>(DWORD dwContext, wstring xmlDoc, <span class="type">bool</span> bDuringRestore)
 {
-    FunctionTracer ft(DBG_INFO);
+    FunctionTracer <span class="func">ft</span>(DBG_INFO);
 
-    // Initialize COM
-    CHECK_COM( CoInitialize(NULL) );
-    m_bCoInitializeCalled = true;
+    <span class="com">// Initialize COM</span>
+    <span class="type">CHECK_COM</span>( <span class="type">CoInitialize</span>(<span class="kw">NULL</span>) );
+    m_bCoInitializeCalled = <span class="kw">true</span>;
 
-    // Initialize COM security
-    CHECK_COM(
-        CoInitializeSecurity(
-            NULL,                           //  Allow *all* VSS writers to communicate back!
-            -1,                             //  Default COM authentication service
-            NULL,                           //  Default COM authorization service
-            NULL,                           //  reserved parameter
-            RPC_C_AUTHN_LEVEL_PKT_PRIVACY,  //  Strongest COM authentication level
-            RPC_C_IMP_LEVEL_IMPERSONATE,    //  Minimal impersonation abilities
-            NULL,                           //  Default COM authentication settings
-            EOAC_DYNAMIC_CLOAKING,          //  Cloaking
-            NULL                            //  Reserved parameter
+    <span class="com">// Initialize COM security</span>
+    <span class="type">CHECK_COM</span>(
+        <span class="type">CoInitializeSecurity</span>(
+            <span class="kw">NULL</span>,                           <span class="com">//  Allow *all* VSS writers to communicate back!</span>
+            <span class="num">-1</span>,                             <span class="com">//  Default COM authentication service</span>
+            <span class="kw">NULL</span>,                           <span class="com">//  Default COM authorization service</span>
+            <span class="kw">NULL</span>,                           <span class="com">//  reserved parameter</span>
+            RPC_C_AUTHN_LEVEL_PKT_PRIVACY,  <span class="com">//  Strongest COM authentication level</span>
+            RPC_C_IMP_LEVEL_IMPERSONATE,    <span class="com">//  Minimal impersonation abilities</span>
+            <span class="kw">NULL</span>,                           <span class="com">//  Default COM authentication settings</span>
+            EOAC_DYNAMIC_CLOAKING,          <span class="com">//  Cloaking</span>
+            <span class="kw">NULL</span>                            <span class="com">//  Reserved parameter</span>
             ) );
 
-    // Create the internal backup components object
-    CHECK_COM( CreateVssBackupComponents(&m_pVssObject) );
+    <span class="com">// Create the internal backup components object</span>
+    <span class="type">CHECK_COM</span>( <span class="type">CreateVssBackupComponents</span>(&amp;m_pVssObject) );
 
-    // We are during restore now?
+    <span class="com">// We are during restore now?</span>
     m_bDuringRestore = bDuringRestore;
 
-    // Call either Initialize for backup or for restore
-    if (m_bDuringRestore)
+    <span class="com">// Call either Initialize for backup or for restore</span>
+    <span class="kw">if</span> (m_bDuringRestore)
     {
-        CHECK_COM(m_pVssObject->InitializeForRestore(CComBSTR(xmlDoc.c_str())))
+        <span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">InitializeForRestore</span>(<span class="type">CComBSTR</span>(xmlDoc.<span class="type">c_str</span>())))
     }
-    else
+    <span class="kw">else</span>
     {
-        // Initialize for backup
-        if (xmlDoc.length() == 0)
-            CHECK_COM(m_pVssObject->InitializeForBackup())
-        else
-            CHECK_COM(m_pVssObject->InitializeForBackup(CComBSTR(xmlDoc.c_str())))
+        <span class="com">// Initialize for backup</span>
+        <span class="kw">if</span> (xmlDoc.<span class="type">length</span>() == <span class="num">0</span>)
+            <span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">InitializeForBackup</span>())
+        <span class="kw">else</span>
+            <span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">InitializeForBackup</span>(<span class="type">CComBSTR</span>(xmlDoc.<span class="type">c_str</span>())))
 
-#ifdef VSS_SERVER
+<span class="preproc">#<span class="kw">ifdef</span> VSS_SERVER</span>
 
-        // Set the context, if different than the default context
-        if (dwContext != VSS_CTX_BACKUP)
+        <span class="com">// Set the context, if different than the default context</span>
+        <span class="kw">if</span> (dwContext != VSS_CTX_BACKUP)
         {
-            ft.WriteLine(L"- Setting the VSS context to: 0x%08lx", dwContext);
-            CHECK_COM(m_pVssObject->SetContext(dwContext) );
+            ft.<span class="func">WriteLine</span>(<span class="str">L"- Setting the VSS context to: 0x%08lx"</span>, dwContext);
+            <span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">SetContext</span>(dwContext) );
         }
-#endif
+<span class="preproc">#<span class="kw">endif</span></span>
 
     }
 
-    // Keep the context
+    <span class="com">// Keep the context</span>
     m_dwContext = dwContext;
 
-    // Set various properties per backup components instance
-    CHECK_COM(m_pVssObject->SetBackupState(true, true, VSS_BT_FULL, false));
+    <span class="com">// Set various properties per backup components instance</span>
+    <span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">SetBackupState</span>(<span class="kw">true</span>, <span class="kw">true</span>, VSS_BT_FULL, <span class="kw">false</span>));
 }
 
-// Waits for the completion of the asynchronous operation
-void VssClient::WaitAndCheckForAsyncOperation(IVssAsync* pAsync)
+<span class="com">// Waits for the completion of the asynchronous operation</span>
+<span class="type">void</span> <span class="func">VssClient::WaitAndCheckForAsyncOperation</span>(IVssAsync* pAsync)
 {
-    FunctionTracer ft(DBG_INFO);
+    FunctionTracer <span class="func">ft</span>(DBG_INFO);
 
-    ft.WriteLine(L"(Waiting for the asynchronous operation to finish...)");
+    ft.<span class="func">WriteLine</span>(<span class="str">L"(Waiting for the asynchronous operation to finish...)"</span>);
 
-    // Wait until the async operation finishes
-    CHECK_COM(pAsync->Wait());
+    <span class="com">// Wait until the async operation finishes</span>
+    <span class="type">CHECK_COM</span>(pAsync-&gt;<span class="type">Wait</span>());
 
-    // Check the result of the asynchronous operation
+    <span class="com">// Check the result of the asynchronous operation</span>
     HRESULT hrReturned = S_OK;
-    CHECK_COM(pAsync->QueryStatus(&hrReturned, NULL));
+    <span class="type">CHECK_COM</span>(pAsync-&gt;<span class="type">QueryStatus</span>(&amp;hrReturned, <span class="kw">NULL</span>));
 
-    // Check if the async operation succeeded...
-    if(FAILED(hrReturned))
+    <span class="com">// Check if the async operation succeeded...</span>
+    <span class="kw">if</span>(<span class="type">FAILED</span>(hrReturned))
     {
-        ft.WriteLine(L"Error during the last asynchronous operation.");
-        ft.WriteLine(L"- Returned HRESULT = 0x%08lx", hrReturned);
-        ft.WriteLine(L"- Error text: %s", FunctionTracer::HResult2String(hrReturned).c_str());
-        ft.WriteLine(L"- Please re-run VSHADOW.EXE with the /tracing option to get more details");
-        throw(hrReturned);
+        ft.<span class="func">WriteLine</span>(<span class="str">L"Error during the last asynchronous operation."</span>);
+        ft.<span class="func">WriteLine</span>(<span class="str">L"- Returned HRESULT = 0x%08lx"</span>, hrReturned);
+        ft.<span class="func">WriteLine</span>(<span class="str">L"- Error text: %s"</span>, FunctionTracer::<span class="type">HResult2String</span>(hrReturned).<span class="type">c_str</span>());
+        ft.<span class="func">WriteLine</span>(<span class="str">L"- Please re-run VSHADOW.EXE with the /tracing option to get more details"</span>);
+        <span class="kw">throw</span>(hrReturned);
     }
 }
-					</textarea>
+					</pre>
 				</section>
 				<footer>
 					<em>Ready</em>
-					<div>Ln 8,Col1</div>
+					<div>Ln&nbsp;8,Col&nbsp;1</div>
 					<div class="disabled">REC</div>
 					<div class="disabled">COL</div>
 					<div class="disabled">OVR</div>
@@ -485,7 +487,7 @@ void VssClient::WaitAndCheckForAsyncOperation(IVssAsync* pAsync)
 				<textarea id="puttycli">Microsoft Windows 98 [Version SE]
 (C) Copyright 1985-2000 Microsoft Corp.
 
-[xeR0@localhost C:\]# </textarea>
+[root@localhost C:\]# </textarea>
 			</form>
 			<div class="app" id="app-photoshop">
 				<header id="photoshoptitle">
