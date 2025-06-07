@@ -354,6 +354,18 @@
 			c.transform=`rotateZ(${z}deg)`;
 			t.value=(h=d.getHours()%12||12)+' : '+(m=d.getMinutes()).toString().padStart(2,0)+' : '+(s=d.getSeconds()).toString().padStart(2,0)+' '+(d.getHours()<12?'AM':'PM');
 		}):clearInterval(i)},
+	beginAni=(d=$('begin'),k=[[0,80],[.4,0],[.6,15],[.72,0],[.82,4],[.9,0],[.96,1],[1,0]],t=2500,s=performance.now())=>{
+		 d.style.display = "block";
+		(a=>a(a,s))(function f(self,s) {
+			const e=(performance.now()-s)/t,
+			i=k.findIndex(([p])=>e<=p),
+			[p1,m1]=k[i-1]||k[0],
+			[p2,m2]=k[i]||k[k.length-1],
+			l=(e-p1)/(p2-p1),
+			m=m1+(m2-m1)*l;
+			d.style.marginLeft=m+"%";
+			e<1?requestAnimationFrame(()=>self(self,s)):d.style.marginLeft="0%";
+	})},
 	flicker=_=>{
 		hg();
 		$("taskbar").style.visibility="hidden";
@@ -366,7 +378,9 @@
 				a.forEach(e=>e.style.visibility=i%2?"visible":"hidden");
 				if(++i<n)setTimeout(f,100);
 				else{hg(1);
-					if(rec>0)run("recovery",{h:false,i:false,d:{x:252,y:144},o:_=>{on("recoverycancel",E.c,_=>tclose("recovery"));on("recoverycheck",E.c,_=>n("BSOD"))}})}}
+						if(rec>0) run("recovery",{h:false,i:false,d:{x:252,y:144},o:_=>{on("recoverycancel",E.c,_=>tclose("recovery"));on("recoverycheck",E.c,_=>n("BSOD"))}});
+						else beginAni();
+					}}
 				,1200)}
 			,1000)},
 	timer=s=>{
