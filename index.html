@@ -24,6 +24,7 @@
 	<body>
 		<div class="oo overlay scanlines"></div>
 		<div class="oo overlay vignette"></div>
+		<div id="wait" class="overlay hourglass hide"></div>
 		<div class="overlay alttab off" id="alttab">
 			<main>
 				<section class="icons"></section>
@@ -268,6 +269,157 @@ DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
 				</h2>
 				<section id="vb6body"></section>
 			</div>
+			<form class="app" id="app-vstudio">
+				<h2 id="vstudiotitle">
+					<img src="/ui/i/vstudio.png">
+					<a class="label">test.cpp - Microsoft Visual Studio C++</a>
+					<a id="vstudiomin" class="btn min"></a>
+					<a class="btn max"></a>
+					<a id="vstudioexit" class="btn close"></a>
+				</h2>
+				<nav class="menu">
+					<a><u>F</u>ile</a>
+					<a><u>E</u>dit</a>
+					<a><u>V</u>iew</a>
+					<a><u>I</u>nsert</a>
+					<a><u>P</u>roject</a>
+					<a><u>B</u>uild</a>
+					<a><u>T</u>ools</a>
+					<a><u>W</u>indow</a>
+					<a><u>H</u>elp</a>
+				</nav>
+				<section id="vstudiobody">
+					<ul class="tree-view"><li><details open=""><summary><img src="/ui/i/vs-proj.png">test classes</summary><ul><li><details open=""><summary><img src="/ui/i/folder.png">Globals</summary><ul style="margin-left:-12px">
+						<li><img src="/ui/i/vs-pink.png">About(HWND,&nbsp;UINT,&nbsp;WPARAM)</li>
+						<li><img src="/ui/i/vs-pink.png">InitInstance(HINSTANCE,&nbsp;int&nbsp;nClass)</li>
+						<li><img src="/ui/i/vs-pink.png">MyRegisterClass(HINSTANCE)</li>
+						<li><img src="/ui/i/vs-pink.png">WimMain(HINSTANCE)</li>
+						<li><img src="/ui/i/vs-pink.png">WinProc(HWND,&nbsp;UINT,&nbsp;WPARAM)</li>
+						<li><img src="/ui/i/vs-blue.png">hlnst</li>
+						<li><img src="/ui/i/vs-blue.png">szTitle</li>
+						<li><img src="/ui/i/vs-blue.png">szWindowClass</li>
+					</ul></details></li>
+					</ul></details></li>
+					</ul>
+					<textarea>#include "stdafx.h"
+
+// Constructor
+VssClient::VssClient()
+{
+    m_bCoInitializeCalled = false;
+    m_dwContext = VSS_CTX_BACKUP;
+    m_latestSnapshotSetID = GUID_NULL;
+    m_bDuringRestore = false;
+}
+
+// Destructor
+VssClient::~VssClient()
+{
+    // Release the IVssBackupComponents interface
+    // WARNING: this must be done BEFORE calling CoUninitialize()
+    m_pVssObject = NULL;
+
+    // Call CoUninitialize if the CoInitialize was performed sucesfully
+    if (m_bCoInitializeCalled)
+        CoUninitialize();
+}
+
+// Initialize the COM infrastructure and the internal pointers
+void VssClient::Initialize(DWORD dwContext, wstring xmlDoc, bool bDuringRestore)
+{
+    FunctionTracer ft(DBG_INFO);
+
+    // Initialize COM
+    CHECK_COM( CoInitialize(NULL) );
+    m_bCoInitializeCalled = true;
+
+    // Initialize COM security
+    CHECK_COM(
+        CoInitializeSecurity(
+            NULL,                           //  Allow *all* VSS writers to communicate back!
+            -1,                             //  Default COM authentication service
+            NULL,                           //  Default COM authorization service
+            NULL,                           //  reserved parameter
+            RPC_C_AUTHN_LEVEL_PKT_PRIVACY,  //  Strongest COM authentication level
+            RPC_C_IMP_LEVEL_IMPERSONATE,    //  Minimal impersonation abilities
+            NULL,                           //  Default COM authentication settings
+            EOAC_DYNAMIC_CLOAKING,          //  Cloaking
+            NULL                            //  Reserved parameter
+            ) );
+
+    // Create the internal backup components object
+    CHECK_COM( CreateVssBackupComponents(&m_pVssObject) );
+
+    // We are during restore now?
+    m_bDuringRestore = bDuringRestore;
+
+    // Call either Initialize for backup or for restore
+    if (m_bDuringRestore)
+    {
+        CHECK_COM(m_pVssObject->InitializeForRestore(CComBSTR(xmlDoc.c_str())))
+    }
+    else
+    {
+        // Initialize for backup
+        if (xmlDoc.length() == 0)
+            CHECK_COM(m_pVssObject->InitializeForBackup())
+        else
+            CHECK_COM(m_pVssObject->InitializeForBackup(CComBSTR(xmlDoc.c_str())))
+
+#ifdef VSS_SERVER
+
+        // Set the context, if different than the default context
+        if (dwContext != VSS_CTX_BACKUP)
+        {
+            ft.WriteLine(L"- Setting the VSS context to: 0x%08lx", dwContext);
+            CHECK_COM(m_pVssObject->SetContext(dwContext) );
+        }
+#endif
+
+    }
+
+    // Keep the context
+    m_dwContext = dwContext;
+
+    // Set various properties per backup components instance
+    CHECK_COM(m_pVssObject->SetBackupState(true, true, VSS_BT_FULL, false));
+}
+
+// Waits for the completion of the asynchronous operation
+void VssClient::WaitAndCheckForAsyncOperation(IVssAsync* pAsync)
+{
+    FunctionTracer ft(DBG_INFO);
+
+    ft.WriteLine(L"(Waiting for the asynchronous operation to finish...)");
+
+    // Wait until the async operation finishes
+    CHECK_COM(pAsync->Wait());
+
+    // Check the result of the asynchronous operation
+    HRESULT hrReturned = S_OK;
+    CHECK_COM(pAsync->QueryStatus(&hrReturned, NULL));
+
+    // Check if the async operation succeeded...
+    if(FAILED(hrReturned))
+    {
+        ft.WriteLine(L"Error during the last asynchronous operation.");
+        ft.WriteLine(L"- Returned HRESULT = 0x%08lx", hrReturned);
+        ft.WriteLine(L"- Error text: %s", FunctionTracer::HResult2String(hrReturned).c_str());
+        ft.WriteLine(L"- Please re-run VSHADOW.EXE with the /tracing option to get more details");
+        throw(hrReturned);
+    }
+}
+					</textarea>
+				</section>
+				<footer>
+					<em>Ready</em>
+					<div>Ln 8,Col1</div>
+					<div class="disabled">REC</div>
+					<div class="disabled">COL</div>
+					<div class="disabled">OVR</div>
+					<div class="disabled">READ</div>
+				</footer>
+			</form>
 			<div class="app" id="app-aohell">
 				<h2 id="aohelltitle">
 					<img src="/ui/i/aohell.png">
@@ -322,6 +474,19 @@ DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
 				<section id="xirconbody"></section>
 			</div>
 			<div class="app" id="app-solitaire"><header id="solitairetitle"></header></div>
+			<form class="app" id="app-putty" role="dialog">
+				<h2 id="puttytitle">
+					<img src="/ui/i/putty.png">
+					<a class="label">PuTTY 0.68</a>
+					<a id="puttymin" class="btn min"></a>
+					<a class="btn max"></a>
+					<a id="puttyexit" class="btn close"></a>
+				</h2>
+				<textarea id="puttycli">Microsoft Windows 98 [Version SE]
+(C) Copyright 1985-2000 Microsoft Corp.
+
+[xeR0@localhost C:\]# </textarea>
+			</form>
 			<div class="app" id="app-photoshop">
 				<header id="photoshoptitle">
 					<a id="photoshopexit" class="exit"></a>
@@ -510,7 +675,7 @@ C:\WINDOWS> </textarea>
 										<summary><img src="/ui/i/folder.png">OTP Pack</summary>
 										<summary><img src="/ui/i/folder.png">Phreakazoid</summary>
 										<summary><img src="/ui/i/folder.png">Rejection</summary>
-										<summary><img src="/ui/i/folder.png">Set tTime</summary>
+										<summary><img src="/ui/i/folder.png">Set Time</summary>
 										<summary><img src="/ui/i/folder.png">Scorn</summary>
 										<summary><img src="/ui/i/folder.png">S.I.N. Theme</summary>
 										<summary><img src="/ui/i/folder.png">SinCrypt</summary>
@@ -714,7 +879,7 @@ Recieved 2666 bytes in 1.2 secs, (17.35 KBps), transfer suceeded
 						<div class="window" role="tabpanel">
 							<div class="window-body client">
 								<ul class="tree-view">
-									<li><details><summary><img src="/ui/i/help-sheet.png">Welcome to Help</summary></details></li>
+									<li><details><summary><img src="/ui/i/help-sheet.png">Welcome to Help/summary></details></li>
 									<li><details><summary><img src="/ui/i/help-ico.png">Introducing Windows 98</summary></details></li>
 									<li><details><summary><img src="/ui/i/help-ico.png">Exploring your Computer</summary></details></li>
 									<li><details><summary><img src="/ui/i/help-ico.png">Exploring the Internet</summary></details></li>

@@ -765,6 +765,7 @@ button {
 	#app-nero,
 	#app-notepad,
 	#app-photoshop,
+	#app-putty,
 	#app-dreamweaver,
 	#app-regedit,
 	#app-solitaire,
@@ -772,6 +773,7 @@ button {
 	#app-recovery,
 	#app-utorrent,
 	#app-vb6,
+	#app-vstudio,
 	#app-winamp,
 	#app-wsftp,
 	#app-xircon {
@@ -1288,7 +1290,7 @@ button {
 		.wrap {
 			border:0;
 			padding-top:6px;
-	 	}
+		}
 		menu[role="tablist"] {
 			margin: 0 4px -2px 4px;
 		}
@@ -1323,60 +1325,60 @@ button {
 				margin-bottom: 8px;
 			}
 		}
-    label {
-      font-size: 12px;
-      margin-right: 8px;
-    }
-    select, input[type="number"] {
-      width: 98px;
+		label {
+			font-size: 12px;
+			margin-right: 8px;
+		}
+		select, input[type="number"] {
+			width: 98px;
 			font-size: 11px;
-      margin-bottom: 10px;
-    }
-    input[type="number"] {
-      width: 70px;
+			margin-bottom: 10px;
+		}
+		input[type="number"] {
+			width: 70px;
 			margin-left: 8px;
-    }
-    .cal-grid {
-      display: grid;
+		}
+		.cal-grid {
+			display: grid;
 			height:110px;
-      grid-template-columns: repeat(7, 1fr);
-      border: 2px inset #c0c0c0;
-      background: #fff;
+			grid-template-columns: repeat(7, 1fr);
+			border: 2px inset #c0c0c0;
+			background: #fff;
 			margin-bottom:1px;
-    }
-    .cal-head {
-      text-align: center;
-      font-size: 11px;
-      padding: 3px 0;
+		}
+		.cal-head {
+			text-align: center;
+			font-size: 11px;
+			padding: 3px 0;
 			background: #787878;
 			color: #a8a8a8;
-    }
-    .cal-cell {
-      text-align: right;
-      font-size: 11px;
-      padding: 1px 3px;
-      border-right: 1px solid #e0e0e0;
-      border-bottom: 1px solid #e0e0e0;
-    }
-    .cal-cell:last-child,
-    .cal-header:last-child {
-      border-right: none;
-    }
-    .cal-row:last-child .calendar-cell {
-      border-bottom: none;
-    }
-    .cal-cell.today {
-      background: #00008b;
-      color: #fff;
-      border: 1px solid #00008b;
-    }
+		}
+		.cal-cell {
+			text-align: right;
+			font-size: 11px;
+			padding: 1px 3px;
+			border-right: 1px solid #e0e0e0;
+			border-bottom: 1px solid #e0e0e0;
+		}
+		.cal-cell:last-child,
+		.cal-header:last-child {
+			border-right: none;
+		}
+		.cal-row:last-child .calendar-cell {
+			border-bottom: none;
+		}
+		.cal-cell.today {
+			background: #00008b;
+			color: #fff;
+			border: 1px solid #00008b;
+		}
 		.clock {
 			display: flex;
 			width: 130px;
 			height: 130px;
 			justify-content: center;
 			align-items: center;
-			background: url(/ui/i/clock.png);
+			background: url(/ui/i/clock-face.png);
 			background-size: cover;
 			.hour,
 			.min,
@@ -1835,6 +1837,87 @@ button {
 			margin-top: 4px;
 		}
 	}
+	#app-vstudio {
+		width: 720px;
+		height: 398px;
+		padding: 2px;
+		&::before {
+			width: 718px;
+			height: 396px;
+		}
+		section {
+			width: 716px;
+			height: 327px;
+			background: url(/ui/i/app-vstudio.png) no-repeat;
+			background-size: cover;
+			background-repeat: no-repeat;
+			.tree-view {
+        width: 211px;
+        height: 209px;
+        display: block;
+        background: #fff;
+        padding: 5px;
+        margin: 80px 0 0 12px;
+				ul  {
+					margin-left: 5px;
+					li {
+						width: 200px;
+					}
+				}
+			}
+			textarea {
+				margin: 59px 0 0 33px;
+				width: 444px;
+				height: 264px;
+				overflow: scroll;
+				border:0;
+				.blue {
+					color: blue;
+				}
+				.green {
+					color: green;
+				}
+			}
+		}
+		h2 {
+			width: 714px;
+			padding-top: 2px;
+		}
+		nav {
+			padding-left: 24px;
+			border-left: 1px solid #fff;
+			background-image:url(/ui/i/vs-cpp.png);
+			background-repeat: no-repeat;
+			background-position: 2px 1px;
+		}
+		footer {
+			width: 706px;
+			height: 16px;
+			margin-bottom: 1px;
+			gap: 1px;
+			display: flex;
+			margin: 0 0 4px 4px;
+			padding:4px 0 2px 4px;
+			border-top: 1px solid #fff;
+			em {
+				font-style: normal;
+				display: inline-block;
+				width: 69%;
+			}
+			div{
+				box-shadow:
+					inset -1px -1px #dfdfdf,
+					inset 1px 1px gray;
+				flex-grow: 1;
+				margin: 0;
+				padding: 2px 3px;
+				&.disabled {
+					color: gray;
+					text-shadow: 1px 1px #fff;
+				}
+			}
+		}
+	}
 	#app-aohell {
 		height: 425px;
 		top: 156px;
@@ -1975,6 +2058,18 @@ button {
 			resize: none;
 			background: #000;
 			color: #f1f1f1;
+		}
+	}
+	#app-putty {
+		left: 30%;
+		top: 30%;
+		textarea {
+			color: #c0c0c0;
+			background: #000;
+			overflow: scroll;
+			padding: 1px;
+			width: 99.2%;
+			height: 93%;
 		}
 	}
 	#jm,
@@ -2366,9 +2461,13 @@ button {
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	user-select: none;
+	&.hourglass.hide,
 	&.vignette.hide,
 	&.scanlines.hide {
 		display:none;
+	}
+	&.hourglass {
+		background: url(/ui/i/hourglass.gif) no-repeat center center;
 	}
 	&.vignette {
 		background-image: radial-gradient(
@@ -2571,11 +2670,12 @@ dialog {
 		font-size: 8pt;
 	}
 	.pad {
-		padding: 15px;
+		padding: 8px;
 		aside img {
 			transform: scale(1.5);
 			margin-right: 25px;
 		}
+		section { max-width: 300px;}
 	}
 }
 dialog {
@@ -2798,32 +2898,32 @@ textarea:focus {
 button:focus,
 input[type="submit"]:focus,
 input[type="reset"]:focus {
-  outline: 1px dotted #000000;
-  outline-offset: -4px;
+	outline: 1px dotted #000000;
+	outline-offset: -4px;
 }
 input[type="radio"]:focus + label,
 input[type="checkbox"]:focus + label {
-  outline: 1px dotted #000000;
+	outline: 1px dotted #000000;
 }
 select:focus {
-  color:#fff;
-  background-color: #00008e;
+	color:#fff;
+	background-color: #00008e;
 }
 select:focus option {
-  color: #000;
-  background-color: #fff;
+	color: #000;
+	background-color: #fff;
 }
 a:focus {
-  outline: 1px dotted #0000ff;
+	outline: 1px dotted #0000ff;
 }
 summary:focus {
-  outline: 1px dotted #000000;
+	outline: 1px dotted #000000;
 }
 menu[role=tablist] > li[aria-selected=true] > a:focus {
-  outline: none;
+	outline: none;
 }
 menu[role=tablist] > li > a:focus {
-  outline: 1px dotted #222;
+	outline: 1px dotted #222;
 }
 input[type=number]::-webkit-inner-spin-button {
 	opacity:0;
@@ -2863,8 +2963,8 @@ input[type=number] {
 	letter-spacing: 0;
 	margin-right: 24px;
 	sup {
-		padding-bottom:2px;
-		font-size: 12px;
+		font-size: 14px;
+		vertical-align: text-top;
 	}
 	img {
 		width: 20px;
