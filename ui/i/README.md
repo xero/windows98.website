@@ -46,6 +46,8 @@
 
 ![help.png](help.png)
 
+![hourglass.gif](hourglass.gif)
+
 ![ie6.png](ie6.png)
 
 ![insert-cd.gif](insert-cd.gif)
@@ -61,6 +63,8 @@
 ![metroid.gif](metroid.gif)
 
 ![modem.png](modem.png)
+
+![monitor.png](monitor.png)
 
 ![msdos.png](msdos.png)
 
@@ -146,6 +150,8 @@
 
 ![app-vb6.png](app-vb6.png)
 
+![app-vstudio.png](app-vstudio.png)
+
 ![app-winamp.png](app-winamp.png)
 
 ![app-xircon.png](app-xircon.png)
@@ -165,6 +171,14 @@
 ![help-sheet.png](help-sheet.png)
 
 ![up.png](up.png)
+
+![vs-blue.png](vs-blue.png)
+
+![vs-cpp.png](vs-cpp.png)
+
+![vs-pink.png](vs-pink.png)
+
+![vs-proj.png](vs-proj.png)
 
 ![bo2k-server.png](bo2k-server.png)
 
@@ -210,6 +224,10 @@
 
 ![check.svg](check.svg)
 
+![clock-face.png](clock-face.png)
+
+![clock-hand.svg](clock-hand.svg)
+
 ![close.svg](close.svg)
 
 ![close-disabled.svg](close-disabled.svg)
@@ -229,6 +247,8 @@
 ![max.svg](max.svg)
 
 ![min.svg](min.svg)
+
+![number.svg](number.svg)
 
 ![radio-checked.svg](radio-checked.svg)
 
