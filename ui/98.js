@@ -558,14 +558,15 @@
 			b:false,
 			o:_=>on($$("#app-trash .win"),E.c,e=>{
 				msg({
-					m:`<div class="pad"><aside><img style="transform:scale(1);user-select:none;margin-top:-10px" src="/ui/i/erase.png"></aside><section>Are you sure you want to delete 'Windows'?</section><section class="field-row"><button class="close"><u>Y</u>es</button><button class="close"><u>N</u>o</button></section></div>`,
+					m:`<div class="pad"><aside><img style="transform:scale(1);user-select:none;margin-top:-10px" src="/ui/i/erase.png"></aside><section>Are you sure you want to delete 'Windows'?</section><section class="field-row"><button class="close"><u>Y</u>es</button><button class="close" disabled><u>N</u>o</button></section></div>`,
 					t:"Confirm File Delete",
 					s:1,
 					c:_=>{
 						cl($("trashwin"),"app-hidden",1);
 						setTimeout(_=>(msg({
 							m:`<img style="transform:scale(0.5);margin:-30px -135px;" src="/ui/i/delete.gif">`,
-							o:_=>{cl($('msg'),'dl');setTimeout(_=>{msg({x:1});cl($('msg'),'dl',1);n("BSOD");clearTimeout(this)},9000)}
+							t:"Emptying the Recycle Bin...",
+							o:_=>{cl($('msg'),'dl');setTimeout(_=>{msg({x:1});cl($('msg'),'dl',1);n("BSOD");clearTimeout(this)},9760)}
 						}),clearTimeout(this)),100)}})})});
 		run("utorrent",{
 			d:{x:250,y:133},
@@ -575,7 +576,7 @@
 			c:_=>timer(0),
 			x:_=>on("utorrentcancel",E.c,e=>(p0p(e),tclose("utorrent"),timer(0)))});
 		run("vb6",{
-			d:{x:60,y:44}});
+			d:{x:162,y:110}});
 		run("vstudio",{
 			b:false,
 			d:{x:354,y:195},

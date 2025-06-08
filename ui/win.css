@@ -1854,15 +1854,21 @@ button {
 		}
 	}
 	#app-vb6 {
-		top: 100px;
+		top: 150px;
 		width: 840px;
-		height: 600px;
-		transform: scale(1.15);
-		background: url(/ui/i/app-vb6.png) no-repeat;
+		height:566px;
+		transform: scale(1.4);
+		background-color: silver;
+		background-image: url(/ui/i/app-vb6.png);
 		background-size: cover;
 		background-repeat: no-repeat;
+		background-position: 0 30px;
 		padding: 2px;
 		left: 19%;
+		&::before {
+			width: 838px;
+			height:564px;
+		}
 		section {
 			width: 99%;
 			height: 96%;
@@ -1972,14 +1978,20 @@ button {
 		}
 	}
 	#app-aohell {
-		height: 425px;
 		top: 156px;
 		left: 24%;
-		width: 690px;
-		background: url(/ui/i/app-aohell.png) no-repeat;
+		height: 434px;
+		width: 700px;
+		background-color: silver;
+		background-image: url(/ui/i/app-aohell.png);
+		background-size: contain;
 		transform: scale(1.15);
-		background-size: cover;
 		background-repeat: no-repeat;
+		background-position: 2px 2px;
+		&::before {
+			width: 698px;
+			height: 432px;
+		}
 		section {
 			width: 99%;
 			height: 95%;
@@ -2480,7 +2492,6 @@ button {
 		em {
 			background: #a8a8a8;
 			color: #0000a8;
-			font-size: 1.15em;
 			font-style: normal;
 			padding: 0 1em;
 		}
