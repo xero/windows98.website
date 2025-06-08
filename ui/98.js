@@ -18,6 +18,7 @@
 		"app-solitaire",
 		"app-sub7",
 		"app-utorrent",
+		"app-trash",
 		"app-vb6",
 		"app-vstudio",
 		"app-winamp",
@@ -65,7 +66,7 @@
 		$("poweroff").style.display="none";
 		if(v)t(fe);
 		[...$$$('#desktop article'),$('taskbar'),$('windows')].forEach(i=>i.style.visibility="hidden");
-		apps.concat("cdc","jm").forEach(a=>cl($(a),"app-hidden"))
+		apps.concat("trashwin","cdc","jm").forEach(a=>cl($(a),"app-hidden"))
 		tn.src="/ui/i/tray-disconnected.png"},
 	msg=({x,m,t,i,s,o,c}={})=>{
 		let d=$("msg");
@@ -169,6 +170,7 @@
 				e==="regedit"?'regedit.png"><sup>Registry Editor':
 				e==="solitaire"?'game.png"><sup>Solitaire':
 				e==="sub7"?'sub7.png"><sup>SubSeven v2.2 by mobman':
+				e==="trash"?'trash.png"><sup>Recycle Bin':
 				e==="utorrent"?'utorrent.png"><sup>µtorrent v1.3':
 				e==="vb6"?'vb6.png"><sup>Visual Basic v6.0':
 				e==="vstudio"?'vstudio.png"><sup>test.cpp - Microsoft Visual Studio C++':
@@ -490,7 +492,7 @@
 			prompt(dp);
 			promptfocus(dp);
 		},2000)},
-	boot=_=>setTimeout(_=>{n("windows");clearTimeout(this)},2000),
+	boot=_=>setTimeout(_=>(n("windows"),clearTimeout(this)),2000),
 	windows=_=>{
 		lok=0;
 		flicker();
@@ -551,6 +553,20 @@
 			b:false});
 		run("sub7",{
 			d:{x:118,y:88}});
+		run("trash",{
+			d:{x:248,y:192},
+			b:false,
+			o:_=>on($$("#app-trash .win"),E.c,e=>{
+				msg({
+					m:`<div class="pad"><aside><img style="transform:scale(1);user-select:none;margin-top:-10px" src="/ui/i/erase.png"></aside><section>Are you sure you want to delete 'Windows'?</section><section class="field-row"><button class="close"><u>Y</u>es</button><button class="close"><u>N</u>o</button></section></div>`,
+					t:"Confirm File Delete",
+					s:1,
+					c:_=>{
+						cl($("trashwin"),"app-hidden",1);
+						setTimeout(_=>(msg({
+							m:`<img style="transform:scale(0.5);margin:-30px -135px;" src="/ui/i/delete.gif">`,
+							o:_=>{cl($('msg'),'dl');setTimeout(_=>{msg({x:1});cl($('msg'),'dl',1);n("BSOD");clearTimeout(this)},9000)}
+						}),clearTimeout(this)),100)}})})});
 		run("utorrent",{
 			d:{x:250,y:133},
 			b:false,

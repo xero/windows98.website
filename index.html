@@ -305,7 +305,7 @@ DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
 					<pre id="vscode">
 <span class="preproc">#<span class="kw">include</span> <span class="str">"stdafx.h"</span></span>
 
-<span class="com">// Constructor</span>
+<span class="com">// constructor</span>
 VssClient::<span class="type">VssClient</span>()
 {
     m_bCoInitializeCalled = <span class="kw">false</span>;
@@ -314,55 +314,55 @@ VssClient::<span class="type">VssClient</span>()
     m_bDuringRestore = <span class="kw">false</span>;
 }
 
-<span class="com">// Destructor</span>
+<span class="com">// destructor</span>
 VssClient::~<span class="type">VssClient</span>()
 {
-    <span class="com">// Release the IVssBackupComponents interface</span>
+    <span class="com">// release the IVssBackupComponents interface</span>
     <span class="com">// WARNING: this must be done BEFORE calling CoUninitialize()</span>
     m_pVssObject = <span class="kw">NULL</span>;
 
-    <span class="com">// Call CoUninitialize if the CoInitialize was performed sucesfully</span>
+    <span class="com">// call CoUninitialize if the CoInitialize was performed sucesfully</span>
     <span class="kw">if</span> (m_bCoInitializeCalled)
         <span class="type">CoUninitialize</span>();
 }
 
-<span class="com">// Initialize the COM infrastructure and the internal pointers</span>
+<span class="com">// initialize the COM infrastructure and the internal pointers</span>
 <span class="type">void</span> <span class="func">VssClient::Initialize</span>(DWORD dwContext, wstring xmlDoc, <span class="type">bool</span> bDuringRestore)
 {
     FunctionTracer <span class="func">ft</span>(DBG_INFO);
 
-    <span class="com">// Initialize COM</span>
+    <span class="com">// initialize COM</span>
     <span class="type">CHECK_COM</span>( <span class="type">CoInitialize</span>(<span class="kw">NULL</span>) );
     m_bCoInitializeCalled = <span class="kw">true</span>;
 
-    <span class="com">// Initialize COM security</span>
+    <span class="com">// initialize COM security</span>
     <span class="type">CHECK_COM</span>(
         <span class="type">CoInitializeSecurity</span>(
-            <span class="kw">NULL</span>,                           <span class="com">//  Allow *all* VSS writers to communicate back!</span>
-            <span class="num">-1</span>,                             <span class="com">//  Default COM authentication service</span>
-            <span class="kw">NULL</span>,                           <span class="com">//  Default COM authorization service</span>
-            <span class="kw">NULL</span>,                           <span class="com">//  reserved parameter</span>
-            RPC_C_AUTHN_LEVEL_PKT_PRIVACY,  <span class="com">//  Strongest COM authentication level</span>
-            RPC_C_IMP_LEVEL_IMPERSONATE,    <span class="com">//  Minimal impersonation abilities</span>
-            <span class="kw">NULL</span>,                           <span class="com">//  Default COM authentication settings</span>
-            EOAC_DYNAMIC_CLOAKING,          <span class="com">//  Cloaking</span>
-            <span class="kw">NULL</span>                            <span class="com">//  Reserved parameter</span>
+            <span class="kw">NULL</span>,                           <span class="com">//  allow all VSS writers to communicate back</span>
+            <span class="num">-1</span>,                              <span class="com">//  default COM authentication service</span>
+            <span class="kw">NULL</span>,                           <span class="com">//  default COM authorization service</span>
+            <span class="kw">NULL</span>,                           <span class="com">//  reserved param</span>
+            RPC_C_AUTHN_LEVEL_PKT_PRIVACY,  <span class="com">//  strongest COM authentication level</span>
+            RPC_C_IMP_LEVEL_IMPERSONATE,    <span class="com">//  minimal impersonation abilities</span>
+            <span class="kw">NULL</span>,                           <span class="com">//  default COM authentication settings</span>
+            EOAC_DYNAMIC_CLOAKING,          <span class="com">//  cloaking</span>
+            <span class="kw">NULL</span>                            <span class="com">//  reserved param</span>
             ) );
 
-    <span class="com">// Create the internal backup components object</span>
+    <span class="com">// create the internal backup components object</span>
     <span class="type">CHECK_COM</span>( <span class="type">CreateVssBackupComponents</span>(&amp;m_pVssObject) );
 
-    <span class="com">// We are during restore now?</span>
+    <span class="com">// we doing a restore now?</span>
     m_bDuringRestore = bDuringRestore;
 
-    <span class="com">// Call either Initialize for backup or for restore</span>
+    <span class="com">// call either Initialize for backup or for restore</span>
     <span class="kw">if</span> (m_bDuringRestore)
     {
         <span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">InitializeForRestore</span>(<span class="type">CComBSTR</span>(xmlDoc.<span class="type">c_str</span>())))
     }
     <span class="kw">else</span>
     {
-        <span class="com">// Initialize for backup</span>
+        <span class="com">// initialize for backup</span>
         <span class="kw">if</span> (xmlDoc.<span class="type">length</span>() == <span class="num">0</span>)
             <span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">InitializeForBackup</span>())
         <span class="kw">else</span>
@@ -370,44 +370,44 @@ VssClient::~<span class="type">VssClient</span>()
 
 <span class="preproc">#<span class="kw">ifdef</span> VSS_SERVER</span>
 
-        <span class="com">// Set the context, if different than the default context</span>
+        <span class="com">// set the context, if different than the default context</span>
         <span class="kw">if</span> (dwContext != VSS_CTX_BACKUP)
         {
-            ft.<span class="func">WriteLine</span>(<span class="str">L"- Setting the VSS context to: 0x%08lx"</span>, dwContext);
+            ft.<span class="func">WriteLine</span>(<span class="str">L"- setting the VSS context to: 0x%08lx"</span>, dwContext);
             <span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">SetContext</span>(dwContext) );
         }
 <span class="preproc">#<span class="kw">endif</span></span>
 
     }
 
-    <span class="com">// Keep the context</span>
+    <span class="com">// keep the context</span>
     m_dwContext = dwContext;
 
-    <span class="com">// Set various properties per backup components instance</span>
+    <span class="com">// set various properties per backup components instance</span>
     <span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">SetBackupState</span>(<span class="kw">true</span>, <span class="kw">true</span>, VSS_BT_FULL, <span class="kw">false</span>));
 }
 
-<span class="com">// Waits for the completion of the asynchronous operation</span>
+<span class="com">// waits for the completion of the asynchronous operation</span>
 <span class="type">void</span> <span class="func">VssClient::WaitAndCheckForAsyncOperation</span>(IVssAsync* pAsync)
 {
     FunctionTracer <span class="func">ft</span>(DBG_INFO);
 
-    ft.<span class="func">WriteLine</span>(<span class="str">L"(Waiting for the asynchronous operation to finish...)"</span>);
+    ft.<span class="func">WriteLine</span>(<span class="str">L"(waiting for the asynchronous operation to finish...)"</span>);
 
-    <span class="com">// Wait until the async operation finishes</span>
+    <span class="com">// wait until the async operation finishes</span>
     <span class="type">CHECK_COM</span>(pAsync-&gt;<span class="type">Wait</span>());
 
-    <span class="com">// Check the result of the asynchronous operation</span>
+    <span class="com">// check the result of the asynchronous operation</span>
     HRESULT hrReturned = S_OK;
     <span class="type">CHECK_COM</span>(pAsync-&gt;<span class="type">QueryStatus</span>(&amp;hrReturned, <span class="kw">NULL</span>));
 
-    <span class="com">// Check if the async operation succeeded...</span>
+    <span class="com">// check if the async operation succeeded...</span>
     <span class="kw">if</span>(<span class="type">FAILED</span>(hrReturned))
     {
-        ft.<span class="func">WriteLine</span>(<span class="str">L"Error during the last asynchronous operation."</span>);
-        ft.<span class="func">WriteLine</span>(<span class="str">L"- Returned HRESULT = 0x%08lx"</span>, hrReturned);
-        ft.<span class="func">WriteLine</span>(<span class="str">L"- Error text: %s"</span>, FunctionTracer::<span class="type">HResult2String</span>(hrReturned).<span class="type">c_str</span>());
-        ft.<span class="func">WriteLine</span>(<span class="str">L"- Please re-run VSHADOW.EXE with the /tracing option to get more details"</span>);
+        ft.<span class="func">WriteLine</span>(<span class="str">L"error during the last asynchronous operation."</span>);
+        ft.<span class="func">WriteLine</span>(<span class="str">L"- returned HRESULT = 0x%08lx"</span>, hrReturned);
+        ft.<span class="func">WriteLine</span>(<span class="str">L"- error text: %s"</span>, FunctionTracer::<span class="type">HResult2String</span>(hrReturned).<span class="type">c_str</span>());
+        ft.<span class="func">WriteLine</span>(<span class="str">L"- please re-run VSHADOW.EXE with the /tracing option to get more details"</span>);
         <span class="kw">throw</span>(hrReturned);
     }
 }
@@ -431,6 +431,46 @@ VssClient::~<span class="type">VssClient</span>()
 					<a id="aohellexit" class="btn close"></a>
 				</h2>
 				<section id="aohellbody"></section>
+			</div>
+			<div class="app" id="app-trash">
+				<h2 id="trashtitle">
+					<img src="/ui/i/trash.png">
+					<a class="label">Recycle Bin</a>
+					<a id="trashmin" class="btn min"></a>
+					<a class="btn max"></a>
+					<a id="trashexit" class="btn close"></a>
+				</h2>
+				<img class="throbber" src="/ui/i/throbber.gif">
+				<nav class="menu">
+					<a><u>F</u>ile</a>
+					<a><u>E</u>dit</a>
+					<a><u>V</u>iew</a>
+					<a><u>G</u>o</a>
+					<a>F<u>a</u>vorites</a>
+					<a><u>H</u>elp</a>
+				</nav>
+				<aside class="mn"></aside>
+				<aside class="loc">
+					<label for="exploc">A<u>d</u>dress</label><select class="exploc"><option>Recycle Bin</option></select>
+				</aside>
+				<aside class="sep"></aside>
+				<main class="win">
+					<img class="dico" src="/ui/i/trash.png">
+					<h3>Recycle Bin</h3>
+					<div class="descr">
+						<p>This folder contains files and folders that you have deleted from your computer.</p>
+						<p>To permanently remove all items and reclaim disk space, click <a>Empty Recycle Bin</a></p>
+						<p>To move all items back to their original locations, click <a>Restore All</a></p>
+						<p>Select an item to view its description</p>
+					<div class="ico audio"><img src="/ui/i/folder.png"><kbd>Windows</kbd></div>
+					</div>
+				</main>
+				<div id="trashwin" class="app-hidden"></div>
+				<footer>
+					<section>file:///C:/WINDOWS/web/:Empty Recycle Bin</section>
+					<section>0 bytes</section>
+					<section>&nbsp;&nbsp;&nbsp;&nbsp;</section>
+				</footer>
 			</div>
 			<div class="app" id="app-utorrent">
 				<h2 id="utorrenttitle">

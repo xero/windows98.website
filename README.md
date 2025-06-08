@@ -6,7 +6,7 @@
 
 ![win98se](https://raw.githubusercontent.com/xero/windows98.website/main/preview.png)
 
-### ![icon](https://raw.githubusercontent.com/xero/windows98.website/main/ui/i/programs.png) [view the icon library](https://github.com/xero/windows98.website/blob/main/ui/i/README.md) ![icon](https://raw.githubusercontent.com/xero/windows98.website/main/ui/i/fs.png)
+### ![icon](https://raw.githubusercontent.com/xero/windows98.website/main/ui/i/programs.png)  [view the icon library](https://github.com/xero/windows98.website/blob/main/ui/i/README.md)  ![icon](https://raw.githubusercontent.com/xero/windows98.website/main/ui/i/fs.png)
 
 ## license and credits
 

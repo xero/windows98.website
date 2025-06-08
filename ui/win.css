@@ -755,6 +755,7 @@ button {
 		}
 		#begin {
 			display: none;
+			width:195px;
 			background-image:url(/ui/i/arrow.png);
 			background-repeat: no-repeat;
 			background-position: center left;
@@ -780,6 +781,7 @@ button {
 	#app-solitaire,
 	#app-sub7,
 	#app-recovery,
+	#app-trash,
 	#app-utorrent,
 	#app-vb6,
 	#app-vstudio,
@@ -1580,6 +1582,7 @@ button {
 			left: 30%;
 		}
 	}
+	#app-trash,
 	#app-mycpu,
 	#app-explorer {
 		left: 25%;
@@ -1786,6 +1789,32 @@ button {
 		.print {
 			left: 350px;
 			top: 180px;
+		}
+	}
+	#app-trash {
+		left:888px;
+		height:401px;
+		&::before { height:399px; }
+		p { width: 200px; }
+		.win {
+			z-index:55;
+			height: 290px;
+		}
+		#trashwin {
+			background-image: url(/ui/i/deltree.gif);
+			background-repeat: no-repeat;
+			background-size: cover;
+			border-right: 1px solid #a8a8a8;
+			height: 290px;
+			width: 502px;
+			position: absolute;
+			top: 105px;
+			left: 2px;
+			z-index: 57;
+		}
+		footer {
+			z-index: 56;
+			width:99%;
 		}
 	}
 	#app-solitaire {
@@ -2652,6 +2681,10 @@ dialog[open] {
 		inset 1px 1px #dfdfdf,
 		inset -2px -2px gray,
 		inset 2px 2px #fff;
+	&.dl {
+		min-width: 260px;
+		background: #aeaeae;
+	}
 }
 @starting-style {
 	#msg[open],

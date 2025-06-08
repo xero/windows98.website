@@ -26,6 +26,8 @@
 
 ![err.png](err.png)
 
+![erase.png](erase.png)
+
 ![explorer-ico.png](explorer-ico.png)
 
 ![favs.png](favs.png)
@@ -193,6 +195,10 @@
 ![dialing.gif](dialing.gif)
 
 ![downloading.gif](downloading.gif)
+
+![delete.gif](delete.gif)
+
+![deltree.gif](deltree.gif)
 
 ![dreamweaver-components.png](dreamweaver-components.png)
 
