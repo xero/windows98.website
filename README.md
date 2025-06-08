@@ -4,7 +4,12 @@
 
 ### [https://www.windows98.website](https://www.windows98.website)
 
-![win98se](https://raw.githubusercontent.com/xero/windows98.website/main/preview.png)
+![windows98 preview](https://github.com/user-attachments/assets/8fc2e18b-7ab1-4aad-8cb1-e0dfed998225)
+![windows98 preview](https://github.com/user-attachments/assets/30a67f60-cc20-4950-ae75-b0a537cd3ac4)
+![windows98 preview](https://github.com/user-attachments/assets/d71ba31b-46a8-42d3-aa99-7e7712ac91c5)
+![windows98 preview](https://github.com/user-attachments/assets/9f4bd6f7-6b41-4f70-96a3-d10f34ba1c21)
+![windows98 preview](https://github.com/user-attachments/assets/0b643116-b950-429f-86be-ee792371e4ee)
+![windows98 preview](https://github.com/user-attachments/assets/269e087e-9435-4576-8068-e11a646cb1fb)
 
 ### <img src="https://raw.githubusercontent.com/xero/windows98.website/main/ui/i/programs.png" height="24">  [view the icon library](https://github.com/xero/windows98.website/blob/main/ui/i/README.md)  <img src="https://raw.githubusercontent.com/xero/windows98.website/main/ui/i/fs.png" height="16">
 
