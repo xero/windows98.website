@@ -11,7 +11,15 @@
 ![windows98 preview](https://github.com/user-attachments/assets/0b643116-b950-429f-86be-ee792371e4ee)
 ![windows98 preview](https://github.com/user-attachments/assets/269e087e-9435-4576-8068-e11a646cb1fb)
 
-### <img src="https://raw.githubusercontent.com/xero/windows98.website/main/ui/i/programs.png" height="24">  [view the icon library](https://github.com/xero/windows98.website/blob/main/ui/i/README.md)  <img src="https://raw.githubusercontent.com/xero/windows98.website/main/ui/i/fs.png" height="16">
+## <img src="https://raw.githubusercontent.com/xero/windows98.website/main/ui/i/programs.png" height="24">  [view the icon library](https://github.com/xero/windows98.website/blob/main/ui/i/README.md)  <img src="https://raw.githubusercontent.com/xero/windows98.website/main/ui/i/fs.png" height="16">
+
+```
+        _.-::-._
+ '-..-'|   ||   |                       __ _
+ '-..-'|_.-;;-._| \   /_o_  __/_     __(_/(_) \   / _  /  ___o_/ _
+ '-..-'|   ||   |  \)/ // )(_/(_)\))_)  /(_) o \)/ (-'/_)_) / /¯(-'
+ '-..-'|_.-''-._|                                   ¯            ¯
+```
 
 ## license and credits
 
