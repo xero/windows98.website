@@ -1,3 +1,9 @@
+/*         _.-::-._
+    '-..-'|   ||   |                       __ _
+    '-..-'|_.-;;-._| \   /_o_  __/_     __(_/(_) \   / _  /  ___o_/ _
+    '-..-'|   ||   |  \)/ // )(_/(_)\))_)  /(_) o \)/ (-'/_)_) / /¯(-'
+    '-..-'|_.-''-._|                                   ¯            ¯
+*/
 (_=>{
 	const apps=[
 		"app-adraw",
@@ -23,6 +29,7 @@
 		"app-vstudio",
 		"app-winamp",
 		"app-wsftp",
+		"app-winnuke",
 		"app-xircon",
 	],
 	E={
@@ -164,7 +171,7 @@
 				e==="notepad"?'notepad.png"><sup>Todo.txt - Notepad':
 				e==="photoshop"?'photoshop.png"><sup>Untitled-1 - Photoshop':
 				e==="putty"?'putty.png"><sup>PuTTY 0.68':
-				e==="dreamweaver"?'dw-ico.png"><sup>Untitled-1 - Dreamweaver':
+				e==="dreamweaver"?'dreamweaver.png"><sup>Untitled-1 - Dreamweaver':
 				e==="mycpu"?'mycpu.png"><sup>My Computer':
 				e==="recovery"?'windows-slanted.png"><sup>Windows98 Recovery':
 				e==="regedit"?'regedit.png"><sup>Registry Editor':
@@ -175,6 +182,7 @@
 				e==="vb6"?'vb6.png"><sup>Visual Basic v6.0':
 				e==="vstudio"?'vstudio.png"><sup>test.cpp - Microsoft Visual Studio C++':
 				e==="winamp"?'winamp.png"><sup>WinAmp':
+				e==="winnuke"?'nuke.png"><sup>WinNukeV95':
 				e==="wsftp"?'ws_ftp.png"><sup>WS_FTP95 Pro':
 				e==="xircon"?'xircon.png"><sup>xIRCon v1.0b4':
 				'')});tfocus(e)}
@@ -235,7 +243,8 @@
 			if(d)on($(a+"title"),E.m,e=>tdrag(e,a,d.x,d.y));
 			$(a+"exit")&&c!==false&&on(a+"exit",E.c,e=>(p0p(e),tclose(a),typeof c=="function"&&c()));
 			$(a+"min")&&m!==false&&on(a+"min",E.c,e=>(p0p(e),tmin(a),typeof m=="function"&&m()));
-			$(a+"body")&&b!==false&&on(a+"body",E.c,_=>n("BSOD"));
+			if($(a+"body")&&b!==false)on(a+"body",E.c,_=>n("BSOD"));
+			else on("app-"+a,E.c,_=>tfocus(a));
 			o?.(e);x?.(e);
 		};
 		if(i!==false)on(a,E.c,e=>(p0p(e),unselect(),cl($(a),"selected")));
@@ -247,12 +256,12 @@
 			on(i,E.d,d)
 		})},
 	cdrom=_=>msg({
-		m:'<div class="pad"><aside><img style="user-select:none" src="/ui/i/insert-cd.gif"></aside><section>Error reading drive E:\\</p><p>Please insert a CD ROM and try again</p><section class="field-row"><button class="close">Eject</button></section></div>',
+		m:'<div class="pad"><aside><img src="/ui/i/insert-cd.gif"></aside><section>Error reading drive E:\\</p><p>Please insert a CD ROM and try again</p><section class="field-row"><button class="close">Eject</button></section></div>',
 		c:eject,
 		s:1,
 	}),
 	floppy=_=>msg({
-		m:'<div class="pad"><aside><img style="transform:scale(1);user-select:none" src="/ui/i/insert-floppy.png"></aside><section>A:\\ is not accessible.</p><p>The device is not ready.</section><section class="field-row"><button class="close">OK</button></section></div>',
+		m:'<div class="pad"><aside><img style="transform:scale(1)" src="/ui/i/insert-floppy.png"></aside><section>A:\\ is not accessible.</p><p>The device is not ready.</section><section class="field-row"><button class="close">OK</button></section></div>',
 		c:_=>n("BSOD"),
 		s:1,
 	}),
@@ -371,14 +380,14 @@
 	flicker=_=>{
 		hg();
 		$("taskbar").style.visibility="hidden";
-		let a=$("desktop").querySelectorAll("article"),i=0,n=2*Math.floor(2+Math.random()*2);
+		let a=$("desktop").querySelectorAll("article"),i=0,c=2*Math.floor(2+Math.random()*2);
 		a.forEach(e=>e.style.visibility="hidden");
 		setTimeout(_=>{
 			$("taskbar").style.visibility="visible";
 			sound('startup');
 			setTimeout(f=_=>{
 				a.forEach(e=>e.style.visibility=i%2?"visible":"hidden");
-				if(++i<n)setTimeout(f,100);
+				if(++i<c)setTimeout(f,100);
 				else{hg(1);
 						if(rec>0) run("recovery",{h:false,i:false,d:{x:252,y:144},o:_=>{on("recoverycancel",E.c,_=>tclose("recovery"));on("recoverycheck",E.c,_=>n("BSOD"))}});
 						else beginAni();
@@ -558,7 +567,7 @@
 			b:false,
 			o:_=>on($$("#app-trash .win"),E.c,e=>{
 				msg({
-					m:`<div class="pad"><aside><img style="transform:scale(1);user-select:none;margin-top:-10px" src="/ui/i/erase.png"></aside><section>Are you sure you want to delete 'Windows'?</section><section class="field-row"><button class="close"><u>Y</u>es</button><button class="close" disabled><u>N</u>o</button></section></div>`,
+					m:`<div class="pad"><aside><img style="transform:scale(1);margin-top:-10px" src="/ui/i/erase.png"></aside><section>Are you sure you want to delete 'Windows'?</section><section class="field-row"><button class="close"><u>Y</u>es</button><button class="close" disabled><u>N</u>o</button></section></div>`,
 					t:"Confirm File Delete",
 					s:1,
 					c:_=>{
@@ -590,13 +599,24 @@
 			b:false,
 			o:_=>promptfocus($("wsftplog"),1),
 			x:_=>on("app-wsftp",E.s,e=>(p0p(e),n("BSOD")))});
+		run("winnuke",{
+			d:{x:220,y:120},
+			o:_=>{
+				on("app-winnuke",E.s,e=>{p0p(e)});
+				on("nukex",E.c,_=>tclose("winnuke"));
+				on("btnnuke",E.c,_=>msg({
+					i:"nuke",t:"WINNUKE",
+					m:`<div class="pad"><aside><img style="transform:scale(1)" src="/ui/i/warning.png"></aside><section>WinNuke V95 was designed to provide an effective way to test your network against potential security hazards and should not be used for any malicious intent. Do you agree?</section><section class="field-row"><button class="nuke"><u>Y</u>es</button><button class="nuke"><u>N</u>o</button></section></div>`,
+					o:_=>$$$(".nuke").forEach(i=>on(i,E.c,_=>msg({
+						i:"nuke",t:"WINNUKE",s:1,
+						m:`<div class="pad"><aside><img style="transform:scale(1);margin-top:-10px" src="/ui/i/err.png"></aside><section>Connection Failed Retry?</section><section class="field-row"><button class="close"><u>Y</u>es</button><button class="close"><u>N</u>o</button></section></div>`})))}))}});
 		run("xircon",{
 			d:{x:60,y:38}});
 		on("spewfy",E.d,_=>{
 			msg({
 				i:"sine",t:"Dr Spewfy",s:1,
 				o:_=>cl($("jm"),"app-hidden",1),
-				m:`<div class="pad"><aside><img style="transform:scale(1);user-select:none;margin-top:-10px" src="/ui/i/err.png"></aside><section>Can't load (or register) custom control 'COMCTL32.OCX'</section><section class="field-row"><button class="close">OK</button></section></div>`})});
+				m:`<div class="pad"><aside><img style="transform:scale(1);margin-top:-10px" src="/ui/i/err.png"></aside><section>Can't load (or register) custom control 'COMCTL32.OCX'</section><section class="field-row"><button class="close">OK</button></section></div>`})});
 		on("cd",E.d,cdrom);
 		on("disks",E.d,floppy);
 		on("msie",E.d,e=>{

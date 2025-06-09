@@ -1,3 +1,9 @@
+/*         _.-::-._
+    '-..-'|   ||   |                       __ _
+    '-..-'|_.-;;-._| \   /_o_  __/_     __(_/(_) \   / _  /  ___o_/ _
+    '-..-'|   ||   |  \)/ // )(_/(_)\))_)  /(_) o \)/ (-'/_)_) / /¯(-'
+    '-..-'|_.-''-._|                                   ¯            ¯
+*/
 @font-face {
 	font-family: "Pixelated MS Sans Serif";
 	src: url(/ui/f/ms_sans_serif.woff2) format("woff2"),
@@ -394,8 +400,8 @@ button {
 			left: 94%;
 		}
 		#utorrent {
-			top: 22%;
-			left: 92%;
+			top: 39%;
+			left: 93%;
 		}
 		#regedit {
 			top: 32%;
@@ -412,6 +418,10 @@ button {
 		#nero {
 			top: 17%;
 			left: 22%;
+		}
+		#winnuke {
+			top: 22%;
+			left: 92%;
 		}
 		#wsftp {
 			top: 3%;
@@ -787,6 +797,7 @@ button {
 	#app-vstudio,
 	#app-winamp,
 	#app-wsftp,
+	#app-winnuke,
 	#app-xircon {
 		z-index: 50;
 		pointer-events: auto;
@@ -867,6 +878,44 @@ button {
 		textarea {
 			overflow: scroll;
 			height: 250px !important;
+		}
+	}
+	#app-winnuke {
+		height: 250px;
+		width: 450px;
+		&::before {
+			height: 248px;
+			width: 448px;
+		}
+		h2 {
+			width: 442px;
+		}
+		#winnuke95 {
+			position: absolute;
+			top: 23px;
+			left: 3px;
+			transform: scale(0.65) translate(-26%, -26%);
+		}
+		main {
+			margin: 25px 0 0 190px;
+		}
+		section {
+			width: 120px;
+			float:left;
+		}
+		input {
+			width: 120px;
+		}
+		label {
+			line-height:30px;
+		}
+		.field-row {
+			width: 200px;
+			margin-left: 205px;
+			padding-top: 5px;
+		}
+		#btnnuke {
+			padding: 50px 24px;
 		}
 	}
 	#app-wsftp {
@@ -2746,6 +2795,7 @@ dialog {
 		aside img {
 			transform: scale(1.5);
 			margin-right: 25px;
+			user-select:none;
 		}
 		section { max-width: 300px;}
 	}
