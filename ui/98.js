@@ -369,6 +369,56 @@
 			c.transform=`rotateZ(${z}deg)`;
 			t.value=(h=d.getHours()%12||12)+' : '+(m=d.getMinutes()).toString().padStart(2,0)+' : '+(s=d.getSeconds()).toString().padStart(2,0)+' '+(d.getHours()<12?'AM':'PM');
 		}):clearInterval(i)},
+	calc=_=>{
+		let s=$("calcscreen"),b=$$("#app-calc"),v="0.",a=0,o="",w=0,d=0;
+		const fmt=x=>x.includes(".")?x:x+".",
+		set=x=>{v=x.replace(/^0+(\d)/,"$1");s.value=fmt(v)},
+		dg=e=>{
+			if(w)set("0."),w=0;
+			let t=e.target.textContent;
+			if(v=="0."&&t!=".")v="";
+			if(t=="."){if(v.includes("."))return;v+=".";}
+			else v+=t;
+			set(v.replace(/^0+(\d)/,"$1"));
+		},
+		op=e=>{
+			if(o&&w==0)eq();
+			a=parseFloat(v);o=e.target.textContent;w=1;d=0;
+		},
+		eq=_=>{
+			let n=parseFloat(v),r=a;
+			switch(o){
+				case "+":r+=n;break;
+				case "-":r-=n;break;
+				case "*":r*=n;break;
+				case "/":r=n?r/n:0;break;
+				case "%":r=n?r%n:0;break;
+			}
+			set(String((r||0)));v=String((r||0));o="";w=1;
+		},
+		fn=e=>{
+			let t=e.target.textContent;
+			switch(t){
+				case "Backspace":v=v.length>1?v.slice(0,-1):"0";set(v);break;
+				case "CE":case "MC":set("0.");a=0;o="";w=0;break;
+				case "MR":set(String(a));v=String(a);break;
+				case "MS":a=parseFloat(v);break;
+				case "M+":a+=parseFloat(v);break;
+				case "sqrt":set(String(Math.sqrt(parseFloat(v)||0)));break;
+				case "1/x":set(String(1/(parseFloat(v)||1)));break;
+				case "+/-":set(String(-parseFloat(v)||0));break;
+			}
+		},
+		press=e=>{
+			if(e.target.classList.contains("n"))dg(e);
+			else if(["+","-","*","/","%"].includes(e.target.textContent))op(e);
+			else if(e.target.textContent=="=")eq();
+			else fn(e);
+			s.focus();
+		};
+		b.querySelectorAll("button").forEach(i=>i.onclick=press);
+		s.value="0.";
+	},
 	beginAni=(d=$('begin'),k=[[0,80],[.4,0],[.6,15],[.72,0],[.82,4],[.9,0],[.96,1],[1,0]],t=2500,s=performance.now())=>{
 		 d.style.display = "block";
 		(a=>a(a,s))(function f(self,s) {
@@ -525,7 +575,7 @@
 				on("bo2kclose",E.c,e=>(p0p(e),tclose("bo2k")))}});
 		run("calc",{
 			d:{x:115,y:100},
-			o:_=>on("app-calc",E.s,e=>(p0p(e),n("BSOD")))});
+			o:_=>(calc(),on("app-calc",E.s,e=>(p0p(e))))});
 		run("calendar",{
 			d:{x:192,y:178},
 			o:_=>clock(1),

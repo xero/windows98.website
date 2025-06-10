@@ -2191,6 +2191,10 @@ button {
 		width: 245px;
 		height: 214px;
 		left: 50%;
+		&::before {
+			width: 243px;
+			height: 212px;
+		}
 		h2 {
 			width:238px;
 		}
