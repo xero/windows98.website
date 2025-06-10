@@ -12,6 +12,7 @@
 		"app-bo2k",
 		"app-calendar",
 		"app-dos",
+		"app-calc",
 		"app-explorer",
 		"app-help",
 		"app-nero",
@@ -23,6 +24,7 @@
 		"app-regedit",
 		"app-solitaire",
 		"app-sub7",
+		"app-toneloc",
 		"app-utorrent",
 		"app-trash",
 		"app-vb6",
@@ -148,13 +150,13 @@
 			(tasks.length>0)?tfocus(tasks[tasks.length-1].e):tsync();
 			if(e!="dialup"&&e!="ie"){$("app-"+e).style.visibility="hidden"}}},
 	tfocus=e=>{
+		let q=tasks.find(task=>task.e===e);
 		tasks.forEach(i=>i.f=i.e===e);
 		tsync();
 		apps.forEach(a=>$(a).style.zIndex=50);
-		tasks[tasks.findIndex(task=>task.e===e)].h=0;
-		if(e!="dialup"&&e!="ie")tmax(e);
-		if(e==="dos")promptfocus($("dinput"))
-	}
+		if(q){q.h=0;
+			if(e!="dialup"&&e!="ie")tmax(e);
+			if(e==="dos")promptfocus($("dinput"))}}
 	topen=e=>{
 		!tasks.some(task=>task.e===e)&&
 			tasks.push({e,f:1,h:0,i: '/ui/i/'+(
@@ -162,6 +164,7 @@
 				e==="aohell"?'aohell.png"><sup>AOHell 95 v3.0 B5':
 				e==="bo2k"?'bo2k-server.png"><sup>Back Orifice 2000':
 				e==="calendar"?'calendar.png"><sup>Windows Calendar':
+				e==="calc"?'calc.png"><sup>Calculator':
 				e==="dialup"?'modem.png"><sup>Windows98 - Dial Up':
 				e==="dos"?'msdos.png"><sup>Command Prompt':
 				e==="explorer"?'explorer-ico.png"><sup>My Documents':
@@ -177,6 +180,7 @@
 				e==="regedit"?'regedit.png"><sup>Registry Editor':
 				e==="solitaire"?'game.png"><sup>Solitaire':
 				e==="sub7"?'sub7.png"><sup>SubSeven v2.2 by mobman':
+				e==="toneloc"?'msdos.png"><sup>Finished - TONELOC':
 				e==="trash"?'trash.png"><sup>Recycle Bin':
 				e==="utorrent"?'utorrent.png"><sup>µtorrent v1.3':
 				e==="vb6"?'vb6.png"><sup>Visual Basic v6.0':
@@ -185,7 +189,7 @@
 				e==="winnuke"?'nuke.png"><sup>WinNukeV95':
 				e==="wsftp"?'ws_ftp.png"><sup>WS_FTP95 Pro':
 				e==="xircon"?'xircon.png"><sup>xIRCon v1.0b4':
-				'')});tfocus(e)}
+			'')});tfocus(e)}
 	tsync=_=>{
 		$("tasks").innerHTML=tasks.map(task=>`<section name="${task.e}" class="task${task.f==1?' selected':''}"><img src="${task.i}</sup></section>`).join("");
 		$$$("#tasks .task").forEach(i=>on(i,E.c,e=>tfocus(e.currentTarget.getAttribute("name"))))},
@@ -298,7 +302,7 @@
 			Object.assign(fo.style,{padding:"8px 20px",height:"43px",top:r.top-5+"px",left:r.left+r.width-17+"px"});
 		switch(e.currentTarget.getAttribute("id")){
 			case "progs":
-				(fo.innerHTML='<ul><li class="act">This website is by:</li><li><a class="x0" href="https://x-e.ro" target="_blank">xero harrison</a></li><li><a class="sauce" href="https://github.com/xero/windows98.website" target="_blank">view the source code</a></li></ul>',
+				(fo.innerHTML='<ul><li><a class="about">This website is by:</a></li><li><a class="x0" href="https://x-e.ro" target="_blank">xero harrison</a></li><li><a class="sauce" href="https://github.com/xero/windows98.website" target="_blank">view the source code</a></li></ul>',
 					Object.assign(fo.style,{color:"#000",textShadow:"none",height:"auto",width:"auto",padding:"0"}),
 					foh())
 				break;
@@ -519,6 +523,9 @@
 			x:_=>{
 				on("bo2kok",E.c,e=>(p0p(e),n("BSOD")));
 				on("bo2kclose",E.c,e=>(p0p(e),tclose("bo2k")))}});
+		run("calc",{
+			d:{x:115,y:100},
+			o:_=>on("app-calc",E.s,e=>(p0p(e),n("BSOD")))});
 		run("calendar",{
 			d:{x:192,y:178},
 			o:_=>clock(1),
@@ -560,6 +567,8 @@
 		run("regedit",{
 			d:{x:221,y:107},
 			b:false});
+		run("toneloc",{
+			d:{x:247,y:150}});
 		run("sub7",{
 			d:{x:118,y:88}});
 		run("trash",{

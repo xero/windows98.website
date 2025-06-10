@@ -10,6 +10,10 @@
 
 ![calendar.png](calendar.png)
 
+![calc.png](calc.png)
+
+![com.png](com.png)
+
 ![cdrom.png](cdrom.png)
 
 ![cmd.png](cmd.png)
@@ -39,6 +43,10 @@
 ![folder.png](folder.png)
 
 ![fs.png](fs.png)
+
+![powerstrip.png](powerstrip.png)
+
+![windows98.png](windows98.png)
 
 ![game.png](game.png)
 
@@ -79,6 +87,10 @@
 ![networkfolder.png](networkfolder.png)
 
 ![notepad.png](notepad.png)
+
+![nuke.png](nuke.png)
+
+![nuclear.png](nuclear.png)
 
 ![photoshop.png](photoshop.png)
 

@@ -363,6 +363,10 @@ button {
 			top: 9%;
 			left: 70%;
 		}
+		#toneloc {
+			top: 16%;
+			left: 86%;
+		}
 		#sub7 {
 			top: 5%;
 			left: 86%;
@@ -382,6 +386,10 @@ button {
 		#dialup {
 			top: 17%;
 			left: 13%;
+		}
+		#calc {
+			top: 66%;
+			left: 4%;
 		}
 		#calendar {
 			top: 53%;
@@ -428,6 +436,7 @@ button {
 			left: 45%;
 		}
 	}
+	.app,form, #downloading{ filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.4)) }
 	.app-hidden {
 		visibility: hidden !important;
 		pointer-events: none !important;
@@ -777,8 +786,10 @@ button {
 	#app-adraw,
 	#app-aohell,
 	#app-bo2k,
+	#app-calc,
 	#app-cmd,
 	#app-dos,
+	#app-toneloc,
 	#app-explorer,
 	#app-help,
 	#app-mycpu,
@@ -1933,6 +1944,8 @@ button {
 	#app-vstudio {
 		width: 720px;
 		height: 398px;
+		left: 359px;
+		top: 204px;
 		padding: 2px;
 		&::before {
 			width: 718px;
@@ -2174,6 +2187,91 @@ button {
 			color: #f1f1f1;
 		}
 	}
+	#app-calc {
+		width: 245px;
+		height: 214px;
+		left: 50%;
+		h2 {
+			width:238px;
+		}
+		nav {
+			padding: 1px 0 0 2px;
+		}
+		.client {
+			background: silver;
+			width: 25px;
+			height: 22px;
+			margin: 0 14px 0 8px;
+		}
+		.field-row {
+			margin-bottom: 5px;
+			justify-content: flex-start;
+			&.first{
+				button {
+					padding: 0 15px;
+				}
+				button:first-of-type {
+					padding: 0 9px;
+				}
+			}
+		}
+		input[type=text] {
+			width: 100%;
+			text-align:right;
+			margin: 0 6px;
+		}
+		button {
+			min-height: 23px;
+			min-width: 31px;
+			padding:1px;
+			color: red;
+			margin: 0 0 0 6px;
+			&.n {
+				color: #0000ee;
+			}
+			&.m {
+				margin-right: 10px;
+			}
+		}
+	}
+	#app-toneloc {
+		width: 512px;
+		height: 315px;
+		&::before {
+			width: 510px;
+			height: 313px;
+		}
+		.menu {
+			margin-top:3px;
+			background-image: url(/ui/i/app-cmd.png);
+			background-position: -3px -26px;
+			background-repeat: no-repeat;
+			background-size: 492px 258px;
+			width: 287.5px;
+			height: 23px;
+		}
+		main {
+			background: #000;
+			color:white;
+			text-align:left;
+			margin:0 1px 1px 1px;
+			white-space:pre;
+			font-family:monospace;
+			font-size: 9px;
+			padding: 10px;
+			*{
+				white-space:pre;
+				font-family:monospace;
+				font-size: 9px;
+			}
+			.y {color:#f8f65f}
+			.r {color:#f55255}
+			.g {color:#169e19}
+			.l {color:#58f45a}
+			.b {color:#5af8f7}
+			.c {color:#18a09f}
+		}
+	}
 	#app-putty {
 		left: 30%;
 		top: 30%;
@@ -2325,16 +2423,6 @@ button {
 		box-sizing: border-box;
 		z-index: 999;
 		margin-left: 20px;
-		.act:hover,
-		.act:focus,
-		.act:focus-within,
-		.act:active {
-			background: #0000a8;
-			color: #fff;
-			a {
-				color: #fff;
-			}
-		}
 		a {
 			margin-left: 20px;
 			width: 100%;
@@ -2355,10 +2443,18 @@ button {
 			margin-left: -45px;
 		}
 		a.fs::before {
-			content: url(/ui/i/fs.png);
+			content: url(/ui/i/powerstrip.png);
 		}
 		a.crt::before {
 			content: url(/ui/i/monitor.png);
+		}
+		a.about::before {
+			content: url(/ui/i/windows98.png);
+		}
+		a.fs,
+		a.crt,
+		a.about {
+			color: #000;
 		}
 		a.disabled {
 			color: gray;
@@ -2731,6 +2827,7 @@ dialog {
 }
 #msg[open],
 dialog[open] {
+	filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.4));
 	opacity: 1;
 	padding: 2px;
 	border: 0;
@@ -3142,6 +3239,16 @@ button {
 	min-width: 75px;
 	padding: 0 12px;
 	text-shadow: 0 0 #222;
+}
+button:not(:disabled):active,
+input[type="submit"]:not(:disabled):active,
+input[type="reset"]:not(:disabled):active {
+	box-shadow:
+		inset -1px -1px #fff,
+		inset 1px 1px #000,
+		inset -2px -2px #dfdfdf,
+		inset 2px 2px #808080;
+  text-shadow: 1px 1px #222;
 }
 input {
 	&[type="reset"],

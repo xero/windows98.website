@@ -601,6 +601,95 @@ VssClient::~<span class="type">VssClient</span>()
 					</p>
 				</fieldset>
 			</form>
+			<form class="app" id="app-calc" role="dialog">
+				<h2 id="calctitle">
+					<img src="/ui/i/calc.png">
+					<a class="label">Calculator</a>
+					<a id="calcmin" class="btn min"></a>
+					<a class="btn max"></a>
+					<a id="calcexit" class="btn close"></a>
+				</h2>
+				<nav class="menu">
+					<a><u>E</u>dit</a>
+					<a><u>V</u>iew</a>
+					<a><u>H</u>elp</a>
+				</nav>
+				<div class="field-row">
+					<input type="text" id="calcscreen" value="0.">
+				</div>
+				<div class="field-row first">
+					<div class="client"></div>
+					<button>Backspace</button>
+					<button>CE</button>
+					<button>MC</button>
+					</div>
+				<div class="field-row">
+					<button class="m">MC</button>
+					<button class="n">7</button>
+					<button class="n">8</button>
+					<button class="n">9</button>
+					<button>/</button>
+					<button class="n">sqrt</button>
+				</div>
+				<div class="field-row">
+					<button class="m">MR</button>
+					<button class="n">4</button>
+					<button class="n">5</button>
+					<button class="n">6</button>
+					<button>*</button>
+					<button class="n">%</button>
+				</div>
+				<div class="field-row">
+					<button class="m">MS</button>
+					<button class="n">1</button>
+					<button class="n">2</button>
+					<button class="n">3</button>
+					<button>-</button>
+					<button class="n">1/x</button>
+				</div>
+				<div class="field-row">
+					<button class="m">M+</button>
+					<button class="n">0</button>
+					<button>+/-</button>
+					<button>.</button>
+					<button>+</button>
+					<button>=</button>
+				</div>
+			</form>
+			<form class="app" id="app-toneloc" role="dialog">
+				<h2 id="toneloctitle">
+					<img src="/ui/i/msdos.png">
+					<a class="label">Finished - TONELOC</a>
+					<a id="tonelocmin" class="btn min"></a>
+					<a class="btn max"></a>
+					<a id="tonelocexit" class="btn close"></a>
+				</h2>
+				<div class="menu"></div>
+				<main class="client"><span class="y">ToneLoc 1.10 by Minor Threat & Mucho Maas (Sep 29 1994)</span>
+
+ToneLoc is a dual purpose wardialer. It dials phone numbers using a mask that
+you give it. It can look for either dialtones or modem carriers. It is useful
+for finding PBX's, Loops, LD carriers, and other modems. It works well with
+the USRobotics series of modems, and most hayes-compatible modems.
+
+<span class="r">USAGE:</span>
+<span class="g">ToneLoc <span class="y">[DataFile]</span> <span class="l">/M:</span> [Mask] <span class="l">/R:</span> [Range] <span class="l">/X:</span> [ExMask] <span class="l">/D:</span> [ExRange] <span class="l">/C:</span> [Config]
+                   <span class="l">/#:</span> [Number] <span class="l">/S:</span> [StartTime] <span class="l">/E:</span> [EndTime] <span class="l">/H:</span> [Hours] <span class="l">/T /K</span></span>
+
+   <span class="b">[DataFile]  - File to store data in, may also be a mask</span>	 <span class="y">Required</span>
+   <span class="c">[Mask]      - To use for phone numbers     Format: 555-XXXX   Optional
+   [Range]     - Range of numbers to dial     Format: 5000-6999  Optional
+   [ExMask]    - Mask to exclude from scan    Format: 1XXX       Optional
+   [ExRange]   - Range to exclude from scan   Format: 2500-2699  Optional
+   [Config]    - Configuration file to use                       Optional
+   [Number]    - Number of dials to make      Format: 250        Optional
+   [StartTime] - Time to begin scanning       Format: 9:30p      Optional
+   [EndTime ]  - Time to end scanning         Format: 6:45a      Optional
+   [Hours]     - Max # of hours to scan       Format: 5:30       Optional
+                 Overrides [Endline]
+
+   /T = Tones, /K Carriers (Override config file, '-' inverts)   Optional</span></main>
+			</form>
 			<div class="app" id="app-dos">
 				<header id="dostitle">
 					<a id="dosexit" class="exit"></a>
@@ -662,9 +751,9 @@ C:\WINDOWS> </textarea>
 					</section>
 					<section>
 						<label for="nukei">NUKE IP ADDRESS</label>
-						<input type="text" id="nukei" />
+						<input type="text" id="nukei" placeholder="1.1.1.1" />
 						<label for="nukem">NUKE WITH MESSAGE</label>
-						<input type="text" id="nukem" />
+						<input type="text" id="nukem"  placeholder="RIP LAMER"/>
 					</section>
 				</main>
 				<section class="field-row">
@@ -1005,12 +1094,14 @@ Recieved 2666 bytes in 1.2 secs, (17.35 KBps), transfer suceeded
 				<article id="game"><img src="/ui/i/game.png"><kbd>Solitaire</kbd></article>
 				<article id="bo2k"><img src="/ui/i/BO2k.png"><kbd>BO2K</kbd></article>
 				<article id="sub7"><img src="/ui/i/sub7.png"><kbd>subSeven</kbd></article>
+				<article id="toneloc"><img src="/ui/i/com.png"><kbd>TONELOC</kbd></article>
 				<article id="aohell"><img src="/ui/i/aohell-alt.png"><kbd>AOHell</kbd></article>
 				<article id="photoshop"><img src="/ui/i/photoshop.png"><kbd>Photoshop</kbd></article>
 				<article id="spewfy"><img src="/ui/i/sine.png"><kbd>Dr Spewfy</kbd></article>
 				<article id="adraw"><img src="/ui/i/cmd.png"><kbd>ACiDDraw</kbd></article>
 				<article id="dialup"><img src="/ui/i/modem.png"><kbd>Dial Up</kbd></article>
 				<article id="calendar"><img src="/ui/i/calendar.png"><kbd>Calendar</kbd></article>
+				<article id="calc"><img src="/ui/i/calc.png"><kbd>Calculator</kbd></article>
 				<article id="cd"><img src="/ui/i/cdrom.png"><kbd>CD Rom</kbd></article>
 				<article id="winamp"><img src="/ui/i/winamp.png"><kbd>Winamp</kbd></article>
 				<article id="xircon"><img src="/ui/i/xircon.png"><kbd>xIRCon</kbd></article>
@@ -1021,7 +1112,7 @@ Recieved 2666 bytes in 1.2 secs, (17.35 KBps), transfer suceeded
 				<article id="nero"><img src="/ui/i/nero.png"><kbd>nero burning...</kbd></article>
 				<article id="vstudio"><img src="/ui/i/vstudio.png"><kbd>Visual Studio</kbd></article>
 				<article id="wsftp"><img src="/ui/i/ws_ftp.png"><kbd>ws_ftp</kbd></article>
-				<article id="winnuke"><img src="/ui/i/nuke.png"><kbd>WinNuke</kbd></article>
+				<article id="winnuke"><img src="/ui/i/nuclear.png"><kbd>WinNuke</kbd></article>
 			</section>
 			<section id="startmenu">
 				<h2>Windows<em>98</em>&nbsp;<strong>Second Edition</strong></h2>
