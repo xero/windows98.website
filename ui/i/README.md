@@ -26,8 +26,6 @@
 
 ![dreamweaver.png](dreamweaver.png)
 
-![dw-ico.png](dw-ico.png)
-
 ![err.png](err.png)
 
 ![erase.png](erase.png)
@@ -104,8 +102,6 @@
 
 ![regedit.png](regedit.png)
 
-![regkey.png](regkey.png)
-
 ![run.png](run.png)
 
 ![search.png](search.png)
@@ -136,8 +132,6 @@
 
 ![winamp.png](winamp.png)
 
-![windows-slanted.png](windows-slanted.png)
-
 ![ws_ftp.png](ws_ftp.png)
 
 ![xircon.png](xircon.png)
@@ -166,8 +160,6 @@
 
 ![app-winamp.png](app-winamp.png)
 
-![app-xircon.png](app-xircon.png)
-
 # app elements
 
 ![tray-cdc.png](tray-cdc.png)
@@ -182,6 +174,8 @@
 
 ![help-sheet.png](help-sheet.png)
 
+![regkey.png](regkey.png)
+
 ![up.png](up.png)
 
 ![vs-blue.png](vs-blue.png)
@@ -194,7 +188,13 @@
 
 ![bo2k-server.png](bo2k-server.png)
 
+![chatroom.png](chatroom.png)
+
+![xircon-logo.png](xircon-logo.png)
+
 ![arrow.png](arrow.png)
+
+![windows-slanted.png](windows-slanted.png)
 
 ![throbber.gif](throbber.gif)
 
@@ -220,15 +220,19 @@
 
 ![dreamweaver-settings.png](dreamweaver-settings.png)
 
+![help-menu.png](help-menu.png)
+
+![exp-btns.png](exp-btns.png)
+
+![xircon-menu.png](xircon-menu.png)
+
+![xircon-status.png](xircon-status.png)
+
 ![clock-face.png](clock-face.png)
 
 ![clock-hand.svg](clock-hand.svg)
 
 ![help-clouds.png](help-clouds.png)
-
-![help-menu.png](help-menu.png)
-
-![exp-btns.png](exp-btns.png)
 
 ![exp-clouds.png](exp-clouds.png)
 

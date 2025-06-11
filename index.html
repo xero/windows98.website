@@ -26,83 +26,83 @@
 		<meta name="apple-mobile-web-app-title" content="win98" />
 		<link rel="manifest" href="/ui/i/site.webmanifest" />
 		<link rel="stylesheet" type="text/css" href="/ui/win.css">
-	</head>
-	<body>
-		<div class="oo overlay scanlines"></div>
-		<div class="oo overlay vignette"></div>
-		<div id="wait" class="overlay hourglass hide"></div>
-		<div class="overlay alttab off" id="alttab">
-			<main>
-				<section class="icons"></section>
-				<section class="title"></section>
-			</main>
-		</div>
-		<div class="overlay off" id="poweroff"><h1 id="shutdowntext">It is now safe to turn off<br/>your computer.</h1><textarea id="dosprompt">C:\ </textarea></div>
-		<canvas id="glitch"></canvas>
-		<section id="boot">
-			<section id="clouds"></section>
-			<section id="logo"></section>
-			<h3>Microsoft<sup>®</sup></h3>
-			<h2>Microsoft<em>Windows<sup>®</sup><strong>98</strong></em><i>Second Edition</i></h2>
-			<h4 id="sdmsg">Shutting Down...</h4>
-			<footer class="loading"></footer>
-		</section>
-		<section id="BSOD">
-			<article>
-				<h2><em>Windows</em></h2>
-				<header><span id="bsoderr"></span>. The current application will be terminated.</header>
-				<ul>
-					<li>Press any key to terminate the current application.</li>
-					<li>Press CTRL+ALT+DEL again to restart your computer.<br/> You will lose any unsaved information in all applications.</li>
-				</ul>
-				<footer>Press any key to continue <span class="blink">_</span></footer>
-			</article>
-		</section>
-		<section id="windows">
-			<aside class="ctxmenu" id="desktopmenu">
-				<ul>
-					<li class="more"><a>Arrange <u>I</u>cons</a></li>
-					<li><a><strong>Lin<u>e</u> up Icons</strong></a></li>
-					<li class="sep"></li>
-					<li><a class="disabled"><u>P</u>aste</a></li>
-					<li><a class="disabled">Paste <u>S</u>hortcut</a></li>
-					<li><a><u>U</u>ndo Delete</a></li>
-					<li class="sep"></li>
-					<li class="more"><a>Ne<u>w</u></a></li>
-					<li class="sep"></li>
-					<li><a>P<u>r</u>operties</a></li>
-				</ul>
-			</aside>
-			<aside class="ctxmenu" id="appmenu">
-				<ul>
-					<li><a><strong><u>O</u>pen</strong></a></li>
-					<li class="sep"></li>
-					<li class="more"><a>Send <u>T</u>o</a></li>
-					<li class="sep"></li>
-					<li><a>Cu<u>t</u></a></li>
-					<li><a><u>C</u>opy</a></li>
-					<li class="sep"></li>
-					<li><a>Create <u>S</u>hortcut</a></li>
-					<li><a><u>D</u>elete</a></li>
-					<li><a>Rena<u>m</u>e</a></li>
-					<li class="sep"></li>
-					<li><a>P<u>r</u>operties</a></li>
-				</ul>
-			</aside>
-			<div class="app" id="app-recovery">
-				<h2 id="recoverytitle">
-					<img src="/ui/i/windows-slanted.png">
-					<a class="label">Windows98 Recovery</a>
-					<a id="recoverymin" class="btn min"></a>
-					<a class="btn max"></a>
-					<a id="recoveryexit" class="btn close"></a>
-				</h2>
-				<aside><img src="/ui/i/recovery.png"></aside>
-				<section><strong>Windows has recovered from an unexpected shutdown</strong></section>
-				<section>Windows can check online for a solution to the problem.</section>
-				<section class="field-row"><button id="recoverycheck"><u>C</u>heck for Solution</button><button id="recoverycancel">Cancel</button></section>
-				<div class="client">
-					<textarea id="recoverytxt">
+</head>
+<body>
+	<div class="oo overlay scanlines"></div>
+	<div class="oo overlay vignette"></div>
+	<div id="wait" class="overlay hourglass hide"></div>
+	<div class="overlay alttab off" id="alttab">
+		<main>
+			<section class="icons"></section>
+			<section class="title"></section>
+		</main>
+	</div>
+	<div class="overlay off" id="poweroff"><h1 id="shutdowntext">It is now safe to turn off<br/>your computer.</h1><textarea id="dosprompt">C:\ </textarea></div>
+	<canvas id="glitch"></canvas>
+	<section id="boot">
+		<section id="clouds"></section>
+		<section id="logo"></section>
+		<h3>Microsoft<sup>®</sup></h3>
+		<h2>Microsoft<em>Windows<sup>®</sup><strong>98</strong></em><i>Second Edition</i></h2>
+		<h4 id="sdmsg">Shutting Down...</h4>
+		<footer class="loading"></footer>
+	</section>
+	<section id="BSOD">
+		<article>
+			<h2><em>Windows</em></h2>
+			<header><span id="bsoderr"></span>. The current application will be terminated.</header>
+			<ul>
+				<li>Press any key to terminate the current application.</li>
+				<li>Press CTRL+ALT+DEL again to restart your computer.<br/> You will lose any unsaved information in all applications.</li>
+			</ul>
+			<footer>Press any key to continue <span class="blink">_</span></footer>
+		</article>
+	</section>
+	<section id="windows">
+		<aside class="ctxmenu" id="desktopmenu">
+			<ul>
+				<li class="more"><a>Arrange <u>I</u>cons</a></li>
+				<li><a><strong>Lin<u>e</u> up Icons</strong></a></li>
+				<li class="sep"></li>
+				<li><a class="disabled"><u>P</u>aste</a></li>
+				<li><a class="disabled">Paste <u>S</u>hortcut</a></li>
+				<li><a><u>U</u>ndo Delete</a></li>
+				<li class="sep"></li>
+				<li class="more"><a>Ne<u>w</u></a></li>
+				<li class="sep"></li>
+				<li><a>P<u>r</u>operties</a></li>
+			</ul>
+		</aside>
+		<aside class="ctxmenu" id="appmenu">
+			<ul>
+				<li><a><strong><u>O</u>pen</strong></a></li>
+				<li class="sep"></li>
+				<li class="more"><a>Send <u>T</u>o</a></li>
+				<li class="sep"></li>
+				<li><a>Cu<u>t</u></a></li>
+				<li><a><u>C</u>opy</a></li>
+				<li class="sep"></li>
+				<li><a>Create <u>S</u>hortcut</a></li>
+				<li><a><u>D</u>elete</a></li>
+				<li><a>Rena<u>m</u>e</a></li>
+				<li class="sep"></li>
+				<li><a>P<u>r</u>operties</a></li>
+			</ul>
+		</aside>
+		<div class="app" id="app-recovery">
+			<h2 id="recoverytitle">
+				<img src="/ui/i/windows-slanted.png">
+				<a class="label">Windows98 Recovery</a>
+				<a id="recoverymin" class="btn min"></a>
+				<a class="btn max"></a>
+				<a id="recoveryexit" class="btn close"></a>
+			</h2>
+			<aside><img src="/ui/i/recovery.png"></aside>
+			<section><strong>Windows has recovered from an unexpected shutdown</strong></section>
+			<section>Windows can check online for a solution to the problem.</section>
+			<section class="field-row"><button id="recoverycheck"><u>C</u>heck for Solution</button><button id="recoverycancel">Cancel</button></section>
+			<div class="client">
+				<textarea id="recoverytxt">
 Problem Event Name:				 Blue Screen
 OS Version						98se
 Locale ID:						1033
@@ -172,355 +172,469 @@ ba4c3ddc 8054528e 8069590c 80077000 00000000 nt!PspSystemThreadStartup+0x34
 
 STACK_COMMAND:			kb
 FOLLOWUP_IP:			nt!MmZeroPageThread+250
-				8051beb6 cc int 3
+			8051beb6 cc int 3
 SYMBOL_STACK_INDEX:		1
 SYMBOL_NAME:			nt!MmZeroPageThread+250
 FOLLOWUP_NAME:			MachineOwner
 MODULE_NAME:			nt
 DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
-					</textarea>
-				</div>
+				</textarea>
 			</div>
-			<div class="app" id="app-mycpu">
-				<h2 id="mycputitle">
-					<img src="/ui/i/mycpu.png">
-					<a class="label">My Computer</a>
-					<a id="mycpumin" class="btn min"></a>
-					<a class="btn max"></a>
-					<a id="mycpuexit" class="btn close"></a>
-				</h2>
-				<img class="throbber" src="/ui/i/throbber.gif">
-				<nav class="menu">
-					<a><u>F</u>ile</a>
-					<a><u>E</u>dit</a>
-					<a><u>V</u>iew</a>
-					<a><u>G</u>o</a>
-					<a>F<u>a</u>vorites</a>
-					<a><u>H</u>elp</a>
-				</nav>
-				<aside class="mn"></aside>
-				<aside class="loc">
-					<label for="exploc">A<u>d</u>dress</label><select class="exploc"><option>My Computer</option></select>
-				</aside>
-				<aside class="sep"></aside>
-				<main class="win">
-					<img class="dico" src="/ui/i/mycpu.png">
-					<h3>My Computer</h3>
-					<div class="descr">Select and item to view it's description</div>
-					<div class="ico floppy"><img src="/ui/i/floppy.png"><kbd>Floppy&nbsp;(A:)</kbd></div>
-					<div class="ico hdd"><img src="/ui/i/hdd.png"><kbd>(c:)</kbd></div>
-					<div class="ico cdrom"><img src="/ui/i/cdrom.png"><kbd>(D:)</kbd></div>
-					<div class="ico print"><img src="/ui/i/printersfolder.png"><kbd>Printers</kbd></div>
-					<div class="ico settings"><img src="/ui/i/settingsfolder.png"><kbd>Control&nbsp;Panel</kbd></div>
-					<div class="ico net"><img src="/ui/i/networkfolder.png"><kbd>Dial-Up Networking</kbd></div>
-					<div class="ico web"><img src="/ui/i/webfolder.png"><kbd>Web&nbsp;Folders</kbd></div>
-				</main>
-				<footer>
-					<section>&nbsp;&nbsp;&nbsp;&nbsp;</section>
-					<section>&nbsp;&nbsp;&nbsp;&nbsp;</section>
-					<section>My Computer</section>
-				</footer>
-			</div>
-			<div class="app" id="app-explorer">
-				<h2 id="explorertitle">
-					<img src="/ui/i/files.png">
-					<a class="label">My Doucments</a>
-					<a id="explorermin" class="btn min"></a>
-					<a class="btn max"></a>
-					<a id="explorerexit" class="btn close"></a>
-				</h2>
-				<img class="throbber" src="/ui/i/throbber.gif">
-				<nav class="menu">
-					<a><u>F</u>ile</a>
-					<a><u>E</u>dit</a>
-					<a><u>V</u>iew</a>
-					<a><u>G</u>o</a>
-					<a>F<u>a</u>vorites</a>
-					<a><u>H</u>elp</a>
-				</nav>
-				<aside class="mn"></aside>
-				<aside class="loc">
-					<label for="exploc">A<u>d</u>dress</label><select class="exploc"><option>My Documents</option></select>
-				</aside>
-				<aside class="sep"></aside>
-				<main class="win">
-					<img class="dico" src="/ui/i/explorer-ico.png">
-					<h3>My Documents</h3>
-					<div class="descr">Select and item to view it's description</div>
-					<div class="ico audio"><img src="/ui/i/folder.png"><kbd>audio</kbd></div>
-					<div class="ico bme"><img src="/ui/i/folder.png"><kbd>BME</kbd></div>
-					<div class="ico codez"><img src="/ui/i/folder.png"><kbd>c0d3z</kbd></div>
-					<div class="ico daily"><img src="/ui/i/folder.png"><kbd>daily</kbd></div>
-					<div class="ico dox"><img src="/ui/i/explorer-ico.png"><kbd>dox</kbd></div>
-					<div class="ico flix"><img src="/ui/i/folder.png"><kbd>flix</kbd></div>
-					<div class="ico glitched"><img src="/ui/i/folder.png"><kbd>glitched</kbd></div>
-					<div class="ico sin"><img src="/ui/i/folder.png"><kbd>SiN</kbd></div>
-					<div class="ico vidz"><img src="/ui/i/folder.png"><kbd>vidz</kbd></div>
-					<div class="ico warez"><img src="/ui/i/folder.png"><kbd>w4r3z</kbd></div>
-					<div class="ico www"><img src="/ui/i/folder.png"><kbd>www</kbd></div>
-				</main>
-				<footer>
-					<section>&nbsp;&nbsp;&nbsp;&nbsp;</section>
-					<section>&nbsp;&nbsp;&nbsp;&nbsp;</section>
-					<section>My Documents</section>
-				</footer>
-			</div>
-			<div class="app" id="app-vb6">
-				<h2 id="vb6title">
-					<img src="/ui/i/vb6.png">
-					<a class="label">Project1 - Form1 - Microsoft Visual Basic</a>
-					<a id="vb6min" class="btn min"></a>
-					<a class="btn max"></a>
-					<a id="vb6exit" class="btn close"></a>
-				</h2>
-				<section id="vb6body"></section>
-			</div>
-			<form class="app" id="app-vstudio">
-				<h2 id="vstudiotitle">
-					<img src="/ui/i/vstudio.png">
-					<a class="label">test.cpp - Microsoft Visual Studio C++</a>
-					<a id="vstudiomin" class="btn min"></a>
-					<a class="btn max"></a>
-					<a id="vstudioexit" class="btn close"></a>
-				</h2>
-				<nav class="menu">
-					<a><u>F</u>ile</a>
-					<a><u>E</u>dit</a>
-					<a><u>V</u>iew</a>
-					<a><u>I</u>nsert</a>
-					<a><u>P</u>roject</a>
-					<a><u>B</u>uild</a>
-					<a><u>T</u>ools</a>
-					<a><u>W</u>indow</a>
-					<a><u>H</u>elp</a>
-				</nav>
-				<section id="vstudiobody">
-					<div id="vstudioctrls"></div>
-					<ul class="tree-view"><li><details open=""><summary><img src="/ui/i/vs-proj.png">test classes</summary><ul><li><details open=""><summary><img src="/ui/i/folder.png">Globals</summary><ul style="margin-left:-12px">
-						<li><img src="/ui/i/vs-pink.png">About(HWND,&nbsp;UINT,&nbsp;WPARAM)</li>
-						<li><img src="/ui/i/vs-pink.png">InitInstance(HINSTANCE,&nbsp;int&nbsp;nClass)</li>
-						<li><img src="/ui/i/vs-pink.png">MyRegisterClass(HINSTANCE)</li>
-						<li><img src="/ui/i/vs-pink.png">WimMain(HINSTANCE)</li>
-						<li><img src="/ui/i/vs-pink.png">WinProc(HWND,&nbsp;UINT,&nbsp;WPARAM)</li>
-						<li><img src="/ui/i/vs-blue.png">hlnst</li>
-						<li><img src="/ui/i/vs-blue.png">szTitle</li>
-						<li><img src="/ui/i/vs-blue.png">szWindowClass</li>
-					</ul></details></li>
-					</ul></details></li>
-					</ul>
-					<pre id="vscode">
+		</div>
+		<div class="app" id="app-mycpu">
+			<h2 id="mycputitle">
+				<img src="/ui/i/mycpu.png">
+				<a class="label">My Computer</a>
+				<a id="mycpumin" class="btn min"></a>
+				<a class="btn max"></a>
+				<a id="mycpuexit" class="btn close"></a>
+			</h2>
+			<img class="throbber" src="/ui/i/throbber.gif">
+			<nav class="menu">
+				<a><u>F</u>ile</a>
+				<a><u>E</u>dit</a>
+				<a><u>V</u>iew</a>
+				<a><u>G</u>o</a>
+				<a>F<u>a</u>vorites</a>
+				<a><u>H</u>elp</a>
+			</nav>
+			<aside class="mn"></aside>
+			<aside class="loc">
+				<label for="exploc">A<u>d</u>dress</label><select class="exploc"><option>My Computer</option></select>
+			</aside>
+			<aside class="sep"></aside>
+			<main class="win">
+				<img class="dico" src="/ui/i/mycpu.png">
+				<h3>My Computer</h3>
+				<div class="descr">Select and item to view it's description</div>
+				<div class="ico floppy"><img src="/ui/i/floppy.png"><kbd>Floppy&nbsp;(A:)</kbd></div>
+				<div class="ico hdd"><img src="/ui/i/hdd.png"><kbd>(c:)</kbd></div>
+				<div class="ico cdrom"><img src="/ui/i/cdrom.png"><kbd>(D:)</kbd></div>
+				<div class="ico print"><img src="/ui/i/printersfolder.png"><kbd>Printers</kbd></div>
+				<div class="ico settings"><img src="/ui/i/settingsfolder.png"><kbd>Control&nbsp;Panel</kbd></div>
+				<div class="ico net"><img src="/ui/i/networkfolder.png"><kbd>Dial-Up Networking</kbd></div>
+				<div class="ico web"><img src="/ui/i/webfolder.png"><kbd>Web&nbsp;Folders</kbd></div>
+			</main>
+			<footer>
+				<section>&nbsp;&nbsp;&nbsp;&nbsp;</section>
+				<section>&nbsp;&nbsp;&nbsp;&nbsp;</section>
+				<section>My Computer</section>
+			</footer>
+		</div>
+		<div class="app" id="app-explorer">
+			<h2 id="explorertitle">
+				<img src="/ui/i/files.png">
+				<a class="label">My Documents</a>
+				<a id="explorermin" class="btn min"></a>
+				<a class="btn max"></a>
+				<a id="explorerexit" class="btn close"></a>
+			</h2>
+			<img class="throbber" src="/ui/i/throbber.gif">
+			<nav class="menu">
+				<a><u>F</u>ile</a>
+				<a><u>E</u>dit</a>
+				<a><u>V</u>iew</a>
+				<a><u>G</u>o</a>
+				<a>F<u>a</u>vorites</a>
+				<a><u>H</u>elp</a>
+			</nav>
+			<aside class="mn"></aside>
+			<aside class="loc">
+				<label for="exploc">A<u>d</u>dress</label><select class="exploc"><option>My Documents</option></select>
+			</aside>
+			<aside class="sep"></aside>
+			<main class="win">
+				<img class="dico" src="/ui/i/explorer-ico.png">
+				<h3>My Documents</h3>
+				<div class="descr">Select and item to view it's description</div>
+				<div class="ico audio"><img src="/ui/i/folder.png"><kbd>audio</kbd></div>
+				<div class="ico bme"><img src="/ui/i/folder.png"><kbd>BME</kbd></div>
+				<div class="ico codez"><img src="/ui/i/folder.png"><kbd>c0d3z</kbd></div>
+				<div class="ico daily"><img src="/ui/i/folder.png"><kbd>daily</kbd></div>
+				<div class="ico dox"><img src="/ui/i/explorer-ico.png"><kbd>dox</kbd></div>
+				<div class="ico flix"><img src="/ui/i/folder.png"><kbd>flix</kbd></div>
+				<div class="ico glitched"><img src="/ui/i/folder.png"><kbd>glitched</kbd></div>
+				<div class="ico sin"><img src="/ui/i/folder.png"><kbd>SiN</kbd></div>
+				<div class="ico vidz"><img src="/ui/i/folder.png"><kbd>vidz</kbd></div>
+				<div class="ico warez"><img src="/ui/i/folder.png"><kbd>w4r3z</kbd></div>
+				<div class="ico www"><img src="/ui/i/folder.png"><kbd>www</kbd></div>
+			</main>
+			<footer>
+				<section>&nbsp;&nbsp;&nbsp;&nbsp;</section>
+				<section>&nbsp;&nbsp;&nbsp;&nbsp;</section>
+				<section>My Documents</section>
+			</footer>
+		</div>
+		<div class="app" id="app-vb6">
+			<h2 id="vb6title">
+				<img src="/ui/i/vb6.png">
+				<a class="label">Project1 - Form1 - Microsoft Visual Basic</a>
+				<a id="vb6min" class="btn min"></a>
+				<a class="btn max"></a>
+				<a id="vb6exit" class="btn close"></a>
+			</h2>
+			<section id="vb6body"></section>
+		</div>
+		<form class="app" id="app-vstudio">
+			<h2 id="vstudiotitle">
+				<img src="/ui/i/vstudio.png">
+				<a class="label">test.cpp - Microsoft Visual Studio C++</a>
+				<a id="vstudiomin" class="btn min"></a>
+				<a class="btn max"></a>
+				<a id="vstudioexit" class="btn close"></a>
+			</h2>
+			<nav class="menu">
+				<a><u>F</u>ile</a>
+				<a><u>E</u>dit</a>
+				<a><u>V</u>iew</a>
+				<a><u>I</u>nsert</a>
+				<a><u>P</u>roject</a>
+				<a><u>B</u>uild</a>
+				<a><u>T</u>ools</a>
+				<a><u>W</u>indow</a>
+				<a><u>H</u>elp</a>
+			</nav>
+			<section id="vstudiobody">
+				<div id="vstudioctrls"></div>
+				<ul class="tree-view"><li><details open=""><summary><img src="/ui/i/vs-proj.png">test classes</summary><ul><li><details open=""><summary><img src="/ui/i/folder.png">Globals</summary><ul style="margin-left:-12px">
+					<li><img src="/ui/i/vs-pink.png">About(HWND,&nbsp;UINT,&nbsp;WPARAM)</li>
+					<li><img src="/ui/i/vs-pink.png">InitInstance(HINSTANCE,&nbsp;int&nbsp;nClass)</li>
+					<li><img src="/ui/i/vs-pink.png">MyRegisterClass(HINSTANCE)</li>
+					<li><img src="/ui/i/vs-pink.png">WimMain(HINSTANCE)</li>
+					<li><img src="/ui/i/vs-pink.png">WinProc(HWND,&nbsp;UINT,&nbsp;WPARAM)</li>
+					<li><img src="/ui/i/vs-blue.png">hlnst</li>
+					<li><img src="/ui/i/vs-blue.png">szTitle</li>
+					<li><img src="/ui/i/vs-blue.png">szWindowClass</li>
+				</ul></details></li>
+				</ul></details></li>
+				</ul>
+				<pre id="vscode">
 <span class="preproc">#<span class="kw">include</span> <span class="str">"stdafx.h"</span></span>
 
 <span class="com">// constructor</span>
 VssClient::<span class="type">VssClient</span>()
 {
-    m_bCoInitializeCalled = <span class="kw">false</span>;
-    m_dwContext = VSS_CTX_BACKUP;
-    m_latestSnapshotSetID = GUID_NULL;
-    m_bDuringRestore = <span class="kw">false</span>;
+	m_bCoInitializeCalled = <span class="kw">false</span>;
+	m_dwContext = VSS_CTX_BACKUP;
+	m_latestSnapshotSetID = GUID_NULL;
+	m_bDuringRestore = <span class="kw">false</span>;
 }
 
 <span class="com">// destructor</span>
 VssClient::~<span class="type">VssClient</span>()
 {
-    <span class="com">// release the IVssBackupComponents interface</span>
-    <span class="com">// WARNING: this must be done BEFORE calling CoUninitialize()</span>
-    m_pVssObject = <span class="kw">NULL</span>;
+	<span class="com">// release the IVssBackupComponents interface</span>
+	<span class="com">// WARNING: this must be done BEFORE calling CoUninitialize()</span>
+	m_pVssObject = <span class="kw">NULL</span>;
 
-    <span class="com">// call CoUninitialize if the CoInitialize was performed sucesfully</span>
-    <span class="kw">if</span> (m_bCoInitializeCalled)
-        <span class="type">CoUninitialize</span>();
+	<span class="com">// call CoUninitialize if the CoInitialize was performed sucesfully</span>
+	<span class="kw">if</span> (m_bCoInitializeCalled)
+			<span class="type">CoUninitialize</span>();
 }
 
 <span class="com">// initialize the COM infrastructure and the internal pointers</span>
 <span class="type">void</span> <span class="func">VssClient::Initialize</span>(DWORD dwContext, wstring xmlDoc, <span class="type">bool</span> bDuringRestore)
 {
-    FunctionTracer <span class="func">ft</span>(DBG_INFO);
+	FunctionTracer <span class="func">ft</span>(DBG_INFO);
 
-    <span class="com">// initialize COM</span>
-    <span class="type">CHECK_COM</span>( <span class="type">CoInitialize</span>(<span class="kw">NULL</span>) );
-    m_bCoInitializeCalled = <span class="kw">true</span>;
+	<span class="com">// initialize COM</span>
+	<span class="type">CHECK_COM</span>( <span class="type">CoInitialize</span>(<span class="kw">NULL</span>) );
+	m_bCoInitializeCalled = <span class="kw">true</span>;
 
-    <span class="com">// initialize COM security</span>
-    <span class="type">CHECK_COM</span>(
-        <span class="type">CoInitializeSecurity</span>(
-            <span class="kw">NULL</span>,                           <span class="com">//  allow all VSS writers to communicate back</span>
-            <span class="num">-1</span>,                              <span class="com">//  default COM authentication service</span>
-            <span class="kw">NULL</span>,                           <span class="com">//  default COM authorization service</span>
-            <span class="kw">NULL</span>,                           <span class="com">//  reserved param</span>
-            RPC_C_AUTHN_LEVEL_PKT_PRIVACY,  <span class="com">//  strongest COM authentication level</span>
-            RPC_C_IMP_LEVEL_IMPERSONATE,    <span class="com">//  minimal impersonation abilities</span>
-            <span class="kw">NULL</span>,                           <span class="com">//  default COM authentication settings</span>
-            EOAC_DYNAMIC_CLOAKING,          <span class="com">//  cloaking</span>
-            <span class="kw">NULL</span>                            <span class="com">//  reserved param</span>
-            ) );
+	<span class="com">// initialize COM security</span>
+	<span class="type">CHECK_COM</span>(
+			<span class="type">CoInitializeSecurity</span>(
+					<span class="kw">NULL</span>,                           <span class="com">//  allow all VSS writers to communicate back</span>
+					<span class="num">-1</span>,                              <span class="com">//  default COM authentication service</span>
+					<span class="kw">NULL</span>,                           <span class="com">//  default COM authorization service</span>
+					<span class="kw">NULL</span>,                           <span class="com">//  reserved param</span>
+					RPC_C_AUTHN_LEVEL_PKT_PRIVACY,  <span class="com">//  strongest COM authentication level</span>
+					RPC_C_IMP_LEVEL_IMPERSONATE,    <span class="com">//  minimal impersonation abilities</span>
+					<span class="kw">NULL</span>,                           <span class="com">//  default COM authentication settings</span>
+					EOAC_DYNAMIC_CLOAKING,          <span class="com">//  cloaking</span>
+					<span class="kw">NULL</span>                            <span class="com">//  reserved param</span>
+					) );
 
-    <span class="com">// create the internal backup components object</span>
-    <span class="type">CHECK_COM</span>( <span class="type">CreateVssBackupComponents</span>(&amp;m_pVssObject) );
+	<span class="com">// create the internal backup components object</span>
+	<span class="type">CHECK_COM</span>( <span class="type">CreateVssBackupComponents</span>(&amp;m_pVssObject) );
 
-    <span class="com">// we doing a restore now?</span>
-    m_bDuringRestore = bDuringRestore;
+	<span class="com">// we doing a restore now?</span>
+	m_bDuringRestore = bDuringRestore;
 
-    <span class="com">// call either Initialize for backup or for restore</span>
-    <span class="kw">if</span> (m_bDuringRestore)
-    {
-        <span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">InitializeForRestore</span>(<span class="type">CComBSTR</span>(xmlDoc.<span class="type">c_str</span>())))
-    }
-    <span class="kw">else</span>
-    {
-        <span class="com">// initialize for backup</span>
-        <span class="kw">if</span> (xmlDoc.<span class="type">length</span>() == <span class="num">0</span>)
-            <span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">InitializeForBackup</span>())
-        <span class="kw">else</span>
-            <span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">InitializeForBackup</span>(<span class="type">CComBSTR</span>(xmlDoc.<span class="type">c_str</span>())))
+	<span class="com">// call either Initialize for backup or for restore</span>
+	<span class="kw">if</span> (m_bDuringRestore)
+	{
+			<span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">InitializeForRestore</span>(<span class="type">CComBSTR</span>(xmlDoc.<span class="type">c_str</span>())))
+	}
+	<span class="kw">else</span>
+	{
+			<span class="com">// initialize for backup</span>
+			<span class="kw">if</span> (xmlDoc.<span class="type">length</span>() == <span class="num">0</span>)
+					<span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">InitializeForBackup</span>())
+			<span class="kw">else</span>
+					<span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">InitializeForBackup</span>(<span class="type">CComBSTR</span>(xmlDoc.<span class="type">c_str</span>())))
 
 <span class="preproc">#<span class="kw">ifdef</span> VSS_SERVER</span>
 
-        <span class="com">// set the context, if different than the default context</span>
-        <span class="kw">if</span> (dwContext != VSS_CTX_BACKUP)
-        {
-            ft.<span class="func">WriteLine</span>(<span class="str">L"- setting the VSS context to: 0x%08lx"</span>, dwContext);
-            <span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">SetContext</span>(dwContext) );
-        }
+			<span class="com">// set the context, if different than the default context</span>
+			<span class="kw">if</span> (dwContext != VSS_CTX_BACKUP)
+			{
+					ft.<span class="func">WriteLine</span>(<span class="str">L"- setting the VSS context to: 0x%08lx"</span>, dwContext);
+					<span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">SetContext</span>(dwContext) );
+			}
 <span class="preproc">#<span class="kw">endif</span></span>
 
-    }
+	}
 
-    <span class="com">// keep the context</span>
-    m_dwContext = dwContext;
+	<span class="com">// keep the context</span>
+	m_dwContext = dwContext;
 
-    <span class="com">// set various properties per backup components instance</span>
-    <span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">SetBackupState</span>(<span class="kw">true</span>, <span class="kw">true</span>, VSS_BT_FULL, <span class="kw">false</span>));
+	<span class="com">// set various properties per backup components instance</span>
+	<span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">SetBackupState</span>(<span class="kw">true</span>, <span class="kw">true</span>, VSS_BT_FULL, <span class="kw">false</span>));
 }
 
 <span class="com">// waits for the completion of the asynchronous operation</span>
 <span class="type">void</span> <span class="func">VssClient::WaitAndCheckForAsyncOperation</span>(IVssAsync* pAsync)
 {
-    FunctionTracer <span class="func">ft</span>(DBG_INFO);
+	FunctionTracer <span class="func">ft</span>(DBG_INFO);
 
-    ft.<span class="func">WriteLine</span>(<span class="str">L"(waiting for the asynchronous operation to finish...)"</span>);
+	ft.<span class="func">WriteLine</span>(<span class="str">L"(waiting for the asynchronous operation to finish...)"</span>);
 
-    <span class="com">// wait until the async operation finishes</span>
-    <span class="type">CHECK_COM</span>(pAsync-&gt;<span class="type">Wait</span>());
+	<span class="com">// wait until the async operation finishes</span>
+	<span class="type">CHECK_COM</span>(pAsync-&gt;<span class="type">Wait</span>());
 
-    <span class="com">// check the result of the asynchronous operation</span>
-    HRESULT hrReturned = S_OK;
-    <span class="type">CHECK_COM</span>(pAsync-&gt;<span class="type">QueryStatus</span>(&amp;hrReturned, <span class="kw">NULL</span>));
+	<span class="com">// check the result of the asynchronous operation</span>
+	HRESULT hrReturned = S_OK;
+	<span class="type">CHECK_COM</span>(pAsync-&gt;<span class="type">QueryStatus</span>(&amp;hrReturned, <span class="kw">NULL</span>));
 
-    <span class="com">// check if the async operation succeeded...</span>
-    <span class="kw">if</span>(<span class="type">FAILED</span>(hrReturned))
-    {
-        ft.<span class="func">WriteLine</span>(<span class="str">L"error during the last asynchronous operation."</span>);
-        ft.<span class="func">WriteLine</span>(<span class="str">L"- returned HRESULT = 0x%08lx"</span>, hrReturned);
-        ft.<span class="func">WriteLine</span>(<span class="str">L"- error text: %s"</span>, FunctionTracer::<span class="type">HResult2String</span>(hrReturned).<span class="type">c_str</span>());
-        ft.<span class="func">WriteLine</span>(<span class="str">L"- please re-run VSHADOW.EXE with the /tracing option to get more details"</span>);
-        <span class="kw">throw</span>(hrReturned);
-    }
+	<span class="com">// check if the async operation succeeded...</span>
+	<span class="kw">if</span>(<span class="type">FAILED</span>(hrReturned))
+	{
+			ft.<span class="func">WriteLine</span>(<span class="str">L"error during the last asynchronous operation."</span>);
+			ft.<span class="func">WriteLine</span>(<span class="str">L"- returned HRESULT = 0x%08lx"</span>, hrReturned);
+			ft.<span class="func">WriteLine</span>(<span class="str">L"- error text: %s"</span>, FunctionTracer::<span class="type">HResult2String</span>(hrReturned).<span class="type">c_str</span>());
+			ft.<span class="func">WriteLine</span>(<span class="str">L"- please re-run VSHADOW.EXE with the /tracing option to get more details"</span>);
+			<span class="kw">throw</span>(hrReturned);
+	}
 }
-					</pre>
-				</section>
-				<footer>
-					<em>Ready</em>
-					<div>Ln&nbsp;8,Col&nbsp;1</div>
-					<div class="disabled">REC</div>
-					<div class="disabled">COL</div>
-					<div class="disabled">OVR</div>
-					<div class="disabled">READ</div>
-				</footer>
-			</form>
-			<div class="app" id="app-aohell">
-				<h2 id="aohelltitle">
-					<img src="/ui/i/aohell.png">
-					<a class="label">AOHell 95 v3.0 B5</a>
-					<a id="aohellmin" class="btn min"></a>
-					<a class="btn max"></a>
-					<a id="aohellexit" class="btn close"></a>
-				</h2>
-				<section id="aohellbody"></section>
-			</div>
-			<div class="app" id="app-trash">
-				<h2 id="trashtitle">
-					<img src="/ui/i/trash.png">
-					<a class="label">Recycle Bin</a>
-					<a id="trashmin" class="btn min"></a>
-					<a class="btn max"></a>
-					<a id="trashexit" class="btn close"></a>
-				</h2>
-				<img class="throbber" src="/ui/i/throbber.gif">
-				<nav class="menu">
-					<a><u>F</u>ile</a>
-					<a><u>E</u>dit</a>
-					<a><u>V</u>iew</a>
-					<a><u>G</u>o</a>
-					<a>F<u>a</u>vorites</a>
-					<a><u>H</u>elp</a>
-				</nav>
-				<aside class="mn"></aside>
-				<aside class="loc">
-					<label for="exploc">A<u>d</u>dress</label><select class="exploc"><option>Recycle Bin</option></select>
-				</aside>
-				<aside class="sep"></aside>
-				<main class="win">
-					<img class="dico" src="/ui/i/trash.png">
-					<h3>Recycle Bin</h3>
-					<div class="descr">
-						<p>This folder contains files and folders that you have deleted from your computer.</p>
-						<p>To permanently remove all items and reclaim disk space, click <a>Empty Recycle Bin</a></p>
-						<p>To move all items back to their original locations, click <a>Restore All</a></p>
-						<p>Select an item to view its description</p>
-					<div class="ico audio"><img src="/ui/i/folder.png"><kbd>Windows</kbd></div>
-					</div>
-				</main>
-				<div id="trashwin" class="app-hidden"></div>
-				<footer>
-					<section>file:///C:/WINDOWS/web/:Empty Recycle Bin</section>
-					<section>0 bytes</section>
-					<section>&nbsp;&nbsp;&nbsp;&nbsp;</section>
-				</footer>
-			</div>
-			<div class="app" id="app-utorrent">
-				<h2 id="utorrenttitle">
-					<img src="/ui/i/utorrent.png">
-					<a class="label"> µTorrent v1.3</a>
-					<a id="utorrentmin" class="btn min"></a>
-					<a class="btn max"></a>
-					<a id="utorrentexit" class="btn close"></a>
-				</h2>
-				<div id="downloading">
-					<p>Saving<br/>KNOPPIX_2DVD-EN.iso from the Internet</p>
-					<div class="progress" style="height:25px"><span id="dlbar" style="width: 13%;"> </span></div>
-					<p>Estimated time left: <span id="dltime">256 days, 13 hours, 29 minutes</span><br/>Download to:&nbsp;&nbsp;&nbsp;C:\Downloads\KNOPPIX_2DVD-EN.iso<br/>Transer rate:&nbsp;&nbsp;&nbsp;&nbsp;28.8mbps/sec </p>
-					<div class="field-row"><input type="checkbox" checked id="dldone"><label for="dldone" class="selected">Close this dialog box when download completes</label></div>
-					<div class="field-row">
-						<button class="disabled"><u>O</u>pen</button>
-						<button class="disabled">Open <u>F</u>older</button>
-						<button id="utorrentcancel">Cancel</button>
-					</div>
+				</pre>
+			</section>
+			<footer>
+				<em>Ready</em>
+				<div>Ln&nbsp;8,Col&nbsp;1</div>
+				<div class="disabled">REC</div>
+				<div class="disabled">COL</div>
+				<div class="disabled">OVR</div>
+				<div class="disabled">READ</div>
+			</footer>
+		</form>
+		<div class="app" id="app-aohell">
+			<h2 id="aohelltitle">
+				<img src="/ui/i/aohell.png">
+				<a class="label">AOHell 95 v3.0 B5</a>
+				<a id="aohellmin" class="btn min"></a>
+				<a class="btn max"></a>
+				<a id="aohellexit" class="btn close"></a>
+			</h2>
+			<section id="aohellbody"></section>
+		</div>
+		<div class="app" id="app-trash">
+			<h2 id="trashtitle">
+				<img src="/ui/i/trash.png">
+				<a class="label">Recycle Bin</a>
+				<a id="trashmin" class="btn min"></a>
+				<a class="btn max"></a>
+				<a id="trashexit" class="btn close"></a>
+			</h2>
+			<img class="throbber" src="/ui/i/throbber.gif">
+			<nav class="menu">
+				<a><u>F</u>ile</a>
+				<a><u>E</u>dit</a>
+				<a><u>V</u>iew</a>
+				<a><u>G</u>o</a>
+				<a>F<u>a</u>vorites</a>
+				<a><u>H</u>elp</a>
+			</nav>
+			<aside class="mn"></aside>
+			<aside class="loc">
+				<label for="exploc">A<u>d</u>dress</label><select class="exploc"><option>Recycle Bin</option></select>
+			</aside>
+			<aside class="sep"></aside>
+			<main class="win">
+				<img class="dico" src="/ui/i/trash.png">
+				<h3>Recycle Bin</h3>
+				<div class="descr">
+					<p>This folder contains files and folders that you have deleted from your computer.</p>
+					<p>To permanently remove all items and reclaim disk space, click <a>Empty Recycle Bin</a></p>
+					<p>To move all items back to their original locations, click <a>Restore All</a></p>
+					<p>Select an item to view its description</p>
+				<div class="ico audio"><img src="/ui/i/folder.png"><kbd>Windows</kbd></div>
+				</div>
+			</main>
+			<div id="trashwin" class="app-hidden"></div>
+			<footer>
+				<section>file:///C:/WINDOWS/web/:Empty Recycle Bin</section>
+				<section>0 bytes</section>
+				<section>&nbsp;&nbsp;&nbsp;&nbsp;</section>
+			</footer>
+		</div>
+		<div class="app" id="app-utorrent">
+			<h2 id="utorrenttitle">
+				<img src="/ui/i/utorrent.png">
+				<a class="label"> µTorrent v1.3</a>
+				<a id="utorrentmin" class="btn min"></a>
+				<a class="btn max"></a>
+				<a id="utorrentexit" class="btn close"></a>
+			</h2>
+			<div id="downloading">
+				<p>Saving<br/>KNOPPIX_2DVD-EN.iso from the Internet</p>
+				<div class="progress" style="height:25px"><span id="dlbar" style="width: 13%;"> </span></div>
+				<p>Estimated time left: <span id="dltime">256 days, 13 hours, 29 minutes</span><br/>Download to:&nbsp;&nbsp;&nbsp;C:\Downloads\KNOPPIX_2DVD-EN.iso<br/>Transer rate:&nbsp;&nbsp;&nbsp;&nbsp;28.8mbps/sec </p>
+				<div class="field-row"><input type="checkbox" checked id="dldone"><label for="dldone" class="selected">Close this dialog box when download completes</label></div>
+				<div class="field-row">
+					<button class="disabled"><u>O</u>pen</button>
+					<button class="disabled">Open <u>F</u>older</button>
+					<button id="utorrentcancel">Cancel</button>
 				</div>
 			</div>
-			<div class="app" id="app-sub7">
-				<header id="sub7title">
-					<div id="sub7exit"></div>
-					<div id="sub7min"></div>
-					<div id="sub7body"></div>
-				</header>
-			</div>
-			<div class="app" id="app-xircon">
-				<h2 id="xircontitle">
-					<img src="/ui/i/xircon.png">
-					<a class="label">syntax(one)xircon</a>
-					<a id="xirconmin" class="btn min"></a>
-					<a class="btn max"></a>
-					<a id="xirconexit" class="btn close"></a>
-				</h2>
-				<nav class="menu">
-					<a><u>S</u>erver</a>
-					<a><u>T</u>ools</a>
-					<a><u>W</u>indow</a>
-					<a><u>H</u>elp</a>
-				</nav>
-				<section id="xirconbody"></section>
-			</div>
+		</div>
+		<div class="app" id="app-sub7">
+			<header id="sub7title">
+				<div id="sub7exit"></div>
+				<div id="sub7min"></div>
+				<div id="sub7body"></div>
+			</header>
+		</div>
+		<form class="app" id="app-xircon" role="dialog">
+			<h2 id="xircontitle">
+				<img src="/ui/i/xircon.png">
+				<a class="label">syntax(IRC) x0(xero@0w.nz) mode(+isw) server(irc.undernet.org(6667))</a>
+				<a id="xirconmin" class="btn min"></a>
+				<a class="btn max"></a>
+				<a id="xirconexit" class="btn close"></a>
+			</h2>
+			<nav class="menu">
+				<a><u>S</u>erver</a>
+				<a><u>T</u>ools</a>
+				<a><u>W</u>indow</a>
+				<a><u>H</u>elp</a>
+				<a>S.i.N</a>
+			</nav>
+			<div class="nav"></div>
+			<div class="client">
+				<div class="app" id="xirconstatus">
+					<h2>
+						<img src="/ui/i/xircon-logo.png">
+						<a class="label">status[connected] irc.undernet.org:6667(+isw)</a>
+						<a class="btn min"></a>
+						<a class="btn max"></a>
+						<a class="btn close"></a>
+					</h2>
+					<div class="nav"></div>
+<div class="client">
+<span class="c">%</span><span class="l">%</span>% <span class="c">(</span><span class="l">(</span><span class="w">load</span><span class="c">)</span><span class="l">)</span> initializing pancreas.tcl...<br/>
+GaFooN BaFooN -- pancreas.tcl<br/>
+<span class="c">%</span><span class="l">%</span>% <span class="c">(</span><span class="l">(</span><span class="w">load</span><span class="c">)</span><span class="l">)</span> tHe fLoaTiNg PaNcrEaS -- now loaded<br/>
+<span class="c">%</span><span class="l">%</span>% <span class="c">(</span><span class="l">(</span><span class="w">load</span><span class="c">)</span><span class="l">)</span> initializing S.I.N tools...<br/>
+<span class="c">-</span><span class="l">=</span>+ <span class="w">war scripts loading</span> +<span class="l">=</span><span class="c">-</span><br/>
+<span class="l">mIRC</span> <span class="c">::</span> Crash 4.5<br/>
+<span class="l">mIRC</span> <span class="c">::</span> Crash 3.8<br/>
+<span class="l">mIRC</span> <span class="c">::</span> Crash 3.X<br/>
+<span class="l">mIRC</span> <span class="c">::</span> DCC autoget bomb<br/>
+<span class="l">mIRC</span> <span class="c">::</span> Status bug<br/>
+<span class="l">mIRC</span> <span class="c">::</span> Ping timeout<br/>
+<span class="l">mIRC</span> <span class="c">::</span> Term bomb <br/>
+<span class="l">mIRC</span> <span class="c">::</span> DO bug<br/>
+<span class="l">ircII</span> <span class="c">::</span> Linux adv<br/>
+<span class="l">ircII</span> <span class="c">::</span> Windows reg<br/>
+<span class="l">WSiRC</span> <span class="c">::</span>  Clientkill<br/>
+<span class="l">fireFIGHT</span> <span class="c">::</span> Crash 3.0 or older<br/>
+<span class="l">CtoolZ</span> <span class="c">::</span> Flash<br/>
+<span class="l">CtoolZ</span> <span class="c">::</span> Crash<br/>
+<span class="l">anti-CtoolZ</span> <span class="c">::</span> crash a ctool user<br/>
+<span class="l">MAC</span> <span class="c">::</span> IRCLE crash<br/>
+<span class="l">UNIX</span> <span class="c">::</span> Crash phoenix user<br/>
+<span class="l">UNIX</span> <span class="c">::</span> Crash stealth user<br/>
+<span class="l">UNIX</span> <span class="c">::</span> Crash LiCe user<br/>
+<span class="l">UNIX</span> <span class="c">::</span> Crash ZoDiAc user<br/>
+<span class="l">MISC</span> <span class="c">::</span> Chaos backdoor<br/>
+<span class="l">MISC</span> <span class="c">::</span> VaX V2.3b<br/>
+<span class="l">MISC</span> <span class="c">::</span> GeT oPS fRuM diS b1TcH! v6.66<br/>
+<span class="l">MISC</span> <span class="c">::</span> GetOPS<br/>
+<span class="l">MISC</span> <span class="c">::</span> Netsplit Auto-OP<br/>
+<span class="c">%</span><span class="l">%</span>% <span class="c">(</span><span class="l">(</span><span class="w">load</span><span class="c">)</span><span class="l">)</span> SELF INDUCED NEGATIVITY -- now loaded<br/>
+<span class="c">%</span><span class="l">%</span>% <span class="c">(</span><span class="l">(</span><span class="w">load</span><span class="c">)</span><span class="l">)</span> initializing SyntaxIRC...<br/>
+<span class="c">&nbsp;&nbsp;aby<u>s</u>s's&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="h">__</span><br/>
+&nbsp;<span class="h">.-----.--.--.-----</span><span class="b">|</span>&nbsp;&nbsp;<span class="b">|</span><span class="h">_.---.-.--.--.</span><br/>
+&nbsp;<span class="b">|</span><span class="l">__&nbsp;--<span class="b">|</span>&nbsp;&nbsp;<span class="b">|</span>&nbsp;&nbsp;<span class="b">|</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="b">|</span>&nbsp;&nbsp;&nbsp;_<span class="b">|</span>&nbsp;&nbsp;_&nbsp;&nbsp;<span class="b">|</span>_&nbsp;&nbsp;&nbsp;_<span class="b">|</span><br/>
+&nbsp;<span class="b">|</span>_____<span class="b">|</span>___&nbsp;&nbsp;<span class="b">|</span>__<span class="b">|</span>__<span class="b">|</span>____<span class="b">|</span>___._<span class="b">|</span>__.__<span class="b">|</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="b">|</span>_____</span><span class="b">|</span></span><span class="c">&nbsp;IRC</span><br/>
+<span class="c">%</span><span class="l">%</span>% <span class="c">(</span><span class="l">(</span><span class="w">syntax</span><span class="c">)</span><span class="l">)</span> Switching usermodes +iwsk<br/>
+<span class="c">%</span><span class="l">%</span>% <span class="c">(</span><span class="l">(</span><span class="w">syntax</span><span class="c">)</span><span class="l">)</span> Resetting online timer<br/>
+<span class="c">%</span><span class="l">%</span>% <span class="c">(</span><span class="l">(</span><span class="w">load</span><span class="c">)</span><span class="l">)</span> syntax(one\10.06.97) -- now loaded<br/>
+<span class="c">:</span><span class="l">:</span>: <span class="c">(</span><span class="l">(</span><span class="w">lookup</span><span class="c">)</span><span class="l">)</span> resolved irc.undernet.org > 195.159.90.90<br/>
+<span class="c">:</span><span class="l">:</span>: <span class="c">(</span><span class="l">(</span><span class="w">connect</span><span class="c">)</span><span class="l">)</span> connecting to 195.159.90.90<br/>
+<span class="c">:</span><span class="l">:</span>: <span class="c">(</span><span class="l">(</span><span class="w">connected</span><span class="c">)</span><span class="l">)</span> connection established with irc.undernet.org<br/>
+<span class="c">:</span><span class="l">:</span>: <span class="c">(</span><span class="l">(</span><span class="w">Ops Online&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c">)</span><span class="l">)</span> 81<br/>
+<span class="c">:</span><span class="l">:</span>: <span class="c">(</span><span class="l">(</span><span class="w">Channels&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c">)</span><span class="l">)</span> 6111<br/>
+<span class="c">:</span><span class="l">:</span>: <span class="c">(</span><span class="l">(</span><span class="w">local clients&nbsp;</span><span class="c">)</span><span class="l">)</span> 572<br/>
+<span class="c">:</span><span class="l">:</span>: <span class="c">(</span><span class="l">(</span><span class="w">local servers&nbsp;</span><span class="c">)</span><span class="l">)</span> 1<br/>
+<span class="c">:</span><span class="l">:</span>: <span class="c">(</span><span class="l">(</span><span class="w">local clients&nbsp;</span><span class="c">)</span><span class="l">)</span> users (max:1000)<br/>
+<span class="c">:</span><span class="l">:</span>: <span class="c">(</span><span class="l">(</span><span class="w">global clients</span><span class="c">)</span><span class="l">)</span> users (max:max)<br/>
+<span class="c">:</span><span class="l">:</span>: <span class="c">(</span><span class="l">(</span><span class="w">undernet</span><span class="c">)</span><span class="l">)</span> 3377 users and 6078 invisible on 19 servers<br/>
+<span class="c">:</span><span class="l">:</span>: <span class="c">(</span><span class="l">(</span><span class="w">undernet</span><span class="c">)</span><span class="l">)</span> Highest connection count: 1005 (1004 clients) (23744 connections recieved) <br/>
+<span class="c">:</span><span class="l">:</span>: <span class="c">(</span><span class="l">(</span><span class="w">Join</span><span class="c">)</span><span class="l">)</span> #SIN
+<span class="c">:</span><span class="l">:</span>: Now talking in <span class="w">#SIN</span><br/>
+<span class="c">:</span><span class="l">:</span>: <span class="c">(</span><span class="l">(</span><span class="w">#SIN</span><span class="c">)</span><span class="l">)</span> (synch) 0.466<br/>
+<span class="c">:</span><span class="l">:</span>: <span class="c">(</span><span class="l">(</span><span class="w">#SIN</span><span class="c">)</span><span class="l">)</span> (modes) +stn<br/>
+<span class="c">:</span><span class="l">:</span>: <span class="c">(</span><span class="l">(</span><span class="w">#SIN</span><span class="c">)</span><span class="l">)</span> (created) Mon Jun 9 22:49:41 1995<br/>
+</div>
+					</div>
+					<div class="app" id="xirconchat">
+						<h2>
+							<img src="/ui/i/chatroom.png">
+							<a class="label">#SIN (+stn) SELF INDUCED NEGATIVITY : rip \\st0rm\\</a>
+							<a class="btn min"></a>
+							<a class="btn max"></a>
+							<a class="btn close"></a>
+						</h2>
+						<div class="client">
+<span class="c">=</span><span class="l">=</span>= <span class="c">(<span class="h">join</span>\<span class="b">#SIN</span>) <span class="h">x0</span>[<span class="b">xero@0w.nz</span>] <span class="h">@</span>[<span class="b">05</span>:<span class="b">55</span>:<span class="b">55</span>pm]</span><br/>
+<span class="c">≈</span><span class="l">≈</span>≈ <span class="c">(<span class="w">topic[</span><span class="l">#SIN</span><span class="w">]</span>)</span> SELF INDUCED NEGATIVITY : rip \\st0rm\\<br/>
+<span class="c">≈</span><span class="l">≈</span>≈ <span class="c">(<span class="w">topic[</span><span class="l">#SIN</span><span class="w">]</span>)</span> set by HoGsHeaD!~hh@sinnerz.com<br/>
+<span class="c">≈</span><span class="l">≈</span>≈ <span class="c">(<span class="w">names[</span><span class="l">#SIN</span><span class="w">]</span>)</span> listing users in <span class="w">#SIN</span>(<span class="w"><u>21</u></span>)<br/>
+<span class="c">≈</span><span class="l">≈</span>≈ <span class="c">┏━━━</span><span class="l">━━</span>━━<span class="s">━</span>━━<span class="l">━━</span><span class="c">━━━━━━━━━</span><span class="l">━━</span>━━<span class="s">━</span>━━<span class="l">━━</span><span class="c">━━━━━━━━━</span><span class="l">━━</span>━━<span class="s">━</span>━━<span class="l">━━</span><span class="c">━━━</span><br/>
+<span class="c">≈</span><span class="l">≈</span>≈ <span class="c">┃</span>&nbsp;<span class="h">~</span>FUCKINGHOSTILE&nbsp;<span class="c">≡</span>&nbsp;<span class="h">~</span>MajestcCockstr&nbsp;<span class="c">≡</span>&nbsp;<span class="h">@</span>AcidAngle<br/>
+<span class="c">≈</span><span class="l">≈</span>≈ <span class="c">┃</span>&nbsp;<span class="h">@</span>BBuster&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c">≡</span>&nbsp;<span class="h">@</span>EvilChicc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c">≡</span>&nbsp;<span class="h">@</span>HoGsHeaD&nbsp;<br/>
+<span class="c">≈</span><span class="l">≈</span>≈ <span class="c">┃</span>&nbsp;<span class="h">@</span>Jwit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c">≡</span>&nbsp;<span class="h">@</span>TheMessiah&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c">≡</span>&nbsp;<span class="h">@</span>theBanshee<br/>
+<span class="c">≈</span><span class="l">≈</span>≈ <span class="c">┃</span>&nbsp;<span class="h">+</span>LordDuke&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c">≡</span>&nbsp;<span class="h">+</span>SoulTear&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c">≡</span>&nbsp;<span class="h">+</span>cZk&nbsp;<br/>
+<span class="c">≈</span><span class="l">≈</span>≈ <span class="c">┃</span>&nbsp;<span class="h">+</span>darkfool&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c">≡</span>&nbsp;<span class="h">+</span>delirium&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c">≡</span>&nbsp;<span class="h">+</span>f0k&nbsp;<br/>
+<span class="c">≈</span><span class="l">≈</span>≈ <span class="c">┃</span>&nbsp;<span class="h">+</span>siliToad&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c">≡</span>&nbsp;deprave&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c">≡</span>&nbsp;gURGle&nbsp;<br/>
+<span class="c">≈</span><span class="l">≈</span>≈ <span class="c">┃</span>&nbsp;modify&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c">≡</span>&nbsp;scud-O&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c">≡</span>&nbsp;x0<br/>
+<span class="c">≈</span><span class="l">≈</span>≈ <span class="c">┗━━━</span><span class="l">━━</span>━━<span class="s">━</span>━━<span class="l">━━</span><span class="c">━━━━━━━━━</span><span class="l">━━</span>━━<span class="s">━</span>━━<span class="l">━━</span><span class="c">━━━━━━━━━</span><span class="l">━━</span>━━<span class="s">━</span>━━<span class="l">━━</span><span class="c">━━━</span><br/>
+<span class="c">≈</span><span class="l">≈</span>≈ <span class="c">(<span class="w"><u>s</u>ynch[</span><span class="l">#SIN</span><span class="w">]</span>)</span> 0.466 seconds<br/>
+<span class="c">≈</span><span class="l">≈</span>≈ <span class="c">(<span class="w"><u>m</u>odes[</span><span class="l">#SIN</span><span class="w">]</span>)</span> +stn<br/>
+<span class="c">≈</span><span class="l">≈</span>≈ <span class="c">(<span class="w"><u>c</u>rted[</span><span class="l">#SIN</span><span class="w">]</span>)</span> Mon Jun 9 22:49:41 1995<br/>
+. <span class="c">x0</span> waves<br/>
+<span class="c">&lt;</span><span class="w">TheMessiah</span><span class="c">&gt;</span> greetz <span class="h">x0</span><br/>
+<span class="c">&lt;</span><span class="l">x0</span><span class="c">&gt;</span> yo tm! finally got jM compiled!<br/>
+<span class="c">&lt;</span><span class="w">MajestcCockstr</span><span class="c">&gt;</span> bEWm uNF uNF!<br/>
+<span class="c">&lt;</span><span class="w">siliToad</span><span class="c">&gt;</span> ^^^<br/>
+<span class="c">=</span><span class="l">=</span>= <span class="c">(<span class="h">signoff</span>\<span class="b">#SIN</span>) <span class="h">SoulTear</span>[<span class="b">~st@brutality.net</span>] <span class="h">@</span>[<span class="b">06</span>:<span class="b">02</span>:<span class="b">19</span>pm] [<span class="l">Write Error: Broken Pipe</span>]</span><br/>
+<span class="c">=</span><span class="l">=</span>= <span class="c">(<span class="h">join</span>\<span class="b">#SIN</span>) <span class="h">SoulTear</span>[<span class="b">~st@brutality.net</span>] <span class="h">@</span>[<span class="b">06</span>:<span class="b">02</span>:<span class="b">32</span>pm]</span><br/>
+<span class="c">&lt;</span><span class="w">TheMessiah</span><span class="c">&gt;</span> K-RaD d00d!<br/>
+<span class="c">&lt;</span><span class="l">x0</span><span class="c">&gt;</span> dont really gROk yer code, but it builds \o/ <br/>
+<span class="c">&lt;</span><span class="w">darkfool</span><span class="c">&gt;</span> http://sinnerz.com/bible7.txt <br/>
+<span class="c">&lt;</span><span class="w">TheMessiah</span><span class="c">&gt;</span> <span class="h">x0</span><span class="b"><u>:</u></span> start by reading the module loaders<br/>
+						</div>
+						<input type="text" id="xirconprompt">
+					</div>
+					<footer>
+						<section class="task" id="xirconstatustask"><img src="/ui/i/xircon-logo.png"><sup>status[connected] irc.undernet.org:6667(+isw)</sup></section>
+						<section class="task selected" id="xirconchattask"><img src="/ui/i/chatroom.png"><sup>#SIN (+stn) SELF INDUCED NEGATIVITY : rip \\st0rm\\</sup></section>
+					</footer>
+				</div>
+			</form>
 			<div class="app" id="app-solitaire"><header id="solitairetitle"></header></div>
 			<form class="app" id="app-putty" role="dialog">
 				<h2 id="puttytitle">
@@ -1072,7 +1186,7 @@ Recieved 2666 bytes in 1.2 secs, (17.35 KBps), transfer suceeded
 					<a>Help</a>
 				</nav>
 				<div class="client">
-					<ul class="tree-view"><li><details open=""><summary><img src="/ui/i/mycpu.png">My Computer</summary><ul><li><details><summary><img src="/ui/i/folder.png">HKEY_CLASSES_ROOT</summary><ul><li><details><summary>Software</summary><ul><li><details><summary>Adobe</summary><ul><li><details><summary>Photoshop</summary><ul><li><details><summary>5</summary><ul><li>Default</li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>Classes</summary><ul><li><details><summary>exefile</summary><ul><li><details><summary>shell</summary><ul><li><details><summary>open</summary><ul><li>command</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>Macromedia</summary><ul><li><details><summary>Dreamweaver</summary><ul><li>2.2.0</li></ul></details></li></ul></details></li><li><details><summary>Microsoft</summary><ul><li><details><summary>Windows</summary><ul><li><details><summary>98se</summary><ul><li><details><summary>AppEvents</summary><ul><li><details><summary>Schemes</summary><ul><li><details><summary>Apps</summary><ul><li><details><summary>even~</summary><ul><li>culTent</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>Control Panel</summary><ul><li>Desktop</li></ul></details></li><li><details><summary>Explorer</summary><ul><li>StreamMRU</li></ul></details></li><li><details><summary>Fonts</summary><ul><li>Profilelst</li><li><details><summary>fontsize</summary><ul><li><details><summary>12</summary><ul><li>User</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>Simon Tatham</summary><ul><li><details><summary>PuTTY</summary><ul><li><details><summary>0.48</summary><ul><li>Default</li><li>hosts</li><li>pancrease</li><li>theme</li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>ahead_AG</summary><ul><li><details><summary>nero_express</summary><ul><li><details><summary>6_aio</summary><ul><li>t_prefs</li><li>team</li><li>distro</li><li>crack_oft</li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>llamagroup</summary><ul><li><details><summary>winamp</summary><ul><li><details><summary>1.0.0</summary><ul><li>music_home</li><li>device</li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>xircon</summary><ul><li><details><summary>xircon</summary><ul><li><details><summary>1.0b4</summary><ul><li>theme</li><li>fontsize</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></details></li><li><details><summary><img src="/ui/i/folder.png">HKEY_CURRENT_USER</summary><ul><li><details><summary>Network</summary><ul><li>Persistent</li></ul></details></li><li><details><summary>Software</summary><ul><li><details><summary>Microsoft</summary><ul><li><details><summary>Windows</summary><ul><li><details><summary>98se</summary><ul><li><details><summary>Explorer</summary><ul><li>StreamMRU</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>AppEvents</summary><ul><li><details><summary>Schemes</summary><ul><li><details><summary>Apps</summary><ul><li><details><summary>even~</summary><ul><li>culTent</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>fontsize</summary><ul><li><details><summary>12</summary><ul><li>User</li></ul></details></li></ul></details></li><li><details><summary>Simon Tatham</summary><ul><li><details><summary>PuTTY</summary><ul><li><details><summary>0.48</summary><ul><li>hosts</li><li>pancrease</li><li>theme</li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>xircon</summary><ul><li><details><summary>xircon</summary><ul><li><details><summary>1.0b4</summary><ul><li>theme</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary><img src="/ui/i/folder.png">HKEY_LOCAL_MACHINE</summary><ul><li><details><summary>Network</summary><ul><li>Clover.net</li><li>Logon</li><li>MaintainServerList</li><li>Reshare</li><li>Username</li><li>WorkGroup</li></ul></details></li><li><details><summary>Software</summary><ul><li><details><summary>Adobe</summary><ul><li><details><summary>Photoshop</summary><ul><li><details><summary>5</summary><ul><li>Default</li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>Classes</summary><ul><li><details><summary>exefile</summary><ul><li><details><summary>shell</summary><ul><li><details><summary>open</summary><ul><li>command</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>Macromedia </summary><ul><li><details><summary>Dreamweaver</summary><ul><li><details><summary>2.2.0</summary><ul><li>settings</li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>Microsoft</summary><ul><li><details><summary>Windows</summary><ul><li><details><summary>98se</summary><ul><li><details><summary>AppEvents</summary><ul><li><details><summary>Schemes</summary><ul><li><details><summary>Apps</summary><ul><li><details><summary>even~</summary><ul><li>culTent</li><li><details><summary>Control Panel</summary><ul><li>Desktop</li><li><details><summary>Fonts</summary><ul><li>Profilelst</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>Simon Tatham</summary><ul><li><details><summary>PuTTY</summary><ul><li><details><summary>0.48</summary><ul><li>Default</li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>ahead_AG</summary><ul><li><details><summary>nero_express</summary><ul><li><details><summary>6_aio</summary><ul><li>t_prefs</li><li>team</li><li>distro</li><li>crack_oft</li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>llamagroup</summary><ul><li><details><summary>winamp</summary><ul><li><details><summary>1</summary><ul><li>music_home</li><li>device</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>System</summary><ul><li><details><summary>CurrentControlSet</summary><ul><li><details><summary>Services</summary><ul><li><details><summary>VxD</summary><ul><li><details><summary>Vnetsetup System</summary><ul><li><details><summary>CurrentControlSet</summary><ul><li><details><summary>Control</summary><ul><li><details><summary>EnableSharing System</summary><ul><li><details><summary>CurrentControlSet</summary><ul><li><details><summary>Services</summary><ul><li><details><summary>VxD</summary><ul><li><details><summary>Vnetsetup LMAnnounce System</summary><ul><li><details><summary>CurrentControlSet</summary><ul><li><details><summary>Services</summary><ul><li><details><summary>VxD</summary><ul><li>Vnetsetup</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>Vnetsetup Software</summary><ul><li><details><summary>CurrentControlSet</summary><ul><li><details><summary>Services</summary><ul><li><details><summary>VxD</summary><ul><li>transport entry</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>MSNP32</summary><ul><li>logon</li><li>protected-mode</li><li>provider</li></ul></details></li></ul></details></li></ul></details></li><li><details><summary><img src="/ui/i/folder.png">HKEY_USERS</summary><ul><li>Default</li><li>Guest</li><li>xeR0</li></ul></details></li><li><details><summary><img src="/ui/i/folder.png">HKEY_CURRENT_CONFIG</summary><ul><li><details><summary>Default</summary><ul><li>autorun</li><li>colors</li><li>cpanel</li><li>folders</li><li>icons</li></ul></details></li></ul></details></li><li><details><summary><img src="/ui/i/folder.png">HKEY_DYN_DATA</summary><ul><li>PerfStats</li></details></li></ul></details></li></ul>
+					<ul class="tree-view"><li><details open=""><summary><img src="/ui/i/mycpu.png">My Computer</summary><ul><li><details><summary><img src="/ui/i/folder.png">HKEY_CLASSES_ROOT</summary><ul><li><details><summary>Software</summary><ul><li><details><summary>Adobe</summary><ul><li><details><summary>Photoshop</summary><ul><li><details><summary>5</summary><ul><li>Default</li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>Classes</summary><ul><li><details><summary>exefile</summary><ul><li><details><summary>shell</summary><ul><li><details><summary>open</summary><ul><li>command</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>Macromedia</summary><ul><li><details><summary>Dreamweaver</summary><ul><li>2.2.0</li></ul></details></li></ul></details></li><li><details><summary>Microsoft</summary><ul><li><details><summary>Windows</summary><ul><li><details><summary>98se</summary><ul><li><details><summary>AppEvents</summary><ul><li><details><summary>Schemes</summary><ul><li><details><summary>Apps</summary><ul><li><details><summary>even~</summary><ul><li>culTent</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>Control Panel</summary><ul><li>Desktop</li></ul></details></li><li><details><summary>Explorer</summary><ul><li>StreamMRU</li></ul></details></li><li><details><summary>Fonts</summary><ul><li>Profilelst</li><li><details><summary>fontsize</summary><ul><li><details><summary>12</summary><ul><li>User</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>Simon Tatham</summary><ul><li><details><summary>PuTTY</summary><ul><li><details><summary>0.48</summary><ul><li>Default</li><li>hosts</li><li>pancreas</li><li>theme</li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>ahead_AG</summary><ul><li><details><summary>nero_express</summary><ul><li><details><summary>6_aio</summary><ul><li>t_prefs</li><li>team</li><li>distro</li><li>crack_oft</li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>llamagroup</summary><ul><li><details><summary>winamp</summary><ul><li><details><summary>1.0.0</summary><ul><li>music_home</li><li>device</li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>xircon</summary><ul><li><details><summary>xircon</summary><ul><li><details><summary>1.0b4</summary><ul><li>theme</li><li>fontsize</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></details></li><li><details><summary><img src="/ui/i/folder.png">HKEY_CURRENT_USER</summary><ul><li><details><summary>Network</summary><ul><li>Persistent</li></ul></details></li><li><details><summary>Software</summary><ul><li><details><summary>Microsoft</summary><ul><li><details><summary>Windows</summary><ul><li><details><summary>98se</summary><ul><li><details><summary>Explorer</summary><ul><li>StreamMRU</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>AppEvents</summary><ul><li><details><summary>Schemes</summary><ul><li><details><summary>Apps</summary><ul><li><details><summary>even~</summary><ul><li>culTent</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>fontsize</summary><ul><li><details><summary>12</summary><ul><li>User</li></ul></details></li></ul></details></li><li><details><summary>Simon Tatham</summary><ul><li><details><summary>PuTTY</summary><ul><li><details><summary>0.48</summary><ul><li>hosts</li><li>pancreas</li><li>theme</li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>xircon</summary><ul><li><details><summary>xircon</summary><ul><li><details><summary>1.0b4</summary><ul><li>theme</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary><img src="/ui/i/folder.png">HKEY_LOCAL_MACHINE</summary><ul><li><details><summary>Network</summary><ul><li>Clover.net</li><li>Logon</li><li>MaintainServerList</li><li>Reshare</li><li>Username</li><li>WorkGroup</li></ul></details></li><li><details><summary>Software</summary><ul><li><details><summary>Adobe</summary><ul><li><details><summary>Photoshop</summary><ul><li><details><summary>5</summary><ul><li>Default</li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>Classes</summary><ul><li><details><summary>exefile</summary><ul><li><details><summary>shell</summary><ul><li><details><summary>open</summary><ul><li>command</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>Macromedia </summary><ul><li><details><summary>Dreamweaver</summary><ul><li><details><summary>2.2.0</summary><ul><li>settings</li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>Microsoft</summary><ul><li><details><summary>Windows</summary><ul><li><details><summary>98se</summary><ul><li><details><summary>AppEvents</summary><ul><li><details><summary>Schemes</summary><ul><li><details><summary>Apps</summary><ul><li><details><summary>even~</summary><ul><li>culTent</li><li><details><summary>Control Panel</summary><ul><li>Desktop</li><li><details><summary>Fonts</summary><ul><li>Profilelst</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>Simon Tatham</summary><ul><li><details><summary>PuTTY</summary><ul><li><details><summary>0.48</summary><ul><li>Default</li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>ahead_AG</summary><ul><li><details><summary>nero_express</summary><ul><li><details><summary>6_aio</summary><ul><li>t_prefs</li><li>team</li><li>distro</li><li>crack_oft</li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>llamagroup</summary><ul><li><details><summary>winamp</summary><ul><li><details><summary>1</summary><ul><li>music_home</li><li>device</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>System</summary><ul><li><details><summary>CurrentControlSet</summary><ul><li><details><summary>Services</summary><ul><li><details><summary>VxD</summary><ul><li><details><summary>Vnetsetup System</summary><ul><li><details><summary>CurrentControlSet</summary><ul><li><details><summary>Control</summary><ul><li><details><summary>EnableSharing System</summary><ul><li><details><summary>CurrentControlSet</summary><ul><li><details><summary>Services</summary><ul><li><details><summary>VxD</summary><ul><li><details><summary>Vnetsetup LMAnnounce System</summary><ul><li><details><summary>CurrentControlSet</summary><ul><li><details><summary>Services</summary><ul><li><details><summary>VxD</summary><ul><li>Vnetsetup</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>Vnetsetup Software</summary><ul><li><details><summary>CurrentControlSet</summary><ul><li><details><summary>Services</summary><ul><li><details><summary>VxD</summary><ul><li>transport entry</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>MSNP32</summary><ul><li>logon</li><li>protected-mode</li><li>provider</li></ul></details></li></ul></details></li></ul></details></li><li><details><summary><img src="/ui/i/folder.png">HKEY_USERS</summary><ul><li>Default</li><li>Guest</li><li>xeR0</li></ul></details></li><li><details><summary><img src="/ui/i/folder.png">HKEY_CURRENT_CONFIG</summary><ul><li><details><summary>Default</summary><ul><li>autorun</li><li>colors</li><li>cpanel</li><li>folders</li><li>icons</li></ul></details></li></ul></details></li><li><details><summary><img src="/ui/i/folder.png">HKEY_DYN_DATA</summary><ul><li>PerfStats</li></details></li></ul></details></li></ul>
 					<aside>
 						<header><span>Name</span><span>Data</span></header>
 						<section><span class="highlight"><img src="/ui/i/regkey.png">(Default)</span><span>(value not set)</span></section>

@@ -188,7 +188,7 @@
 				e==="winamp"?'winamp.png"><sup>WinAmp':
 				e==="winnuke"?'nuke.png"><sup>WinNukeV95':
 				e==="wsftp"?'ws_ftp.png"><sup>WS_FTP95 Pro':
-				e==="xircon"?'xircon.png"><sup>xIRCon v1.0b4':
+				e==="xircon"?'xircon.png"><sup>syntax(IRC) undernet #SIN':
 			'')});tfocus(e)}
 	tsync=_=>{
 		$("tasks").innerHTML=tasks.map(task=>`<section name="${task.e}" class="task${task.f==1?' selected':''}"><img src="${task.i}</sup></section>`).join("");
@@ -670,7 +670,18 @@
 						i:"nuke",t:"WINNUKE",s:1,
 						m:`<div class="pad"><aside><img style="transform:scale(1);margin-top:-10px" src="/ui/i/err.png"></aside><section>Connection Failed Retry?</section><section class="field-row"><button class="close"><u>Y</u>es</button><button class="close"><u>N</u>o</button></section></div>`})))}))}});
 		run("xircon",{
-			d:{x:60,y:38}});
+			d:{x:248,y:191},
+			o:_=>{
+				const s=$("xirconstatus"),c=$("xirconchat"),st=$("xirconstatustask"),ct=$("xirconchattask"),xp=$("xirconprompt");
+				xp.value="";promptfocus(xp);
+				[s,c,st,ct].forEach(i=>{
+					if(!i.id.includes("task")){let w=i.querySelector(".client");w.scrollTop=w.scrollHeight}
+					on(i,E.c,e=>{
+						[s,c].forEach(b=>b.style.zIndex=60);
+						[st,ct].forEach(b=>cl(b,"selected",1));
+						cl(e.currentTarget.id.includes("chat")?ct:st,"selected");
+						(e.currentTarget.id.includes("chat")?c:s).style.zIndex=66});
+					on("app-xircon",E.s,e=>(p0p(e),n("BSOD")))})}});
 		on("spewfy",E.d,_=>{
 			msg({
 				i:"sine",t:"Dr Spewfy",s:1,
