@@ -332,6 +332,67 @@
 		}
 		$$$("#flyout a").forEach(e=>e.tabIndex=0);
 	},
+	chatani=_=>{
+		const s=$("xirconstatus"),c=$("xirconchat"),st=$("xirconstatustask"),ct=$("xirconchattask"),xp=$("xirconprompt");
+		let speed=1300,l=0;
+		s.querySelector(".client").querySelectorAll(".kick").forEach(k=>k.parentNode.removeChild(k));
+		c.querySelector(".client").querySelectorAll(".usrmsg").forEach(m=>m.parentNode.removeChild(m));
+		[s,c].forEach(b=>b.style.zIndex=60);
+		function animateLines(parent,cb){
+			const client=parent.querySelector(".client");
+			let i=0,html=client.innerHTML,lines=html.split(/<br\s*\/?>/i).map(l=>l.trim()).filter(l=>l.length);
+			client.innerHTML="";
+			const nextLine=_=>{
+				if(i<lines.length){
+					client.innerHTML+=lines[i]+(i<lines.length-1?"<br/>":"");
+					client.scrollTop=client.scrollHeight;
+					i++;
+					if(l==0&&i==3)speed=150;
+					if(l==0&&i==5)speed=800;
+					if(l==0&&i==6)speed=150;
+					if(l==0&&i==44)speed=800;
+					if(l==0&&i==45)speed=150;
+					if(l==0&&i==53)speed=800;
+					if(l==0&&i==54)speed=999;
+					if(l==0&&i==56)speed=400;
+					if(l==0&&i==65)speed=123;
+					if(l==1&&i==16)speed=2500;
+					if(l==1&&i==17)speed=1500;
+					if(l==1&&i>18)speed+=Math.random()*400;
+					setTimeout(nextLine,speed);
+				} else cb&&cb()}
+			nextLine()}
+		const handler=e=>{
+			p0p(e);
+			let x=s.querySelector(".client");
+			let y=c.querySelector(".client");
+			y.innerHTML+=`<span class="usrmsg"><span class="c">&lt;</span><span class="l">x0</span><span class="c">&gt;</span> ${xp.value}<br/></span>`;
+			y.scrollTop=y.scrollHeight;
+			xp.value="";
+			setTimeout(_=>{
+				c.style.display=ct.style.display="none";
+				cl(st,"selected");
+				cl(ct,"selected",1);
+				setTimeout(_=>{
+					x.innerHTML+=`<span class="kick"><br/><span class="c">:</span><span class="l">:</span><span class="s">: </span><span class="c">(</span><span class="l">(<span class="h">Kick</span>\\<span class="b">#SIN</span><span class="c">)</span><span class="l">)</span> <span class="h">\\\\St0rM\\\\</span>[<span class="b">~St0rMy@sinnerz.com</span>] kicked <span class="w">YOU</span> from <span class="b">#SIN</span> <span class="s">[</span>iN a whIfF oF SuLfur, <span class="s">\\\\St0rM\\\\</span> is TrANSfoRMEd inTo a GARgAnTUaN beAsT bY hiS MenTOr, LorD SaTaN, and sLowLy CruSheS <span class="h">x0</span> wiTH a GiANT mAGgot-RidDEn hOoF...</span><span class="s">]</span></span><br/></span>`;
+					x.scrollTop=x.scrollHeight;
+					off("app-xircon",E.s,handler)},400)},1500)};
+		c.style.display=ct.style.display="none";
+		cl(st,"selected");
+		cl(ct,"selected",1);
+		animateLines(s,_=>{
+			l++;speed=99;
+			c.style.display="block";ct.style.display="flex";
+			cl(st,"selected",1);cl(ct,"selected");
+			xp.value="";promptfocus(xp);
+			animateLines(c);
+			on("app-xircon",E.s,handler);
+			[s,c,st,ct].forEach(i=>{
+				on(i,E.c,e=>{
+					[s,c].forEach(b=>b.style.zIndex=2);
+					[st,ct].forEach(b=>cl(b,"selected",1));
+					cl(e.currentTarget.id.includes("chat")?ct:st,"selected");
+					(e.currentTarget.id.includes("chat")?c:s).style.zIndex=5})})})},
 	cal=el=>{
 		let mS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
 		dS="SMTWTFS".split(""),
@@ -671,17 +732,7 @@
 						m:`<div class="pad"><aside><img style="transform:scale(1);margin-top:-10px" src="/ui/i/err.png"></aside><section>Connection Failed Retry?</section><section class="field-row"><button class="close"><u>Y</u>es</button><button class="close"><u>N</u>o</button></section></div>`})))}))}});
 		run("xircon",{
 			d:{x:248,y:191},
-			o:_=>{
-				const s=$("xirconstatus"),c=$("xirconchat"),st=$("xirconstatustask"),ct=$("xirconchattask"),xp=$("xirconprompt");
-				xp.value="";promptfocus(xp);
-				[s,c,st,ct].forEach(i=>{
-					if(!i.id.includes("task")){let w=i.querySelector(".client");w.scrollTop=w.scrollHeight}
-					on(i,E.c,e=>{
-						[s,c].forEach(b=>b.style.zIndex=60);
-						[st,ct].forEach(b=>cl(b,"selected",1));
-						cl(e.currentTarget.id.includes("chat")?ct:st,"selected");
-						(e.currentTarget.id.includes("chat")?c:s).style.zIndex=66});
-					on("app-xircon",E.s,e=>(p0p(e),n("BSOD")))})}});
+			o:_=>chatani()});
 		on("spewfy",E.d,_=>{
 			msg({
 				i:"sine",t:"Dr Spewfy",s:1,
