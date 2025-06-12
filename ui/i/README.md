@@ -188,15 +188,25 @@
 
 ![bo2k-server.png](bo2k-server.png)
 
-![chatroom.png](chatroom.png)
+![paint.png](paint.png)
 
-![xircon-logo.png](xircon-logo.png)
+![sci.gif](sci.gif)
+
+![tools.png](tools.png)
+
+![tv.gif](tv.gif)
+
+![wmp.png](wmp.png)
 
 ![arrow.png](arrow.png)
 
 ![windows-slanted.png](windows-slanted.png)
 
 ![throbber.gif](throbber.gif)
+
+![chatroom.png](chatroom.png)
+
+![xircon-logo.png](xircon-logo.png)
 
 ![bo2k-cdc.png](bo2k-cdc.png)
 

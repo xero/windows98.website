@@ -348,8 +348,8 @@ button {
 			left: 15%;
 		}
 		#notepad {
-			bottom: 40%;
-			left: 90%;
+			bottom: 36%;
+			left: 81%;
 		}
 		#game {
 			bottom: 10%;
@@ -361,27 +361,27 @@ button {
 		}
 		#aohell {
 			top: 9%;
-			left: 70%;
+			left: 66%;
 		}
 		#toneloc {
-			top: 16%;
-			left: 86%;
+			top: 22%;
+			left: 84%;
 		}
 		#sub7 {
 			top: 5%;
 			left: 86%;
 		}
 		#photoshop {
-			top: 36%;
+			top: 20%;
 			left: 35%;
 		}
 		#spewfy {
 			top: 5%;
-			left: 78%;
+			left: 77%;
 		}
 		#adraw {
-			top: 23%;
-			left: 79%;
+			top: 26%;
+			left: 70%;
 		}
 		#dialup {
 			top: 17%;
@@ -392,7 +392,7 @@ button {
 			left: 4%;
 		}
 		#calendar {
-			top: 53%;
+			top: 49%;
 			left: 3%;
 		}
 		#cd {
@@ -400,40 +400,40 @@ button {
 			left: 23%;
 		}
 		#winamp {
-			top: 4%;
-			left: 33%;
+			top: 3%;
+			left: 45%;
 		}
 		#xircon {
 			top: 82%;
 			left: 94%;
 		}
 		#utorrent {
-			top: 39%;
+			bottom: 40%;
 			left: 93%;
 		}
 		#regedit {
-			top: 32%;
-			left: 24%;
+			top: 39%;
+			left: 25%;
 		}
 		#dreamweaver {
-			top: 25%;
+			top: 20%;
 			left: 45%;
 		}
 		#putty {
-			top: 3%;
-			left: 55%;
-		}
-		#nero {
-			top: 17%;
+			top: 19%;
 			left: 22%;
 		}
+		#nero {
+			top: 4%;
+			left: 33%;
+		}
 		#winnuke {
-			top: 22%;
-			left: 92%;
+			top: 29%;
+			left: 93.5%
 		}
 		#wsftp {
-			top: 3%;
-			left: 45%;
+			top: 39%;
+			left: 39%;
 		}
 	}
 	.app,form, #downloading{ filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.4)) }
@@ -1652,6 +1652,10 @@ button {
 					background: #000;
 					color: #fff;
 				}
+				.usrmsg {
+					display: block;
+					clear: both;
+				}
 			}
 			#xirconstatus,
 			#xirconchat {
@@ -2310,10 +2314,10 @@ button {
 	}
 	#app-toneloc {
 		width: 512px;
-		height: 315px;
+		height: 300px;
 		&::before {
 			width: 510px;
-			height: 313px;
+			height: 298px;
 		}
 		.menu {
 			margin-top:3px;
@@ -2332,7 +2336,9 @@ button {
 			white-space:pre;
 			font-family:monospace;
 			font-size: 9px;
-			padding: 10px;
+			.push {
+				margin: 2px 0;
+			}
 			*{
 				white-space:pre;
 				font-family:monospace;
@@ -2342,10 +2348,10 @@ button {
 			.r {color:#f55255}
 			.g {color:#169e19}
 			.l {color:#58f45a}
-		.b {color:#5af8f7}
-		.c {color:#18a09f}
+			.b {color:#5af8f7}
+			.c {color:#18a09f}
+		}
 	}
-}
 #app-putty {
 	left: 30%;
 	top: 30%;
@@ -2512,8 +2518,28 @@ button {
 	a.sauce::before {
 		content: url(/ui/i/code.png);
 	}
-	a.x0::before {
+	a.metroid::before {
 		content: url(/ui/i/metroid.gif);
+		margin-left: -45px;
+	}
+	a.tools::before {
+		content: url(/ui/i/tools.png);
+		margin-left: -45px;
+	}
+	a.paint::before {
+		content: url(/ui/i/paint.png);
+		margin-left: -45px;
+	}
+	a.wmp::before {
+		content: url(/ui/i/wmp.png);
+		margin-left: -45px;
+	}
+	a.tv::before {
+		content: url(/ui/i/tv.gif);
+		margin-left: -45px;
+	}
+	a.x0::before {
+		content: url(/ui/i/sci.gif);
 		margin-left: -45px;
 	}
 	a.fs::before {

@@ -7,31 +7,31 @@
 (_=>{
 	const apps=[
 		"app-adraw",
-		"app-recovery",
 		"app-aohell",
 		"app-bo2k",
+		"app-calc",
 		"app-calendar",
 		"app-dos",
-		"app-calc",
+		"app-dreamweaver",
 		"app-explorer",
 		"app-help",
+		"app-mycpu",
 		"app-nero",
 		"app-notepad",
-		"app-mycpu",
 		"app-photoshop",
 		"app-putty",
-		"app-dreamweaver",
+		"app-recovery",
 		"app-regedit",
 		"app-solitaire",
 		"app-sub7",
 		"app-toneloc",
-		"app-utorrent",
 		"app-trash",
+		"app-utorrent",
 		"app-vb6",
 		"app-vstudio",
 		"app-winamp",
-		"app-wsftp",
 		"app-winnuke",
+		"app-wsftp",
 		"app-xircon",
 	],
 	E={
@@ -78,14 +78,14 @@
 		apps.concat("trashwin","cdc","jm").forEach(a=>cl($(a),"app-hidden"))
 		tn.src="/ui/i/tray-disconnected.png"},
 	msg=({x,m,t,i,s,o,c}={})=>{
-		let d=$("msg");
-		if(x){d.close();return}
+		let D=$("msg");
+		if(x){D.close();return}
 		if(s)sound("chord");
 		$("dialogBody").innerHTML=m;
 		$("dialogTitle").innerHTML=`<img src="/ui/i/${i||"windows-slanted"}.png"><sup>${t||"Windows98"}</sup>`;
-		d.showModal();
+		D.showModal();
 		o?.();
-		$$$('#msg .close').forEach(i=>on(i,E.c,e=>(c?.(e),d.close())))},
+		$$$('#msg .close').forEach(i=>on(i,E.c,e=>(c?.(e),D.close())))},
 	fe={preventDefault:_=>{},stopPropagation:_=>{}},
 	sm=$("startmenu").style,
 	fo=$("flyout"),
@@ -163,19 +163,19 @@
 				e==="adraw"?'msdos.png"><sup>ACiDDraw - MS-DOS':
 				e==="aohell"?'aohell.png"><sup>AOHell 95 v3.0 B5':
 				e==="bo2k"?'bo2k-server.png"><sup>Back Orifice 2000':
-				e==="calendar"?'calendar.png"><sup>Windows Calendar':
 				e==="calc"?'calc.png"><sup>Calculator':
+				e==="calendar"?'calendar.png"><sup>Windows Calendar':
 				e==="dialup"?'modem.png"><sup>Windows98 - Dial Up':
 				e==="dos"?'msdos.png"><sup>Command Prompt':
+				e==="dreamweaver"?'dreamweaver.png"><sup>Untitled-1 - Dreamweaver':
 				e==="explorer"?'explorer-ico.png"><sup>My Documents':
 				e==="help"?'help-ico.png"><sup>Windows Help':
 				e==="ie"?'msie.png"><sup>Internet Exploder':
+				e==="mycpu"?'mycpu.png"><sup>My Computer':
 				e==="nero"?'nero.png"><sup>Nero Burning Rom':
 				e==="notepad"?'notepad.png"><sup>Todo.txt - Notepad':
 				e==="photoshop"?'photoshop.png"><sup>Untitled-1 - Photoshop':
 				e==="putty"?'putty.png"><sup>PuTTY 0.68':
-				e==="dreamweaver"?'dreamweaver.png"><sup>Untitled-1 - Dreamweaver':
-				e==="mycpu"?'mycpu.png"><sup>My Computer':
 				e==="recovery"?'windows-slanted.png"><sup>Windows98 Recovery':
 				e==="regedit"?'regedit.png"><sup>Registry Editor':
 				e==="solitaire"?'game.png"><sup>Solitaire':
@@ -308,11 +308,11 @@
 				break;
 			case "favs":
 				(fo.innerHTML=`<ul>
-					<li><a target="_blank" href="https://x-e.ro">https://x-e.ro</a></li>
-					<li><a target="_blank" href="https://0w.nz">https://0w.nz</a></li>
-					<li><a target="_blank" href="https://un.kn.0w.nz">https://un.kn.0w.nz</a></li>
-					<li><a target="_blank" href="https://xero.style">https://xero.style</a></li>
-					<li><a target="_blank" href="https://2133740.xyz">https://2133740.xyz</a></li>
+					<li><a class="metroid" target="_blank" href="https://x-e.ro">https://x-e.ro</a></li>
+					<li><a class="paint" target="_blank" href="https://0w.nz">https://0w.nz</a></li>
+					<li><a class="tv" target="_blank" href="https://un.kn.0w.nz">https://un.kn.0w.nz</a></li>
+					<li><a class="wmp" target="_blank" href="https://xero.style">https://xero.style</a></li>
+					<li><a class="tools" target="_blank" href="https://2133740.xyz">https://2133740.xyz</a></li>
 					<li><a target="_blank" href="https://github.com/xero">https://github.com/xero</a></li>
 					<li><a target="_blank" href="https://haunted.computer/@xero">https://haunted.computer/@xero</a></li>
 					</ul>`,
@@ -333,66 +333,75 @@
 		$$$("#flyout a").forEach(e=>e.tabIndex=0);
 	},
 	chatani=_=>{
-		const s=$("xirconstatus"),c=$("xirconchat"),st=$("xirconstatustask"),ct=$("xirconchattask"),xp=$("xirconprompt");
-		let speed=1300,l=0;
-		s.querySelector(".client").querySelectorAll(".kick").forEach(k=>k.parentNode.removeChild(k));
-		c.querySelector(".client").querySelectorAll(".usrmsg").forEach(m=>m.parentNode.removeChild(m));
-		[s,c].forEach(b=>b.style.zIndex=60);
-		function animateLines(parent,cb){
-			const client=parent.querySelector(".client");
-			let i=0,html=client.innerHTML,lines=html.split(/<br\s*\/?>/i).map(l=>l.trim()).filter(l=>l.length);
-			client.innerHTML="";
-			const nextLine=_=>{
-				if(i<lines.length){
-					client.innerHTML+=lines[i]+(i<lines.length-1?"<br/>":"");
-					client.scrollTop=client.scrollHeight;
+		const S=$("xirconstatus"),C=$("xirconchat"),ST=$("xirconstatustask"),CT=$("xirconchattask"),X=$("xirconprompt");
+		let sp=1300,l=0,k=0;
+		S.querySelector(".client").querySelectorAll(".kick").forEach(e=>e.remove());
+		C.querySelector(".client").querySelectorAll(".usrmsg").forEach(e=>e.remove());
+		[S,C].forEach(e=>e.style.zIndex=60);
+		function anim(p,cb){
+			let i=0,cl=p.querySelector(".client"),L=cl.innerHTML.split(/<br\s*\/?>/i).map(l=>l.trim()).filter(Boolean);
+			cl.innerHTML="";
+			(function nx(){
+				if(i<L.length){
+					cl.innerHTML+=L[i]+(i<L.length-1?"<br/>":"");
+					cl.scrollTop=cl.scrollHeight;
 					i++;
-					if(l==0&&i==3)speed=150;
-					if(l==0&&i==5)speed=800;
-					if(l==0&&i==6)speed=150;
-					if(l==0&&i==44)speed=800;
-					if(l==0&&i==45)speed=150;
-					if(l==0&&i==53)speed=800;
-					if(l==0&&i==54)speed=999;
-					if(l==0&&i==56)speed=400;
-					if(l==0&&i==65)speed=123;
-					if(l==1&&i==16)speed=2500;
-					if(l==1&&i==17)speed=1500;
-					if(l==1&&i>18)speed+=Math.random()*400;
-					setTimeout(nextLine,speed);
-				} else cb&&cb()}
-			nextLine()}
-		const handler=e=>{
+					if(!l){
+						if(i==3)sp=150;
+						if(i==5)sp=800;
+						if(i==6)sp=150;
+						if(i==44)sp=800;
+						if(i==45)sp=150;
+						if(i==53)sp=800;
+						if(i==54)sp=999;
+						if(i==56)sp=400;
+						if(i==65)sp=123;
+					}
+					if(l==1){
+						if(i==16)sp=2500;
+						if(i==17)sp=1500;
+						if(i>18)sp+=Math.random()*400;
+					}
+					setTimeout(nx,sp);
+				}else cb&&cb()
+			})()}
+		const h=e=>{
 			p0p(e);
-			let x=s.querySelector(".client");
-			let y=c.querySelector(".client");
-			y.innerHTML+=`<span class="usrmsg"><span class="c">&lt;</span><span class="l">x0</span><span class="c">&gt;</span> ${xp.value}<br/></span>`;
+			let x=S.querySelector(".client"),y=C.querySelector(".client");
+			y.innerHTML+=`<span class="usrmsg"><span class="c">&lt;</span><span class="l">x0</span><span class="c">&gt;</span> ${X.value}<br/></span>`;
 			y.scrollTop=y.scrollHeight;
-			xp.value="";
-			setTimeout(_=>{
-				c.style.display=ct.style.display="none";
-				cl(st,"selected");
-				cl(ct,"selected",1);
+			X.value="";
+			if(k=!k)setTimeout(_=>{
+				C.style.display=CT.style.display="none";
+				cl(ST,"selected");
+				cl(CT,"selected",1);
 				setTimeout(_=>{
-					x.innerHTML+=`<span class="kick"><br/><span class="c">:</span><span class="l">:</span><span class="s">: </span><span class="c">(</span><span class="l">(<span class="h">Kick</span>\\<span class="b">#SIN</span><span class="c">)</span><span class="l">)</span> <span class="h">\\\\St0rM\\\\</span>[<span class="b">~St0rMy@sinnerz.com</span>] kicked <span class="w">YOU</span> from <span class="b">#SIN</span> <span class="s">[</span>iN a whIfF oF SuLfur, <span class="s">\\\\St0rM\\\\</span> is TrANSfoRMEd inTo a GARgAnTUaN beAsT bY hiS MenTOr, LorD SaTaN, and sLowLy CruSheS <span class="h">x0</span> wiTH a GiANT mAGgot-RidDEn hOoF...</span><span class="s">]</span></span><br/></span>`;
+					x.innerHTML+=`<span class="kick"><span class="c">:</span><span class="l">:</span><span class="s">: </span><span class="c">(</span><span class="l">(<span class="h">Kick</span>\\<span class="b">#SIN</span><span class="c">)</span><span class="l">)</span> <span class="h">\\\\St0rM\\\\</span>[<span class="b">~St0rM@sinnerz.com</span>] kicked <span class="w">YOU</span> from <span class="b">#SIN</span> <span class="s">[</span>iN a whIfF oF SuLfur, <span class="s">\\\\St0rM\\\\</span> is TrANSfoRMEd inTo a GARgAnTUaN beAsT bY hiS MenTOr, LorD SaTaN, and sLowLy CruSheS <span class="h">x0</span> wiTH a GiANT mAGgot-RidDEn hOoF...</span><span class="s">]</span></span><br/></span>`;
 					x.scrollTop=x.scrollHeight;
-					off("app-xircon",E.s,handler)},400)},1500)};
-		c.style.display=ct.style.display="none";
-		cl(st,"selected");
-		cl(ct,"selected",1);
-		animateLines(s,_=>{
-			l++;speed=99;
-			c.style.display="block";ct.style.display="flex";
-			cl(st,"selected",1);cl(ct,"selected");
-			xp.value="";promptfocus(xp);
-			animateLines(c);
-			on("app-xircon",E.s,handler);
-			[s,c,st,ct].forEach(i=>{
+					off("app-xircon",E.s,h)
+				},666)
+			},1500);
+			k=1};
+		C.style.display=CT.style.display="none";
+		cl(ST,"selected");
+		cl(CT,"selected",1);
+		anim(S,_=>{
+			l++;sp=99;
+			C.style.display="block";CT.style.display="flex";
+			cl(ST,"selected",1);cl(CT,"selected");
+			X.value="";promptfocus(X);
+			anim(C);
+			on("app-xircon",E.s,h);
+			[S,C,ST,CT].forEach(i=>{
 				on(i,E.c,e=>{
-					[s,c].forEach(b=>b.style.zIndex=2);
-					[st,ct].forEach(b=>cl(b,"selected",1));
-					cl(e.currentTarget.id.includes("chat")?ct:st,"selected");
-					(e.currentTarget.id.includes("chat")?c:s).style.zIndex=5})})})},
+					[S,C].forEach(b=>b.style.zIndex=2);
+					[ST,CT].forEach(b=>cl(b,"selected",1));
+					cl(e.currentTarget.id.includes("chat")?CT:ST,"selected");
+					(e.currentTarget.id.includes("chat")?C:S).style.zIndex=5
+				})
+			})
+		});
+	},
 	cal=el=>{
 		let mS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
 		dS="SMTWTFS".split(""),
@@ -679,7 +688,7 @@
 			d:{x:221,y:107},
 			b:false});
 		run("toneloc",{
-			d:{x:247,y:150}});
+			d:{x:247,y:142}});
 		run("sub7",{
 			d:{x:118,y:88}});
 		run("trash",{
