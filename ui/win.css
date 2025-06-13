@@ -3427,6 +3427,9 @@ background: url(/ui/i/close.svg) no-repeat center center;
 .noclose::after {
 background: url(/ui/i/close-disabled.svg) no-repeat center center;
 }
+.help::after {
+	background: url(/ui/i/help.svg) no-repeat center center;
+}
 #dlbar,
 #dialupbar,
 #glitch,

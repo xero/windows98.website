@@ -102,61 +102,47 @@
 		tasks.forEach(i=>(i.h=any?1:0,i.f=0,cl($("app-"+i.e),"app-hidden",any?0:1)));
 		!any&&tasks.length&&tfocus(tasks[tasks.length-1].e);
 		tsync()},
-	titlebar=(e,dir,cb)=>{
-		let win=$("app-"+e),
-		head=win.querySelector("header,h2"),
-		task=$$('#tasks > section[name="'+e+'"]'),
-		a=dir?task:head,
-		b=dir?head:task,
-		r1=a.getBoundingClientRect(),
-		r2=b.getBoundingClientRect(),
-		ani=make("div");
-		ani.id="minani";
-		Object.assign(ani.style,{
-			left:r1.left+"px",
-			top:r1.top+"px",
-			width:r1.width+"px",
-			height:r1.height+"px",
-			position:"fixed",
-			zIndex:2000
-		});
-		ani.innerHTML=head.innerHTML;
-		document.body.appendChild(ani);
-		ani.animate([
-			{left:r1.left+"px",top:r1.top+"px",width:r1.width+"px",height:r1.height+"px",opacity:1},
-			{left:r2.left+"px",top:r2.top+"px",width:r2.width+"px",height:r2.height+"px",opacity:0.3}
-		],{duration:500,easing:"ease"}).onfinish=_=>{
-			ani.remove();
-			cb&&cb()}},
+	titlebar=(e,d,cb)=>{
+		let W=$("app-"+e),H=W.querySelector("header,h2"),T=$$('#tasks > section[name="'+e+'"]'),[A,B]=d?[T,H]:[H,T],R=x=>x.getBoundingClientRect(),
+		[S1,S2]=[R(A),R(B)],D=make("div");
+		D.id="minani";
+		Object.assign(D.style,{left:S1.left+"px",top:S1.top+"px",width:S1.width+"px",height:S1.height+"px",position:"fixed",zIndex:2e3});
+		D.innerHTML=H.innerHTML;
+		document.body.appendChild(D);
+		D.animate([
+			{left:S1.left+"px",top:S1.top+"px",width:S1.width+"px",height:S1.height+"px",opacity:1},
+			{left:S2.left+"px",top:S2.top+"px",width:S2.width+"px",height:S2.height+"px",opacity:.3}
+		],{duration:500,easing:"ease"}).onfinish=_=>(D.remove(),cb&&cb())
+	},
 	tmin=e=>{
-		let win=$("app-"+e);
-		titlebar(e,0,_=>{
-			cl(win,"app-hidden");
-			tasks.find(task=>task.e===e&&(Object.assign(task,{h:1,f:0}),tsync()))})},
+		let W=$("app-"+e);
+		titlebar(e,0,_=>{cl(W,"app-hidden");tasks.find(t=>t.e===e&&(Object.assign(t,{h:1,f:0}),tsync()))})
+	},
 	tmax=e=>{
-		let win=$("app-"+e);
-		if(win.classList.contains("app-hidden")){
-			titlebar(e,1,_=>{
-				cl(win,"app-hidden",1);
-				Object.assign(win.style,{zIndex:55,visibility:"visible"});
-			});
-		} else {
-			cl(win,"app-hidden",1);
-			Object.assign(win.style,{zIndex:55,visibility:"visible"})}},
+		let W=$("app-"+e),S={zIndex:55,visibility:"visible"};
+		W.classList.contains("app-hidden")
+			?titlebar(e,1,_=>(cl(W,"app-hidden",1),Object.assign(W.style,S)))
+			:(cl(W,"app-hidden",1),Object.assign(W.style,S))
+	},
 	tclose=e=>{
-		let i=tasks.findIndex(task=>task.e===e);
-		if(i!==-1){
-			tasks.splice(i,1);
-			(tasks.length>0)?tfocus(tasks[tasks.length-1].e):tsync();
-			if(e!="dialup"&&e!="ie"){$("app-"+e).style.visibility="hidden"}}},
+		let I=tasks.findIndex(t=>t.e===e);
+		if(I+1) {
+			tasks.splice(I,1);
+			tasks.length?tfocus(tasks.at(-1).e):tsync();
+			(e!="dialup"&&e!="ie")&&($( "app-"+e ).style.visibility="hidden")
+		}
+	},
 	tfocus=e=>{
-		let q=tasks.find(task=>task.e===e);
+		let Q=tasks.find(t=>t.e===e);
 		tasks.forEach(i=>i.f=i.e===e);
 		tsync();
 		apps.forEach(a=>$(a).style.zIndex=50);
-		if(q){q.h=0;
-			if(e!="dialup"&&e!="ie")tmax(e);
-			if(e==="dos")promptfocus($("dinput"))}}
+		if(Q){
+			Q.h=0;
+			(e!="dialup"&&e!="ie")&&tmax(e);
+			e==="dos"&&promptfocus($("dinput"))
+		}
+	},
 	topen=e=>{
 		!tasks.some(task=>task.e===e)&&
 			tasks.push({e,f:1,h:0,i: '/ui/i/'+(
@@ -193,15 +179,16 @@
 	tsync=_=>{
 		$("tasks").innerHTML=tasks.map(task=>`<section name="${task.e}" class="task${task.f==1?' selected':''}"><img src="${task.i}</sup></section>`).join("");
 		$$$("#tasks .task").forEach(i=>on(i,E.c,e=>tfocus(e.currentTarget.getAttribute("name"))))},
-	tdrag=(e,app,xo,yo)=>{
+	tdrag=(e,app,Xo,Yo)=>{
 		p0p(e);
-		if(e!="dialup"&&e!="ie")tfocus(app);
-		let a=e.target.parentElement,
-		s=e.clientX-a.getBoundingClientRect().left,
-		z=e.clientY-a.getBoundingClientRect().top,
-		m=ee=>{Object.assign($("app-"+app).style,{left:(ee.pageX-s+xo)+'px',top:(ee.pageY-z+yo)+'px'})},
-		u=_=>{off(document,E.v,m);off(document,E.p,u)};
-		on(document,E.v,m);on(document,E.p,u)},
+		(e!="dialup"&&e!="ie")&&tfocus(app);
+		let A=e.target.parentElement,
+			L=e.clientX-A.getBoundingClientRect().left,
+			T=e.clientY-A.getBoundingClientRect().top,
+			M=ee=>Object.assign($("app-"+app).style,{left:ee.pageX-L+Xo+"px",top:ee.pageY-T+Yo+"px"}),
+			U=_=>(off(document,E.v,M),off(document,E.p,U));
+		on(document,E.v,M);on(document,E.p,U)
+	},
 	foo=i=>{fo.style.visibility=(!i)?"hidden":"visible"},
 	t=e=>{
 		p0p(e);
@@ -402,124 +389,122 @@
 			})
 		});
 	},
-	cal=el=>{
-		let mS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
-		dS="SMTWTFS".split(""),
-		yS=[],d=new Date(),m=d.getMonth(),y=99,
-		s=make("section");
-		s.className="cal";
-		let ms=make("select");
-		ms.name="m";
-		mS.forEach((v,i)=>{let o=make("option");o.value=i;o.textContent=v;ms.appendChild(o)});
-		ms.selectedIndex=m;
-		for(let i=1970;i<=1999;i++)yS.push(i);
-		let ys=make("input");
-		ys.type="number";ys.name="y";ys.min=1970;ys.max=1999;ys.value=1999;
-		let g=make("div");
-		g.className="cal-grid";
-		fill=_=>{
-			let mo=+ms.value,yr=+ys.value,fd=new Date(yr,mo,1).getDay(),dm=new Date(yr,mo+1,0).getDate(),c="",td=d.getDate();
-			c+=dS.map(x=>`<div class="cal-head">${x}</div>`).join("");
-			for(let i=0;i<fd;i++)c+='<div class="cal-cell"></div>';
-			for(let i=1;i<=dm;i++)c+=`<div class="cal-cell${i==td?" today":""}">${i}</div>`;
-			let rem=(fd+dm)%7;if(rem)for(let i=rem;i<7;i++)c+='<div class="cal-cell"></div>';
-			g.innerHTML=c;
+	cal=E=>{
+		let M=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+		D="SMTWTFS".split(""),
+		Y=[],N=new Date(),Q=N.getMonth(),S=make("section"),A=make("select");
+		S.className="cal";
+		A.name="m";
+		M.forEach((V,I)=>{let O=make("option");O.value=I;O.textContent=V;A.appendChild(O)});
+		A.selectedIndex=Q;
+		for(let I=1970;I<=1999;I++)Y.push(I);
+		let B=make("input");
+		B.type="number";B.name="y";B.min=1970;B.max=1999;B.value=1999;
+		let G=make("div");G.className="cal-grid";
+		let F=_=>{
+			let U=+A.value,W=+B.value,J=new Date(W,U,1).getDay(),K=new Date(W,U+1,0).getDate(),C="",T=N.getDate();
+			C+=D.map(X=>`<div class="cal-head">${X}</div>`).join("");
+			for(let I=0;I<J;I++)C+='<div class="cal-cell"></div>';
+			for(let I=1;I<=K;I++)C+=`<div class="cal-cell${I==T?" today":""}">${I}</div>`;
+			let R=(J+K)%7;if(R)for(let I=R;I<7;I++)C+='<div class="cal-cell"></div>';
+			G.innerHTML=C;
 		}
-		fill();
-		ms.onchange=ys.onchange=fill;
-		s.appendChild(ms);s.appendChild(ys);s.appendChild(g);
-		el.appendChild(s);
+		F();
+		A.onchange=B.onchange=F;
+		S.appendChild(A);S.appendChild(B);S.appendChild(G);
+		E.appendChild(S);
 	},
-	clock=s=>{
-		let i,a=6,h=$("hr").style,m=$("mn").style,c=$("sc").style,t=$("thetime");
-		s?i=setInterval(_=>{
-			let d=new Date,x=d.getHours()*30,y=d.getMinutes()*a,z=d.getSeconds()*a;
-			h.transform=`rotateZ(${x+y/12}deg)`;
-			m.transform=`rotateZ(${y}deg)`;
-			c.transform=`rotateZ(${z}deg)`;
-			t.value=(h=d.getHours()%12||12)+' : '+(m=d.getMinutes()).toString().padStart(2,0)+' : '+(s=d.getSeconds()).toString().padStart(2,0)+' '+(d.getHours()<12?'AM':'PM');
-		}):clearInterval(i)},
+	clock=S=>{
+		let I,A=6,H=$("hr").style,M=$("mn").style,C=$("sc").style,T=$("thetime");
+		S?I=setInterval(_=>{
+			let D=new Date,X=D.getHours()*30,Y=D.getMinutes()*A,Z=D.getSeconds()*A;
+			H.transform=`rotateZ(${X+Y/12}deg)`;
+			M.transform=`rotateZ(${Y}deg)`;
+			C.transform=`rotateZ(${Z}deg)`;
+			T.value=(H=D.getHours()%12||12)+' : '+(M=D.getMinutes()).toString().padStart(2,0)+' : '+(S=D.getSeconds()).toString().padStart(2,0)+' '+(D.getHours()<12?'AM':'PM');
+		},1e3):clearInterval(I)
+	},
 	calc=_=>{
-		let s=$("calcscreen"),b=$$("#app-calc"),v="0.",a=0,o="",w=0,d=0;
-		const fmt=x=>x.includes(".")?x:x+".",
-		set=x=>{v=x.replace(/^0+(\d)/,"$1");s.value=fmt(v)},
-		dg=e=>{
-			if(w)set("0."),w=0;
-			let t=e.target.textContent;
-			if(v=="0."&&t!=".")v="";
-			if(t=="."){if(v.includes("."))return;v+=".";}
-			else v+=t;
-			set(v.replace(/^0+(\d)/,"$1"));
-		},
-		op=e=>{
-			if(o&&w==0)eq();
-			a=parseFloat(v);o=e.target.textContent;w=1;d=0;
-		},
-		eq=_=>{
-			let n=parseFloat(v),r=a;
-			switch(o){
-				case "+":r+=n;break;
-				case "-":r-=n;break;
-				case "*":r*=n;break;
-				case "/":r=n?r/n:0;break;
-				case "%":r=n?r%n:0;break;
+		/* so much bs math for that stupid trailing period */
+		let S=$("calcscreen"),B=$$("#app-calc"),V="0.",A=0,O="",W=0;
+		F=x=>x.includes(".")?x:x+".";
+		Z=x=>{
+			V=/^0\d/.test(x)&&!x.startsWith("0.")?x.replace(/^0+/,""):x;
+			if(V==""||V==".")V="0.";
+			S.value=F(V)};
+		D=e=>{
+			let T=e.target.textContent;
+			if(W)V="0.",W=0;
+			if(e.target.classList.contains("dot")){
+				if(V.includes("."))return;
+				V+=".";
+			}else{
+				if(V=="0.")V="";
+				V+=T
 			}
-			set(String((r||0)));v=String((r||0));o="";w=1;
-		},
-		fn=e=>{
-			let t=e.target.textContent;
-			switch(t){
-				case "Backspace":v=v.length>1?v.slice(0,-1):"0";set(v);break;
-				case "CE":case "MC":set("0.");a=0;o="";w=0;break;
-				case "MR":set(String(a));v=String(a);break;
-				case "MS":a=parseFloat(v);break;
-				case "M+":a+=parseFloat(v);break;
-				case "sqrt":set(String(Math.sqrt(parseFloat(v)||0)));break;
-				case "1/x":set(String(1/(parseFloat(v)||1)));break;
-				case "+/-":set(String(-parseFloat(v)||0));break;
-			}
-		},
-		press=e=>{
-			if(e.target.classList.contains("n"))dg(e);
-			else if(["+","-","*","/","%"].includes(e.target.textContent))op(e);
-			else if(e.target.textContent=="=")eq();
-			else fn(e);
-			s.focus();
-		};
-		b.querySelectorAll("button").forEach(i=>i.onclick=press);
-		s.value="0.";
+			Z(V)};
+		P=e=>{
+			if(O&&!W)Q();
+			A=+V;O=e.target.textContent;W=1};
+		Q=_=>{
+			let N=+V,R=A;
+			if(!O)return;
+			R=O=="+"?A+N:O=="-"?A-N:O=="*"?A*N:O=="/"?N?A/N:0:O=="%"?N?A%N:0:R;
+			Z(""+(R||0));V=""+(R||0)+((""+(R||0)).includes(".")?"":".");O="";W=1};
+		M=e=>{
+			let T=e.target.textContent;
+			if(T=="Backspace")V=V.length>2?V.slice(0,-1):"0.",Z(V);
+			else if(/^(CE|MC)$/.test(T))Z("0."),A=0,O="",W=0;
+			else if(T=="MR")Z(""+A+((""+A).includes(".")?"":".")),V=""+A+((""+A).includes(".")?"":"."),W=1;
+			else if(T=="MS")A=+V;
+			else if(T=="M+")A+=+V;
+			else if(T=="sqrt")Z(""+Math.sqrt(+V||0)+((""+Math.sqrt(+V||0)).includes(".")?"":".")),W=1;
+			else if(T=="1/x")Z(""+1/(+V||1)+((""+(1/(+V||1))).includes(".")?"":".")),W=1;
+			else if(T=="+/-")Z(""+-(+V||0)+((""+-(+V||0)).includes(".")?"":".")),W=1};
+		H=e=>{
+			let T=e.target.textContent;
+			if(e.target.classList.contains("n")||e.target.classList.contains("dot"))D(e);
+			else if(/[+\-*\/%]/.test(T))P(e);
+			else if(T=="=")Q();
+			else M(e);
+			S.focus()};
+		B.querySelectorAll("button").forEach(i=>i.onclick=H);
+		S.value="0."},
+	beginAni=(D=$('begin'),K=[[0,80],[.4,0],[.6,15],[.72,0],[.82,4],[.9,0],[.96,1],[1,0]],T=2500,S=performance.now())=>{
+		D.style.display="block";
+		(A=>A(A,S))(function F(Self,S){
+			const E=(performance.now()-S)/T,
+				I=K.findIndex(([P])=>E<=P),
+				[P1,M1]=K[I-1]||K[0],
+				[P2,M2]=K[I]||K[K.length-1],
+				L=(E-P1)/(P2-P1),
+				M=M1+(M2-M1)*L;
+			D.style.marginLeft=M+"%";
+			E<1?requestAnimationFrame(()=>Self(Self,S)):D.style.marginLeft="0%"
+		})
 	},
-	beginAni=(d=$('begin'),k=[[0,80],[.4,0],[.6,15],[.72,0],[.82,4],[.9,0],[.96,1],[1,0]],t=2500,s=performance.now())=>{
-		 d.style.display = "block";
-		(a=>a(a,s))(function f(self,s) {
-			const e=(performance.now()-s)/t,
-			i=k.findIndex(([p])=>e<=p),
-			[p1,m1]=k[i-1]||k[0],
-			[p2,m2]=k[i]||k[k.length-1],
-			l=(e-p1)/(p2-p1),
-			m=m1+(m2-m1)*l;
-			d.style.marginLeft=m+"%";
-			e<1?requestAnimationFrame(()=>self(self,s)):d.style.marginLeft="0%";
-	})},
 	flicker=_=>{
 		hg();
 		$("taskbar").style.visibility="hidden";
-		let a=$("desktop").querySelectorAll("article"),i=0,c=2*Math.floor(2+Math.random()*2);
-		a.forEach(e=>e.style.visibility="hidden");
+		let A=$("desktop").querySelectorAll("article"),I=0,C=2*Math.floor(2+Math.random()*2);
+		A.forEach(E=>E.style.visibility="hidden");
 		setTimeout(_=>{
 			$("taskbar").style.visibility="visible";
 			sound('startup');
-			setTimeout(f=_=>{
-				a.forEach(e=>e.style.visibility=i%2?"visible":"hidden");
-				if(++i<c)setTimeout(f,100);
-				else{hg(1);
-						if(rec>0) run("recovery",{h:false,i:false,d:{x:252,y:144},o:_=>{on("recoverycancel",E.c,_=>tclose("recovery"));on("recoverycheck",E.c,_=>n("BSOD"))}});
-						else beginAni();
-					}}
-				,1200)}
-			,1000)},
+			setTimeout(F=_=>{
+				A.forEach(E=>E.style.visibility=I%2?"visible":"hidden");
+				if(++I<C)setTimeout(F,100);
+				else{
+					hg(1);
+					rec>0
+						?run("recovery",{h:false,i:false,d:{x:252,y:144},o:_=>{on("recoverycancel",E.c,_=>tclose("recovery"));on("recoverycheck",E.c,_=>n("BSOD"))}})
+						:beginAni();
+				}
+			},1200)
+		},1000)
+	},
 	timer=s=>{
-		s ? dlt=setInterval(_=>{
+		s?dlt=setInterval(_=>{
 			totalMinutes+=Math.floor(2880+Math.random()*(480));
 			$("dltime").innerHTML=
 				Math.floor(totalMinutes/1440)+" Days, "+
@@ -527,25 +512,27 @@
 					totalMinutes%60+" minutes";
 		},5e3):clearInterval(dlt)},
 	victory=_=>{
-		const width=71,height=96,cwidth=width,cheight=height,cwidthhalf=cwidth/2,cheighthalf=cheight/2,card=new Image();
-		let id=52;
-		function PlayingCard(id,x,y,sx,sy){
-			if(sx===0)sx=2;
-			let cx=(id%4)*width,cy=Math.floor(id/4)*height;
+		const W=71,H=96,CW=W,CH=H,CWH=CW/2,CHH=CH/2,CARD=new Image();
+		let I=52;
+		function PlayingCard(I,X,Y,SX,SY){
+			if(SX===0)SX=2;
+			let CX=(I%4)*W,CY=Math.floor(I/4)*H;
 			this.update=_=>{
-				x+=sx;y+=sy;
-				if(x<-cwidthhalf||x>canvas.width+cwidthhalf)return cards.splice(cards.indexOf(this),1),false;
-				y>canvas.height-cheighthalf&&(y=canvas.height-cheighthalf,sy=-sy*0.85);
-				sy+=0.98;
-				lok&&ctx.drawImage(card,cx,cy,width,height,Math.floor(x-cwidthhalf),Math.floor(y-cheighthalf),cwidth,cheight);
-				return true}}
-		const throwCard=(x,y)=>cards.push(new PlayingCard(id>0?id--:id=51,x,y,Math.floor(Math.random()*6-3)*2,-Math.random()*16)),
-		ani=_=>{let i=0,l=cards.length;while(i<l){cards[i].update()?i++:l--}requestAnimationFrame(ani)};
-		card.src="https://www.windows98.website/ui/i/cards.png";
-		on(document.body,E.P,e=>{throwCard(e.clientX,e.clientY)});
-		on(document.body,E.V,e=>{if(e.pressure===0)return;throwCard(e.clientX,e.clientY)});
+				X+=SX;Y+=SY;
+				if(X<-CWH||X>canvas.width+CWH)return cards.splice(cards.indexOf(this),1),false;
+				Y>canvas.height-CHH&&(Y=canvas.height-CHH,SY=-SY*0.85);
+				SY+=0.98;
+				lok&&ctx.drawImage(CARD,CX,CY,W,H,Math.floor(X-CWH),Math.floor(Y-CHH),CW,CH);
+				return true
+			}
+		}
+		const ThrowCard=(X,Y)=>cards.push(new PlayingCard(I>0?I--:I=51,X,Y,Math.floor(Math.random()*6-3)*2,-Math.random()*16)),
+			ANI=_=>{let J=0,L=cards.length;while(J<L){cards[J].update()?J++:L--}requestAnimationFrame(ANI)};
+		CARD.src="https://www.windows98.website/ui/i/cards.png";
+		on(document.body,E.P,E=>{ThrowCard(E.clientX,E.clientY)});
+		on(document.body,E.V,E=>{if(E.pressure===0)return;ThrowCard(E.clientX,E.clientY)});
 		noesc();
-		lok&&requestAnimationFrame(ani)
+		lok&&requestAnimationFrame(ANI)
 	},
 	suspend=_=>{
 		const po=$("poweroff");
@@ -753,9 +740,9 @@
 			p0p(e);
 			topen("ie");
 			ctx=canvas.getContext("2d");
-			ctx.drawImage(img,canvas.width/2-300,canvas.height/2-135);
+			ctx.drawImage(img,canvas.width/2-333.5,canvas.height/2-132);
 			noesc();
-			on(document.body,E.v,e=>ctx.drawImage(img,e.clientX-300,e.clientY-25));
+			on(document.body,E.v,e=>ctx.drawImage(img,e.clientX-333.5,e.clientY-25));
 			on(document.body,E.d,_=>n("BSOD"));
 		});
 		on("dialup",E.d,_=>{
