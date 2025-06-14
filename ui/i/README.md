@@ -172,6 +172,8 @@
 
 ![tray-sound.png](tray-sound.png)
 
+![muted.png](muted.png)
+
 ![help-sheet.png](help-sheet.png)
 
 ![regkey.png](regkey.png)
@@ -242,6 +244,8 @@
 
 ![clock-hand.svg](clock-hand.svg)
 
+![vol.png](vol.png)
+
 ![help-clouds.png](help-clouds.png)
 
 ![exp-clouds.png](exp-clouds.png)
@@ -293,6 +297,10 @@
 ![right.svg](right.svg)
 
 ![up.svg](up.svg)
+
+![rangeh.svg](rangeh.svg)
+
+![rangev.svg](rangev.svg)
 
 ![windows.svg](windows.svg)
 

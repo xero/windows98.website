@@ -89,6 +89,13 @@
 				<li><a>P<u>r</u>operties</a></li>
 			</ul>
 		</aside>
+		<div class="app app-hidden" id="app-volume">
+				<div class="field-row"><label for="vol">Volume</label></div>
+				<div class="is-vertical">
+					<input id="vol" class="has-box-indicator" type="range" min="1" max="100" step="1" value="50" />
+				</div>
+			<div class="field-row pad"><input type="checkbox" id="mute"><label for="mute"><u>M</u>ute</label></div>
+		</div>
 		<div class="app" id="app-recovery">
 			<h2 id="recoverytitle">
 				<img src="/ui/i/windows-slanted.png">
@@ -314,108 +321,108 @@ DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
 <span class="com">// constructor</span>
 VssClient::<span class="type">VssClient</span>()
 {
-	m_bCoInitializeCalled = <span class="kw">false</span>;
-	m_dwContext = VSS_CTX_BACKUP;
-	m_latestSnapshotSetID = GUID_NULL;
-	m_bDuringRestore = <span class="kw">false</span>;
+    m_bCoInitializeCalled = <span class="kw">false</span>;
+    m_dwContext = VSS_CTX_BACKUP;
+    m_latestSnapshotSetID = GUID_NULL;
+    m_bDuringRestore = <span class="kw">false</span>;
 }
 
 <span class="com">// destructor</span>
 VssClient::~<span class="type">VssClient</span>()
 {
-	<span class="com">// release the IVssBackupComponents interface</span>
-	<span class="com">// WARNING: this must be done BEFORE calling CoUninitialize()</span>
-	m_pVssObject = <span class="kw">NULL</span>;
+    <span class="com">// release the IVssBackupComponents interface</span>
+    <span class="com">// WARNING: this must be done BEFORE calling CoUninitialize()</span>
+    m_pVssObject = <span class="kw">NULL</span>;
 
-	<span class="com">// call CoUninitialize if the CoInitialize was performed sucesfully</span>
-	<span class="kw">if</span> (m_bCoInitializeCalled)
-			<span class="type">CoUninitialize</span>();
+    <span class="com">// call CoUninitialize if the CoInitialize was performed sucesfully</span>
+    <span class="kw">if</span> (m_bCoInitializeCalled)
+        <span class="type">CoUninitialize</span>();
 }
 
 <span class="com">// initialize the COM infrastructure and the internal pointers</span>
 <span class="type">void</span> <span class="func">VssClient::Initialize</span>(DWORD dwContext, wstring xmlDoc, <span class="type">bool</span> bDuringRestore)
 {
-	FunctionTracer <span class="func">ft</span>(DBG_INFO);
+    FunctionTracer <span class="func">ft</span>(DBG_INFO);
 
-	<span class="com">// initialize COM</span>
-	<span class="type">CHECK_COM</span>( <span class="type">CoInitialize</span>(<span class="kw">NULL</span>) );
-	m_bCoInitializeCalled = <span class="kw">true</span>;
+    <span class="com">// initialize COM</span>
+    <span class="type">CHECK_COM</span>( <span class="type">CoInitialize</span>(<span class="kw">NULL</span>) );
+    m_bCoInitializeCalled = <span class="kw">true</span>;
 
-	<span class="com">// initialize COM security</span>
-	<span class="type">CHECK_COM</span>(
-			<span class="type">CoInitializeSecurity</span>(
-					<span class="kw">NULL</span>,                           <span class="com">//  allow all VSS writers to communicate back</span>
-					<span class="num">-1</span>,                              <span class="com">//  default COM authentication service</span>
-					<span class="kw">NULL</span>,                           <span class="com">//  default COM authorization service</span>
-					<span class="kw">NULL</span>,                           <span class="com">//  reserved param</span>
-					RPC_C_AUTHN_LEVEL_PKT_PRIVACY,  <span class="com">//  strongest COM authentication level</span>
-					RPC_C_IMP_LEVEL_IMPERSONATE,    <span class="com">//  minimal impersonation abilities</span>
-					<span class="kw">NULL</span>,                           <span class="com">//  default COM authentication settings</span>
-					EOAC_DYNAMIC_CLOAKING,          <span class="com">//  cloaking</span>
-					<span class="kw">NULL</span>                            <span class="com">//  reserved param</span>
-					) );
+    <span class="com">// initialize COM security</span>
+    <span class="type">CHECK_COM</span>(
+        <span class="type">CoInitializeSecurity</span>(
+            <span class="kw">NULL</span>,                           <span class="com">//  allow all VSS writers to communicate back</span>
+            <span class="num">-1</span>,                              <span class="com">//  default COM authentication service</span>
+            <span class="kw">NULL</span>,                           <span class="com">//  default COM authorization service</span>
+            <span class="kw">NULL</span>,                           <span class="com">//  reserved param</span>
+            RPC_C_AUTHN_LEVEL_PKT_PRIVACY,  <span class="com">//  strongest COM authentication level</span>
+            RPC_C_IMP_LEVEL_IMPERSONATE,    <span class="com">//  minimal impersonation abilities</span>
+            <span class="kw">NULL</span>,                           <span class="com">//  default COM authentication settings</span>
+            EOAC_DYNAMIC_CLOAKING,          <span class="com">//  cloaking</span>
+            <span class="kw">NULL</span>                            <span class="com">//  reserved param</span>
+            ) );
 
-	<span class="com">// create the internal backup components object</span>
-	<span class="type">CHECK_COM</span>( <span class="type">CreateVssBackupComponents</span>(&amp;m_pVssObject) );
+    <span class="com">// create the internal backup components object</span>
+    <span class="type">CHECK_COM</span>( <span class="type">CreateVssBackupComponents</span>(&amp;m_pVssObject) );
 
-	<span class="com">// we doing a restore now?</span>
-	m_bDuringRestore = bDuringRestore;
+    <span class="com">// we doing a restore now?</span>
+    m_bDuringRestore = bDuringRestore;
 
-	<span class="com">// call either Initialize for backup or for restore</span>
-	<span class="kw">if</span> (m_bDuringRestore)
-	{
-			<span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">InitializeForRestore</span>(<span class="type">CComBSTR</span>(xmlDoc.<span class="type">c_str</span>())))
-	}
-	<span class="kw">else</span>
-	{
-			<span class="com">// initialize for backup</span>
-			<span class="kw">if</span> (xmlDoc.<span class="type">length</span>() == <span class="num">0</span>)
-					<span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">InitializeForBackup</span>())
-			<span class="kw">else</span>
-					<span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">InitializeForBackup</span>(<span class="type">CComBSTR</span>(xmlDoc.<span class="type">c_str</span>())))
+    <span class="com">// call either Initialize for backup or for restore</span>
+    <span class="kw">if</span> (m_bDuringRestore)
+    {
+        <span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">InitializeForRestore</span>(<span class="type">CComBSTR</span>(xmlDoc.<span class="type">c_str</span>())))
+    }
+    <span class="kw">else</span>
+    {
+        <span class="com">// initialize for backup</span>
+        <span class="kw">if</span> (xmlDoc.<span class="type">length</span>() == <span class="num">0</span>)
+            <span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">InitializeForBackup</span>())
+        <span class="kw">else</span>
+            <span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">InitializeForBackup</span>(<span class="type">CComBSTR</span>(xmlDoc.<span class="type">c_str</span>())))
 
 <span class="preproc">#<span class="kw">ifdef</span> VSS_SERVER</span>
 
-			<span class="com">// set the context, if different than the default context</span>
-			<span class="kw">if</span> (dwContext != VSS_CTX_BACKUP)
-			{
-					ft.<span class="func">WriteLine</span>(<span class="str">L"- setting the VSS context to: 0x%08lx"</span>, dwContext);
-					<span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">SetContext</span>(dwContext) );
-			}
+        <span class="com">// set the context, if different than the default context</span>
+        <span class="kw">if</span> (dwContext != VSS_CTX_BACKUP)
+        {
+            ft.<span class="func">WriteLine</span>(<span class="str">L"- setting the VSS context to: 0x%08lx"</span>, dwContext);
+            <span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">SetContext</span>(dwContext) );
+        }
 <span class="preproc">#<span class="kw">endif</span></span>
 
-	}
+    }
 
-	<span class="com">// keep the context</span>
-	m_dwContext = dwContext;
+    <span class="com">// keep the context</span>
+    m_dwContext = dwContext;
 
-	<span class="com">// set various properties per backup components instance</span>
-	<span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">SetBackupState</span>(<span class="kw">true</span>, <span class="kw">true</span>, VSS_BT_FULL, <span class="kw">false</span>));
+    <span class="com">// set various properties per backup components instance</span>
+    <span class="type">CHECK_COM</span>(m_pVssObject-&gt;<span class="type">SetBackupState</span>(<span class="kw">true</span>, <span class="kw">true</span>, VSS_BT_FULL, <span class="kw">false</span>));
 }
 
 <span class="com">// waits for the completion of the asynchronous operation</span>
 <span class="type">void</span> <span class="func">VssClient::WaitAndCheckForAsyncOperation</span>(IVssAsync* pAsync)
 {
-	FunctionTracer <span class="func">ft</span>(DBG_INFO);
+    FunctionTracer <span class="func">ft</span>(DBG_INFO);
 
-	ft.<span class="func">WriteLine</span>(<span class="str">L"(waiting for the asynchronous operation to finish...)"</span>);
+    ft.<span class="func">WriteLine</span>(<span class="str">L"(waiting for the asynchronous operation to finish...)"</span>);
 
-	<span class="com">// wait until the async operation finishes</span>
-	<span class="type">CHECK_COM</span>(pAsync-&gt;<span class="type">Wait</span>());
+    <span class="com">// wait until the async operation finishes</span>
+    <span class="type">CHECK_COM</span>(pAsync-&gt;<span class="type">Wait</span>());
 
-	<span class="com">// check the result of the asynchronous operation</span>
-	HRESULT hrReturned = S_OK;
-	<span class="type">CHECK_COM</span>(pAsync-&gt;<span class="type">QueryStatus</span>(&amp;hrReturned, <span class="kw">NULL</span>));
+    <span class="com">// check the result of the asynchronous operation</span>
+    HRESULT hrReturned = S_OK;
+    <span class="type">CHECK_COM</span>(pAsync-&gt;<span class="type">QueryStatus</span>(&amp;hrReturned, <span class="kw">NULL</span>));
 
-	<span class="com">// check if the async operation succeeded...</span>
-	<span class="kw">if</span>(<span class="type">FAILED</span>(hrReturned))
-	{
-			ft.<span class="func">WriteLine</span>(<span class="str">L"error during the last asynchronous operation."</span>);
-			ft.<span class="func">WriteLine</span>(<span class="str">L"- returned HRESULT = 0x%08lx"</span>, hrReturned);
-			ft.<span class="func">WriteLine</span>(<span class="str">L"- error text: %s"</span>, FunctionTracer::<span class="type">HResult2String</span>(hrReturned).<span class="type">c_str</span>());
-			ft.<span class="func">WriteLine</span>(<span class="str">L"- please re-run VSHADOW.EXE with the /tracing option to get more details"</span>);
-			<span class="kw">throw</span>(hrReturned);
-	}
+    <span class="com">// check if the async operation succeeded...</span>
+    <span class="kw">if</span>(<span class="type">FAILED</span>(hrReturned))
+    {
+        ft.<span class="func">WriteLine</span>(<span class="str">L"error during the last asynchronous operation."</span>);
+        ft.<span class="func">WriteLine</span>(<span class="str">L"- returned HRESULT = 0x%08lx"</span>, hrReturned);
+        ft.<span class="func">WriteLine</span>(<span class="str">L"- error text: %s"</span>, FunctionTracer::<span class="type">HResult2String</span>(hrReturned).<span class="type">c_str</span>());
+        ft.<span class="func">WriteLine</span>(<span class="str">L"- please re-run VSHADOW.EXE with the /tracing option to get more details"</span>);
+        <span class="kw">throw</span>(hrReturned);
+    }
 }
 				</pre>
 			</section>
@@ -817,12 +824,16 @@ VssClient::~<span class="type">VssClient</span>()
 
    /T = Tones, /K Carriers (Override config file, '-' inverts)   Optional</span></div></main>
 			</form>
-			<div class="app" id="app-dos">
-				<header id="dostitle">
-					<a id="dosexit" class="exit"></a>
-					<a id="dosmin" class="min"></a>
-				</header>
-				<textarea id="dinput" rows="19" cols="60" spellcheck="false">Windows 98 Microsoft Corp 1985-1998.
+			<form class="app" id="app-dos" role="dialog">
+				<h2 id="dostitle">
+					<img src="/ui/i/msdos.png">
+					<a class="label">MS-DOS Prompt</a>
+					<a id="dosmin" class="btn min"></a>
+					<a class="btn max"></a>
+					<a id="dosexit" class="btn close"></a>
+				</h2>
+				<div class="menu"></div>
+				<textarea id="dinput">Windows 98 Microsoft Corp 1985-1998.
 
 C:\WINDOWS>command.com /?
 Starts a new copy of the windows Command Interpreter.
@@ -841,7 +852,7 @@ device         Specifies the device to use for command input and output.
 /K command     Executes the specified command and continues running.
 
 C:\WINDOWS> </textarea>
-			</div>
+			</form>
 			<div id="tooltip"></div>
 			<form class="app" id="app-notepad" role="dialog">
 				<h2 id="notepadtitle">
@@ -1274,7 +1285,7 @@ Recieved 2666 bytes in 1.2 secs, (17.35 KBps), transfer suceeded
 					<img alt="Back Orifice 2000 is running" src="/ui/i/tray-cdc.png" id="cdc" class="app-hidden">
 					<img alt="S.i.N pReSenTS.:.<br/>J1ZzMuFF1N!#@~" src="/ui/i/tray-sin.png" id="jm" class="app-hidden">
 					<img alt="Internet Disconnected" src="/ui/i/tray-disconnected.png"id="traynet">
-					<img alt="Volume 100%" src="/ui/i/tray-sound.png">
+					<img alt="Volume 50%" src="/ui/i/tray-sound.png" id="trayvol">
 					<span id="clock">8:06 PM</span>
 				</aside>
 			</footer>
