@@ -934,7 +934,6 @@ button {
 			margin-left: 50px;
 		}
 	}
-	#app-adraw,
 	#app-nero,
 	#app-photoshop,
 	#app-solitaire,
@@ -945,7 +944,6 @@ button {
 			display: none !important;
 		}
 	}
-	#app-adraw,
 	#app-photoshop {
 		header {
 			margin-top: var(--margin-header-top);
@@ -2212,17 +2210,6 @@ button {
 			}
 		}
 	}
-	#app-adraw {
-		left: 16%;
-		top: 12%;
-		--window-width: 984px;
-		--window-height: 518px;
-		background: url(/ui/i/app-cmd.png) no-repeat;
-		text-align: center;
-		img {
-			margin-top: 106px;
-		}
-	}
 	#app-nero {
 		left: 26%;
 		top: 8%;
@@ -2310,17 +2297,15 @@ button {
 			}
 		}
 	}
+	#app-adraw,
 	#app-dos,
 	#app-toneloc {
 		--window-width: 512px;
 		--window-height: 300px;
 		.menu {
 			margin-top: var(--gap-tasks);
-			background-image: url(/ui/i/app-cmd.png);
-			background-position: -3px -26px;
-			background-repeat: no-repeat;
-			background-size: 492px 258px;
-			width: 287.5px;
+			background: url(/ui/i/dos-menu.png) no-repeat;
+			width: 288px;
 			height: 23px;
 		}
 		textarea,
@@ -2377,6 +2362,20 @@ button {
 			}
 			.c {
 				color: #18a09f;
+			}
+		}
+	}
+	#app-adraw {
+		left: 16%;
+		top: 12%;
+		main {
+			overflow:hidden;
+			#adrawbody {
+				max-width: 100%;
+				max-height: 100%;
+				object-fit: contain;
+				display: block;
+				margin: -20px auto;
 			}
 		}
 	}

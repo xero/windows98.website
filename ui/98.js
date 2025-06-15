@@ -589,8 +589,10 @@
 		canvas.width=ctx.canvas.clientWidth;
 		canvas.height=ctx.canvas.clientHeight;
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
-		["adraw","nero"].forEach(a=>run(a,{
-			d:{x:1,y:1}}));
+		run("nero",{
+			d:{x:1,y:1}});
+		run("adraw",{
+			d:{x:247,y:142}});
 		run("aohell",{
 			d:{x:39,y:30}});
 		run("bo2k",{

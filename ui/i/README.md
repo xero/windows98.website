@@ -142,8 +142,6 @@
 
 ![app-aohell.png](app-aohell.png)
 
-![app-cmd.png](app-cmd.png)
-
 ![app-nero.png](app-nero.png)
 
 ![app-photoshop.png](app-photoshop.png)
@@ -231,6 +229,8 @@
 ![dreamweaver-sauce.png](dreamweaver-sauce.png)
 
 ![dreamweaver-settings.png](dreamweaver-settings.png)
+
+![dos-menu.png](dos-menu.png)
 
 ![help-menu.png](help-menu.png)
 
