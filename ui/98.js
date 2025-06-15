@@ -61,7 +61,8 @@
 	off=(x,e,r,o=!1)=>{try{(x=typeof x=="string"?$(x):x).removeEventListener(e,r,o)}catch{};try{eyes.splice(eyes.indexOf(eyes.find(l=>l.e===x&&l.t===e&&l.l===r&&l.o===o)),1)}catch{}},
 	cl=(e,c,i=0)=>e.classList[i?'remove':'add'](c),
 	p0p=e=>{e.preventDefault();e.stopPropagation()},
-	sound=i=>{let a=new Audio('/ui/s/'+i+'.mp3');a.play().catch(_=>{});return a},
+	sound=i=>{if($("mute").checked) return;
+		let a=new Audio('/ui/s/'+i+'.mp3');a.play().catch(_=>{});return a},
 	w8=i=>document.body.style.cursor=i?'':'wait',
 	hg=i=>cl($("wait"),"hide",!i),
 	hv=_=>cl($("app-volume"),"app-hidden"),
@@ -216,7 +217,7 @@
 		cal($('cal'));
 		setInterval(_=>{
 			let now=new Date();
-			tclock.innerHTML=`${now.getHours()%12||12}<span class="blink">:</span>${now.getMinutes().toString().padStart(2,"0")} ${now.getHours()>=12?"PM":"AM"}`
+			tclock.innerHTML=`&nbsp;${now.getHours()%12||12}<span class="blink">:</span>${now.getMinutes().toString().padStart(2,"0")} ${now.getHours()>=12?"PM":"AM"}`
 		},6000)},
 	eject=_=>{try{let c=0,col=Player.cdromCollection;while(c<col.count)col.item(c++).eject()}catch{}},
 	closeAll=(sel,fn)=>$$$(sel+" .close").forEach(b=>on(b,E.c,fn)),
@@ -649,7 +650,7 @@
 			d:{x:221,y:107},
 			b:false});
 		run("toneloc",{
-			d:{x:247,y:142}});
+			d:{x:247,y:148}});
 		run("sub7",{
 			d:{x:115,y:90}});
 		run("trash",{

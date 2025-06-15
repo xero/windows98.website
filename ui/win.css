@@ -526,6 +526,11 @@ button {
 	form {
 		transform: scale(2);
 	}
+	.app{
+		h2, header {
+			width: calc(var(--window-width)-3*var(--window-padding));
+		}
+	}
 	form,
 	.app,
 	.ctxmenu {
@@ -562,6 +567,8 @@ button {
 			height: calc(var(--window-height) - 2px);
 			pointer-events: none;
 			box-sizing: border-box;
+			cursor: default;
+			margin: 0;
 		}
 		.label {
 			color: var(--color-windows-border-light);
@@ -569,31 +576,21 @@ button {
 			line-height: 14px;
 			position: relative;
 		}
-		h2 {
-			color: var(--color-windows-border-light);
-			font-size: var(--font-size-btn);
-			line-height: 14px;
-			position: relative;
-			box-sizing: border-box;
-			cursor: default;
-			margin: 0;
-		}
-		&::before {
-			box-sizing: border-box;
-			cursor: default;
-			margin: 0;
+		h2, header {
+			width: calc(var(--window-width)-3*var(--window-padding));
 		}
 		h2 {
-			background: var(--color-selected-bg);
 			background: var(--color-selected-bg-gradient);
+			box-sizing: border-box;
+			color: var(--color-windows-border-light);
+			cursor: default;
 			display: flex;
+			font-size: var(--font-size-btn);
 			height: 18px;
-			margin-block-end: 0;
-			margin-block-start: 0;
-			margin-inline-end: 0;
-			margin-inline-start: 0;
+			line-height: 14px;
+			margin: 0;
 			padding: var(--border-width-task);
-			width: 504px;
+			position: relative;
 			img {
 				width: var(--font-size-mono);
 				height: var(--font-size-mono);
@@ -635,9 +632,9 @@ button {
 			overflow: hidden;
 			padding: 0;
 			text-overflow: ellipsis;
-			text-wrap-mode: nowrap;
+			white-space: nowrap;
 			white-space-collapse: collapse;
-			width: 432px;
+			width: calc(var(--window-width) - 2 * var(--window-padding) - 72px);
 		}
 	}
 	.inactive h2 {
@@ -701,6 +698,7 @@ button {
 			resize: none;
 			user-select: all;
 			pointer-events: all;
+			width: calc(var(--window-width) - 2 * var(--window-padding) - 2 * var(--border-width-main));
 		}
 	}
 	footer {
@@ -985,23 +983,21 @@ button {
 			font-weight: bold;
 		}
 		textarea {
-			width: 496px;
 			height: 170px;
 			font-size: var(--margin-exit-btn);
+		  width: calc(var(--window-width) - 2 * var(--window-padding) - 2 * var(--border-width-main) - 8px);
 		}
 	}
 	#app-notepad {
 		textarea {
 			overflow: scroll;
-			height: 250px !important;
+			width: calc(var(--window-width) - 4 * var(--window-padding) - 4 * var(--border-width-main));
+			height: calc(var(--window-height) - 2 * var(--window-padding) - 2 * var(--border-width-main) - 48px);
 		}
 	}
 	#app-winnuke {
 		--window-height: 250px;
 		--window-width: 450px;
-		h2 {
-			width: 442px;
-		}
 		#winnuke95 {
 			position: absolute;
 			top: 23px;
@@ -1035,10 +1031,6 @@ button {
 		--window-width: 576px;
 		left: 411px;
 		top: 198px;
-		.label,
-		h2 {
-			width: 568px;
-		}
 		aside {
 			display: flex;
 			justify-content: flex-start;
@@ -1139,10 +1131,6 @@ button {
 		left: 372px;
 		top: 184px;
 		transform: scale(1.8);
-		.label,
-		h2 {
-			width: 564px;
-		}
 		.client {
 			background: var(--color-windows-border-light);
 			padding-bottom: var(--border-width-task);
@@ -1208,10 +1196,6 @@ button {
 	#app-regedit {
 		--window-height: 223px;
 		--window-width: 450px;
-		.label,
-		h2 {
-			width: 442px;
-		}
 		.tree-view {
 			width: 226px !important;
 			height: 140px !important;
@@ -1286,9 +1270,6 @@ button {
 		top: 193px;
 		--window-height: 308px;
 		--window-width: 450px;
-		h2 {
-			width: 442px;
-		}
 		#helpmenu {
 			width: 99%;
 			height: 30px;
@@ -1417,9 +1398,6 @@ button {
 		--window-width: 400px;
 		left: 440px;
 		top: 20%;
-		h2 {
-			width: 392px;
-		}
 		.window {
 			padding-top: var(--border-width-main);
 		}
@@ -1603,10 +1581,6 @@ button {
 		background-size: cover;
 		background-repeat: no-repeat;
 		padding: var(--border-width-task);
-		h2 {
-			width: 100%;
-			padding-top: var(--border-width-task);
-		}
 		#downloading {
 			transform: scale(0.75);
 			background-color: var(--color-windows-bg);
@@ -1652,9 +1626,6 @@ button {
 		&::before {
 			z-index: 99;
 		}
-		h2 a.label {
-			line-height: var(--font-size-btn);
-		}
 		nav {
 			border-bottom: var(--border-gray);
 		}
@@ -1677,9 +1648,6 @@ button {
 				&::before {
 					height: 278px;
 					width: 348px;
-				}
-				h2 {
-					width: 343px;
 				}
 				.nav {
 					background-image: url(/ui/i/xircon-status.png);
@@ -1807,9 +1775,6 @@ button {
 		top: 30%;
 		--window-height: 338px;
 		transform: scale(2);
-		h2 {
-			width: 502px;
-		}
 		.throbber {
 			position: fixed;
 			right: -12px;
@@ -2157,10 +2122,6 @@ button {
 				}
 			}
 		}
-		h2 {
-			width: 714px;
-			padding-top: var(--border-width-task);
-		}
 		nav {
 			padding-left: 24px;
 			border-left: var(--border-white);
@@ -2309,9 +2270,6 @@ button {
 		--window-width: 245px;
 		--window-height: 214px;
 		left: 50%;
-		h2 {
-			width: 238px;
-		}
 		nav {
 			padding: 1px 0 0 2px;
 		}
@@ -2352,10 +2310,6 @@ button {
 			}
 		}
 	}
-	#app-dos {
-		left: 555px;
-		top: 222px;
-	}
 	#app-dos,
 	#app-toneloc {
 		--window-width: 512px;
@@ -2377,11 +2331,14 @@ button {
 			white-space: pre;
 			font-family: var(--font-family-monospace);
 			font-size: 9px;
+			overflow: scroll;
+		}
+		textarea,
+		main,
+		.client {
+		height: calc(var(--window-height) - 2 * var(--window-padding) - 2 * var(--border-width-main) - 48px);
 		}
 		textarea {
-			width: 497px;
-			height: 240px;
-			overflow: scroll;
 			padding: var(--border-width-task);
 			resize: none;
 			&::-webkit-scrollbar:horizontal {
@@ -2421,6 +2378,21 @@ button {
 			.c {
 				color: #18a09f;
 			}
+		}
+	}
+	#app-toneloc {
+		--window-height: 310px;
+		main {
+			overflow-x: hidden;
+			overflow-y: scroll;
+		}
+	}
+	#app-dos {
+		left: 555px;
+		top: 222px;
+		textarea {
+		  width: calc(var(--window-width) - 2 * var(--window-padding) - 2 * var(--border-width-main) - 8px);
+			height: calc(var(--window-height) - 2 * var(--window-padding) - 2 * var(--border-width-main) - 53px);
 		}
 	}
 	#app-putty {
