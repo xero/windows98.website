@@ -74,6 +74,7 @@
 		unselect();
 		tsync();
 		dp.style.display="none";
+		msg({x:1});
 		$("dialogBody").innerHTML="";
 		$("poweroff").style.display="none";
 		if(v)t(fe);
@@ -198,6 +199,7 @@
 	n=e=>{
 		apps.forEach(a=>cl($(a),"app-hidden"));
 		["BSOD","boot","windows"].forEach(i=>{$(i).style.visibility="hidden"});
+		msg({x:1});
 		$(e).style.visibility="visible";
 		e=="boot"?boot():e=="windows"?windows():e=="poweroff"?poweroff():bsod()},
 	tip=e=>{
@@ -217,7 +219,7 @@
 		cal($('cal'));
 		setInterval(_=>{
 			let now=new Date();
-			tclock.innerHTML=`&nbsp;${now.getHours()%12||12}<span class="blink">:</span>${now.getMinutes().toString().padStart(2,"0")} ${now.getHours()>=12?"PM":"AM"}`
+			tclock.innerHTML=`&nbsp;${now.getHours()%12||12}<span class=blink>:</span>${now.getMinutes().toString().padStart(2,0)} ${now.getHours()>=12?"PM":"AM"}`
 		},6000)},
 	eject=_=>{try{let c=0,col=Player.cdromCollection;while(c<col.count)col.item(c++).eject()}catch{}},
 	closeAll=(sel,fn)=>$$$(sel+" .close").forEach(b=>on(b,E.c,fn)),
@@ -237,11 +239,11 @@
 			on(i,E.c,e=>(p0p(e),unselect(),cl(i,"selected")));
 			on(i,E.d,d)})},
 	cdrom=_=>msg({
-		m:'<div class="pad"><aside><img src="/ui/i/insert-cd.gif"></aside><section>Error reading drive E:\\</p><p>Please insert a CD ROM and try again</p><section class="field-row"><button class="close">Eject</button></section></div>',
+		m:'<div class=pad><aside><img width=27 height=29 src=/ui/i/insert-cd.gif></aside><section>Error reading drive E:\\</p><p>Please insert a CD ROM and try again</p><section class=field-row><button class=close>Eject</button></section></div>',
 		c:eject,
 		s:1}),
 	floppy=_=>msg({
-		m:'<div class="pad"><aside><img style="transform:scale(1)" src="/ui/i/insert-floppy.png"></aside><section>A:\\ is not accessible.</p><p>The device is not ready.</section><section class="field-row"><button tabIndex="1" class="close focused">OK</button></section></div>',
+		m:'<div class=pad><aside><img style="transform:scale(1)" width=38 height=43 src=/ui/i/insert-floppy.png></aside><section>A:\\ is not accessible.</p><p>The device is not ready.</section><section class=field-row><button tabIndex=1 class="close focused">OK</button></section></div>',
 		c:_=>n("BSOD"),
 		s:1}),
 	alttab=$("alttab"),
@@ -275,30 +277,30 @@
 			Object.assign(fo.style,{padding:"8px 20px",height:"43px",top:r.top-5+"px",left:r.left+r.width-17+"px"});
 		switch(e.currentTarget.getAttribute("id")){
 			case "progs":
-				(fo.innerHTML='<ul><li><a class="about">This website is by:</a></li><li><a class="x0" href="https://x-e.ro" target="_blank">xero harrison</a></li><li><a class="sauce" href="https://github.com/xero/windows98.website" target="_blank">view the source code</a></li></ul>',
+				(fo.innerHTML='<ul><li><a class=about>This website is by:</a></li><li><a class=x0 href="https://x-e.ro" target=_blank>xero harrison</a></li><li><a class=sauce href="https://github.com/xero/windows98.website" target=_blank>view the source code</a></li></ul>',
 					Object.assign(fo.style,{color:"#000",textShadow:"none",height:"auto",width:"auto",padding:"0"}),
 					foh())
 				break;
 			case "favs":
 				(fo.innerHTML=`<ul>
-					<li><a class="metroid" target="_blank" href="https://x-e.ro">https://x-e.ro</a></li>
-					<li><a class="paint" target="_blank" href="https://0w.nz">https://0w.nz</a></li>
-					<li><a class="tv" target="_blank" href="https://un.kn.0w.nz">https://un.kn.0w.nz</a></li>
-					<li><a class="wmp" target="_blank" href="https://xero.style">https://xero.style</a></li>
-					<li><a class="tools" target="_blank" href="https://2133740.xyz">https://2133740.xyz</a></li>
-					<li><a target="_blank" href="https://github.com/xero">https://github.com/xero</a></li>
-					<li><a target="_blank" href="https://haunted.computer/@xero">https://haunted.computer/@xero</a></li>
+					<li><a class=metroid target=_blank href="https://x-e.ro">https://x-e.ro</a></li>
+					<li><a class=paint target=_blank href="https://0w.nz">https://0w.nz</a></li>
+					<li><a class=tv target=_blank href="https://un.kn.0w.nz">https://un.kn.0w.nz</a></li>
+					<li><a class=wmp target=_blank href="https://xero.style">https://xero.style</a></li>
+					<li><a class=tools target=_blank href="https://2133740.xyz">https://2133740.xyz</a></li>
+					<li><a target=_blank href="https://github.com/xero">https://github.com/xero</a></li>
+					<li><a target=_blank href="https://haunted.computer/@xero">https://haunted.computer/@xero</a></li>
 					</ul>`,
 					Object.assign(fo.style,{color:"#000081",textShadow:"none",height:"auto",width:"auto",padding:"0"}),
 					foh())
 				break;
 			case "settings":
-				(fo.innerHTML='<ul><li id="fs"><a class="fs">Toggle Full Screen</a></li><li id="crt"><a class="crt">Toggle CRT Effects</a></li></ul>',
+				(fo.innerHTML='<ul><li id=fs><a class=fs>Toggle Full Screen</a></li><li id=crt><a class=crt>Toggle CRT Effects</a></li></ul>',
 					Object.assign(fo.style,{color:"#000",textShadow:"none",height:"auto",width:"auto",padding:"0"}),
 					foh(1))
 				break;
 			default:
-				(fo.innerHTML='<ul><li class="disabled"><a class="disabled">(None)</a></li></ul>',
+				(fo.innerHTML='<ul><li class=disabled><a class=disabled>(None)</a></li></ul>',
 					Object.assign(fo.style,{height:"auto",width:"auto",padding:"0"}),
 					foh())
 				break;
@@ -315,7 +317,7 @@
 			cl.innerHTML="";
 			(function nx(){
 				if(i<L.length){
-					cl.innerHTML+=L[i]+(i<L.length-1?"<br/>":"");
+					cl.innerHTML+=L[i]+(i<L.length-1?"<br>":"");
 					cl.scrollTop=cl.scrollHeight;
 					i++;
 					if(!l){
@@ -341,7 +343,7 @@
 		const h=e=>{
 			p0p(e);
 			let x=S.querySelector(".client"),y=C.querySelector(".client");
-			y.innerHTML+=`<span class="usrmsg"><span class="c">&lt;</span><span class="l">x0</span><span class="c">&gt;</span> ${X.value}<br/></span>`;
+			y.innerHTML+=`<span class=usrmsg><span class=c>&lt;</span><span class=l>x0</span><span class=c>&gt;</span> ${X.value}<br></span>`;
 			y.scrollTop=y.scrollHeight;
 			X.value="";
 			if(k=!k)setTimeout(_=>{
@@ -350,7 +352,7 @@
 				cl(S,"inactive",1);
 				cl(CT,"selected",1);
 				setTimeout(_=>{
-					x.innerHTML+=`<span class="kick"><span class="c">:</span><span class="l">:</span><span class="s">: </span><span class="c">(</span><span class="l">(<span class="h">Kick</span>\\<span class="b">#SIN</span><span class="c">)</span><span class="l">)</span> <span class="h">\\\\St0rM\\\\</span>[<span class="b">~St0rM@sinnerz.com</span>] kicked <span class="w">YOU</span> from <span class="b">#SIN</span> <span class="s">[</span>iN a whIfF oF SuLfur, <span class="s">\\\\St0rM\\\\</span> is TrANSfoRMEd inTo a GARgAnTUaN beAsT bY hiS MenTOr, LorD SaTaN, and sLowLy CruSheS <span class="h">x0</span> wiTH a GiANT mAGgot-RidDEn hOoF...</span><span class="s">]</span></span><br/></span>`;
+					x.innerHTML+=`<span class=kick><span class=c>:</span><span class=l>:</span><span class=s>: </span><span class=c>(</span><span class=l>(<span class=h>Kick</span>\\<span class=b>#SIN</span><span class=c>)</span><span class=l>)</span> <span class=h>\\\\St0rM\\\\</span>[<span class=b>~St0rM@sinnerz.com</span>] kicked <span class=w>YOU</span> from <span class=b>#SIN</span> <span class=s>[</span>iN a whIfF oF SuLfur, <span class=s>\\\\St0rM\\\\</span> is TrANSfoRMEd inTo a GARgAnTUaN beAsT bY hiS MenTOr, LorD SaTaN, and sLowLy CruSheS <span class=h>x0</span> wiTH a GiANT mAGgot-RidDEn hOoF...</span><span class=s>]</span></span></span>`;
 					x.scrollTop=x.scrollHeight;
 					off("app-xircon",E.s,h)
 				},666)
@@ -399,12 +401,12 @@
 	clock=S=>{
 		let I,A=6,H=$("hr").style,M=$("mn").style,C=$("sc").style,T=$("thetime");
 		S?I=setInterval(_=>{
-			let D=new Date,X=D.getHours()*30,Y=D.getMinutes()*A,Z=D.getSeconds()*A;
-			H.transform=`rotateZ(${X+Y/12}deg)`;
-			M.transform=`rotateZ(${Y}deg)`;
-			C.transform=`rotateZ(${Z}deg)`;
-			T.value=(H=D.getHours()%12||12)+' : '+(M=D.getMinutes()).toString().padStart(2,0)+' : '+(S=D.getSeconds()).toString().padStart(2,0)+' '+(D.getHours()<12?'AM':'PM');
-		},1e3):clearInterval(I)},
+			let D=new Date,h=D.getHours(),m=D.getMinutes(),s=D.getSeconds();
+			H.transform=`rotateZ(${h*30+m*A/12}deg)`;
+			M.transform=`rotateZ(${m*A}deg)`;
+			C.transform=`rotateZ(${s*A}deg)`;
+			T.value=(h%12||12)+' : '+m.toString().padStart(2,0)+' : '+s.toString().padStart(2,0)+' '+(h<12?'AM':'PM')
+		},1e3):clearInterval(I)}
 	calc=_=>{
 		/* so much bs math for that stupid trailing period */
 		let S=$("calcscreen"),B=$$("#app-calc"),V="0.",A=0,O="",W=0;
@@ -589,25 +591,7 @@
 		canvas.width=ctx.canvas.clientWidth;
 		canvas.height=ctx.canvas.clientHeight;
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
-		run("nero",{
-			d:{x:1,y:1}});
-		run("adraw",{
-			d:{x:247,y:142}});
-		run("aohell",{
-			d:{x:39,y:30}});
-		run("bo2k",{
-			d:{x:251,y:174},
-			o:_=>cl($("cdc"),"app-hidden",1),
-			x:_=>{
-				on("bo2kok",E.c,e=>(p0p(e),n("BSOD")));
-				on("bo2kclose",E.c,e=>(p0p(e),tclose("bo2k")))}});
-		run("calc",{
-			d:{x:115,y:100},
-			o:_=>(calc(),on("app-calc",E.s,e=>(p0p(e))))});
-		run("calendar",{
-			d:{x:192,y:178},
-			o:_=>clock(1),
-			x:_=>{clock(0);on("app-calendar",E.s,e=>(p0p(e),tclose("calendar")))}});
+		batch(progs);
 		on(tclock,E.c,_=>{
 			run("calendar",{
 				i:false,
@@ -621,96 +605,11 @@
 			[V,M].forEach(i=>on(i,E.i,_=>{(M.checked)?
 					(T.alt=ts.innerHTML="Muted",T.src="/ui/i/muted.png"):
 					(T.alt=ts.innerHTML="Volume "+V.value+"%",T.src="/ui/i/tray-sound.png")}))});
-		run("dreamweaver",{
-			d:{x:222,y:149},
-			x:_=>$$$("#app-dreamweaver img").forEach(i=>on(i,E.c,_=>n("BSOD")))});
-		run("explorer",{
-			d:{x:248,y:162},
-			b:false,
-			x:_=>ico("#app-explorer",_=>n("BSOD"))});
-		run("mycpu",{
-			d:{x:248,y:162},
-			b:false,
-			x:_=>ico("#app-mycpu",e=>{
-				if(e.target.classList.contains("floppy"))floppy(e);
-				else if(e.target.classList.contains("cdrom"))cdrom(e);
-				else n("BSOD")})});
-		run("notepad",{
-			d:{x:252,y:144},
-			b:false});
-		run("putty",{
-			d:{x:249,y:146},
-			b:false,
-			o:_=>{let p=$("puttycli");promptfocus(p);prompt(p)}});
-		run("photoshop",{
-			d:{x:140,y:100},
-			b:false,
-			m:_=>p.blur(),
-			c:_=>p.blur(),
-			x:_=>on("app-photoshop",E.c,_=>p.click())});
-		run("regedit",{
-			d:{x:221,y:107},
-			b:false});
-		run("toneloc",{
-			d:{x:247,y:148}});
-		run("sub7",{
-			d:{x:115,y:90}});
-		run("trash",{
-			d:{x:248,y:192},
-			b:false,
-			o:_=>on($$("#app-trash .win"),E.c,e=>{
-				msg({
-					m:`<div class="pad"><aside><img style="transform:scale(1);margin-top:-10px" src="/ui/i/erase.png"></aside><section>Are you sure you want to delete 'Windows'?</section><section class="field-row"><button class="close"><u>Y</u>es</button><button class="close" disabled><u>N</u>o</button></section></div>`,
-					t:"Confirm File Delete",
-					s:1,
-					c:_=>{
-						cl($("trashwin"),"app-hidden",1);
-						setTimeout(_=>(msg({
-							m:`<img style="transform:scale(0.5);margin:-30px -135px;" src="/ui/i/delete.gif">`,
-							t:"Emptying the Recycle Bin...",
-							o:_=>{cl($('msg'),'dl');setTimeout(_=>{msg({x:1});cl($('msg'),'dl',1);n("BSOD");clearTimeout(this)},9760)}
-						}),clearTimeout(this)),100)}})})});
-		run("utorrent",{
-			d:{x:250,y:133},
-			b:false,
-			o:_=>timer(1),
-			m:_=>timer(0),
-			c:_=>timer(0),
-			x:_=>on("utorrentcancel",E.c,e=>(p0p(e),tclose("utorrent"),timer(0)))});
-		run("vb6",{
-			d:{x:162,y:110}});
-		run("vstudio",{
-			b:false,
-			d:{x:354,y:195},
-			o:_=>on("vstudioctrls",E.c,_=>n("BSOD"))});
-		run("winamp",{
-			d:{x:1,y:1},
-			b:false,
-			x:_=>on($("winampbody"),E.c,e=>(p0p(e),sound("winamp")))});
-		run("wsftp",{
-			d:{x:280,y:188},
-			b:false,
-			o:_=>promptfocus($("wsftplog"),1),
-			x:_=>on("app-wsftp",E.s,e=>(p0p(e),n("BSOD")))});
-		run("winnuke",{
-			d:{x:220,y:120},
-			o:_=>{
-				on("app-winnuke",E.s,e=>{p0p(e)});
-				on("nukex",E.c,_=>tclose("winnuke"));
-				on("btnnuke",E.c,_=>msg({
-					i:"nuke",t:"WINNUKE",
-					m:`<div class="pad"><aside><img style="transform:scale(1)" src="/ui/i/warning.png"></aside><section>WinNuke V95 was designed to provide an effective way to test your network against potential security hazards and should not be used for any malicious intent. Do you agree?</section><section class="field-row"><button class="nuke"><u>Y</u>es</button><button class="nuke"><u>N</u>o</button></section></div>`,
-					o:_=>$$$(".nuke").forEach(i=>on(i,E.c,_=>msg({
-						i:"nuke",t:"WINNUKE",s:1,
-						m:`<div class="pad"><aside><img style="transform:scale(1);margin-top:-10px" src="/ui/i/err.png"></aside><section>Connection Failed Retry?</section><section class="field-row"><button class="close"><u>Y</u>es</button><button class="close"><u>N</u>o</button></section></div>`})))}))}});
-		run("xircon",{
-			d:{x:248,y:191},
-			o:_=>chatani()});
 		on("spewfy",E.d,_=>{
 			msg({
 				i:"sine",t:"Dr Spewfy",s:1,
 				o:_=>cl($("jm"),"app-hidden",1),
-				m:`<div class="pad"><aside><img style="transform:scale(1);margin-top:-10px" src="/ui/i/err.png"></aside><section>Can't load (or register) custom control 'COMCTL32.OCX'</section><section class="field-row"><button class="close focused">OK</button></section></div>`})});
+				m:`<div class=pad><aside><img style="transform:scale(1);margin-top:-10px" width=32 height=32 src=/ui/i/err.png></aside><section>Can't load (or register) custom control 'COMCTL32.OCX'</section><section class=field-row><button class="close focused">OK</button></section></div>`})});
 		on("cd",E.d,cdrom);
 		on("disks",E.d,floppy);
 		on("msie",E.d,e=>{
@@ -736,7 +635,7 @@
 					tn.alt="Connected to Clover.net at 28.8 mbps",
 					clearInterval(l)),2424);
 			msg({
-				m:'<img id="dialupani" width="347" height="144" src="/ui/i/dialing.gif"><p id="lbldialup">Dialing up clover.net... 740-284-0003</p><div class="progress"><span id="dialupbar" style="width: 0%;"> </span></div></p><section class="field-row"><button id="btndialup" class="close">Cancel</button></section>',
+				m:'<img id=dialupani width=347 height=144 src=/ui/i/dialing.gif><p id=lbldialup>Dialing up clover.net... 740-284-0003</p><div class=progress><span id=dialupbar style="width:0%;"> </span></div></p><section class=field-row><button id=btndialup class=close>Cancel</button></section>',
 				c:_=>{a.pause(),clearInterval(l),tclose(id)},
 				o:_=>{d=$("dialupbar").style},
 				t:"Windows98 - Dial-Up",
@@ -756,22 +655,10 @@
 				u=_=>(off(document,E.v,m),off(document,E.p,u));
 				on(document,E.v,m);on(document,E.p,u)})});
 		on("start",E.c,t);
-		run("help",{
-			h:E.c,
-			i:false,
-			d:{x:219,y:150},
-			o:_=>t(fe),
-			x:_=>on("helpmenu",E.c,_=>n("BSOD"))});
-		run("dos",{
-			h:E.c,
-			i:false,
-			d:{x:247,y:142},
-			o:_=>{let d=$("dinput");prompt(d);promptfocus(d);t(fe)}});
 		on("logoff",E.c,i=>{
-			let d=$("msg");
 			t(i);
 			msg({
-				m:'<aside><img src="/ui/i/logoff.png"></aside><section><p>Are your sure you want to log off?</p><section class="field-row"><button id="loconfim">Yes</button><button class="close">No</button></section>',
+				m:'<aside><img src="/ui/i/logoff.png" style="width:48;height:48"></aside><section><p>Are your sure you want to log off?</p><section class="field-row"><button id="loconfim">Yes</button><button class="close">No</button></section>',
 				o:_=>{
 					on("loconfim",E.c,_=>{
 						msg({x:1});
@@ -781,7 +668,7 @@
 						$("windows").style.visibility="hidden";
 						document.body.style.background="#018281";
 						setTimeout(_=>{hg(1);msg({
-							m:'<div id="logon"><form><aside><img src="/ui/i/mycpu.png"></aside><section><p>Enter your network password for Microsoft Networking</p><section class="field-row"><label for="user"><u>U</u>ser Name</label><input id="user" type="text" value="xeR0"></section><section class="field-row"><label for="pw"><u>P</u>assword&nbsp;</label><input id="pw" type="password"></section><br/><br/><br/><section class="field-row" id="frmErr">&nbsp;</section></section><aside><section class="field-row"><button class="focused" type="submit">OK</button></section><section class="field-row"><button type="button" disabled>Cancel</button></section></aside></form></div>',
+							m:'<div id="logon"><form><aside><img src="/ui/i/mycpu.png" style="width:48;height:48"></aside><section><p>Enter your network password for Microsoft Networking</p><section class="field-row"><label for="user"><u>U</u>ser Name</label><input id="user" type="text" value="xeR0" autocomplete="username"></section><section class="field-row"><label for="pw"><u>P</u>assword&nbsp;</label><input id="pw" type="password" autocomplete="current-password"></section><br><br><br><section class="field-row" id="frmErr">&nbsp;</section></section><aside><section class="field-row"><button class="focused" type="submit">OK</button></section><section class="field-row"><button type="button" disabled>Cancel</button></section></aside></form></div>',
 							o:_=>on("logon",E.s,e=>{p0p(e);
 								(!$("pw").value)?
 									$("frmErr").innerHTML="Enter your password":
@@ -790,7 +677,7 @@
 		on("shutdown",E.c,e=>{
 			t(e);
 			msg({
-				m:`<form id="frmSd"><aside><img src="/ui/i/shutdown.png"></aside><section><p>What do you want your computer to do?</p><section class="field-row aleft"><input id="r1" type="radio" name="shutdownopt"><label for="r1">S<u>t</u>and By</label></section><section class="field-row aleft"><input id="r2" type="radio" name="shutdownopt"><label for="r2"><u>S</u>hutdown</label></section><section class="field-row aleft"><input id="r3" type="radio" name="shutdownopt"><label for="r3"><u>R</u>estart</label></section><section class="field-row aleft"><input id="r4" type="radio" name="shutdownopt"><label for="r4">Restart in <u>M</u>S-DOS mode</label></section><section class="field-row aleft"><button type="submit">OK</button><button class="close">Cancel</button><button class="help">Help</button></section></form>`,
+				m:`<form id="frmSd"><aside><img src="/ui/i/shutdown.png" style="width:48px;height:48px"></aside><section><p>What do you want your computer to do?</p><section class="field-row aleft"><input id="r1" type="radio" name="shutdownopt"><label for="r1">S<u>t</u>and By</label></section><section class="field-row aleft"><input id="r2" type="radio" name="shutdownopt"><label for="r2"><u>S</u>hutdown</label></section><section class="field-row aleft"><input id="r3" type="radio" name="shutdownopt"><label for="r3"><u>R</u>estart</label></section><section class="field-row aleft"><input id="r4" type="radio" name="shutdownopt"><label for="r4">Restart in <u>M</u>S-DOS mode</label></section><section class="field-row aleft"><button type="submit">OK</button><button class="close">Cancel</button><button class="help">Help</button></section></form>`,
 				o:_=>on($("frmSd"),E.s,e=>{p0p(e);
 					let c=$$("input[name=shutdownopt]:checked");
 					if(c){msg({x:1})
@@ -868,11 +755,112 @@
 			if(ata&&!e.altKey) {
 				tfocus(tasks[ati].e);
 				cl(alttab,"off");
-				ata=ati=0}})};
-	//let's boot up!
+				ata=ati=0}})},
+	merge=(...o)=>Object.assign({},...o),
+	batch=C=>{
+		for(let K in C){
+			let V=C[K]
+			if(Array.isArray(V)){let[d,b,o]=V;run(K,{d,b,o})}
+			else run(K,V)}},
+	baseB0={b:false},
+	baseB0Dxy=x=>merge({d:x},baseB0),
+	baseDxy=x=>({d:x}),
+	progs={
+		nero:baseDxy({x:1,y:1}),
+		adraw:baseDxy({x:247,y:142}),
+		aohell:baseDxy({x:39,y:30}),
+		bo2k:merge(
+			baseDxy({x:251,y:174}),{
+				o:_=>cl($("cdc"),"app-hidden",1),
+				x:_=>{
+					on("bo2kok",E.c,e=>(p0p(e),n("BSOD")));
+					on("bo2kclose",E.c,e=>(p0p(e),tclose("bo2k")))}}),
+		calc:merge(
+			baseDxy({x:115,y:100}),{
+				o:_=>(calc(),on("app-calc",E.s,e=>(p0p(e))))}),
+		calendar:merge(
+			baseDxy({x:192,y:178}),{
+				o:_=>clock(1),
+				x:_=>{clock(0);on("app-calendar",E.s,e=>(p0p(e),tclose("calendar")))}}),
+		dreamweaver:merge(
+			baseDxy({x:222,y:149}),{
+				x:_=>$$$("#app-dreamweaver img").forEach(i=>on(i,E.c,_=>n("BSOD")))}),
+		explorer:merge(
+			baseB0Dxy({x:248,y:162}),{
+				x:_=>ico("#app-explorer",_=>n("BSOD"))}),
+		mycpu:merge(
+			baseB0Dxy({x:248,y:162}),{
+				x:_=>ico("#app-mycpu",e=>{
+					if(e.target.classList.contains("floppy"))floppy(e);
+						else if(e.target.classList.contains("cdrom"))cdrom(e);
+							else n("BSOD")})}),
+		notepad:baseB0Dxy({x:252,y:144}),
+		putty:merge(
+			baseB0Dxy({x:249,y:146}),{
+				o:_=>{let p=$("puttycli");promptfocus(p);prompt(p)}}),
+		photoshop:merge(
+			baseB0Dxy({x:140,y:100}),{
+				m:_=>p.blur(),
+				c:_=>p.blur(),
+				x:_=>on("app-photoshop",E.c,_=>p.click())}),
+		regedit:baseB0Dxy({x:221,y:107}),
+		toneloc:baseDxy({x:247,y:148}),
+		sub7:baseDxy({x:115,y:90}),
+		trash:merge(
+			baseB0Dxy({x:248,y:192}),{
+				o:_=>on($$("#app-trash .win"),E.c,e=>{
+					msg({
+						m:`<div class=pad><aside><img style="transform:scale(1);margin-top:-10px" width=32 height=32 src=/ui/i/erase.png></aside><section>Are you sure you want to delete 'Windows'?</section><section class=field-row><button class=close><u>Y</u>es</button><button class=close disabled><u>N</u>o</button></section></div>`,
+						t:"Confirm File Delete",
+						s:1,
+						c:_=>{
+							cl($("trashwin"),"app-hidden",1);
+							setTimeout(_=>(msg({
+								m:`<img style="transform:scale(0.5);margin:-30px -135px;" src="/ui/i/delete.gif">`,
+								t:"Emptying the Recycle Bin...",
+								o:_=>{cl($('msg'),'dl');setTimeout(_=>{msg({x:1});cl($('msg'),'dl',1);n("BSOD");clearTimeout(this)},9760)}
+							}),clearTimeout(this)),100)}})})}),
+		utorrent:merge(
+			baseB0Dxy({x:250,y:133}),{
+				o:_=>timer(1),
+				m:_=>timer(0),
+				c:_=>timer(0),
+				x:_=>on("utorrentcancel",E.c,e=>(p0p(e),tclose("utorrent"),timer(0)))}),
+		vb6:baseDxy({x:162,y:110}),
+		vstudio:merge(
+			baseB0Dxy({x:354,y:195}),{
+				o:_=>on("vstudioctrls",E.c,_=>n("BSOD"))}),
+		winamp:merge(
+			baseB0Dxy({x:1,y:1}),{
+				x:_=>on($("winampbody"),E.c,e=>(p0p(e),sound("winamp")))}),
+		wsftp:merge(
+			baseB0Dxy({x:280,y:188}),{
+				o:_=>promptfocus($("wsftplog"),1),
+				x:_=>on("app-wsftp",E.s,e=>(p0p(e),n("BSOD")))}),
+		winnuke:merge(
+			baseDxy({x:220,y:120}),{
+				o:_=>{
+					on("app-winnuke",E.s,e=>{p0p(e)});
+					on("nukex",E.c,_=>tclose("winnuke"));
+					on("btnnuke",E.c,_=>msg({
+						i:"nuke",t:"WINNUKE",
+						m:`<div class=pad><aside><img style="transform:scale(1)" width=32 height=32 src=/ui/i/warning.png></aside><section>WinNuke V95 was designed to provide an effective way to test your network against potential security hazards and should not be used for any malicious intent. Do you agree?</section><section class=field-row><button class=nuke><u>Y</u>es</button><button class=nuke><u>N</u>o</button></section></div>`,
+						o:_=>$$$(".nuke").forEach(i=>on(i,E.c,_=>msg({
+							i:"nuke",t:"WINNUKE",s:1,
+							m:`<div class=pad><aside><img style="transform:scale(1);margin-top:-10px" width=32 height=32 src=/ui/i/err.png></aside><section>Connection Failed Retry?</section><section class=field-row><button class=close><u>Y</u>es</button><button class=close><u>N</u>o</button></section></div>`})))}))}}),
+		xircon:merge(
+			baseDxy({x:248,y:191}),{
+				o:_=>chatani()}),
+		help:merge(
+			{h:E.c,i:false,d:{x:219,y:150}},{
+				o:_=>t(fe),
+				x:_=>on("helpmenu",E.c,_=>n("BSOD"))}),
+		dos:merge(
+			{h:E.c,i:false,d:{x:247,y:142}},{
+				o:_=>{let d=$("dinput");prompt(d);promptfocus(d);t(fe)}})};
 	let v=0,eyes=[],tasks=[],cards=[],ctx=canvas.getContext("2d"),totalMinutes=369426,rec=0,lok=0,menus=startmenu,popt=0,fop=-1,ata=0,ati=0;
 	menus.forEach(m=>m.onmouseenter=_=>m.focus());
 	$$$('input,textarea').forEach(e=>['autocomplete','autocorrect','autocapitalize'].forEach(a=>e.setAttribute(a,'off'))||e.setAttribute('spellcheck','false'));
-	n("boot");
 	time();
+	n("boot");//let's boot up!
 })();
