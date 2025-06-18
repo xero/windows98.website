@@ -186,6 +186,20 @@
 
 ![vs-proj.png](vs-proj.png)
 
+![vb-ico-frm.png](vb-ico-frm.png)
+
+![vb-ico-proj.png](vb-ico-proj.png)
+
+![vb-code-btns.png](vb-code-btns.png)
+
+![vb-comps.png](vb-comps.png)
+
+![vb-layout.png](vb-layout.png)
+
+![vb-menu.png](vb-menu.png)
+
+![vb-proj.png](vb-proj.png)
+
 ![bo2k-server.png](bo2k-server.png)
 
 ![paint.png](paint.png)

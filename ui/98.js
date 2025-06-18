@@ -772,9 +772,7 @@
 		bo2k:merge(
 			baseDxy({x:251,y:174}),{
 				o:_=>cl($("cdc"),"app-hidden",1),
-				x:_=>{
-					on("bo2kok",E.c,e=>(p0p(e),n("BSOD")));
-					on("bo2kclose",E.c,e=>(p0p(e),tclose("bo2k")))}}),
+				x:_=>["bo2kok","bo2kclose"].map((id,j)=>on(id,E.c,e=>(p0p(e),j?n("BSOD"):tclose("bo2k"))))}),
 		calc:merge(
 			baseDxy({x:115,y:100}),{
 				o:_=>(calc(),on("app-calc",E.s,e=>(p0p(e))))}),
@@ -790,10 +788,7 @@
 				x:_=>ico("#app-explorer",_=>n("BSOD"))}),
 		mycpu:merge(
 			baseB0Dxy({x:248,y:162}),{
-				x:_=>ico("#app-mycpu",e=>{
-					if(e.target.classList.contains("floppy"))floppy(e);
-						else if(e.target.classList.contains("cdrom"))cdrom(e);
-							else n("BSOD")})}),
+				x:_=>ico("#app-mycpu",e=>e.target.classList.contains("floppy")?floppy(e):e.target.classList.contains("cdrom")?cdrom(e):n("BSOD"))}),
 		notepad:baseB0Dxy({x:252,y:144}),
 		putty:merge(
 			baseB0Dxy({x:249,y:146}),{
@@ -816,7 +811,7 @@
 						c:_=>{
 							cl($("trashwin"),"app-hidden",1);
 							setTimeout(_=>(msg({
-								m:`<img style="transform:scale(0.5);margin:-30px -135px;" src="/ui/i/delete.gif">`,
+								m:`<img style="transform:scale(0.5);margin:-30px -135px;" src=/ui/i/delete.gif>`,
 								t:"Emptying the Recycle Bin...",
 								o:_=>{cl($('msg'),'dl');setTimeout(_=>{msg({x:1});cl($('msg'),'dl',1);n("BSOD");clearTimeout(this)},9760)}
 							}),clearTimeout(this)),100)}})})}),
@@ -826,7 +821,15 @@
 				m:_=>timer(0),
 				c:_=>timer(0),
 				x:_=>on("utorrentcancel",E.c,e=>(p0p(e),tclose("utorrent"),timer(0)))}),
-		vb6:baseDxy({x:162,y:110}),
+		vb6:merge(
+			baseB0Dxy({x:354,y:195}),{
+				o:_=>{
+					const C=$("vbcode"),F=$("vbform"),H=e=>{
+						[C,F].forEach(i=>{cl(i,"inactive");i.style.zIndex=1;});
+						cl(e.currentTarget,"inactive",1);
+						e.currentTarget.style.zIndex=2};
+					[C,F].forEach(i=>on(i,E.c,H));
+					on("vbcomps",E.c,_=>n("BSOD"))}}),
 		vstudio:merge(
 			baseB0Dxy({x:354,y:195}),{
 				o:_=>on("vstudioctrls",E.c,_=>n("BSOD"))}),

@@ -270,7 +270,7 @@ DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
 				<section>My Documents</section>
 			</footer>
 		</div>
-		<div class=app id=app-vb6>
+		<form class=app id=app-vb6>
 			<h2 id=vb6title>
 				<img src=/ui/i/vb6.png>
 				<a class=label>Project1 - Form1 - Microsoft Visual Basic</a>
@@ -278,8 +278,158 @@ DEBUG_FLR_IMAGE_TIMESTAMP:	43fa825b
 				<a class="btn max"></a>
 				<a id=vb6exit class="btn close"></a>
 			</h2>
-			<section id=vb6body></section>
-		</div>
+			<nav class=menu>
+				<a><u>F</u>ile</a>
+				<a><u>E</u>dit</a>
+				<a><u>V</u>iew</a>
+				<a><u>P</u>roject</a>
+				<a><u>F</u>ormat</a>
+				<a><u>D</u>ebug</a>
+				<a><u>R</u>un</a>
+				<a>Q<u>u</u>ery</a>
+				<a>D<u>i</u>agram</a>
+				<a><u>T</u>ools</a>
+				<a><u>A</u>dd-Ins</a>
+				<a><u>W</u>indow</a>
+				<a><u>H</u>elp</a>
+			</nav>
+			<div id=vb6menu></div>
+			<main id=vb6body>
+				<section id="vbcomps"></section>
+					<section id="vbdesign" class="client">
+						<div class="app inactive" id=vbform>
+							<h2 id=vb6title>
+								<img src=/ui/i/vb6.png>
+								<a class=label>Project1 - Form1 (Form)</a>
+								<a class="btn min"></a>
+								<a class="btn max"></a>
+								<a class="btn close"></a>
+							</h2>
+							<div class=client>
+								<div class=app id=vbapp>
+									<h2 id=vb6title>
+										<img src=/ui/i/vb6.png>
+										<a class=label>Form1</a>
+										<a class="btn close"></a>
+									</h2>
+									<hr id=n>
+									<hr id=ne>
+									<hr id=e>
+									<hr id=se>
+									<hr id=s>
+									<hr id=sw>
+									<hr id=w>
+									<hr id=nw>
+								</div>
+							</div>
+						</div>
+						<div class=app id=vbcode>
+							<h2 id=vb6title>
+								<img src=/ui/i/vb6.png>
+								<a class=label>Project1 - Form1 (Code)</a>
+								<a class="btn min"></a>
+								<a class="btn max"></a>
+								<a class="btn close"></a>
+							</h2>
+							<div class=field-row>
+								<select id="vbcs"><option>(General)</option><option selected>Form</option></select>
+								<select id="vbcm"><option>Activate</option><option>Click</option><option>DblClick</option><option>Deactivate</option><option>DragDrop</option><option>GotFocus</option><option>Initialize</option><option>KeyDown</option><option>KeyPress</option><option>KeyUp</option><option selected>Load</option><option>LostFocus</option><option>MouseDown</option><option>MouseMove</option><option>MouseUp</option><option>OLEDragDrop</option><option>OLEDragOver</option><option>OLEDetaData</option><option>OLEStartDrag</option><option>Paint</option><option>QueryUnload</option><option>Resize</option><option>Terminate</option><option>Unload</option></select>
+							</div>
+							<main class=client>
+								<textarea>Private Sub Form_Load()
+
+End Sub</textarea>
+								<img src=/ui/i/vb-code-btns.png>
+							</main>
+						</div>
+					</section>
+					<section id="vbsettings">
+						<h2>
+							<a class=label>Project1</a>
+							<a class="btn close"></a>
+						</h2>
+						<header><img src=/ui/i/vb-proj.png></header>
+						<div class="client">
+							<ul class=tree-view>
+								<li><details open=""><summary><img class=b src=/ui/i/vb-ico-proj.png>Project1</summary>
+									<ul><li><details open=""><summary><img class=s src=/ui/i/folder.png>Forms</summary><ul style="margin-left:7px">
+								<li><img class=b src=/ui/i/vb-ico-frm.png><sup>Form1</sup></li>
+							</ul></details></li>
+							</ul></details></li>
+							</ul>
+						</div>
+						<h2>
+							<a class=label>Properties</a>
+							<a class="btn close"></a>
+						</h2>
+						<select id=vbs><option>Form1</option></select>
+						<menu role=tablist>
+							<li role=tab aria-selected=true><a>Alphabetic</a></li>
+							<li role=tab><a>Categorized</a></li>
+						</menu>
+						<div class=window role=tabpanel">
+							<div class="window-body">
+								<span>(Name)</span><span>Form&nbsp;1</span>
+								<span>Apperance</span><span>1&nbsp;-&nbsp;3D</span>
+								<span>AutoRedraw</span><span>False</span>
+								<span>BackColor</span><span><hr class=g>&amp;H8000F</span>
+								<span>BorderStyle</span><span>2-&nbsp;Sizable</span>
+								<span>Caption</span><span>Form&nbsp;1</span>
+								<span>ClipControls</span><span>True</span>
+								<span>ControlBox</span><span>True</span>
+								<span>DrawMode</span><span>13&nbsp;-&nbsp;Copy&nbsp;Pen</span>
+								<span>DrawStyle</span><span>0&nbsp;-&nbsp;Solid</span>
+								<span>DrawWidth</span><span>1</span>
+								<span>Enabled</span><span>True</span>
+								<span>FillColor</span><span><hr class=g>&amp;H8000F</span>
+								<span>FillStyle</span><span>Transparent</span>
+								<span>Font</span><span>MS&nbsp;Sans&nbsp;Serif</span>
+								<span>FontTransparent</span><span>True</span>
+								<span>ForeColor</span><span><hr class=b>&amp;H80000</span>
+								<span>HasDC</span><span>True</span>
+								<span>Height</span><span>3600</span>
+								<span>HelpContextID</span><span>0</span>
+								<span>Icon</span><span>(Icon)</span>
+								<span>KeyPreview</span><span>False</span>
+								<span>LinkMode</span><span>0&nbsp;-&nbsp;None</span>
+								<span>LinkTopic</span><span>Form1</span>
+								<span>MaxButton</span><span>True</span>
+								<span>MDIChild</span><span>False</span>
+								<span>MinButton</span><span>True</span>
+								<span>MouseIcon</span><span>(None)</span>
+								<span>MousePointer</span><span>0&nbsp;-&nbsp;Default</span>
+								<span>Movable</span><span>True</span>
+								<span>NegotiateMenus</span><span>True</span>
+								<span>OLEDropMode</span><span>0&nbsp;-&nbsp;None</span>
+								<span>Palette</span><span>(None)</span>
+								<span>PaletteMode</span><span>0&nbsp;-&nbsp;Halftone</span>
+								<span>Picture</span><span>(None)</span>
+								<span>RightToLeft</span><span>False</span>
+								<span>ScaleHeight</span><span>3195</span>
+								<span>ScaleLeft</span><span>0</span>
+								<span>ScaleMode</span><span>1&nbsp;-&nbsp;Twip</span>
+								<span>ScaleTop</span><span>0</span>
+								<span>ScaleWidth</span><span>4680</span>
+								<span>ShowInTaskbar</span><span>True</span>
+								<span>StartUpPosition</span><span>Windows&nbsp;Default</span>
+								<span>Top</span><span>0</span>
+								<span>Visible</span><span>True</span>
+								<span>WhatsThisButton</span><span>False</span>
+								<span>WhatsThisHelp</span><span>False</span>
+								<span>Width</span><span>4800</span>
+								<span>WindowState</span><span>0&nbsp;-&nbsp;Normal</span>
+							</div>
+						</div>
+						<h2>
+							<a class=label>Layout</a>
+							<a class="btn close"></a>
+						</h2>
+						<div id=vblayout class=client>
+							<img src=/ui/i/vb-layout.png>
+						</div>
+					</section>
+			</main>
+		</form>
 		<form class=app id=app-vstudio>
 			<h2 id=vstudiotitle>
 				<img src=/ui/i/vstudio.png>
