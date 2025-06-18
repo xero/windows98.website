@@ -152,8 +152,6 @@
 
 ![app-utorrent.png](app-utorrent.png)
 
-![app-vb6.png](app-vb6.png)
-
 ![app-vstudio.png](app-vstudio.png)
 
 ![app-winamp.png](app-winamp.png)
@@ -192,14 +190,6 @@
 
 ![vb-code-btns.png](vb-code-btns.png)
 
-![vb-comps.png](vb-comps.png)
-
-![vb-layout.png](vb-layout.png)
-
-![vb-menu.png](vb-menu.png)
-
-![vb-proj.png](vb-proj.png)
-
 ![bo2k-server.png](bo2k-server.png)
 
 ![paint.png](paint.png)
@@ -235,6 +225,14 @@
 ![delete.gif](delete.gif)
 
 ![deltree.gif](deltree.gif)
+
+![vb-comps.png](vb-comps.png)
+
+![vb-layout.png](vb-layout.png)
+
+![vb-menu.png](vb-menu.png)
+
+![vb-proj.png](vb-proj.png)
 
 ![dreamweaver-components.png](dreamweaver-components.png)
 
