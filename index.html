@@ -805,7 +805,26 @@ VssClient::~<span class=type>VssClient</span>()
 					</footer>
 				</div>
 			</form>
-			<div class=app id=app-solitaire><header id=solitairetitle></header></div>
+			<form class=app id=app-solitaire role=dialog>
+				<h2 id=solitairetitle>
+					<img src=/ui/i/solitaire.png>
+					<a class=label>Solitaire</a>
+					<a id=solitairemin class="btn min"></a>
+					<a class="btn max"></a>
+					<a id=solitaireexit class="btn close"></a>
+				</h2>
+				<nav class=menu>
+					<a><u>G</u>ame</a>
+					<a><u>H</u>elp</a>
+				</nav>
+				<div class=client>
+					<div id=mat>
+						<img src=/ui/i/solitaire-table.png>
+						<img id=deck src=/ui/i/solitaire-deck.png>
+					</div>
+					<div class=status><b>Bonus: 0 &nbsp;&nbsp; Click or Press Esc to stop...</b><i>Score: 600</i></div>
+				</div>
+			</form>
 			<form class=app id=app-putty role=dialog>
 				<h2 id=puttytitle>
 					<img src=/ui/i/putty.png>

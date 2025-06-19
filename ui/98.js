@@ -164,7 +164,7 @@
 				e==="putty"?'putty.png"><sup>PuTTY 0.68':
 				e==="recovery"?'windows-slanted.png"><sup>Windows98 Recovery':
 				e==="regedit"?'regedit.png"><sup>Registry Editor':
-				e==="solitaire"?'game.png"><sup>Solitaire':
+				e==="solitaire"?'solitaire.png"><sup>Solitaire':
 				e==="sub7"?'sub7.png"><sup>SubSeven v2.2 by mobman':
 				e==="toneloc"?'msdos.png"><sup>Finished - TONELOC':
 				e==="trash"?'trash.png"><sup>Recycle Bin':
@@ -492,7 +492,7 @@
 					totalMinutes%60+" minutes";
 		},5e3):clearInterval(dlt)},
 	victory=_=>{
-		const W=71,H=96,CW=W,CH=H,CWH=CW/2,CHH=CH/2,CARD=new Image();
+		const S=1.5,W=71,H=96,CW=W,CH=H,CWH=CW/2,CHH=CH/2,CARD=new Image();
 		let I=52;
 		function PlayingCard(I,X,Y,SX,SY){
 			if(SX===0)SX=2;
@@ -502,7 +502,7 @@
 				if(X<-CWH||X>canvas.width+CWH)return cards.splice(cards.indexOf(this),1),false;
 				Y>canvas.height-CHH&&(Y=canvas.height-CHH,SY=-SY*0.85);
 				SY+=0.98;
-				lok&&ctx.drawImage(CARD,CX,CY,W,H,Math.floor(X-CWH),Math.floor(Y-CHH),CW,CH);
+				lok&&ctx.drawImage(CARD,CX,CY,W,H,Math.floor(X-CWH*S),Math.floor(Y-CHH*S),CW*S,CH*S);
 				return true}}
 		const ThrowCard=(X,Y)=>cards.push(new PlayingCard(I>0?I--:I=51,X,Y,Math.floor(Math.random()*6-3)*2,-Math.random()*16)),
 			ANI=_=>{let J=0,L=cards.length;while(J<L){cards[J].update()?J++:L--}requestAnimationFrame(ANI)};
@@ -873,6 +873,7 @@
 	let v=0,eyes=[],tasks=[],cards=[],ctx=canvas.getContext("2d"),totalMinutes=369426,rec=0,lok=0,menus=startmenu,popt=0,fop=-1,ata=0,ati=0;
 	menus.forEach(m=>m.onmouseenter=_=>m.focus());
 	$$$('input,textarea').forEach(e=>['autocomplete','autocorrect','autocapitalize'].forEach(a=>e.setAttribute(a,'off'))||e.setAttribute('spellcheck','false'));
+	$$$('img').forEach(e=>e.setAttribute('draggable',false));
 	time();
 	n("boot");//let's boot up!
 })();

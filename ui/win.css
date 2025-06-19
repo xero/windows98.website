@@ -186,6 +186,9 @@ button {
 }
 img {
 	user-select: none;
+	user-drag: none;
+	-webkit-user-drag: none;
+	-moz-user-select: none;
 }
 #BSOD,
 #boot,
@@ -874,7 +877,6 @@ img {
   }
   #app-nero,
   #app-photoshop,
-  #app-solitaire,
   #app-sub7,
   #app-winamp {
     border: none !important;
@@ -977,12 +979,37 @@ img {
     }
   }
   #app-solitaire {
-    right: 241px;
-    top: 150px;
-    --ww: 598px;
-    --wh: 475px;
-    background: url(/ui/i/app-solitaire.png) no-repeat;
-  }
+		--ww: 400px;
+		right: 20%;
+		left: unset;
+		#mat {
+			background: #00b95d;
+			border-bottom: var(--bb);
+			display:flex;
+			height: 232px;
+			width: 100%;
+			img {
+				position: absolute;
+				transform: scale(0.75);
+				margin: -8px 0 0 10px;
+			}
+		}
+		#deck {
+			margin: -19px 0 0 80px !important;
+			z-index: 2;
+		}
+		.status {
+			display:flex
+		}
+		b,i {
+			display: flex;
+			font-size: 10px;
+			font-weight: normal;
+			font-style: normal;
+			padding: 5px;
+		}
+		b { flex-grow: 1 }
+	}
   #app-sub7 {
     left: 300px;
     transform: scale(1.5);

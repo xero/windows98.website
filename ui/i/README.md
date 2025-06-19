@@ -50,6 +50,8 @@
 
 ![game.png](game.png)
 
+![solitaire.png](solitaire.png)
+
 ![hdd.png](hdd.png)
 
 ![help-ico.png](help-ico.png)
@@ -148,8 +150,6 @@
 
 ![app-photoshop.png](app-photoshop.png)
 
-![app-solitaire.png](app-solitaire.png)
-
 ![app-sub7.png](app-sub7.png)
 
 ![app-utorrent.png](app-utorrent.png)
@@ -229,6 +229,10 @@
 ![delete.gif](delete.gif)
 
 ![deltree.gif](deltree.gif)
+
+![solitaire-deck.png](solitaire-deck.png)
+
+![solitaire-table.png](solitaire-table.png)
 
 ![vb-comps.png](vb-comps.png)
 
