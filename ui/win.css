@@ -2166,14 +2166,8 @@ img {
 					height: 54px;
 					margin: 2px;
 					padding: 4px 10px 0px 5px;
-					li {
-						font-size: 11px;
-					}
-					img {
-						margin-top: -1px;
-						width: 14px;
-						height: 14px;
-					}
+					li { font-size: 11px; }
+					img { margin-top: 2px; }
 				}
 				select {
 					width:100%;
@@ -2181,16 +2175,12 @@ img {
 					margin-bottom: 5px;
 				}
 				menu,
-				.window {
-					margin-left:2px;
-				}
+				.window { margin-left:2px; }
 				menu[role="tablist"] > li > a {
 					font-size: 10px;
 					margin: 4px;
 				}
-				menu[role="tablist"] > li[aria-selected="true"] {
-					margin: -2px;
-				}
+				menu[role="tablist"] > li[aria-selected="true"] { margin: -2px; }
 				.window-body {
 					height: 49px;
 					background: var(--cwl);

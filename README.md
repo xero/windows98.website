@@ -1,6 +1,6 @@
 # my old windows 98 computer
 
-> the windows98 experience as a nostalgic #netart demo
+> the windows98 experience as a nostalgic [#netart](https://un.kn.0w.nz) demo
 
 ### [https://www.windows98.website](https://www.windows98.website)
 

@@ -220,6 +220,10 @@
 
 ![cards.png](cards.png)
 
+![solitaire-deck.png](solitaire-deck.png)
+
+![solitaire-table.png](solitaire-table.png)
+
 ![connected.png](connected.png)
 
 ![dialing.gif](dialing.gif)
@@ -229,10 +233,6 @@
 ![delete.gif](delete.gif)
 
 ![deltree.gif](deltree.gif)
-
-![solitaire-deck.png](solitaire-deck.png)
-
-![solitaire-table.png](solitaire-table.png)
 
 ![vb-comps.png](vb-comps.png)
 
