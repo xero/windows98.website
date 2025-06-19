@@ -431,6 +431,7 @@ img {
 		#notepad     { bottom: 36%; left: 81%;   }
 		#game        { bottom: 10%; left: 80%;   }
 		#bo2k        { top: 3%;     left: 95%;   }
+		#ft2         { top: 40%;    left: 77%;   }
 		#aohell      { top: 9%;     left: 66%;   }
 		#toneloc     { top: 22%;    left: 84%;   }
 		#sub7        { top: 5%;     left: 86%;   }
@@ -803,6 +804,7 @@ img {
   #app-calendar,
   #app-cmd,
   #app-dos,
+  #app-ft2,
   #app-toneloc,
   #app-explorer,
   #app-help,
@@ -985,7 +987,7 @@ img {
     left: 300px;
     transform: scale(1.5);
     top: 222px;
-    --ww: 465px;
+    --ww: 462px;
     --wh: 358px;
     background: url(/ui/i/app-sub7.png) no-repeat;
     header {
@@ -2142,14 +2144,8 @@ img {
 					}
 					img {
 						margin-top: -1px;
-						&.b {
-							width: 18px;
-							height: 18px;
-						}
-						&.s {
-							width: 14px;
-							height: 14px;
-						}
+						width: 14px;
+						height: 14px;
 					}
 				}
 				select {
@@ -2416,6 +2412,7 @@ img {
   }
   #app-adraw,
   #app-dos,
+	#app-ft2,
   #app-toneloc {
     --ww: 512px;
     --wh: 300px;
@@ -2508,6 +2505,19 @@ img {
       height: calc(var(--wh) - 2 * var(--wp) - 2 * var(--bm) - 53px);
     }
   }
+	#app-ft2 {
+		--ww: 420px;
+		--wh: 330px;
+		.client {
+			background: var(--cwv);
+			video {
+				transform: scale(0.5);
+				top: -134px;
+				position: absolute;
+				left: -201px;
+			}
+		}
+	}
   #app-putty {
     left: 30%;
     top: 30%;
@@ -3584,6 +3594,10 @@ input {
 button:disabled {
   color: #888 !important;
   text-shadow: var(--cts);
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	border: 0;
 }
 input {
   &[type="reset"]:disabled,

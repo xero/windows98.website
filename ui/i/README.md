@@ -42,6 +42,8 @@
 
 ![fs.png](fs.png)
 
+![ft2.png](ft2.png)
+
 ![powerstrip.png](powerstrip.png)
 
 ![windows98.png](windows98.png)
@@ -184,9 +186,11 @@
 
 ![vs-proj.png](vs-proj.png)
 
-![vb-ico-frm.png](vb-ico-frm.png)
+![vb-code.png](vb-code.png)
 
-![vb-ico-proj.png](vb-ico-proj.png)
+![vb-frm.png](vb-frm.png)
+
+![vb-project.png](vb-project.png)
 
 ![vb-code-btns.png](vb-code-btns.png)
 

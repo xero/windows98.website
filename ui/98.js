@@ -14,6 +14,7 @@
 		"app-dos",
 		"app-dreamweaver",
 		"app-explorer",
+		"app-ft2",
 		"app-help",
 		"app-mycpu",
 		"app-nero",
@@ -61,7 +62,8 @@
 	off=(x,e,r,o=!1)=>{try{(x=typeof x=="string"?$(x):x).removeEventListener(e,r,o)}catch{};try{eyes.splice(eyes.indexOf(eyes.find(l=>l.e===x&&l.t===e&&l.l===r&&l.o===o)),1)}catch{}},
 	cl=(e,c,i=0)=>e.classList[i?'remove':'add'](c),
 	p0p=e=>{e.preventDefault();e.stopPropagation()},
-	sound=i=>{if($("mute").checked) return;
+	muted=_=>{return $("mute").checked},
+	sound=i=>{if(muted()) return;
 		let a=new Audio('/ui/s/'+i+'.mp3');a.play().catch(_=>{});return a},
 	w8=i=>document.body.style.cursor=i?'':'wait',
 	hg=i=>cl($("wait"),"hide",!i),
@@ -152,6 +154,7 @@
 				e==="dos"?'msdos.png"><sup>Command Prompt':
 				e==="dreamweaver"?'dreamweaver.png"><sup>Untitled-1 - Dreamweaver':
 				e==="explorer"?'explorer-ico.png"><sup>My Documents':
+				e==="ft2"?'msdos.png"><sup>FastTracker II - MS-DOS':
 				e==="help"?'help-ico.png"><sup>Windows Help':
 				e==="ie"?'msie.png"><sup>Internet Exploder':
 				e==="mycpu"?'mycpu.png"><sup>My Computer':
@@ -199,6 +202,7 @@
 	n=e=>{
 		apps.forEach(a=>cl($(a),"app-hidden"));
 		["BSOD","boot","windows"].forEach(i=>{$(i).style.visibility="hidden"});
+		tracker(1);
 		msg({x:1});
 		$(e).style.visibility="visible";
 		e=="boot"?boot():e=="windows"?windows():e=="poweroff"?poweroff():bsod()},
@@ -336,7 +340,7 @@
 						if(i==17)sp=1500;
             if(i>18){
               sp+=Math.random()*400;
-              X.value="";promptfocus(X)}}
+              promptfocus(X)}}
 					setTimeout(nx,sp);
 				}else cb&&cb()
 			})()}
@@ -583,6 +587,7 @@
 			prompt(dp);
 			promptfocus(dp);
 		},2000)},
+	tracker=s=>{let V=$("tracker");s?(V.pause(),V.currentTime=0):!muted()&&V.play()},
 	boot=_=>setTimeout(_=>(n("windows"),clearTimeout(this)),2000),
 	windows=_=>{
 		lok=0;
@@ -858,6 +863,10 @@
 			{h:E.c,i:false,d:{x:219,y:150}},{
 				o:_=>t(fe),
 				x:_=>on("helpmenu",E.c,_=>n("BSOD"))}),
+		ft2: merge(
+			baseB0Dxy({x:202,y:158}),{
+				o:_=>tracker(),
+				c:_=>tracker(1)}),
 		dos:merge(
 			{h:E.c,i:false,d:{x:247,y:142}},{
 				o:_=>{let d=$("dinput");prompt(d);promptfocus(d);t(fe)}})};
