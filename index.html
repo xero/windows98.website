@@ -838,13 +838,6 @@ VssClient::~<span class=type>VssClient</span>()
 
 [root@localhost C:\]# </textarea>
 			</form>
-			<div class=app id=app-photoshop>
-				<header id=photoshoptitle>
-					<a id=photoshopexit class=exit></a>
-					<a id=photoshopmin class=min"></a>
-				</header>
-				<input type=color id=pscolors>
-			</div>
 			<div class=app id=app-nero>
 				<header id=nerotitle>
 					<a id=neroexit class=exit></a>
@@ -1213,6 +1206,41 @@ L------\------/------7          \/               \/   L------\------/------7
 Recieved 2666 bytes in 1.2 secs, (17.35 KBps), transfer suceeded
 226 Transfer complete.</textarea></div></section>
 				<section class=field-row><button><u>C</u>lose</button><button>Cancel</button><button><u>L</u>ogWnd</button><button><u>H</u>elp</button><button><u>O</u>ptions</button><button><u>A</u>bout</button><button>E<u>x</u>it</button></section>
+			</form>
+			<form class=app id=app-photoshop role=dialog>
+				<h2 id=photoshoptitle>
+					<img src=/ui/i/photoshop.png>
+					<a class=label>Adoble Photoshop - [Untitled-1 @ 100% (RBG)]
+					<a id=photoshopmin class="btn min"></a>
+					<a class="btn max"></a>
+					<a id=photoshopexit class="btn close"></a>
+				</h2>
+				<img class=ico src=/ui/i/photoshop-file.png>
+				<nav class=menu>
+					<a><u>F</u>ile</a>
+					<a><u>E</u>dit</a>
+					<a><u>L</u>ayer</a>
+					<a><u>L</u>ayer</a>
+					<a><u>S</u>elect</a>
+					<a>Fi<u>l</u>ter</a>
+					<a><u>V</u>iew</a>
+					<a><u>W</u>indow</a>
+					<a><u>H</u>elp</a>
+				</nav>
+				<img id=pstools src=/ui/i/photoshop-tools.png>
+				<img id=psnav src=/ui/i/photoshop-nav.png>
+				<input type=color id=pscolors>
+						<div class=app id=Untitled>
+							<h2>
+								<img src=/ui/i/photoshop-file.png>
+								<a class=label>Untitled-1 @ 100% (RGB)</a>
+								<a class="btn min"></a>
+								<a class="btn max"></a>
+								<a class="btn close"></a>
+							</h2>
+							<canvas id=artwork></canvas>
+					</div>
+				<footer><div class=w>100%</div><div class=d>Doc: 5.24K/OK</div><div class=a>&#9654;</div><div class=i>Click and drag to draw freeform.</footer>
 			</form>
 			<form class=app id=app-dreamweaver role=dialog>
 				<h2 id=dreamweavertitle>

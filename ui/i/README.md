@@ -148,8 +148,6 @@
 
 ![app-nero.png](app-nero.png)
 
-![app-photoshop.png](app-photoshop.png)
-
 ![app-sub7.png](app-sub7.png)
 
 ![app-utorrent.png](app-utorrent.png)
@@ -249,6 +247,12 @@
 ![dreamweaver-sauce.png](dreamweaver-sauce.png)
 
 ![dreamweaver-settings.png](dreamweaver-settings.png)
+
+![photoshop-file.png](photoshop-file.png)
+
+![photoshop-nav.png](photoshop-nav.png)
+
+![photoshop-tools.png](photoshop-tools.png)
 
 ![dos-menu.png](dos-menu.png)
 

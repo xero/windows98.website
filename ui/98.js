@@ -49,7 +49,9 @@
 		s: "submit",
 		P: "pointerdown",
 		V: "pointermove",
-    i: "input",
+		K: "pointerup",
+		l: "pointerleave",
+		i: "input",
 	},
 	errs=['Access denied','Attempt to remove the current directory','Attempt to write on write-protected diskette','Bad request structure length','Cannot make directory entry','Data error (CRC)','Drive not ready','Duplicate name on network','Duplicate redirection','FCB unavailable','Fail on INT 24H','File already exists','File not found','General failure','Incompatible remote adapter','Incorrect response from network','Insufficient memory','Invalid access code','Invalid data','Invalid disk change','Invalid drive was specified','Invalid environment','Invalid format','Invalid function number','Invalid handle.','Invalid memory block address','Invalid parameter','Invalid password','Lock violation','Memory control blocks destroyed','Network BIOS command limit exceeded','Network BIOS session limit exceeded','Network adapter hardware error','Network busy','Network device fault','Network device no longer exists','Network device type incorrect','Network name deleted','Network name limit exceeded','Network name not found','Network request not accepted','Network request not supported','No more files','Not enough space for print file','Not same device','Path not found','Print file deleted (not enough space)','Print of disk redirection paused','Print queue full.','Printer out of paper','Read fault','Remote computer not listening','Reserved','Sector not found','Seek Error','Sharing buffer overflow','Sharing violation','Temporarily paused','Too many open files','Too may redirection','Unexpected network error','Unknown command','Unknown media type','Unknown unit','Write fault'],
 	fatals=['Error 0D : 0157 : 0xAC1D0000-HEX {Q307908}','Exception 0D at VXD VMM(0H)+00005B01 0028:HEX','Exception 0E Access Violation in Module WMAD.EXE at HEX {Q312931}','Exception 0E at 0028:HEX in VXD called from 0028:C001d188 in VXDNDIS','Exception 0E at 0028:HEX in VXD VMM {Q253241}','Exception 0E at 0028:HEX in VXD IFSMGR','Exception 0E at 0028:HEX in VxD WSIPX(01)... called from 0028:C0043174 in VxD NDIS(01) {Q192445}','Exception 0E at 0xAC1D0000:HEX in VxD IFSMGR {Q153598}','Exception 0E... called from 0028:HEX in VxD NDIS {Q283043}','Fatal 0D has occurred at 0028:HEX or 0246:013F47FB','Fatal Exception 06 Has Occurred at 0xAC1D0000+HEX','Fatal Exception 06 at 0028:HEX in VXD VMM (06)','Fatal Exception 0E 0028:HEX in VXD VCACHE(01)','Fatal Exception 0E 06 at 0028: HEX ','Fatal Exception 0E at 0028:HEX in VXD SYMEvent','Fatal Exception 0E at 0028:HEX in VXD VREDIR','Fatal Exception 0E at 0028:HEX in VXD IFSMGR','Fatal Exception 0E at 0028:HEX in VXD IOS (04)','Fatal Exception 0E at 0028:HEX in VXD VSERVER','Fatal Exception 0E at 0028:HEX in VXD IFSMGR(01)','Fatal Exception 0E at 0028:HEX in VXD VWIN32','Fatal Exception 0E at 0028:HEX in VXD Emu10k1','Fatal Exception 0E at 0028:HEX in VXD IOS','Fatal Exception 0E at 0028:HEX in VXD IOS (01)','Fatal Exception 0E at 0028:HEX in VXD VMM (06)','Fatal Exception 0E at 0157:BFF9A25B + 0xAC1D0000:HEX','Fatal Exception 0E at HEX in VXD VWIN32','Fatal Exception 0E at 0xAC1D0000:HEX in VxD SCSI1HLP {Q250005}','Fatal Exception 0E in 0xAC1D0000:HEX VPOWERD','Fatal Exception 0E in 0xAC1D0000:HEX VXD IFSMGR','Fatal Exception in 0xAC1D0000:HEX CDVSD Starting','Fatal Exception in 0xAC1D0000:HEX VXD VMM','Fatal exception at 0028:HEX in VxD WSIPX(01) {Q192445}','MPREXE caused an exception 03h at HEX in module USER32.DLL','MSIMN caused an exception C0000006h+HEX in module DIRECTDB.DLL','MSTASK caused an exception 03h at HEX in module USER32.DLL','Program Has Caused a Fatal Exception 0D at 00457:HEX & Will Be Terminated','RUNDLL32 caused an exception 03h at HEX in module USER32.DLL','SCANDSKW caused Fatal exception 03h at HEX in module USER32.DLL','STATEMGR caused an exception 03h at HEXin module USER32.DLL','USR32.EXE caused an exception 03h at HEX in module USER32.DLL'],
@@ -799,10 +801,34 @@
 			baseB0Dxy({x:249,y:146}),{
 				o:_=>{let p=$("puttycli");promptfocus(p);prompt(p)}}),
 		photoshop:merge(
-			baseB0Dxy({x:140,y:100}),{
+			baseDxy({x:280,y:190}),{
 				m:_=>p.blur(),
 				c:_=>p.blur(),
-				x:_=>on("app-photoshop",E.c,_=>p.click())}),
+				x:_=>{
+					on("pstools",E.c,_=>p.click());
+					let D=0,X,Y,A=$("artwork"),P=$("pscolors"),ctx=A.getContext("2d");
+					A.width=A.height=300;
+					on(A,E.P,e=>{
+						let rect = A.getBoundingClientRect();
+						X = (e.clientX - rect.left) * (A.width / rect.width);
+						Y = (e.clientY - rect.top) * (A.height / rect.height);
+						D = 1;
+					});
+					on(A,E.K,_=>D=0);
+					on(A,E.l,_=>D=0);
+					on(A,E.V,e=>{
+						if(!D) return;
+						let rect=A.getBoundingClientRect();
+						let x=(e.clientX-rect.left)*(A.width/rect.width);
+						let y=(e.clientY-rect.top)*(A.height/rect.height);
+						ctx.strokeStyle=P.value;
+						ctx.lineCap="round";
+						ctx.lineWidth=3;
+						ctx.beginPath();
+						ctx.moveTo(X,Y);
+						ctx.lineTo(x,y);
+						ctx.stroke();
+						[X,Y]=[x,y]})}}),
 		regedit:baseB0Dxy({x:221,y:107}),
 		toneloc:baseDxy({x:247,y:148}),
 		sub7:baseDxy({x:115,y:90}),

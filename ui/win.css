@@ -876,7 +876,6 @@ img {
     }
   }
   #app-nero,
-  #app-photoshop,
   #app-sub7,
   #app-winamp {
     border: none !important;
@@ -898,41 +897,6 @@ img {
       .min {
         margin-right: 14px;
       }
-    }
-  }
-  #app-photoshop {
-    left: 25%;
-    top: 13%;
-    --ww: 800px;
-    transform: scale(1.35);
-    --wh: 572px;
-    background: url(/ui/i/app-photoshop.png) no-repeat;
-		#photoshopmin {
-			margin-right: 20px;
-		}
-    header {
-      margin: 0;
-      height: 32px;
-      a {
-        display: block;
-        float: right;
-        width: 15px !important;
-        height: 40px !important;
-        margin-top: 0;
-        &.exit {
-          margin-right: 0;
-        }
-        &.min {
-          margin-right: 15px;
-        }
-      }
-    }
-    input {
-      width: var(--bm);
-      height: var(--bm);
-      position: absolute;
-      top: 30%;
-      left: 30%;
     }
   }
   #app-nero {
@@ -1221,6 +1185,82 @@ img {
       }
     }
   }
+  #app-photoshop {
+    --wh: 391px;
+    --ww: 571px;
+    left: 444px;
+    top: 222px;
+		.ico {
+			position: absolute;
+			top: 23px;
+			left: 2px;
+		}
+		nav {
+			padding-left: 20px;
+			border-bottom: var(--bl);
+		}
+		#pstools,
+		#psnav {
+			position: absolute;
+			transform: scale(0.75);
+			top: 0;
+		}
+		#psnav { right: -24px; }
+    input {
+      width: var(--bm);
+      height: var(--bm);
+      position: absolute;
+			top: 277px;
+			left: 40px;
+			background: var(--cwl);
+			border: 0;
+    }
+		#Untitled{
+			left: 8px;
+			top: 8px;
+			z-index: 1;
+			--ww: 300px;
+			--wh: 300px;
+			top: 53px;
+			left: 83px;
+			filter: none;
+			box-shadow: none;
+			#artwork {
+				pointer-events: all !important;
+				background: var(--cwl);
+				border: 0;
+				height: 268px;
+				margin: 25px 5px 5px 5px;
+				padding: 0;
+				position: absolute;
+				width: 288px;
+			}
+		}
+		footer {
+			display: flex;
+			padding: 0;
+			gap:0;
+			height: 20px;
+			width: 99.9%;
+			.w,.d,.a,.i  {
+				display: flex;
+				font-size: 9px;;
+				color: var(--cwv);
+				padding: 4px 2px;
+			}
+			.w {
+				background: var(--cwl);
+				padding-right: 10px;
+				border: var(--bv);
+			}
+			.a {
+			 	border-left: 1px solid white;
+				border-right: 1px solid white;
+			}
+			.d { padding: 0 55px 0 5px; }
+			.i { flex-grow: 1; }
+		}
+	}
   #app-dreamweaver {
     --wh: 391px;
     --ww: 571px;
